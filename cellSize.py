@@ -89,8 +89,33 @@ for key in proteinDict.keys():
     
     proteinDict[key].append(proteinDict[key][0]*proteinsPerCell/1000000)
     proteinDict[key].append(proteinCost)
-    
 
+# Calculate % cost
+for key in proteinDict.keys():
+    proteinDict[key].append(proteinDict[key][7]*100/totalCost)
+
+# Calculate distribution %
+cytoSum = 0.0
+membraneSum = 0.0
+peripSum = 0.0
+cytoMemSum = 0.0
+unknownSum = 0.0
+
+for key in proteinDict.keys():
+    if proteinDict[key][3] == 'Cytoplasmic':
+        cytoSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'OuterMembrane':
+        membraneSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'Periplasmic':
+        peripSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'CytoplasmicMembrane':
+        cytoMemSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'Unknown':
+        unknownSum += proteinDict[key][8]
+
+print 'Cytoplasmic percentage: ', cytoSum + unknownSum/2
+print 'Membrane & periplasm percentage: ', membraneSum + peripSum + cytoMemSum + unknownSum/2
+        
 abundanceFile.close()
 UniprotFile.close()
 FASTAFile.close()
