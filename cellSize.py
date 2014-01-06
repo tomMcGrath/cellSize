@@ -13,19 +13,35 @@ abundanceError = 0.0 # parts per million
 
 #Data dictionary
 proteinDict = {} # proteinDict: UniprotID -> [abundance, localisation, length, cost]
-StringToUniprot = {}
+StringToUniprot = {} # StringToUniprot: StringID -> UniprotID (helps with abundance data, UniprotID is more widely used)
 
 for line in UniprotFile:
     data = line.split('\t')
     StringToUniprot[data[0]] = data[1][:-1]
+    UniprotToString[data[1][:-1]] = data[0]
 
+# Start protein dictionary with abundances. If it doesn't exist on Uniprot, add its abundance to the abundanceError
 for line in abundanceFile:
     if line[0] != '#':
         data = line.split('\t')
         try:
-            proteinDict[StringToUniprot[data[1]]] = float(data[2][:-1])
+            proteinDict[StringToUniprot[data[1]]] = [float(data[2][:-1])]
         except KeyError:
             abundanceError += float(data[2])
+
+# Process FASTA data (currently just gets AA length, degradation deprecated because M-excision & N-end mutually exclusive in prokaryotes)
+FASTAFileContents = FASTAFile.read()
+FASTAData = FASTAFileContents.split('>sp|')
+for datum in FASTAData[1:]:
+    header = datum.partition('\n')[0]
+    sequence = datum.partition('\n')[2][:-1] # extract only the sequence data
+    try:
+        proteinDict[header[0:6]].append(header[7:])
+        proteinDict[header[0:6]].append(len(sequence))
+    except KeyError:
+        print header[0:6], 'is not 1-1 with Uniprot ID' # may happen v.rarely
+        continue
+    
         
 
 abundanceFile.close()
