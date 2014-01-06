@@ -8,11 +8,14 @@ PSORTFile = open('psort.txt', 'r')
 resultFile = open('results.txt', 'w')
 
 #Global variables
-cellLife = 3000 # seconds
+cellLife = 3000.0 # seconds (3000 for wt e.coli)
+ribosomeNumber = 20000 # dimensionless; ribosomes per cell (20000 for wt e. coli)
+ribosomeSynthesisRate = 25 # amino acids per ribosome per second (25 for wt e. coli)
 abundanceError = 0.0 # parts per million
+proteinsPerCell = 5000000 # proteins per cell (3-10e6 for wt e. coli ref BioNumbers)
 
 #Data dictionary
-proteinDict = {} # proteinDict: UniprotID -> [abundance, details, length, localisation, localisation certainty, multiple locations?]
+proteinDict = {} # proteinDict: UniprotID -> [abundance, details, length, localisation, localisation certainty, multiple locations?, absolute abundance, energy cost]
 StringToUniprot = {} # StringToUniprot: StringID -> UniprotID (helps with abundance data, UniprotID is more widely used)
 
 for line in UniprotFile:
@@ -39,7 +42,7 @@ for datum in FASTAData[1:]:
         proteinDict[header[0:6]].append(header[7:])
         proteinDict[header[0:6]].append(len(sequence))
     except KeyError:
-        print header[0:6], 'is not 1-1 with Uniprot ID' # may happen v.rarely
+        print header[0:6], 'is not 1-1 with Uniprot ID (seq length)' # may happen v.rarely
         continue
 
 # Process localisation data from PSORT-B (needs updating for eukaryotes)
@@ -72,8 +75,21 @@ for datum in PSORTData[1:]:
         proteinDict[header].append(possMany)
 
     except KeyError:
-        print header[0:6], 'is not 1-1 with Uniprot ID' # may happen v.rarely
+        print header[0:6], 'is not 1-1 with Uniprot ID (localisation)' # may happen v.rarely
         continue
+
+# Calculate absolute protein abundance
+totalAbundance = 0.0
+totalCost = 0.0
+
+for key in proteinDict.keys():
+    totalAbundance += proteinDict[key][0]*proteinsPerCell/1000000 # converts from PPM to absolute abundance
+    proteinCost = 4*(proteinDict[key][0]*proteinsPerCell/1000000)*proteinDict[key][2]/cellLife # calculates cost of this protein in ATP/s
+    totalCost += proteinCost
+    
+    proteinDict[key].append(proteinDict[key][0]*proteinsPerCell/1000000)
+    proteinDict[key].append(proteinCost)
+    
 
 abundanceFile.close()
 UniprotFile.close()
