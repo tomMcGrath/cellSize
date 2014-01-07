@@ -135,6 +135,25 @@ print 'Unknown percentage: ', unknownSum
 print 'Bulk k: ', cytoSum + unknownSum/2 + extraCellularSum
 print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum
 
+# Output data to file
+resultFile.write('BEGIN RESULTS HEADER:\n')
+resultFile.write('Cytoplasmic percentage: ' + str(cytoSum) + '\n')
+resultFile.write('Membrane & periplasm percentage: ' + str(membraneSum + peripSum + cytoMemSum) + '\n')
+resultFile.write('Cell wall percentage: ' + str(cellWallSum) + '\n')
+resultFile.write('Extracellular percentage: ' + str(extraCellularSum) + '\n')
+resultFile.write('Unknown percentage: ' + str(unknownSum) + '\n')
+resultFile.write('Bulk k: ' + str(cytoSum + unknownSum/2 + extraCellularSum) + '\n')
+resultFile.write('Radial k: ' + str(membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum) + '\n')
+resultFile.write('END OF RESULTS HEADER\n')
+
+for key in proteinDict.keys():
+    resultText = key
+    for data in proteinDict[key]:
+        resultText += (','+ str(data))
+    resultText += '\n'
+
+    resultFile.write(resultText)
+
         
 abundanceFile.close()
 UniprotFile.close()
