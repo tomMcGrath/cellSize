@@ -1,8 +1,8 @@
 # Data files
-abundanceFile = open('511145-E.coli_whole_organism-integrated_dataset.txt', 'r')
-UniprotFile = open('2013121951YKSHD5B0.tab', 'r')
-FASTAFile = open('ecoli_sequences.fasta', 'r')
-PSORTFile = open('psort.txt', 'r')
+abundanceFile = open('160490-S.pyogenes(M1GAS)_whole_organism-integrated_dataset.txt', 'r')
+UniprotFile = open('bsubtilis_conversion.tab', 'r')
+FASTAFile = open('bsub_sequences.fasta', 'r')
+PSORTFile = open('psort_spyogenes.txt', 'r')
 
 # Output files
 resultFile = open('results.txt', 'w')
@@ -17,6 +17,7 @@ proteinsPerCell = 5000000 # proteins per cell (3-10e6 for wt e. coli ref BioNumb
 #Data dictionary
 proteinDict = {} # proteinDict: UniprotID -> [abundance, details, length, localisation, localisation certainty, multiple locations?, absolute abundance, energy cost]
 StringToUniprot = {} # StringToUniprot: StringID -> UniprotID (helps with abundance data, UniprotID is more widely used)
+UniprotToString = {}
 
 for line in UniprotFile:
     data = line.split('\t')
