@@ -1,8 +1,8 @@
 # Data files
-abundanceFile = open('160490-S.pyogenes(M1GAS)_whole_organism-integrated_dataset.txt', 'r')
-UniprotFile = open('bsubtilis_conversion.tab', 'r')
-FASTAFile = open('bsub_sequences.fasta', 'r')
-PSORTFile = open('psort_spyogenes.txt', 'r')
+abundanceFile = open('511145-E.coli_whole_organism-integrated_dataset.txt', 'r')
+UniprotFile = open('ecoli_conversion.tab', 'r')
+FASTAFile = open('ecoli_sequences.fasta', 'r')
+PSORTFile = open('psort_ecoli.txt', 'r')
 
 # Output files
 resultFile = open('results.txt', 'w')
@@ -35,24 +35,24 @@ for line in abundanceFile:
 
 # Process FASTA data (currently just gets AA length, degradation deprecated because M-excision & N-end mutually exclusive in prokaryotes)
 FASTAFileContents = FASTAFile.read()
-FASTAData = FASTAFileContents.split('>sp|')
+FASTAData = FASTAFileContents.split('>')
 for datum in FASTAData[1:]:
     header = datum.partition('\n')[0]
     sequence = datum.partition('\n')[2][:-1] # extract only the sequence data
     try:
-        proteinDict[header[0:6]].append(header[7:])
-        proteinDict[header[0:6]].append(len(sequence))
+        proteinDict[header[3:9]].append(header[7:])
+        proteinDict[header[3:9]].append(len(sequence))
     except KeyError:
-        print header[0:6], 'is not 1-1 with Uniprot ID (seq length)' # may happen v.rarely
+        print header[3:9], 'is not 1-1 with Uniprot ID (seq length)' # may happen v.rarely
         continue
 
 # Process localisation data from PSORT-B (needs updating for eukaryotes)
 PSORTFileContents = PSORTFile.read()
-PSORTData = PSORTFileContents.split('SeqID: sp|')
+PSORTData = PSORTFileContents.split('SeqID: ')
 
 for datum in PSORTData[1:]:
-    header = datum.partition('\n')[0][0:6]
-    headerData = datum.partition('\n')[0][6:]
+    header = datum.partition('\n')[0][3:9]
+    headerData = datum.partition('\n')[0][9:]
     analysis = datum.partition('\n')[2]
 
     result = analysis.partition('Final Prediction:')
@@ -84,12 +84,16 @@ totalAbundance = 0.0
 totalCost = 0.0
 
 for key in proteinDict.keys():
-    totalAbundance += proteinDict[key][0]*proteinsPerCell/1000000 # converts from PPM to absolute abundance
-    proteinCost = 4*(proteinDict[key][0]*proteinsPerCell/1000000)*proteinDict[key][2]/cellLife # calculates cost of this protein in ATP/s
-    totalCost += proteinCost
-    
-    proteinDict[key].append(proteinDict[key][0]*proteinsPerCell/1000000)
-    proteinDict[key].append(proteinCost)
+    try:
+        totalAbundance += proteinDict[key][0]*proteinsPerCell/1000000 # converts from PPM to absolute abundance
+        proteinCost = 4*(proteinDict[key][0]*proteinsPerCell/1000000)*proteinDict[key][2]/cellLife # calculates cost of this protein in ATP/s
+        totalCost += proteinCost
+        
+        proteinDict[key].append(proteinDict[key][0]*proteinsPerCell/1000000)
+        proteinDict[key].append(proteinCost)
+
+    except IndexError:
+        print key
 
 # Calculate % cost
 for key in proteinDict.keys():
