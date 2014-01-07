@@ -1,8 +1,8 @@
 # Data files
-abundanceFile = open('83332-M.tuberculosis_whole_organism-integrated_dataset.txt', 'r')
-UniprotFile = open('mtuberculosis_conversion.tab', 'r')
-FASTAFile = open('mtuberculosis_sequences.fasta', 'r')
-PSORTFile = open('psort_tgammatolerans.txt', 'r')
+abundanceFile = open('449447-M.aeruginosa_whole_organism-integrated_dataset.txt', 'r')
+UniprotFile = open('maeruginosa_conversion.tab', 'r')
+FASTAFile = open('maeruginosa_sequences.fasta', 'r')
+PSORTFile = open('psort_maeruginosa.txt', 'r')
 
 # Output files
 resultFile = open('results.txt', 'w')
@@ -127,10 +127,11 @@ for key in proteinDict.keys():
     else:
         print proteinDict[key][3]
 
-print 'Cytoplasmic percentage: ', cytoSum + unknownSum/2
-print 'Membrane & periplasm percentage: ', membraneSum + peripSum + cytoMemSum + unknownSum/2
+print 'Cytoplasmic percentage: ', cytoSum
+print 'Membrane & periplasm percentage: ', membraneSum + peripSum + cytoMemSum
 print 'Cell wall percentage: ', cellWallSum
 print 'Extracellular percentage: ', extraCellularSum
+print 'Unknown percentage: ', unknownSum
 print 'Bulk k: ', cytoSum + unknownSum/2 + extraCellularSum
 print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum
 
