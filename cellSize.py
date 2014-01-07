@@ -1,8 +1,8 @@
 # Data files
-abundanceFile = open('511145-E.coli_whole_organism-integrated_dataset.txt', 'r')
-UniprotFile = open('ecoli_conversion.tab', 'r')
-FASTAFile = open('ecoli_sequences.fasta', 'r')
-PSORTFile = open('psort_ecoli.txt', 'r')
+abundanceFile = open('83332-M.tuberculosis_whole_organism-integrated_dataset.txt', 'r')
+UniprotFile = open('mtuberculosis_conversion.tab', 'r')
+FASTAFile = open('mtuberculosis_sequences.fasta', 'r')
+PSORTFile = open('psort_tgammatolerans.txt', 'r')
 
 # Output files
 resultFile = open('results.txt', 'w')
@@ -104,7 +104,10 @@ cytoSum = 0.0
 membraneSum = 0.0
 peripSum = 0.0
 cytoMemSum = 0.0
+extraCellularSum = 0.0
+cellWallSum = 0.0
 unknownSum = 0.0
+
 
 for key in proteinDict.keys():
     if proteinDict[key][3] == 'Cytoplasmic':
@@ -117,9 +120,20 @@ for key in proteinDict.keys():
         cytoMemSum += proteinDict[key][8]
     elif proteinDict[key][3] == 'Unknown':
         unknownSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'Extracellular':
+        extraCellularSum += proteinDict[key][8]
+    elif proteinDict[key][3] == 'Cellwall':
+        cellWallSum += proteinDict[key][8]
+    else:
+        print proteinDict[key][3]
 
 print 'Cytoplasmic percentage: ', cytoSum + unknownSum/2
 print 'Membrane & periplasm percentage: ', membraneSum + peripSum + cytoMemSum + unknownSum/2
+print 'Cell wall percentage: ', cellWallSum
+print 'Extracellular percentage: ', extraCellularSum
+print 'Bulk k: ', cytoSum + unknownSum/2 + extraCellularSum
+print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum
+
         
 abundanceFile.close()
 UniprotFile.close()
