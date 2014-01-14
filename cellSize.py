@@ -1,11 +1,14 @@
+import os
+
 # Data files
-abundanceFile = open('449447-M.aeruginosa_whole_organism-integrated_dataset.txt', 'r')
-UniprotFile = open('maeruginosa_conversion.tab', 'r')
-FASTAFile = open('maeruginosa_sequences.fasta', 'r')
-PSORTFile = open('psort_maeruginosa.txt', 'r')
+abundanceFile = open('4932-S.cerevisiae_whole_organism-integrated_dataset.txt', 'r')
+UniprotFile = open('scerevisiae_conversion.tab', 'r')
+FASTAFile = open('scerevisiae_sequences.fasta', 'r')
+localisationFile = open('LocTreeData/559292_Saccharomyces_cerevisiae.euka.lc3', 'r')
+localisationType = 'LocTree3'
 
 # Output files
-resultFile = open('results.txt', 'w')
+resultFile = open('scerevisiae_results.txt', 'w')
 
 #Global variables
 cellLife = 3000.0 # seconds (3000 for wt e.coli)
@@ -46,42 +49,65 @@ for datum in FASTAData[1:]:
         print header[3:9], 'is not 1-1 with Uniprot ID (seq length)' # may happen v.rarely
         continue
 
-# Process localisation data from PSORT-B (needs updating for eukaryotes)
-PSORTFileContents = PSORTFile.read()
-PSORTData = PSORTFileContents.split('SeqID: ')
+# Process localisation data from localisation file according to formatting from source tool
+if localisationType == 'PSORTb':
+    localisationFileContents = localisationFile.read()
+    localisationData = localisationFileContents.split('SeqID: ')
 
-for datum in PSORTData[1:]:
-    header = datum.partition('\n')[0][3:9]
-    headerData = datum.partition('\n')[0][9:]
-    analysis = datum.partition('\n')[2]
+    for datum in localisationData[1:]:
+        header = datum.partition('\n')[0][3:9]
+        headerData = datum.partition('\n')[0][9:]
+        analysis = datum.partition('\n')[2]
 
-    result = analysis.partition('Final Prediction:')
-    locationData = result[2].split('\n')[1]
+        result = analysis.partition('Final Prediction:')
+        locationData = result[2].split('\n')[1]
 
-    if locationData.find('Unknown') != -1:
-        location = 'Unknown'
-        probability = 10.0
-        possMany = False
-
-    else:
-        location = locationData.split(' ')[4]
-        probability = locationData.split(' ')[-1][:-1]
-        if locationData.split(' ')[5] != '':
-            possMany = True
-        else:
+        if locationData.find('Unknown') != -1:
+            location = 'Unknown'
+            probability = 10.0
             possMany = False
-    try:
-        proteinDict[header].append(location)
-        proteinDict[header].append(float(probability))
-        proteinDict[header].append(possMany)
 
-    except KeyError:
-        print header[0:6], 'is not 1-1 with Uniprot ID (localisation)' # may happen v.rarely
-        continue
+        else:
+            location = locationData.split(' ')[4]
+            probability = locationData.split(' ')[-1][:-1]
+            if locationData.split(' ')[5] != '':
+                possMany = True
+            else:
+                possMany = False
+        try:
+            proteinDict[header].append(location)
+            proteinDict[header].append(float(probability))
+            proteinDict[header].append(possMany)
+
+        except KeyError:
+            print header[0:6], 'is not 1-1 with Uniprot ID (localisation)' # may happen v.rarely
+            continue
+
+elif localisationType == 'LocTree3':
+    locErrorCount = 0
+    for line in localisationFile:
+        if line[0] == '#':
+            continue # ignore header files
+        data = line.split('\t')
+        proteinID = data[0][3:9]
+        localisation = data[2]
+        probability = data[1]
+        possMany = False # LocTree3 doesn't seem to account for this
+
+        try:
+            proteinDict[proteinID].append(localisation)
+            proteinDict[proteinID].append(float(probability)/10)
+            proteinDict[proteinID].append(possMany)
+
+        except KeyError:
+            locErrorCount += 1
+            #print proteinID, 'is not 1-1 with Uniprot ID (localisation)' # may happen v.rarely
+            continue
 
 # Calculate absolute protein abundance
 totalAbundance = 0.0
 totalCost = 0.0
+abundErrorCount = 0
 
 for key in proteinDict.keys():
     try:
@@ -93,11 +119,18 @@ for key in proteinDict.keys():
         proteinDict[key].append(proteinCost)
 
     except IndexError:
-        print key
+        abundErrorCount += 1
+        #print key
 
 # Calculate % cost
+costErrorCount = 0
 for key in proteinDict.keys():
-    proteinDict[key].append(proteinDict[key][7]*100/totalCost)
+    try:
+        proteinDict[key].append(proteinDict[key][7]*100/totalCost)
+
+    except IndexError:
+        costErrorCount += 1
+        #print key
 
 # Calculate distribution %
 cytoSum = 0.0
@@ -108,27 +141,50 @@ extraCellularSum = 0.0
 cellWallSum = 0.0
 unknownSum = 0.0
 
-
+localisations = {}
 for key in proteinDict.keys():
-    if proteinDict[key][3] == 'Cytoplasmic':
-        cytoSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'OuterMembrane':
-        membraneSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'Periplasmic':
-        peripSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'CytoplasmicMembrane':
-        cytoMemSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'Unknown':
-        unknownSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'Extracellular':
-        extraCellularSum += proteinDict[key][8]
-    elif proteinDict[key][3] == 'Cellwall':
-        cellWallSum += proteinDict[key][8]
-    else:
-        print proteinDict[key][3]
+
+    try:
+        localisations[proteinDict[key][3]] += proteinDict[key][8]
+
+    except KeyError:
+        try:
+            localisations[proteinDict[key][3]] = proteinDict[key][8]
+        except IndexError:
+            print key
+
+    except IndexError:
+        print key
+
+
+##    if localisationType == 'PSORTb':
+##        if proteinDict[key][3] == 'Cytoplasmic':
+##            cytoSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'OuterMembrane':
+##            membraneSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'Periplasmic':
+##            peripSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'CytoplasmicMembrane':
+##            cytoMemSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'Unknown':
+##            unknownSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'Extracellular':
+##            extraCellularSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'Cellwall':
+##            cellWallSum += proteinDict[key][8]
+##        else:
+##            print proteinDict[key][3]
+##
+##    if localisationType == 'LocTree3':
+##        if proteinDict[key][3] == 'nucleus':
+##            nucleusSum += proteinDict[key][8]
+##        elif proteinDict[key][3] == 'cytoplasm':
+##            cytoSum
 
 print 'Cytoplasmic percentage: ', cytoSum
-print 'Membrane & periplasm percentage: ', membraneSum + peripSum + cytoMemSum
+print 'Outer membrane percentage: ', membraneSum
+print 'Periplasmic percentage: ', peripSum
+print 'Cytoplasmic membrane percentage: ', cytoMemSum
 print 'Cell wall percentage: ', cellWallSum
 print 'Extracellular percentage: ', extraCellularSum
 print 'Unknown percentage: ', unknownSum
@@ -138,7 +194,9 @@ print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWal
 # Output data to file
 resultFile.write('BEGIN RESULTS HEADER:\n')
 resultFile.write('Cytoplasmic percentage: ' + str(cytoSum) + '\n')
-resultFile.write('Membrane & periplasm percentage: ' + str(membraneSum + peripSum + cytoMemSum) + '\n')
+resultFile.write('Outer membrane percentage: ' + str(membraneSum))
+resultFile.write('Periplasmic percentage: ' +str(peripSum))
+resultFile.write('Cytoplasmic membrane percentage: ' + str(cytoMemSum))
 resultFile.write('Cell wall percentage: ' + str(cellWallSum) + '\n')
 resultFile.write('Extracellular percentage: ' + str(extraCellularSum) + '\n')
 resultFile.write('Unknown percentage: ' + str(unknownSum) + '\n')
@@ -158,5 +216,5 @@ for key in proteinDict.keys():
 abundanceFile.close()
 UniprotFile.close()
 FASTAFile.close()
-PSORTFile.close()
+localisationFile.close()
 resultFile.close()
