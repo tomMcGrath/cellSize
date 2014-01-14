@@ -156,6 +156,9 @@ for key in proteinDict.keys():
     except IndexError:
         print key
 
+for key in localisations.keys():
+    print key, localisations[key]
+
 
 ##    if localisationType == 'PSORTb':
 ##        if proteinDict[key][3] == 'Cytoplasmic':
@@ -180,29 +183,32 @@ for key in proteinDict.keys():
 ##            nucleusSum += proteinDict[key][8]
 ##        elif proteinDict[key][3] == 'cytoplasm':
 ##            cytoSum
-
-print 'Cytoplasmic percentage: ', cytoSum
-print 'Outer membrane percentage: ', membraneSum
-print 'Periplasmic percentage: ', peripSum
-print 'Cytoplasmic membrane percentage: ', cytoMemSum
-print 'Cell wall percentage: ', cellWallSum
-print 'Extracellular percentage: ', extraCellularSum
-print 'Unknown percentage: ', unknownSum
-print 'Bulk k: ', cytoSum + unknownSum/2 + extraCellularSum
-print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum
+##
+##print 'Cytoplasmic percentage: ', cytoSum
+##print 'Outer membrane percentage: ', membraneSum
+##print 'Periplasmic percentage: ', peripSum
+##print 'Cytoplasmic membrane percentage: ', cytoMemSum
+##print 'Cell wall percentage: ', cellWallSum
+##print 'Extracellular percentage: ', extraCellularSum
+##print 'Unknown percentage: ', unknownSum
+##print 'Bulk k: ', cytoSum + unknownSum/2 + extraCellularSum
+##print 'Radial k: ', membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum
 
 # Output data to file
 resultFile.write('BEGIN RESULTS HEADER:\n')
-resultFile.write('Cytoplasmic percentage: ' + str(cytoSum) + '\n')
-resultFile.write('Outer membrane percentage: ' + str(membraneSum))
-resultFile.write('Periplasmic percentage: ' +str(peripSum))
-resultFile.write('Cytoplasmic membrane percentage: ' + str(cytoMemSum))
-resultFile.write('Cell wall percentage: ' + str(cellWallSum) + '\n')
-resultFile.write('Extracellular percentage: ' + str(extraCellularSum) + '\n')
-resultFile.write('Unknown percentage: ' + str(unknownSum) + '\n')
-resultFile.write('Bulk k: ' + str(cytoSum + unknownSum/2 + extraCellularSum) + '\n')
-resultFile.write('Radial k: ' + str(membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum) + '\n')
-resultFile.write('END OF RESULTS HEADER\n')
+for key in localisations.keys():
+    resultFile.write(key + str(localisations[key]))
+
+##resultFile.write('Cytoplasmic percentage: ' + str(cytoSum) + '\n')
+##resultFile.write('Outer membrane percentage: ' + str(membraneSum))
+##resultFile.write('Periplasmic percentage: ' +str(peripSum))
+##resultFile.write('Cytoplasmic membrane percentage: ' + str(cytoMemSum))
+##resultFile.write('Cell wall percentage: ' + str(cellWallSum) + '\n')
+##resultFile.write('Extracellular percentage: ' + str(extraCellularSum) + '\n')
+##resultFile.write('Unknown percentage: ' + str(unknownSum) + '\n')
+##resultFile.write('Bulk k: ' + str(cytoSum + unknownSum/2 + extraCellularSum) + '\n')
+##resultFile.write('Radial k: ' + str(membraneSum + peripSum + cytoMemSum + unknownSum/2 + cellWallSum) + '\n')
+##resultFile.write('END OF RESULTS HEADER\n')
 
 for key in proteinDict.keys():
     resultText = key
