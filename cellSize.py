@@ -220,13 +220,69 @@ for key in proteinDict.keys():
     
 # bootstrap resampling calculation of standard error for each localisation
 def bootstrap(localisations, proteinDict, resamples):
-    for localisation in localisations.keys():
-        for i in range(0, resamples):
-            bootstrapDict = {}
-            for protein in proteinDict.keys():
-                if proteinDict[protein][3] == localisation and np.random.uniform() < proteinDict[protein][4]:
-                    bootstrapDict[protein] = proteinDict[protein]
+    bootstrapResults = []
+    for i in range(0, resamples):
+        bootstrapDict = {}
+        totalAbundance = 0.0
+        totalCost = 0.0
+        abundErrorCount = 0
+        for protein in proteinDict.keys():
+            if np.random.uniform() < proteinDict[protein][4]:
+                bootstrapDict[protein] = proteinDict[protein]
+        
+        for protein in bootstrapDict.keys():
+            try:
+                totalAbundance += bootstrapDict[protein][0]*proteinsPerCell/1000000 # converts from PPM to absolute abundance
+                proteinCost = 4*(bootstrapDict[protein][0]*proteinsPerCell/1000000)*bootstrapDict[protein][2]/cellLife # calculates cost of this protein in ATP/s
+                totalCost += proteinCost
                 
+                bootstrapDict[protein][6] = bootstrapDict[protein][0]*proteinsPerCell/1000000
+                bootstrapDict[protein][7] = proteinCost
+        
+            except IndexError:
+                abundErrorCount += 1
+                #print key
+        
+        errorCount = 0        
+        for protein in bootstrapDict.keys():
+            
+            try:
+                bootstrapDict[protein][8] = bootstrapDict[protein][7]/totalCost
+                
+            except:
+                errorCount += 1
+        #print errorCount
+                
+        bootstrapLocalisations = {}
+        for protein in bootstrapDict.keys():
+        
+            try:
+                bootstrapLocalisations[bootstrapDict[protein][3]] += bootstrapDict[protein][8]
+        
+            except KeyError:
+                try:
+                    bootstrapLocalisations[bootstrapDict[protein][3]] = bootstrapDict[protein][8]
+                except IndexError:
+                    continue
+                    #print protein
+        
+            except IndexError:
+                continue
+                #print protein
+        
+        #for key in bootstrapLocalisations.keys():
+            #print key, bootstrapLocalisations[key]
+            
+        # add to results holder
+        bootstrapResults.append(bootstrapLocalisations)
+    
+    return bootstrapResults
+                
+
+                    
+            
+# test bootstrap:
+bootstrapData = bootstrap(localisations, proteinDict, 10)
                 
         
 abundanceFile.close()
