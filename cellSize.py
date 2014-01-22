@@ -1,4 +1,4 @@
-import os
+import numpy as np
 
 # Data files
 abundanceFile = open('4932-S.cerevisiae_whole_organism-integrated_dataset.txt', 'r')
@@ -96,7 +96,7 @@ elif localisationType == 'LocTree3':
 
         try:
             proteinDict[proteinID].append(localisation)
-            proteinDict[proteinID].append(float(probability)/10)
+            proteinDict[proteinID].append(float(probability)/100) # convert to prob in [0,1]
             proteinDict[proteinID].append(possMany)
 
         except KeyError:
@@ -217,7 +217,17 @@ for key in proteinDict.keys():
     resultText += '\n'
 
     resultFile.write(resultText)
-
+    
+# bootstrap resampling calculation of standard error for each localisation
+def bootstrap(localisations, proteinDict, resamples):
+    for localisation in localisations.keys():
+        for i in range(0, resamples):
+            bootstrapDict = {}
+            for protein in proteinDict.keys():
+                if proteinDict[protein][3] == localisation and np.random.uniform() < proteinDict[protein][4]:
+                    bootstrapDict[protein] = proteinDict[protein]
+                
+                
         
 abundanceFile.close()
 UniprotFile.close()

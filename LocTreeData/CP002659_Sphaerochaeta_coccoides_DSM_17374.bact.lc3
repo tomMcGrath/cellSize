@@ -1,0 +1,1832 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|F4GK28|F4GK28_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK69|F4GK69_SPICD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHX3|F4GHX3_SPICD	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GM67|F4GM67_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKW3|F4GKW3_SPICD	39	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|F4GJ45|F4GJ45_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKH1|F4GKH1_SPICD	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLC1|F4GLC1_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIR2|F4GIR2_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL54|F4GL54_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKH3|F4GKH3_SPICD	8	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLB2|F4GLB2_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ38|F4GJ38_SPICD	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJX1|F4GJX1_SPICD	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHJ5|F4GHJ5_SPICD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHH5|F4GHH5_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK81|F4GK81_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJC4|F4GJC4_SPICD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHG8|F4GHG8_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHH1|F4GHH1_SPICD	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GH67|F4GH67_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLF7|F4GLF7_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJL7|F4GJL7_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKU9|F4GKU9_SPICD	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GKG4|F4GKG4_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHA9|F4GHA9_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|F4GIH2|F4GIH2_SPICD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK15|F4GK15_SPICD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIU4|F4GIU4_SPICD	30	cytoplasm	phosphoenolpyruvate-dependent sugar phosphotransferase complex GO:0019197(IDA);
+tr|F4GLJ6|F4GLJ6_SPICD	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJP7|F4GJP7_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|F4GM27|F4GM27_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIR7|F4GIR7_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLI3|F4GLI3_SPICD	39	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|F4GIN0|F4GIN0_SPICD	24	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GJP4|F4GJP4_SPICD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJP0|F4GJP0_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|F4GHA6|F4GHA6_SPICD	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GJB4|F4GJB4_SPICD	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GJ56|F4GJ56_SPICD	19	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLT9|F4GLT9_SPICD	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLL1|F4GLL1_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|F4GJT7|F4GJT7_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLI2|F4GLI2_SPICD	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLU2|F4GLU2_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK49|F4GK49_SPICD	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GKW2|F4GKW2_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F4GKD5|F4GKD5_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJM8|F4GJM8_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH94|F4GH94_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLS0|F4GLS0_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM46|F4GM46_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJF3|F4GJF3_SPICD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHJ8|F4GHJ8_SPICD	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHW3|F4GHW3_SPICD	20	periplasm	membrane GO:0016020(ISS); periplasmic space GO:0042597(IEA);
+tr|F4GII9|F4GII9_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ62|F4GJ62_SPICD	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GJN2|F4GJN2_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ46|F4GJ46_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ85|F4GJ85_SPICD	6	secreted	extracellular region GO:0005576(IEA);
+tr|F4GIT7|F4GIT7_SPICD	33	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GJB2|F4GJB2_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL71|F4GL71_SPICD	45	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|F4GH17|F4GH17_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL12|F4GL12_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ11|F4GJ11_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHS0|F4GHS0_SPICD	29	cytoplasm	cytosol GO:0005829(IBA);
+tr|F4GKE5|F4GKE5_SPICD	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJ27|F4GJ27_SPICD	3	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIS4|F4GIS4_SPICD	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK64|F4GK64_SPICD	58	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|F4GJ47|F4GJ47_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHV6|F4GHV6_SPICD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ51|F4GJ51_SPICD	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJ58|F4GJ58_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLG1|F4GLG1_SPICD	15	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GKP8|F4GKP8_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIN8|F4GIN8_SPICD	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLW8|F4GLW8_SPICD	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLS6|F4GLS6_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ52|F4GJ52_SPICD	10	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F4GI81|F4GI81_SPICD	30	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GJS8|F4GJS8_SPICD	5	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GLH7|F4GLH7_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GK99|F4GK99_SPICD	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI00|F4GI00_SPICD	15	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|F4GKV9|F4GKV9_SPICD	52	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|F4GKG1|F4GKG1_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GH70|F4GH70_SPICD	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKL1|F4GKL1_SPICD	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH24|F4GH24_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJX0|F4GJX0_SPICD	23	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GKF2|F4GKF2_SPICD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKY9|F4GKY9_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHJ6|F4GHJ6_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKQ7|F4GKQ7_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJK0|F4GJK0_SPICD	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GL31|F4GL31_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKJ9|F4GKJ9_SPICD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIG5|F4GIG5_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM61|F4GM61_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJA8|F4GJA8_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI85|F4GI85_SPICD	9	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|F4GLQ3|F4GLQ3_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHL3|F4GHL3_SPICD	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHM8|F4GHM8_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIA4|F4GIA4_SPICD	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKJ7|F4GKJ7_SPICD	38	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|F4GJ55|F4GJ55_SPICD	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKK0|F4GKK0_SPICD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKH7|F4GKH7_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJJ8|F4GJJ8_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHJ3|F4GHJ3_SPICD	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHQ9|F4GHQ9_SPICD	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLM8|F4GLM8_SPICD	12	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|F4GLP0|F4GLP0_SPICD	7	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|F4GIA6|F4GIA6_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI21|F4GI21_SPICD	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLV4|F4GLV4_SPICD	10	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GIY3|F4GIY3_SPICD	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK92|F4GK92_SPICD	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH83|F4GH83_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHL5|F4GHL5_SPICD	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLE8|F4GLE8_SPICD	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJN0|F4GJN0_SPICD	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GH25|F4GH25_SPICD	19	periplasm	cytosol GO:0005829(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F4GIV5|F4GIV5_SPICD	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GJ29|F4GJ29_SPICD	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GK79|F4GK79_SPICD	21	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|F4GIQ8|F4GIQ8_SPICD	25	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHT5|F4GHT5_SPICD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKE4|F4GKE4_SPICD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHB8|F4GHB8_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI62|F4GI62_SPICD	17	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F4GKB7|F4GKB7_SPICD	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GIG6|F4GIG6_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIG3|F4GIG3_SPICD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI36|F4GI36_SPICD	11	periplasm	membrane GO:0016020(ISS); periplasmic space GO:0042597(IEA);
+tr|F4GLJ5|F4GLJ5_SPICD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIL0|F4GIL0_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLW9|F4GLW9_SPICD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLC5|F4GLC5_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM58|F4GM58_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ72|F4GJ72_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLA0|F4GLA0_SPICD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHX8|F4GHX8_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIW9|F4GIW9_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHN9|F4GHN9_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKX6|F4GKX6_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK32|F4GK32_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH81|F4GH81_SPICD	55	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIF8|F4GIF8_SPICD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLL8|F4GLL8_SPICD	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLG8|F4GLG8_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLL2|F4GLL2_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|F4GIW2|F4GIW2_SPICD	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL48|F4GL48_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHH8|F4GHH8_SPICD	17	secreted	extracellular region GO:0005576(IEA);
+tr|F4GJ19|F4GJ19_SPICD	12	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GLD0|F4GLD0_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKP9|F4GKP9_SPICD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHH0|F4GHH0_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH38|F4GH38_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHJ2|F4GHJ2_SPICD	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKY1|F4GKY1_SPICD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKG3|F4GKG3_SPICD	11	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GI97|F4GI97_SPICD	11	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GHS4|F4GHS4_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKE3|F4GKE3_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHT4|F4GHT4_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GK13|F4GK13_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKQ8|F4GKQ8_SPICD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLA2|F4GLA2_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHV9|F4GHV9_SPICD	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GI78|F4GI78_SPICD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ26|F4GJ26_SPICD	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLD9|F4GLD9_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI99|F4GI99_SPICD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL00|F4GL00_SPICD	18	cytoplasm	cell outer membrane GO:0009279(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GKB4|F4GKB4_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJT3|F4GJT3_SPICD	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJL5|F4GJL5_SPICD	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GL53|F4GL53_SPICD	28	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|F4GJD0|F4GJD0_SPICD	5	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|F4GM12|F4GM12_SPICD	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIF4|F4GIF4_SPICD	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GKQ4|F4GKQ4_SPICD	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJW1|F4GJW1_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIJ8|F4GIJ8_SPICD	10	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|F4GHK2|F4GHK2_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLA7|F4GLA7_SPICD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLS3|F4GLS3_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GK50|F4GK50_SPICD	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHP5|F4GHP5_SPICD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GM78|F4GM78_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIQ4|F4GIQ4_SPICD	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IMP);
+tr|F4GIB2|F4GIB2_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHJ7|F4GHJ7_SPICD	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKZ1|F4GKZ1_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLG3|F4GLG3_SPICD	11	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|F4GLN4|F4GLN4_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM72|F4GM72_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKH2|F4GKH2_SPICD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIL4|F4GIL4_SPICD	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GJI3|F4GJI3_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJK5|F4GJK5_SPICD	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH40|F4GH40_SPICD	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKC8|F4GKC8_SPICD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJQ1|F4GJQ1_SPICD	9	periplasm	periplasmic space GO:0042597(IDA);
+tr|F4GJW5|F4GJW5_SPICD	16	cytoplasm	cytoplasm GO:0005737(NAS);
+tr|F4GIF6|F4GIF6_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI53|F4GI53_SPICD	29	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|F4GJF2|F4GJF2_SPICD	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKI5|F4GKI5_SPICD	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GK37|F4GK37_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHC4|F4GHC4_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHM4|F4GHM4_SPICD	18	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GHM2|F4GHM2_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI98|F4GI98_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|F4GHN0|F4GHN0_SPICD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIN6|F4GIN6_SPICD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHK1|F4GHK1_SPICD	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIS1|F4GIS1_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLB8|F4GLB8_SPICD	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHZ3|F4GHZ3_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLE4|F4GLE4_SPICD	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ06|F4GJ06_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHL9|F4GHL9_SPICD	26	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GM29|F4GM29_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|F4GLI7|F4GLI7_SPICD	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLH2|F4GLH2_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIT8|F4GIT8_SPICD	34	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GJW9|F4GJW9_SPICD	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJY5|F4GJY5_SPICD	13	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GK77|F4GK77_SPICD	9	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|F4GLU5|F4GLU5_SPICD	16	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|F4GLQ6|F4GLQ6_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI19|F4GI19_SPICD	16	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIC3|F4GIC3_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI07|F4GI07_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK39|F4GK39_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F4GM82|F4GM82_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLG2|F4GLG2_SPICD	18	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|F4GJM1|F4GJM1_SPICD	39	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|F4GKG0|F4GKG0_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLL7|F4GLL7_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKS4|F4GKS4_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHV8|F4GHV8_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|F4GI90|F4GI90_SPICD	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJT2|F4GJT2_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJE1|F4GJE1_SPICD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJJ5|F4GJJ5_SPICD	8	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GJN1|F4GJN1_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKP0|F4GKP0_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJN6|F4GJN6_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHQ0|F4GHQ0_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLG6|F4GLG6_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJD9|F4GJD9_SPICD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKG7|F4GKG7_SPICD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK96|F4GK96_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIY2|F4GIY2_SPICD	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKI1|F4GKI1_SPICD	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKS3|F4GKS3_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJX9|F4GJX9_SPICD	17	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F4GLU3|F4GLU3_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIG1|F4GIG1_SPICD	15	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GKI6|F4GKI6_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH28|F4GH28_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIN4|F4GIN4_SPICD	27	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH32|F4GH32_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHW9|F4GHW9_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJZ7|F4GJZ7_SPICD	15	secreted	host cell cytosol GO:0044164(IDA); host cell nucleus GO:0042025(IDA);
+tr|F4GIF5|F4GIF5_SPICD	12	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|F4GLB5|F4GLB5_SPICD	43	cytoplasm	citrate lyase complex GO:0009346(IEA);
+tr|F4GI08|F4GI08_SPICD	19	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHH2|F4GHH2_SPICD	35	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GIX5|F4GIX5_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKD2|F4GKD2_SPICD	2	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJK1|F4GJK1_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJG7|F4GJG7_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ41|F4GJ41_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLN0|F4GLN0_SPICD	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GM70|F4GM70_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJY4|F4GJY4_SPICD	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GLZ7|F4GLZ7_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F4GHZ0|F4GHZ0_SPICD	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GKW7|F4GKW7_SPICD	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKA8|F4GKA8_SPICD	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKA1|F4GKA1_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ81|F4GJ81_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLK8|F4GLK8_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKW6|F4GKW6_SPICD	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GH72|F4GH72_SPICD	16	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|F4GJ82|F4GJ82_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHS7|F4GHS7_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ61|F4GJ61_SPICD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLV8|F4GLV8_SPICD	63	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ31|F4GJ31_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHW8|F4GHW8_SPICD	8	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GM34|F4GM34_SPICD	6	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|F4GHT1|F4GHT1_SPICD	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKW0|F4GKW0_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIC7|F4GIC7_SPICD	10	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|F4GHM1|F4GHM1_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHJ9|F4GHJ9_SPICD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI33|F4GI33_SPICD	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ44|F4GJ44_SPICD	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIX0|F4GIX0_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIJ1|F4GIJ1_SPICD	65	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLM0|F4GLM0_SPICD	25	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKD6|F4GKD6_SPICD	12	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GIT9|F4GIT9_SPICD	27	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GHP6|F4GHP6_SPICD	31	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GM16|F4GM16_SPICD	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLU6|F4GLU6_SPICD	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GH46|F4GH46_SPICD	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GKV6|F4GKV6_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLB7|F4GLB7_SPICD	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKP6|F4GKP6_SPICD	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLQ1|F4GLQ1_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|F4GKD8|F4GKD8_SPICD	21	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F4GI06|F4GI06_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJC3|F4GJC3_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKY6|F4GKY6_SPICD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKQ9|F4GKQ9_SPICD	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM63|F4GM63_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|F4GH97|F4GH97_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIM2|F4GIM2_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLY5|F4GLY5_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM60|F4GM60_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GM39|F4GM39_SPICD	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GK66|F4GK66_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIF7|F4GIF7_SPICD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKH4|F4GKH4_SPICD	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKE1|F4GKE1_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKI7|F4GKI7_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIN2|F4GIN2_SPICD	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GL02|F4GL02_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL97|F4GL97_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLR5|F4GLR5_SPICD	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKE2|F4GKE2_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLM1|F4GLM1_SPICD	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJM2|F4GJM2_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIE1|F4GIE1_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKF1|F4GKF1_SPICD	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GLC7|F4GLC7_SPICD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKF8|F4GKF8_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIA7|F4GIA7_SPICD	45	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GKQ1|F4GKQ1_SPICD	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI05|F4GI05_SPICD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI86|F4GI86_SPICD	10	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GKU3|F4GKU3_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHX0|F4GHX0_SPICD	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GIQ7|F4GIQ7_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI20|F4GI20_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKV5|F4GKV5_SPICD	22	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GIF2|F4GIF2_SPICD	16	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GHR1|F4GHR1_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKT2|F4GKT2_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ42|F4GJ42_SPICD	14	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F4GJL4|F4GJL4_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIS7|F4GIS7_SPICD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHT2|F4GHT2_SPICD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIM3|F4GIM3_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJJ3|F4GJJ3_SPICD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIP2|F4GIP2_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHL4|F4GHL4_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJL6|F4GJL6_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKT0|F4GKT0_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIZ5|F4GIZ5_SPICD	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH31|F4GH31_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ25|F4GJ25_SPICD	18	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GJZ1|F4GJZ1_SPICD	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLH1|F4GLH1_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHR2|F4GHR2_SPICD	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJN5|F4GJN5_SPICD	8	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GJM7|F4GJM7_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM84|F4GM84_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|F4GHB9|F4GHB9_SPICD	53	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GHQ7|F4GHQ7_SPICD	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKV7|F4GKV7_SPICD	9	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|F4GII3|F4GII3_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJQ2|F4GJQ2_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIA9|F4GIA9_SPICD	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLX1|F4GLX1_SPICD	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKW8|F4GKW8_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJC2|F4GJC2_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJC8|F4GJC8_SPICD	5	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|F4GIS8|F4GIS8_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ04|F4GJ04_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI56|F4GI56_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLI1|F4GLI1_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHX7|F4GHX7_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI84|F4GI84_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ60|F4GJ60_SPICD	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLH4|F4GLH4_SPICD	15	secreted	extracellular region GO:0005576(IDA); extracellular space GO:0005615(IEA);
+tr|F4GL49|F4GL49_SPICD	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GIN3|F4GIN3_SPICD	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL05|F4GL05_SPICD	26	secreted	extracellular region GO:0005576(IEA);
+tr|F4GIK7|F4GIK7_SPICD	24	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GL47|F4GL47_SPICD	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GJD7|F4GJD7_SPICD	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHQ4|F4GHQ4_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIT0|F4GIT0_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKN8|F4GKN8_SPICD	63	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLP5|F4GLP5_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJB6|F4GJB6_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIM4|F4GIM4_SPICD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIB9|F4GIB9_SPICD	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL01|F4GL01_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHY6|F4GHY6_SPICD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHS8|F4GHS8_SPICD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLD5|F4GLD5_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIX7|F4GIX7_SPICD	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GHB0|F4GHB0_SPICD	27	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|F4GIK9|F4GIK9_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL56|F4GL56_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH27|F4GH27_SPICD	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GM02|F4GM02_SPICD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK60|F4GK60_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLY6|F4GLY6_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIY6|F4GIY6_SPICD	20	secreted	extracellular region GO:0005576(IEA);
+tr|F4GLR9|F4GLR9_SPICD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM06|F4GM06_SPICD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GIL1|F4GIL1_SPICD	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHP7|F4GHP7_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLE7|F4GLE7_SPICD	20	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F4GIE3|F4GIE3_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK21|F4GK21_SPICD	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM28|F4GM28_SPICD	11	cytoplasm	cytosol GO:0005829(IBA);
+tr|F4GHL6|F4GHL6_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLA3|F4GLA3_SPICD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLS2|F4GLS2_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHH3|F4GHH3_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GH96|F4GH96_SPICD	17	secreted	extracellular region GO:0005576(IEA);
+tr|F4GKD4|F4GKD4_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI77|F4GI77_SPICD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK36|F4GK36_SPICD	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|F4GIQ1|F4GIQ1_SPICD	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GH93|F4GH93_SPICD	19	secreted	extracellular region GO:0005576(IEA);
+tr|F4GKM9|F4GKM9_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHP2|F4GHP2_SPICD	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM49|F4GM49_SPICD	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHI4|F4GHI4_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLS4|F4GLS4_SPICD	15	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GJR3|F4GJR3_SPICD	8	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F4GI13|F4GI13_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIY8|F4GIY8_SPICD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKN9|F4GKN9_SPICD	30	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GJ67|F4GJ67_SPICD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GH55|F4GH55_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ53|F4GJ53_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKA5|F4GKA5_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJN4|F4GJN4_SPICD	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH98|F4GH98_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKB3|F4GKB3_SPICD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHR3|F4GHR3_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJR8|F4GJR8_SPICD	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GI17|F4GI17_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|F4GM83|F4GM83_SPICD	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJQ9|F4GJQ9_SPICD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHF6|F4GHF6_SPICD	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM71|F4GM71_SPICD	-0	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ34|F4GJ34_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK68|F4GK68_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIN1|F4GIN1_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIW0|F4GIW0_SPICD	24	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GJU2|F4GJU2_SPICD	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHS3|F4GHS3_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL94|F4GL94_SPICD	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ76|F4GJ76_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKY5|F4GKY5_SPICD	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKV8|F4GKV8_SPICD	39	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|F4GHP4|F4GHP4_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKJ2|F4GKJ2_SPICD	37	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F4GHZ1|F4GHZ1_SPICD	36	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLK4|F4GLK4_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKX8|F4GKX8_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ73|F4GJ73_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLT3|F4GLT3_SPICD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJG6|F4GJG6_SPICD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK95|F4GK95_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIY9|F4GIY9_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI43|F4GI43_SPICD	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GK12|F4GK12_SPICD	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKU8|F4GKU8_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GID6|F4GID6_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLQ8|F4GLQ8_SPICD	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GJ54|F4GJ54_SPICD	8	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GLX0|F4GLX0_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GM14|F4GM14_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL03|F4GL03_SPICD	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM48|F4GM48_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM66|F4GM66_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHX9|F4GHX9_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHR6|F4GHR6_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHG9|F4GHG9_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJM5|F4GJM5_SPICD	31	periplasm	cytoplasm GO:0005737(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GIV6|F4GIV6_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GIW8|F4GIW8_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM05|F4GM05_SPICD	16	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GKF9|F4GKF9_SPICD	9	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GJ24|F4GJ24_SPICD	8	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GHW1|F4GHW1_SPICD	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIU5|F4GIU5_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKC4|F4GKC4_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKU0|F4GKU0_SPICD	31	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GHZ4|F4GHZ4_SPICD	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GH36|F4GH36_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI66|F4GI66_SPICD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJV4|F4GJV4_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ33|F4GJ33_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIX4|F4GIX4_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GH21|F4GH21_SPICD	55	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GKA7|F4GKA7_SPICD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJM4|F4GJM4_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHZ6|F4GHZ6_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ92|F4GJ92_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLJ2|F4GLJ2_SPICD	16	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|F4GJ36|F4GJ36_SPICD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM32|F4GM32_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHQ8|F4GHQ8_SPICD	6	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|F4GLK3|F4GLK3_SPICD	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLH8|F4GLH8_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKK6|F4GKK6_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHL7|F4GHL7_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIK5|F4GIK5_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLN9|F4GLN9_SPICD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLF0|F4GLF0_SPICD	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJS4|F4GJS4_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJA5|F4GJA5_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI09|F4GI09_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJS7|F4GJS7_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIS0|F4GIS0_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHC0|F4GHC0_SPICD	19	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|F4GKC3|F4GKC3_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLH6|F4GLH6_SPICD	21	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJB3|F4GJB3_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK75|F4GK75_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI63|F4GI63_SPICD	24	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLM6|F4GLM6_SPICD	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GK80|F4GK80_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLV2|F4GLV2_SPICD	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GH66|F4GH66_SPICD	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLB6|F4GLB6_SPICD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKX0|F4GKX0_SPICD	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GIE5|F4GIE5_SPICD	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKI0|F4GKI0_SPICD	52	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GM13|F4GM13_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GL04|F4GL04_SPICD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLL4|F4GLL4_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHQ5|F4GHQ5_SPICD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM10|F4GM10_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLS1|F4GLS1_SPICD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GH37|F4GH37_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GI26|F4GI26_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJX5|F4GJX5_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIH8|F4GIH8_SPICD	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIF9|F4GIF9_SPICD	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GHT7|F4GHT7_SPICD	19	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GJJ4|F4GJJ4_SPICD	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJF5|F4GJF5_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHN6|F4GHN6_SPICD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHN3|F4GHN3_SPICD	7	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GLD7|F4GLD7_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI29|F4GI29_SPICD	34	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|F4GH42|F4GH42_SPICD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIR0|F4GIR0_SPICD	41	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKB6|F4GKB6_SPICD	37	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKI3|F4GKI3_SPICD	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GM22|F4GM22_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHI3|F4GHI3_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ02|F4GJ02_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK65|F4GK65_SPICD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIC2|F4GIC2_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHZ5|F4GHZ5_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ48|F4GJ48_SPICD	11	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F4GJ49|F4GJ49_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI10|F4GI10_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHM0|F4GHM0_SPICD	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F4GHN8|F4GHN8_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHB5|F4GHB5_SPICD	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJ15|F4GJ15_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJY7|F4GJY7_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJY8|F4GJY8_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJK4|F4GJK4_SPICD	15	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLL6|F4GLL6_SPICD	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLA1|F4GLA1_SPICD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GII7|F4GII7_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ96|F4GJ96_SPICD	29	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F4GHK0|F4GHK0_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIS2|F4GIS2_SPICD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIP8|F4GIP8_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI28|F4GI28_SPICD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKU6|F4GKU6_SPICD	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHQ2|F4GHQ2_SPICD	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJA0|F4GJA0_SPICD	10	cytoplasm	ribosome GO:0005840(IEA);
+tr|F4GHL8|F4GHL8_SPICD	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJW7|F4GJW7_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ57|F4GJ57_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ28|F4GJ28_SPICD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJX3|F4GJX3_SPICD	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GIJ0|F4GIJ0_SPICD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIB7|F4GIB7_SPICD	24	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|F4GIX6|F4GIX6_SPICD	10	periplasm	ATP-binding cassette (ABC) transporter complex, substrate-binding subunit-containing GO:0055052(IGI); periplasmic space GO:0042597(IDA);
+tr|F4GK98|F4GK98_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJN3|F4GJN3_SPICD	21	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLX6|F4GLX6_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLL5|F4GLL5_SPICD	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJT5|F4GJT5_SPICD	12	secreted	host cell cytoplasm GO:0030430(IDA);
+tr|F4GJH0|F4GJH0_SPICD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJT6|F4GJT6_SPICD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLF2|F4GLF2_SPICD	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GJ03|F4GJ03_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GK41|F4GK41_SPICD	37	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F4GL50|F4GL50_SPICD	20	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GM68|F4GM68_SPICD	35	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F4GKX5|F4GKX5_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI27|F4GI27_SPICD	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM24|F4GM24_SPICD	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJK2|F4GJK2_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJQ8|F4GJQ8_SPICD	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GKY4|F4GKY4_SPICD	12	secreted	extracellular region GO:0005576(IEA);
+tr|F4GH71|F4GH71_SPICD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJH8|F4GJH8_SPICD	1	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJG3|F4GJG3_SPICD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM30|F4GM30_SPICD	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJC7|F4GJC7_SPICD	18	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|F4GKY0|F4GKY0_SPICD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GK55|F4GK55_SPICD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJJ6|F4GJJ6_SPICD	11	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|F4GII5|F4GII5_SPICD	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHA8|F4GHA8_SPICD	35	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJM6|F4GJM6_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GK14|F4GK14_SPICD	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|F4GLA6|F4GLA6_SPICD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GIL7|F4GIL7_SPICD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKB2|F4GKB2_SPICD	6	secreted	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GJ10|F4GJ10_SPICD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKU1|F4GKU1_SPICD	28	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GHP0|F4GHP0_SPICD	10	inner membrane	integral to membrane GO:0016021(IEA); intrinsic to internal side of plasma membrane GO:0031235(IDA);
+tr|F4GIK1|F4GIK1_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLK2|F4GLK2_SPICD	31	secreted	extracellular region GO:0005576(IEA);
+tr|F4GKY7|F4GKY7_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHA4|F4GHA4_SPICD	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GJM0|F4GJM0_SPICD	31	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|F4GJF4|F4GJF4_SPICD	1	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLJ3|F4GLJ3_SPICD	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F4GHH7|F4GHH7_SPICD	39	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLY0|F4GLY0_SPICD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLF9|F4GLF9_SPICD	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GJC5|F4GJC5_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJS6|F4GJS6_SPICD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHN2|F4GHN2_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJ65|F4GJ65_SPICD	17	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F4GM50|F4GM50_SPICD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJB0|F4GJB0_SPICD	31	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|F4GK17|F4GK17_SPICD	28	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GHZ7|F4GHZ7_SPICD	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHF4|F4GHF4_SPICD	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GLI0|F4GLI0_SPICD	25	secreted	extracellular region GO:0005576(IEA);
+tr|F4GIR6|F4GIR6_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJI6|F4GJI6_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJF9|F4GJF9_SPICD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJC9|F4GJC9_SPICD	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GKD3|F4GKD3_SPICD	14	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GI04|F4GI04_SPICD	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIV4|F4GIV4_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHY0|F4GHY0_SPICD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GIK4|F4GIK4_SPICD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI01|F4GI01_SPICD	12	secreted	extracellular region GO:0005576(IDA); extracellular space GO:0005615(IEA);
+tr|F4GIQ9|F4GIQ9_SPICD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIU3|F4GIU3_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIE2|F4GIE2_SPICD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLZ2|F4GLZ2_SPICD	21	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|F4GHL0|F4GHL0_SPICD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJK6|F4GJK6_SPICD	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GL84|F4GL84_SPICD	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJL9|F4GJL9_SPICD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLZ1|F4GLZ1_SPICD	27	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F4GLB4|F4GLB4_SPICD	37	cytoplasm	citrate lyase complex GO:0009346(IEA);
+tr|F4GJE0|F4GJE0_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKQ0|F4GKQ0_SPICD	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHA5|F4GHA5_SPICD	30	cytoplasm	cytosol GO:0005829(IDA);
+tr|F4GJK3|F4GJK3_SPICD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHB7|F4GHB7_SPICD	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GI15|F4GI15_SPICD	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLM4|F4GLM4_SPICD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIK0|F4GIK0_SPICD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI96|F4GI96_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJS5|F4GJS5_SPICD	29	cytoplasm	cytoplasm GO:0005737(ISS);
+tr|F4GHM9|F4GHM9_SPICD	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GII0|F4GII0_SPICD	25	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F4GIX1|F4GIX1_SPICD	15	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GKB5|F4GKB5_SPICD	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GJY6|F4GJY6_SPICD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GH29|F4GH29_SPICD	13	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GKT1|F4GKT1_SPICD	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GLE2|F4GLE2_SPICD	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI02|F4GI02_SPICD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GKH8|F4GKH8_SPICD	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GH60|F4GH60_SPICD	31	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F4GI14|F4GI14_SPICD	18	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|F4GJX7|F4GJX7_SPICD	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM59|F4GM59_SPICD	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GH65|F4GH65_SPICD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GK40|F4GK40_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|F4GKB9|F4GKB9_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIW3|F4GIW3_SPICD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLA5|F4GLA5_SPICD	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GM41|F4GM41_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GM65|F4GM65_SPICD	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GI25|F4GI25_SPICD	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GKP4|F4GKP4_SPICD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GM21|F4GM21_SPICD	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GHW0|F4GHW0_SPICD	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GHZ2|F4GHZ2_SPICD	26	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJ97|F4GJ97_SPICD	34	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|F4GJS9|F4GJS9_SPICD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GJV9|F4GJV9_SPICD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJZ0|F4GJZ0_SPICD	23	cytoplasm	membrane GO:0016020(IEA);
+tr|F4GHM7|F4GHM7_SPICD	32	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJK7|F4GJK7_SPICD	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GK58|F4GK58_SPICD	5	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GHI5|F4GHI5_SPICD	5	periplasm	periplasmic space GO:0042597(IEA);
+tr|F4GJG8|F4GJG8_SPICD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GJA7|F4GJA7_SPICD	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F4GM85|F4GM85_SPICD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GLQ4|F4GLQ4_SPICD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GLH5|F4GLH5_SPICD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F4GIP7|F4GIP7_SPICD	11	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|F4GKT9|F4GKT9_SPICD	16	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F4GLT1|F4GLT1_SPICD	8	outer membrane	integral to membrane GO:0016021(IEA); intrinsic to cell outer membrane GO:0031230(IDA); plasma membrane GO:0005886(IEA);
+tr|F4GLM5|F4GLM5_SPICD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F4GI30|F4GI30_SPICD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|F4GKA3|F4GKA3_SPICD	43	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GJZ3|F4GJZ3_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI9|F4GJI9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLF3|F4GLF3_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GKX9|F4GKX9_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GKR3|F4GKR3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIY0|F4GIY0_SPICD	53	cytoplasm	cytoplasm GO:0005737
+tr|F4GI94|F4GI94_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GH30|F4GH30_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL15|F4GL15_SPICD	54	secreted	extracellular region GO:0005576;
+tr|F4GK76|F4GK76_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GLF1|F4GLF1_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIR3|F4GIR3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS1|F4GKS1_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ70|F4GJ70_SPICD	48	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GI93|F4GI93_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GII6|F4GII6_SPICD	68	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GJZ8|F4GJZ8_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GJT4|F4GJT4_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GKW4|F4GKW4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD6|F4GHD6_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GLN1|F4GLN1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKJ4|F4GKJ4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL68|F4GL68_SPICD	71	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ21|F4GJ21_SPICD	66	secreted	extracellular region GO:0005576;
+tr|F4GIG4|F4GIG4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHM5|F4GHM5_SPICD	64	secreted	extracellular region GO:0005576;
+tr|F4GLX3|F4GLX3_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GJG5|F4GJG5_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK59|F4GK59_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GLP1|F4GLP1_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GIC1|F4GIC1_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIR1|F4GIR1_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GL06|F4GL06_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GLB3|F4GLB3_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GID9|F4GID9_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GL88|F4GL88_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK73|F4GK73_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHW6|F4GHW6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH64|F4GH64_SPICD	66	secreted	extracellular region GO:0005576;
+tr|F4GJ16|F4GJ16_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJQ6|F4GJQ6_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIJ5|F4GIJ5_SPICD	66	cytoplasm	cytoplasm GO:0005737
+tr|F4GJD4|F4GJD4_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GL57|F4GL57_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL9|F4GKL9_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GM26|F4GM26_SPICD	49	cytoplasm	cytoplasm GO:0005737
+tr|F4GHR4|F4GHR4_SPICD	85	cytoplasm	cytoplasm GO:0005737
+tr|F4GIH4|F4GIH4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKC5|F4GKC5_SPICD	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJF0|F4GJF0_SPICD	68	periplasm	periplasmic space GO:0042597;
+tr|F4GK83|F4GK83_SPICD	52	cytoplasm	cytoplasm GO:0005737
+tr|F4GIM8|F4GIM8_SPICD	37	cytoplasm	cytoplasm GO:0005737
+tr|F4GHX2|F4GHX2_SPICD	26	secreted	extracellular region GO:0005576;
+tr|F4GHC5|F4GHC5_SPICD	38	cytoplasm	cytoplasm GO:0005737
+tr|F4GK43|F4GK43_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJX6|F4GJX6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLJ1|F4GLJ1_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHE1|F4GHE1_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GLU1|F4GLU1_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE3|F4GHE3_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GIB5|F4GIB5_SPICD	54	cytoplasm	cytoplasm GO:0005737
+tr|F4GJC6|F4GJC6_SPICD	22	secreted	extracellular region GO:0005576;
+tr|F4GLF6|F4GLF6_SPICD	73	cytoplasm	cytoplasm GO:0005737
+tr|F4GHB4|F4GHB4_SPICD	59	secreted	extracellular region GO:0005576;
+tr|F4GIU1|F4GIU1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS0|F4GKS0_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GH75|F4GH75_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GJA6|F4GJA6_SPICD	37	cytoplasm	cytoplasm GO:0005737
+tr|F4GHX5|F4GHX5_SPICD	45	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GHV3|F4GHV3_SPICD	74	cytoplasm	cytoplasm GO:0005737
+tr|F4GLT5|F4GLT5_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIC0|F4GIC0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKJ6|F4GKJ6_SPICD	69	secreted	extracellular region GO:0005576;
+tr|F4GM18|F4GM18_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GL32|F4GL32_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GLP4|F4GLP4_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIA2|F4GIA2_SPICD	38	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY7|F4GLY7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GH53|F4GH53_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GLK7|F4GLK7_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GLQ2|F4GLQ2_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GI12|F4GI12_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GIH5|F4GIH5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL66|F4GL66_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIB3|F4GIB3_SPICD	82	secreted	extracellular region GO:0005576;
+tr|F4GK56|F4GK56_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ78|F4GJ78_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKN5|F4GKN5_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GLL0|F4GLL0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIZ1|F4GIZ1_SPICD	65	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ13|F4GJ13_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK61|F4GK61_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE9|F4GJE9_SPICD	80	periplasm	periplasmic space GO:0042597;
+tr|F4GHM3|F4GHM3_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GL46|F4GL46_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJL2|F4GJL2_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GLN5|F4GLN5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL59|F4GL59_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJA9|F4GJA9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJQ7|F4GJQ7_SPICD	42	secreted	extracellular region GO:0005576;
+tr|F4GIJ7|F4GIJ7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL3|F4GKL3_SPICD	50	cytoplasm	cytoplasm GO:0005737
+tr|F4GK86|F4GK86_SPICD	68	cytoplasm	cytoplasm GO:0005737
+tr|F4GLZ0|F4GLZ0_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK85|F4GK85_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GHJ1|F4GHJ1_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHC9|F4GHC9_SPICD	53	cytoplasm	cytoplasm GO:0005737
+tr|F4GHF9|F4GHF9_SPICD	41	secreted	extracellular region GO:0005576;
+tr|F4GI87|F4GI87_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ69|F4GJ69_SPICD	50	secreted	extracellular region GO:0005576;
+tr|F4GI16|F4GI16_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GLP7|F4GLP7_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GIE4|F4GIE4_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ12|F4GJ12_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJE6|F4GJE6_SPICD	61	secreted	extracellular region GO:0005576;
+tr|F4GJR4|F4GJR4_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLG7|F4GLG7_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GK26|F4GK26_SPICD	40	secreted	extracellular region GO:0005576;
+tr|F4GH89|F4GH89_SPICD	54	cytoplasm	cytoplasm GO:0005737
+tr|F4GJD6|F4GJD6_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR0|F4GLR0_SPICD	53	secreted	extracellular region GO:0005576;
+tr|F4GJJ2|F4GJJ2_SPICD	57	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI5|F4GJI5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH45|F4GH45_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIN5|F4GIN5_SPICD	31	periplasm	periplasmic space GO:0042597;
+tr|F4GI11|F4GI11_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJW6|F4GJW6_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GI51|F4GI51_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHH6|F4GHH6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJJ7|F4GJJ7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI67|F4GI67_SPICD	69	secreted	extracellular region GO:0005576;
+tr|F4GHK6|F4GHK6_SPICD	40	cytoplasm	cytoplasm GO:0005737
+tr|F4GJT0|F4GJT0_SPICD	30	secreted	extracellular region GO:0005576;
+tr|F4GJF8|F4GJF8_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE3|F4GJE3_SPICD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHB3|F4GHB3_SPICD	85	cytoplasm	cytoplasm GO:0005737
+tr|F4GKQ6|F4GKQ6_SPICD	67	secreted	extracellular region GO:0005576;
+tr|F4GLE5|F4GLE5_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU7|F4GHU7_SPICD	30	cytoplasm	cytoplasm GO:0005737
+tr|F4GIX8|F4GIX8_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL19|F4GL19_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKB0|F4GKB0_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJP3|F4GJP3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK94|F4GK94_SPICD	39	secreted	extracellular region GO:0005576;
+tr|F4GJ66|F4GJ66_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GM07|F4GM07_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLK9|F4GLK9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK82|F4GK82_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLQ7|F4GLQ7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM36|F4GM36_SPICD	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ84|F4GJ84_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIU8|F4GIU8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK22|F4GK22_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHZ9|F4GHZ9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKX3|F4GKX3_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL8|F4GKL8_SPICD	29	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ90|F4GJ90_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU5|F4GJU5_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GI50|F4GI50_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ63|F4GJ63_SPICD	40	secreted	extracellular region GO:0005576;
+tr|F4GKY8|F4GKY8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE9|F4GHE9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI58|F4GI58_SPICD	50	cytoplasm	cytoplasm GO:0005737
+tr|F4GH84|F4GH84_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJA2|F4GJA2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKM5|F4GKM5_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GI61|F4GI61_SPICD	79	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM43|F4GM43_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIJ3|F4GIJ3_SPICD	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GL78|F4GL78_SPICD	65	cytoplasm	cytoplasm GO:0005737
+tr|F4GLX8|F4GLX8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKF3|F4GKF3_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GH47|F4GH47_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJJ0|F4GJJ0_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GLW0|F4GLW0_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU0|F4GJU0_SPICD	42	secreted	extracellular region GO:0005576;
+tr|F4GLB1|F4GLB1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLI8|F4GLI8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL98|F4GL98_SPICD	42	cytoplasm	cytoplasm GO:0005737
+tr|F4GJW8|F4GJW8_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GJ07|F4GJ07_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GHS9|F4GHS9_SPICD	43	cytoplasm	cytoplasm GO:0005737
+tr|F4GIZ4|F4GIZ4_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GI59|F4GI59_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GJR0|F4GJR0_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GKH0|F4GKH0_SPICD	63	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR1|F4GLR1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKG9|F4GKG9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK09|F4GK09_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV8|F4GJV8_SPICD	31	secreted	extracellular region GO:0005576;
+tr|F4GL76|F4GL76_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GI47|F4GI47_SPICD	67	secreted	extracellular region GO:0005576;
+tr|F4GJG2|F4GJG2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP6|F4GIP6_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GLI6|F4GLI6_SPICD	45	cytoplasm	cytoplasm GO:0005737
+tr|F4GH68|F4GH68_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GLZ5|F4GLZ5_SPICD	78	cytoplasm	cytoplasm GO:0005737
+tr|F4GJK8|F4GJK8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKD1|F4GKD1_SPICD	35	secreted	extracellular region GO:0005576;
+tr|F4GJS1|F4GJS1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKC7|F4GKC7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU8|F4GHU8_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GI38|F4GI38_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJN8|F4GJN8_SPICD	81	secreted	extracellular region GO:0005576;
+tr|F4GL69|F4GL69_SPICD	60	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY7|F4GHY7_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GK34|F4GK34_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI6|F4GHI6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLQ0|F4GLQ0_SPICD	36	secreted	extracellular region GO:0005576;
+tr|F4GL40|F4GL40_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV1|F4GJV1_SPICD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJW2|F4GJW2_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLH0|F4GLH0_SPICD	81	periplasm	periplasmic space GO:0042597;
+tr|F4GKV3|F4GKV3_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ05|F4GJ05_SPICD	84	periplasm	periplasmic space GO:0042597;
+tr|F4GJ35|F4GJ35_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK48|F4GK48_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIG7|F4GIG7_SPICD	96	periplasm	periplasmic space GO:0042597;
+tr|F4GJT8|F4GJT8_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD7|F4GHD7_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GI41|F4GI41_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH79|F4GH79_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP5|F4GIP5_SPICD	33	secreted	extracellular region GO:0005576;
+tr|F4GHX4|F4GHX4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GM81|F4GM81_SPICD	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHP1|F4GHP1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH49|F4GH49_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ89|F4GJ89_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU8|F4GJU8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM19|F4GM19_SPICD	42	cytoplasm	cytoplasm GO:0005737
+tr|F4GM80|F4GM80_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK88|F4GK88_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GJQ5|F4GJQ5_SPICD	67	cytoplasm	cytoplasm GO:0005737
+tr|F4GLL9|F4GLL9_SPICD	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHI0|F4GHI0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLN2|F4GLN2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI79|F4GI79_SPICD	50	secreted	extracellular region GO:0005576;
+tr|F4GLC0|F4GLC0_SPICD	56	secreted	extracellular region GO:0005576;
+tr|F4GM51|F4GM51_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD5|F4GHD5_SPICD	53	secreted	extracellular region GO:0005576;
+tr|F4GKK7|F4GKK7_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE7|F4GJE7_SPICD	41	cytoplasm	cytoplasm GO:0005737
+tr|F4GID3|F4GID3_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GH80|F4GH80_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GLD6|F4GLD6_SPICD	59	secreted	extracellular region GO:0005576;
+tr|F4GK51|F4GK51_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLV5|F4GLV5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY3|F4GHY3_SPICD	55	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLT4|F4GLT4_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GM75|F4GM75_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GL65|F4GL65_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GH59|F4GH59_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK02|F4GK02_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GI69|F4GI69_SPICD	65	secreted	extracellular region GO:0005576;
+tr|F4GH82|F4GH82_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKR1|F4GKR1_SPICD	80	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GL24|F4GL24_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL36|F4GL36_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GM04|F4GM04_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIC5|F4GIC5_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GIK6|F4GIK6_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GLA8|F4GLA8_SPICD	22	secreted	extracellular region GO:0005576;
+tr|F4GJ22|F4GJ22_SPICD	42	secreted	extracellular region GO:0005576;
+tr|F4GKD7|F4GKD7_SPICD	71	periplasm	periplasmic space GO:0042597;
+tr|F4GHG2|F4GHG2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU0|F4GHU0_SPICD	49	cytoplasm	cytoplasm GO:0005737
+tr|F4GH51|F4GH51_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GI52|F4GI52_SPICD	84	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLE1|F4GLE1_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GK91|F4GK91_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKT5|F4GKT5_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJF1|F4GJF1_SPICD	67	periplasm	periplasmic space GO:0042597;
+tr|F4GJ20|F4GJ20_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK10|F4GK10_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL83|F4GL83_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GLJ0|F4GLJ0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJP5|F4GJP5_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE2|F4GHE2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK23|F4GK23_SPICD	84	cytoplasm	cytoplasm GO:0005737
+tr|F4GKV0|F4GKV0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHW2|F4GHW2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS6|F4GKS6_SPICD	60	cytoplasm	cytoplasm GO:0005737
+tr|F4GH61|F4GH61_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GKP3|F4GKP3_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GIB8|F4GIB8_SPICD	76	secreted	extracellular region GO:0005576;
+tr|F4GHZ8|F4GHZ8_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKM0|F4GKM0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI60|F4GI60_SPICD	26	secreted	extracellular region GO:0005576;
+tr|F4GL14|F4GL14_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GIT1|F4GIT1_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK18|F4GK18_SPICD	55	secreted	extracellular region GO:0005576;
+tr|F4GKZ8|F4GKZ8_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GLG5|F4GLG5_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK19|F4GK19_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GKK5|F4GKK5_SPICD	75	cytoplasm	cytoplasm GO:0005737
+tr|F4GM40|F4GM40_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJB1|F4GJB1_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GIJ2|F4GIJ2_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GLW3|F4GLW3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ18|F4GJ18_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GJX8|F4GJX8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIU0|F4GIU0_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GJG1|F4GJG1_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHG5|F4GHG5_SPICD	35	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GM62|F4GM62_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM03|F4GM03_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJR1|F4GJR1_SPICD	71	cytoplasm	cytoplasm GO:0005737
+tr|F4GKI2|F4GKI2_SPICD	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GH43|F4GH43_SPICD	84	cytoplasm	cytoplasm GO:0005737
+tr|F4GLP8|F4GLP8_SPICD	79	cytoplasm	cytoplasm GO:0005737
+tr|F4GK67|F4GK67_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIJ4|F4GIJ4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD3|F4GHD3_SPICD	56	cytoplasm	cytoplasm GO:0005737
+tr|F4GJJ9|F4GJJ9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL90|F4GL90_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GH50|F4GH50_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GLK1|F4GLK1_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GH88|F4GH88_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI44|F4GI44_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIE9|F4GIE9_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GLD4|F4GLD4_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL10|F4GL10_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GK25|F4GK25_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GHR8|F4GHR8_SPICD	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHF8|F4GHF8_SPICD	73	secreted	extracellular region GO:0005576;
+tr|F4GJ64|F4GJ64_SPICD	65	cytoplasm	cytoplasm GO:0005737
+tr|F4GI89|F4GI89_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY5|F4GHY5_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GKI4|F4GKI4_SPICD	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GID7|F4GID7_SPICD	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK00|F4GK00_SPICD	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKM6|F4GKM6_SPICD	49	secreted	extracellular region GO:0005576;
+tr|F4GJH4|F4GJH4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLS5|F4GLS5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJY2|F4GJY2_SPICD	73	secreted	extracellular region GO:0005576;
+tr|F4GKS2|F4GKS2_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GI18|F4GI18_SPICD	45	secreted	extracellular region GO:0005576;
+tr|F4GKC9|F4GKC9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GH34|F4GH34_SPICD	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIA0|F4GIA0_SPICD	55	secreted	extracellular region GO:0005576;
+tr|F4GJL0|F4GJL0_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GLU9|F4GLU9_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GI70|F4GI70_SPICD	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLU8|F4GLU8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJU3|F4GJU3_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GLY3|F4GLY3_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKK3|F4GKK3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GM38|F4GM38_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GJM3|F4GJM3_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GK29|F4GK29_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ3|F4GKZ3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL86|F4GL86_SPICD	47	cytoplasm	cytoplasm GO:0005737
+tr|F4GK03|F4GK03_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GK71|F4GK71_SPICD	69	secreted	extracellular region GO:0005576;
+tr|F4GK30|F4GK30_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GIU2|F4GIU2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIV9|F4GIV9_SPICD	58	secreted	extracellular region GO:0005576;
+tr|F4GK53|F4GK53_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKT6|F4GKT6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH91|F4GH91_SPICD	68	cytoplasm	cytoplasm GO:0005737
+tr|F4GKG8|F4GKG8_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GKV2|F4GKV2_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKP7|F4GKP7_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GL85|F4GL85_SPICD	68	cytoplasm	cytoplasm GO:0005737
+tr|F4GJY9|F4GJY9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL5|F4GKL5_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ39|F4GJ39_SPICD	85	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY4|F4GHY4_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKC2|F4GKC2_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GJ09|F4GJ09_SPICD	67	periplasm	periplasmic space GO:0042597;
+tr|F4GHK8|F4GHK8_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN1|F4GKN1_SPICD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJY3|F4GJY3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIL3|F4GIL3_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GHD0|F4GHD0_SPICD	95	secreted	extracellular region GO:0005576;
+tr|F4GJZ4|F4GJZ4_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GL95|F4GL95_SPICD	40	secreted	extracellular region GO:0005576;
+tr|F4GKU7|F4GKU7_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GHV7|F4GHV7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKX2|F4GKX2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIQ2|F4GIQ2_SPICD	56	secreted	extracellular region GO:0005576;
+tr|F4GKL6|F4GKL6_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GM88|F4GM88_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP0|F4GIP0_SPICD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLM7|F4GLM7_SPICD	95	periplasm	periplasmic space GO:0042597;
+tr|F4GKS5|F4GKS5_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GKK2|F4GKK2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL22|F4GL22_SPICD	64	secreted	extracellular region GO:0005576;
+tr|F4GKJ5|F4GKJ5_SPICD	85	cytoplasm	cytoplasm GO:0005737
+tr|F4GKK4|F4GKK4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI64|F4GI64_SPICD	67	cytoplasm	cytoplasm GO:0005737
+tr|F4GIT2|F4GIT2_SPICD	76	cytoplasm	cytoplasm GO:0005737
+tr|F4GKE9|F4GKE9_SPICD	39	secreted	extracellular region GO:0005576;
+tr|F4GKC1|F4GKC1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIL5|F4GIL5_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GM77|F4GM77_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GKM3|F4GKM3_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE5|F4GJE5_SPICD	43	cytoplasm	cytoplasm GO:0005737
+tr|F4GIM0|F4GIM0_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP1|F4GIP1_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GI83|F4GI83_SPICD	88	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GIL9|F4GIL9_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GKR5|F4GKR5_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GK27|F4GK27_SPICD	46	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN6|F4GKN6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GID8|F4GID8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS8|F4GKS8_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GLV7|F4GLV7_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GK62|F4GK62_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLF4|F4GLF4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK44|F4GK44_SPICD	56	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLA9|F4GLA9_SPICD	60	cytoplasm	cytoplasm GO:0005737
+tr|F4GKJ8|F4GKJ8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI74|F4GI74_SPICD	50	secreted	extracellular region GO:0005576;
+tr|F4GLA4|F4GLA4_SPICD	55	secreted	extracellular region GO:0005576;
+tr|F4GK06|F4GK06_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE4|F4GHE4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKV4|F4GKV4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLT8|F4GLT8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI31|F4GI31_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH63|F4GH63_SPICD	51	cytoplasm	cytoplasm GO:0005737
+tr|F4GL44|F4GL44_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GHA2|F4GHA2_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GI82|F4GI82_SPICD	79	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLN8|F4GLN8_SPICD	40	cytoplasm	cytoplasm GO:0005737
+tr|F4GK33|F4GK33_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GH35|F4GH35_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GL45|F4GL45_SPICD	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK84|F4GK84_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GJH6|F4GJH6_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJX2|F4GJX2_SPICD	62	periplasm	periplasmic space GO:0042597;
+tr|F4GJ68|F4GJ68_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKI8|F4GKI8_SPICD	40	cytoplasm	cytoplasm GO:0005737
+tr|F4GIA3|F4GIA3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK70|F4GK70_SPICD	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM54|F4GM54_SPICD	75	cytoplasm	cytoplasm GO:0005737
+tr|F4GJH7|F4GJH7_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GM45|F4GM45_SPICD	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHE5|F4GHE5_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GK87|F4GK87_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLV0|F4GLV0_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GM53|F4GM53_SPICD	54	secreted	extracellular region GO:0005576;
+tr|F4GK78|F4GK78_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GJA3|F4GJA3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIZ2|F4GIZ2_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU1|F4GHU1_SPICD	33	secreted	extracellular region GO:0005576;
+tr|F4GKG2|F4GKG2_SPICD	42	secreted	extracellular region GO:0005576;
+tr|F4GHY1|F4GHY1_SPICD	75	cytoplasm	cytoplasm GO:0005737
+tr|F4GKH5|F4GKH5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHA1|F4GHA1_SPICD	55	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GI92|F4GI92_SPICD	30	cytoplasm	cytoplasm GO:0005737
+tr|F4GIM6|F4GIM6_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIJ6|F4GIJ6_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI55|F4GI55_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GIZ9|F4GIZ9_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GKZ0|F4GKZ0_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GJD2|F4GJD2_SPICD	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJH9|F4GJH9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJB7|F4GJB7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKW5|F4GKW5_SPICD	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJD1|F4GJD1_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIX9|F4GIX9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJN9|F4GJN9_SPICD	21	secreted	extracellular region GO:0005576;
+tr|F4GJB8|F4GJB8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH54|F4GH54_SPICD	63	cytoplasm	cytoplasm GO:0005737
+tr|F4GM01|F4GM01_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ23|F4GJ23_SPICD	71	secreted	extracellular region GO:0005576;
+tr|F4GL30|F4GL30_SPICD	75	cytoplasm	cytoplasm GO:0005737
+tr|F4GLB9|F4GLB9_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GKR0|F4GKR0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ83|F4GJ83_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ79|F4GJ79_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHX6|F4GHX6_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GL74|F4GL74_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHB1|F4GHB1_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU7|F4GJU7_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE8|F4GHE8_SPICD	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIT5|F4GIT5_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GLC8|F4GLC8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE0|F4GHE0_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GI35|F4GI35_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI54|F4GI54_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GIV7|F4GIV7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKF5|F4GKF5_SPICD	36	secreted	extracellular region GO:0005576;
+tr|F4GJD5|F4GJD5_SPICD	59	secreted	extracellular region GO:0005576;
+tr|F4GLS8|F4GLS8_SPICD	36	secreted	extracellular region GO:0005576;
+tr|F4GID5|F4GID5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIV0|F4GIV0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ86|F4GJ86_SPICD	45	cytoplasm	cytoplasm GO:0005737
+tr|F4GM76|F4GM76_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIS3|F4GIS3_SPICD	78	cytoplasm	cytoplasm GO:0005737
+tr|F4GIE0|F4GIE0_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHQ1|F4GHQ1_SPICD	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLK5|F4GLK5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL13|F4GL13_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GKE0|F4GKE0_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GM37|F4GM37_SPICD	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHQ6|F4GHQ6_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL89|F4GL89_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJR5|F4GJR5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLC4|F4GLC4_SPICD	41	cytoplasm	cytoplasm GO:0005737
+tr|F4GH22|F4GH22_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GIH9|F4GIH9_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GKW1|F4GKW1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI22|F4GI22_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIM1|F4GIM1_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI8|F4GHI8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKQ2|F4GKQ2_SPICD	48	periplasm	periplasmic space GO:0042597;
+tr|F4GI23|F4GI23_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GM15|F4GM15_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM69|F4GM69_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GLM3|F4GLM3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKT7|F4GKT7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKG6|F4GKG6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIS9|F4GIS9_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLI5|F4GLI5_SPICD	73	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP9|F4GIP9_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD4|F4GHD4_SPICD	34	secreted	extracellular region GO:0005576;
+tr|F4GLP6|F4GLP6_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GK74|F4GK74_SPICD	95	periplasm	periplasmic space GO:0042597;
+tr|F4GL63|F4GL63_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJY0|F4GJY0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ50|F4GJ50_SPICD	24	cytoplasm	cytoplasm GO:0005737
+tr|F4GIR5|F4GIR5_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLG0|F4GLG0_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GL33|F4GL33_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GJQ3|F4GJQ3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLW7|F4GLW7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKT4|F4GKT4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI34|F4GI34_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKR8|F4GKR8_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GLM9|F4GLM9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIS6|F4GIS6_SPICD	48	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GHK7|F4GHK7_SPICD	32	cytoplasm	cytoplasm GO:0005737
+tr|F4GIT4|F4GIT4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI1|F4GJI1_SPICD	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKM7|F4GKM7_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GH23|F4GH23_SPICD	43	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI2|F4GHI2_SPICD	33	cytoplasm	cytoplasm GO:0005737
+tr|F4GKG5|F4GKG5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLQ9|F4GLQ9_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GI32|F4GI32_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIR8|F4GIR8_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJT1|F4GJT1_SPICD	35	cytoplasm	cytoplasm GO:0005737
+tr|F4GIS5|F4GIS5_SPICD	49	secreted	extracellular region GO:0005576;
+tr|F4GLK0|F4GLK0_SPICD	47	secreted	extracellular region GO:0005576;
+tr|F4GJV3|F4GJV3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH48|F4GH48_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ4|F4GKZ4_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GM64|F4GM64_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKF7|F4GKF7_SPICD	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM57|F4GM57_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKA9|F4GKA9_SPICD	77	secreted	extracellular region GO:0005576;
+tr|F4GIG0|F4GIG0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLJ4|F4GLJ4_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GKY3|F4GKY3_SPICD	70	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU4|F4GHU4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL61|F4GL61_SPICD	71	secreted	extracellular region GO:0005576;
+tr|F4GL35|F4GL35_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHP3|F4GHP3_SPICD	96	periplasm	periplasmic space GO:0042597;
+tr|F4GIN9|F4GIN9_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GJB5|F4GJB5_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIW7|F4GIW7_SPICD	75	periplasm	periplasmic space GO:0042597;
+tr|F4GHJ0|F4GHJ0_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIH0|F4GIH0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHN7|F4GHN7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKR2|F4GKR2_SPICD	69	secreted	extracellular region GO:0005576;
+tr|F4GJA1|F4GJA1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIK2|F4GIK2_SPICD	63	cytoplasm	cytoplasm GO:0005737
+tr|F4GHR7|F4GHR7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLP2|F4GLP2_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GKR4|F4GKR4_SPICD	75	secreted	extracellular region GO:0005576;
+tr|F4GIL8|F4GIL8_SPICD	60	cytoplasm	cytoplasm GO:0005737
+tr|F4GIB0|F4GIB0_SPICD	41	cytoplasm	cytoplasm GO:0005737
+tr|F4GI88|F4GI88_SPICD	41	cytoplasm	cytoplasm GO:0005737
+tr|F4GHS2|F4GHS2_SPICD	18	secreted	extracellular region GO:0005576;
+tr|F4GI49|F4GI49_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHK4|F4GHK4_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GJ14|F4GJ14_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ30|F4GJ30_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GKR7|F4GKR7_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GJH1|F4GJH1_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GLK6|F4GLK6_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GHG1|F4GHG1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL41|F4GL41_SPICD	58	secreted	extracellular region GO:0005576;
+tr|F4GLE3|F4GLE3_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GL34|F4GL34_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GI91|F4GI91_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ5|F4GKZ5_SPICD	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIV3|F4GIV3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ08|F4GJ08_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GIP3|F4GIP3_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GLD1|F4GLD1_SPICD	47	cytoplasm	cytoplasm GO:0005737
+tr|F4GH92|F4GH92_SPICD	40	cytoplasm	cytoplasm GO:0005737
+tr|F4GH77|F4GH77_SPICD	51	cytoplasm	cytoplasm GO:0005737
+tr|F4GK35|F4GK35_SPICD	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJI0|F4GJI0_SPICD	65	secreted	extracellular region GO:0005576;
+tr|F4GKJ3|F4GKJ3_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY9|F4GLY9_SPICD	37	secreted	extracellular region GO:0005576;
+tr|F4GI24|F4GI24_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR7|F4GLR7_SPICD	54	secreted	extracellular region GO:0005576;
+tr|F4GHS5|F4GHS5_SPICD	39	secreted	extracellular region GO:0005576;
+tr|F4GIH3|F4GIH3_SPICD	43	secreted	extracellular region GO:0005576;
+tr|F4GL43|F4GL43_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GLD8|F4GLD8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIT3|F4GIT3_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GI46|F4GI46_SPICD	52	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV7|F4GJV7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR3|F4GLR3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKD9|F4GKD9_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK45|F4GK45_SPICD	64	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GK01|F4GK01_SPICD	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK38|F4GK38_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL93|F4GL93_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKT3|F4GKT3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIK8|F4GIK8_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GHF5|F4GHF5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHT6|F4GHT6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIZ0|F4GIZ0_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GLT6|F4GLT6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLV9|F4GLV9_SPICD	62	secreted	extracellular region GO:0005576;
+tr|F4GK05|F4GK05_SPICD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKT8|F4GKT8_SPICD	26	secreted	extracellular region GO:0005576;
+tr|F4GJ01|F4GJ01_SPICD	45	secreted	extracellular region GO:0005576;
+tr|F4GKR6|F4GKR6_SPICD	64	secreted	extracellular region GO:0005576;
+tr|F4GI42|F4GI42_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHA3|F4GHA3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL92|F4GL92_SPICD	54	cytoplasm	cytoplasm GO:0005737
+tr|F4GL99|F4GL99_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GHN1|F4GHN1_SPICD	64	cytoplasm	cytoplasm GO:0005737
+tr|F4GM33|F4GM33_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJF7|F4GJF7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLU7|F4GLU7_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR4|F4GLR4_SPICD	63	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GKP1|F4GKP1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY2|F4GLY2_SPICD	70	secreted	extracellular region GO:0005576;
+tr|F4GJB9|F4GJB9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL60|F4GL60_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GHQ3|F4GHQ3_SPICD	78	periplasm	periplasmic space GO:0042597;
+tr|F4GL64|F4GL64_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GL25|F4GL25_SPICD	40	secreted	extracellular region GO:0005576;
+tr|F4GL80|F4GL80_SPICD	71	cytoplasm	cytoplasm GO:0005737
+tr|F4GJH3|F4GJH3_SPICD	78	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU9|F4GHU9_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GL38|F4GL38_SPICD	61	cytoplasm	cytoplasm GO:0005737
+tr|F4GI68|F4GI68_SPICD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJE2|F4GJE2_SPICD	71	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU6|F4GJU6_SPICD	74	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI7|F4GJI7_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GM73|F4GM73_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN3|F4GKN3_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GHL2|F4GHL2_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GIY4|F4GIY4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHT9|F4GHT9_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GLH3|F4GLH3_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKJ1|F4GKJ1_SPICD	71	cytoplasm	cytoplasm GO:0005737
+tr|F4GIA5|F4GIA5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY8|F4GHY8_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE4|F4GJE4_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GK52|F4GK52_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GJD3|F4GJD3_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GHX1|F4GHX1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJN7|F4GJN7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM23|F4GM23_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GJY1|F4GJY1_SPICD	47	secreted	extracellular region GO:0005576;
+tr|F4GIE7|F4GIE7_SPICD	53	secreted	extracellular region GO:0005576;
+tr|F4GJZ5|F4GJZ5_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GHB2|F4GHB2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL28|F4GL28_SPICD	53	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV6|F4GJV6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GM86|F4GM86_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GID0|F4GID0_SPICD	61	secreted	extracellular region GO:0005576;
+tr|F4GKJ0|F4GKJ0_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GIC8|F4GIC8_SPICD	69	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GI75|F4GI75_SPICD	48	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL4|F4GKL4_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GM44|F4GM44_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJH5|F4GJH5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKM8|F4GKM8_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GJS2|F4GJS2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJG9|F4GJG9_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GHR5|F4GHR5_SPICD	42	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GK93|F4GK93_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY9|F4GHY9_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GHL1|F4GHL1_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJR2|F4GJR2_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GH33|F4GH33_SPICD	63	secreted	extracellular region GO:0005576;
+tr|F4GHV4|F4GHV4_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN7|F4GKN7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK63|F4GK63_SPICD	28	secreted	extracellular region GO:0005576;
+tr|F4GK20|F4GK20_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIH1|F4GIH1_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD9|F4GHD9_SPICD	23	secreted	extracellular region GO:0005576;
+tr|F4GIH6|F4GIH6_SPICD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKA6|F4GKA6_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ99|F4GJ99_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GI57|F4GI57_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GKQ3|F4GKQ3_SPICD	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKH6|F4GKH6_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GH87|F4GH87_SPICD	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIH7|F4GIH7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK46|F4GK46_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI4|F4GJI4_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GL21|F4GL21_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLF8|F4GLF8_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJC0|F4GJC0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIW4|F4GIW4_SPICD	66	cytoplasm	cytoplasm GO:0005737
+tr|F4GHS1|F4GHS1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU6|F4GHU6_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GJP6|F4GJP6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL73|F4GL73_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GH86|F4GH86_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ80|F4GJ80_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIU6|F4GIU6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH19|F4GH19_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GM25|F4GM25_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE7|F4GHE7_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GLW2|F4GLW2_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GHK3|F4GHK3_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GI48|F4GI48_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GIU7|F4GIU7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLD2|F4GLD2_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GKK1|F4GKK1_SPICD	24	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLT2|F4GLT2_SPICD	43	secreted	extracellular region GO:0005576;
+tr|F4GL51|F4GL51_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GKX1|F4GKX1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHV0|F4GHV0_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GJG0|F4GJG0_SPICD	45	secreted	extracellular region GO:0005576;
+tr|F4GH76|F4GH76_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJQ4|F4GJQ4_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GIK3|F4GIK3_SPICD	46	cytoplasm	cytoplasm GO:0005737
+tr|F4GL42|F4GL42_SPICD	69	secreted	extracellular region GO:0005576;
+tr|F4GLZ8|F4GLZ8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLW5|F4GLW5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKC0|F4GKC0_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GH78|F4GH78_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GL62|F4GL62_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GL52|F4GL52_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GHK9|F4GHK9_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK90|F4GK90_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLT7|F4GLT7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHT8|F4GHT8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKP2|F4GKP2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GK08|F4GK08_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GJG4|F4GJG4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLX9|F4GLX9_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI2|F4GJI2_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GKM4|F4GKM4_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GLH9|F4GLH9_SPICD	89	periplasm	periplasmic space GO:0042597;
+tr|F4GL16|F4GL16_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN4|F4GKN4_SPICD	32	cytoplasm	cytoplasm GO:0005737
+tr|F4GL96|F4GL96_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ71|F4GJ71_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GIG8|F4GIG8_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GIP4|F4GIP4_SPICD	63	cytoplasm	cytoplasm GO:0005737
+tr|F4GHP8|F4GHP8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GH62|F4GH62_SPICD	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHG6|F4GHG6_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GH26|F4GH26_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GLI9|F4GLI9_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHC7|F4GHC7_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GJW3|F4GJW3_SPICD	85	secreted	extracellular region GO:0005576;
+tr|F4GKM1|F4GKM1_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GJW4|F4GJW4_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ9|F4GKZ9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKK8|F4GKK8_SPICD	72	cytoplasm	cytoplasm GO:0005737
+tr|F4GLE9|F4GLE9_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GM74|F4GM74_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GJ40|F4GJ40_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJM9|F4GJM9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIB1|F4GIB1_SPICD	58	secreted	extracellular region GO:0005576;
+tr|F4GHF2|F4GHF2_SPICD	40	cytoplasm	cytoplasm GO:0005737
+tr|F4GJQ0|F4GJQ0_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GI72|F4GI72_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GKR9|F4GKR9_SPICD	59	cytoplasm	cytoplasm GO:0005737
+tr|F4GIQ3|F4GIQ3_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GJH2|F4GJH2_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GHV2|F4GHV2_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GI73|F4GI73_SPICD	44	cytoplasm	cytoplasm GO:0005737
+tr|F4GM56|F4GM56_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ75|F4GJ75_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK07|F4GK07_SPICD	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKX7|F4GKX7_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL26|F4GL26_SPICD	66	cytoplasm	cytoplasm GO:0005737
+tr|F4GI71|F4GI71_SPICD	96	fimbrium	pilus GO:0009289;
+tr|F4GKH9|F4GKH9_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GL08|F4GL08_SPICD	67	cytoplasm	cytoplasm GO:0005737
+tr|F4GI65|F4GI65_SPICD	18	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR2|F4GLR2_SPICD	54	secreted	extracellular region GO:0005576;
+tr|F4GHF3|F4GHF3_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GH85|F4GH85_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GHC2|F4GHC2_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKC6|F4GKC6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GI76|F4GI76_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ6|F4GKZ6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHB6|F4GHB6_SPICD	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ77|F4GJ77_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJE8|F4GJE8_SPICD	48	secreted	extracellular region GO:0005576;
+tr|F4GLW6|F4GLW6_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLN7|F4GLN7_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV5|F4GJV5_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHS6|F4GHS6_SPICD	83	periplasm	periplasmic space GO:0042597;
+tr|F4GHR0|F4GHR0_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKF0|F4GKF0_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM17|F4GM17_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GL55|F4GL55_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHW7|F4GHW7_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GIR9|F4GIR9_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJX4|F4GJX4_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GL77|F4GL77_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV0|F4GJV0_SPICD	45	fimbrium	pilus GO:0009289;
+tr|F4GHP9|F4GHP9_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GIC9|F4GIC9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI7|F4GHI7_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GIZ6|F4GIZ6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHD2|F4GHD2_SPICD	43	secreted	extracellular region GO:0005576;
+tr|F4GK42|F4GK42_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU9|F4GJU9_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GJU1|F4GJU1_SPICD	89	cytoplasm	cytoplasm GO:0005737
+tr|F4GKI9|F4GKI9_SPICD	24	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GJ17|F4GJ17_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJP2|F4GJP2_SPICD	96	cytoplasm	cytoplasm GO:0005737
+tr|F4GLX5|F4GLX5_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GI40|F4GI40_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GKA2|F4GKA2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK72|F4GK72_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIF0|F4GIF0_SPICD	62	cytoplasm	cytoplasm GO:0005737
+tr|F4GIX2|F4GIX2_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN0|F4GKN0_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK57|F4GK57_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLD3|F4GLD3_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHG4|F4GHG4_SPICD	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJJ1|F4GJJ1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL18|F4GL18_SPICD	47	secreted	extracellular region GO:0005576;
+tr|F4GK89|F4GK89_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHY2|F4GHY2_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GHH4|F4GHH4_SPICD	38	secreted	extracellular region GO:0005576;
+tr|F4GIG2|F4GIG2_SPICD	65	secreted	extracellular region GO:0005576;
+tr|F4GKA4|F4GKA4_SPICD	40	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLW1|F4GLW1_SPICD	85	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS7|F4GKS7_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI1|F4GHI1_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GI80|F4GI80_SPICD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLE6|F4GLE6_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GKB1|F4GKB1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GI95|F4GI95_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GI45|F4GI45_SPICD	67	secreted	extracellular region GO:0005576;
+tr|F4GKK9|F4GKK9_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GID1|F4GID1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJL3|F4GJL3_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GL79|F4GL79_SPICD	34	cytoplasm	cytoplasm GO:0005737
+tr|F4GL11|F4GL11_SPICD	24	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJS0|F4GJS0_SPICD	62	cytoplasm	cytoplasm GO:0005737
+tr|F4GIL2|F4GIL2_SPICD	55	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ59|F4GJ59_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJF6|F4GJF6_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GLX2|F4GLX2_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIL6|F4GIL6_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL20|F4GL20_SPICD	55	secreted	extracellular region GO:0005576;
+tr|F4GLZ6|F4GLZ6_SPICD	70	secreted	extracellular region GO:0005576;
+tr|F4GM52|F4GM52_SPICD	39	cytoplasm	cytoplasm GO:0005737
+tr|F4GK47|F4GK47_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GJZ9|F4GJZ9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJV2|F4GJV2_SPICD	36	secreted	extracellular region GO:0005576;
+tr|F4GJR6|F4GJR6_SPICD	37	secreted	extracellular region GO:0005576;
+tr|F4GIF3|F4GIF3_SPICD	70	cytoplasm	cytoplasm GO:0005737
+tr|F4GJP1|F4GJP1_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKQ5|F4GKQ5_SPICD	66	secreted	extracellular region GO:0005576;
+tr|F4GJL1|F4GJL1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKD0|F4GKD0_SPICD	59	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU3|F4GHU3_SPICD	39	cytoplasm	cytoplasm GO:0005737
+tr|F4GM55|F4GM55_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ98|F4GJ98_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GLJ8|F4GLJ8_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GM20|F4GM20_SPICD	38	cytoplasm	cytoplasm GO:0005737
+tr|F4GKU2|F4GKU2_SPICD	62	secreted	extracellular region GO:0005576;
+tr|F4GHN5|F4GHN5_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY4|F4GLY4_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GHN4|F4GHN4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJD8|F4GJD8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIW6|F4GIW6_SPICD	73	cytoplasm	cytoplasm GO:0005737
+tr|F4GID4|F4GID4_SPICD	36	secreted	extracellular region GO:0005576;
+tr|F4GM11|F4GM11_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GL81|F4GL81_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM42|F4GM42_SPICD	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GK24|F4GK24_SPICD	72	cytoplasm	cytoplasm GO:0005737
+tr|F4GI03|F4GI03_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GH52|F4GH52_SPICD	53	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GL17|F4GL17_SPICD	61	secreted	extracellular region GO:0005576;
+tr|F4GH57|F4GH57_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJW0|F4GJW0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLZ4|F4GLZ4_SPICD	59	secreted	extracellular region GO:0005576;
+tr|F4GLQ5|F4GLQ5_SPICD	46	periplasm	periplasmic space GO:0042597;
+tr|F4GIQ5|F4GIQ5_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GJR7|F4GJR7_SPICD	37	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU2|F4GHU2_SPICD	40	secreted	extracellular region GO:0005576;
+tr|F4GHF0|F4GHF0_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GLC6|F4GLC6_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY8|F4GLY8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLJ9|F4GLJ9_SPICD	74	cytoplasm	cytoplasm GO:0005737
+tr|F4GHA0|F4GHA0_SPICD	47	cytoplasm	cytoplasm GO:0005737
+tr|F4GHH9|F4GHH9_SPICD	41	secreted	extracellular region GO:0005576;
+tr|F4GLZ9|F4GLZ9_SPICD	63	secreted	extracellular region GO:0005576;
+tr|F4GJ95|F4GJ95_SPICD	47	cytoplasm	cytoplasm GO:0005737
+tr|F4GH73|F4GH73_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLE0|F4GLE0_SPICD	34	cytoplasm	cytoplasm GO:0005737
+tr|F4GKE8|F4GKE8_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GKP5|F4GKP5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL37|F4GL37_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD8|F4GHD8_SPICD	41	cytoplasm	cytoplasm GO:0005737
+tr|F4GH90|F4GH90_SPICD	58	secreted	extracellular region GO:0005576;
+tr|F4GIU9|F4GIU9_SPICD	58	secreted	extracellular region GO:0005576;
+tr|F4GII4|F4GII4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHF1|F4GHF1_SPICD	55	secreted	extracellular region GO:0005576;
+tr|F4GH56|F4GH56_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLP9|F4GLP9_SPICD	45	cytoplasm	cytoplasm GO:0005737
+tr|F4GLB0|F4GLB0_SPICD	73	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ93|F4GJ93_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GM47|F4GM47_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GIW5|F4GIW5_SPICD	72	cytoplasm	cytoplasm GO:0005737
+tr|F4GK16|F4GK16_SPICD	26	secreted	extracellular region GO:0005576;
+tr|F4GKZ2|F4GKZ2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIV1|F4GIV1_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GKB8|F4GKB8_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIA8|F4GIA8_SPICD	54	cytoplasm	cytoplasm GO:0005737
+tr|F4GIA1|F4GIA1_SPICD	37	cytoplasm	cytoplasm GO:0005737
+tr|F4GLG9|F4GLG9_SPICD	49	cytoplasm	cytoplasm GO:0005737
+tr|F4GKE6|F4GKE6_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GJR9|F4GJR9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GK04|F4GK04_SPICD	34	secreted	extracellular region GO:0005576;
+tr|F4GHA7|F4GHA7_SPICD	56	cytoplasm	cytoplasm GO:0005737
+tr|F4GLC2|F4GLC2_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLS9|F4GLS9_SPICD	78	secreted	extracellular region GO:0005576;
+tr|F4GL27|F4GL27_SPICD	66	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ43|F4GJ43_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL0|F4GKL0_SPICD	51	cytoplasm	cytoplasm GO:0005737
+tr|F4GLP3|F4GLP3_SPICD	20	secreted	extracellular region GO:0005576;
+tr|F4GLV3|F4GLV3_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIB4|F4GIB4_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GHU5|F4GHU5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLG4|F4GLG4_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GH69|F4GH69_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GJP8|F4GJP8_SPICD	64	cytoplasm	cytoplasm GO:0005737
+tr|F4GM08|F4GM08_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKU4|F4GKU4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHD1|F4GHD1_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GHG3|F4GHG3_SPICD	65	secreted	extracellular region GO:0005576;
+tr|F4GM87|F4GM87_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH39|F4GH39_SPICD	81	cytoplasm	cytoplasm GO:0005737
+tr|F4GJZ2|F4GJZ2_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GJS3|F4GJS3_SPICD	78	cytoplasm	cytoplasm GO:0005737
+tr|F4GLM2|F4GLM2_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKX4|F4GKX4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLX7|F4GLX7_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GLZ3|F4GLZ3_SPICD	80	cytoplasm	cytoplasm GO:0005737
+tr|F4GH41|F4GH41_SPICD	79	cytoplasm	cytoplasm GO:0005737
+tr|F4GII2|F4GII2_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GHT3|F4GHT3_SPICD	86	cytoplasm	cytoplasm GO:0005737
+tr|F4GH44|F4GH44_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJP9|F4GJP9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ88|F4GJ88_SPICD	89	periplasm	periplasmic space GO:0042597;
+tr|F4GJ74|F4GJ74_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL23|F4GL23_SPICD	79	secreted	extracellular region GO:0005576;
+tr|F4GIM9|F4GIM9_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GM00|F4GM00_SPICD	32	cytoplasm	cytoplasm GO:0005737
+tr|F4GJI8|F4GJI8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIE8|F4GIE8_SPICD	37	cytoplasm	cytoplasm GO:0005737
+tr|F4GL07|F4GL07_SPICD	64	cytoplasm	cytoplasm GO:0005737
+tr|F4GLX4|F4GLX4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GID2|F4GID2_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIY5|F4GIY5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIF1|F4GIF1_SPICD	45	secreted	extracellular region GO:0005576;
+tr|F4GL29|F4GL29_SPICD	60	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ87|F4GJ87_SPICD	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHM6|F4GHM6_SPICD	50	secreted	extracellular region GO:0005576;
+tr|F4GHT0|F4GHT0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHW4|F4GHW4_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GKV1|F4GKV1_SPICD	29	secreted	extracellular region GO:0005576;
+tr|F4GJU4|F4GJU4_SPICD	61	secreted	extracellular region GO:0005576;
+tr|F4GLW4|F4GLW4_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GJC1|F4GJC1_SPICD	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHG0|F4GHG0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL70|F4GL70_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GLC3|F4GLC3_SPICD	31	secreted	extracellular region GO:0005576;
+tr|F4GIZ7|F4GIZ7_SPICD	52	secreted	extracellular region GO:0005576;
+tr|F4GLR8|F4GLR8_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKY2|F4GKY2_SPICD	96	periplasm	periplasmic space GO:0042597;
+tr|F4GHV1|F4GHV1_SPICD	39	secreted	extracellular region GO:0005576;
+tr|F4GM35|F4GM35_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL82|F4GL82_SPICD	69	cytoplasm	cytoplasm GO:0005737
+tr|F4GIT6|F4GIT6_SPICD	45	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ37|F4GJ37_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLT0|F4GLT0_SPICD	66	secreted	extracellular region GO:0005576;
+tr|F4GIG9|F4GIG9_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GHC1|F4GHC1_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GIN7|F4GIN7_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL58|F4GL58_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GHE6|F4GHE6_SPICD	29	secreted	extracellular region GO:0005576;
+tr|F4GIZ8|F4GIZ8_SPICD	50	secreted	extracellular region GO:0005576;
+tr|F4GIX3|F4GIX3_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GLR6|F4GLR6_SPICD	34	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLL3|F4GLL3_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GHF7|F4GHF7_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHC3|F4GHC3_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GKM2|F4GKM2_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GLU4|F4GLU4_SPICD	42	secreted	extracellular region GO:0005576;
+tr|F4GJL8|F4GJL8_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIV2|F4GIV2_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GH74|F4GH74_SPICD	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GI37|F4GI37_SPICD	58	periplasm	periplasmic space GO:0042597;
+tr|F4GJZ6|F4GJZ6_SPICD	79	secreted	extracellular region GO:0005576;
+tr|F4GL09|F4GL09_SPICD	77	cytoplasm	cytoplasm GO:0005737
+tr|F4GIZ3|F4GIZ3_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GLN6|F4GLN6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GKE7|F4GKE7_SPICD	97	cytoplasm	cytoplasm GO:0005737
+tr|F4GLS7|F4GLS7_SPICD	79	secreted	extracellular region GO:0005576;
+tr|F4GIV8|F4GIV8_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GK54|F4GK54_SPICD	72	cytoplasm	cytoplasm GO:0005737
+tr|F4GKW9|F4GKW9_SPICD	60	secreted	extracellular region GO:0005576;
+tr|F4GIM7|F4GIM7_SPICD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GIB6|F4GIB6_SPICD	49	periplasm	periplasmic space GO:0042597;
+tr|F4GIM5|F4GIM5_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GH18|F4GH18_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKN2|F4GKN2_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GLN3|F4GLN3_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GKL2|F4GKL2_SPICD	87	cytoplasm	cytoplasm GO:0005737
+tr|F4GM31|F4GM31_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GJK9|F4GJK9_SPICD	74	secreted	extracellular region GO:0005576;
+tr|F4GL67|F4GL67_SPICD	83	cytoplasm	cytoplasm GO:0005737
+tr|F4GLV6|F4GLV6_SPICD	68	cytoplasm	cytoplasm GO:0005737
+tr|F4GLY1|F4GLY1_SPICD	51	cytoplasm	cytoplasm GO:0005737
+tr|F4GH20|F4GH20_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLF5|F4GLF5_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJA4|F4GJA4_SPICD	68	cytoplasm	cytoplasm GO:0005737
+tr|F4GL39|F4GL39_SPICD	85	secreted	extracellular region GO:0005576;
+tr|F4GI39|F4GI39_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GH99|F4GH99_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHV5|F4GHV5_SPICD	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GLC9|F4GLC9_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKF4|F4GKF4_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GHK5|F4GHK5_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIE6|F4GIE6_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GHJ4|F4GHJ4_SPICD	67	cytoplasm	cytoplasm GO:0005737
+tr|F4GHC8|F4GHC8_SPICD	44	secreted	extracellular region GO:0005576;
+tr|F4GHR9|F4GHR9_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GII8|F4GII8_SPICD	44	cytoplasm	cytoplasm GO:0005737
+tr|F4GII1|F4GII1_SPICD	49	secreted	extracellular region GO:0005576;
+tr|F4GJ94|F4GJ94_SPICD	58	cytoplasm	cytoplasm GO:0005737
+tr|F4GK31|F4GK31_SPICD	94	cytoplasm	cytoplasm GO:0005737
+tr|F4GH58|F4GH58_SPICD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F4GJ91|F4GJ91_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GL91|F4GL91_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GLV1|F4GLV1_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GIW1|F4GIW1_SPICD	91	cytoplasm	cytoplasm GO:0005737
+tr|F4GKZ7|F4GKZ7_SPICD	90	cytoplasm	cytoplasm GO:0005737
+tr|F4GL75|F4GL75_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GJT9|F4GJT9_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GLU0|F4GLU0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GL72|F4GL72_SPICD	69	cytoplasm	cytoplasm GO:0005737
+tr|F4GK97|F4GK97_SPICD	78	periplasm	periplasmic space GO:0042597;
+tr|F4GHG7|F4GHG7_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GIQ6|F4GIQ6_SPICD	56	secreted	extracellular region GO:0005576;
+tr|F4GH95|F4GH95_SPICD	92	cytoplasm	cytoplasm GO:0005737
+tr|F4GL87|F4GL87_SPICD	95	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ32|F4GJ32_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GIC6|F4GIC6_SPICD	98	cytoplasm	cytoplasm GO:0005737
+tr|F4GKU5|F4GKU5_SPICD	56	secreted	extracellular region GO:0005576;
+tr|F4GIY1|F4GIY1_SPICD	53	secreted	extracellular region GO:0005576;
+tr|F4GK11|F4GK11_SPICD	82	cytoplasm	cytoplasm GO:0005737
+tr|F4GIY7|F4GIY7_SPICD	68	secreted	extracellular region GO:0005576;
+tr|F4GHC6|F4GHC6_SPICD	57	secreted	extracellular region GO:0005576;
+tr|F4GIJ9|F4GIJ9_SPICD	71	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GM79|F4GM79_SPICD	93	cytoplasm	cytoplasm GO:0005737
+tr|F4GHW5|F4GHW5_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GM09|F4GM09_SPICD	73	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|F4GLI4|F4GLI4_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GKA0|F4GKA0_SPICD	99	cytoplasm	cytoplasm GO:0005737
+tr|F4GJ00|F4GJ00_SPICD	51	secreted	extracellular region GO:0005576;
+tr|F4GIC4|F4GIC4_SPICD	88	cytoplasm	cytoplasm GO:0005737
+tr|F4GIQ0|F4GIQ0_SPICD	100	cytoplasm	cytoplasm GO:0005737
+tr|F4GKS9|F4GKS9_SPICD	66	cytoplasm	cytoplasm GO:0005737
+tr|F4GHI9|F4GHI9_SPICD	33	secreted	extracellular region GO:0005576;
+tr|F4GIR4|F4GIR4_SPICD	88	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;

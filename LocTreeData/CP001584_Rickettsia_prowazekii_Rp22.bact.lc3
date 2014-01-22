@@ -1,0 +1,965 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|D5AWQ8|D5AWQ8_RICPP	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXQ2|D5AXQ2_RICPP	46	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|D5AYB0|D5AYB0_RICPP	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXW3|D5AXW3_RICPP	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXN5|D5AXN5_RICPP	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW66|D5AW66_RICPP	28	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AY92|D5AY92_RICPP	26	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AXM9|D5AXM9_RICPP	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVY8|D5AVY8_RICPP	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXI1|D5AXI1_RICPP	32	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AWS2|D5AWS2_RICPP	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY65|D5AY65_RICPP	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX93|D5AX93_RICPP	37	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|D5AWG0|D5AWG0_RICPP	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AXJ4|D5AXJ4_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWS1|D5AWS1_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY76|D5AY76_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|D5AVX1|D5AVX1_RICPP	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVT5|D5AVT5_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVY1|D5AVY1_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AYC0|D5AYC0_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVW8|D5AVW8_RICPP	26	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AW37|D5AW37_RICPP	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY21|D5AY21_RICPP	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWZ9|D5AWZ9_RICPP	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AWZ2|D5AWZ2_RICPP	53	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|D5AWE7|D5AWE7_RICPP	6	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVT1|D5AVT1_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW96|D5AW96_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY07|D5AY07_RICPP	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXN1|D5AXN1_RICPP	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXV9|D5AXV9_RICPP	19	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|D5AY30|D5AY30_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX72|D5AX72_RICPP	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYC9|D5AYC9_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVX2|D5AVX2_RICPP	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AW68|D5AW68_RICPP	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW71|D5AW71_RICPP	12	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|D5AWD8|D5AWD8_RICPP	16	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AY50|D5AY50_RICPP	14	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|D5AVZ7|D5AVZ7_RICPP	39	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AY63|D5AY63_RICPP	18	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWI7|D5AWI7_RICPP	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYF3|D5AYF3_RICPP	27	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AXU0|D5AXU0_RICPP	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX81|D5AX81_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWU5|D5AWU5_RICPP	23	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|D5AYE4|D5AYE4_RICPP	37	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|D5AX16|D5AX16_RICPP	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|D5AVT2|D5AVT2_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXS0|D5AXS0_RICPP	37	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|D5AW46|D5AW46_RICPP	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVZ9|D5AVZ9_RICPP	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXG6|D5AXG6_RICPP	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AWD5|D5AWD5_RICPP	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AY96|D5AY96_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY09|D5AY09_RICPP	38	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AXA5|D5AXA5_RICPP	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX19|D5AX19_RICPP	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AWD2|D5AWD2_RICPP	14	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|D5AWR7|D5AWR7_RICPP	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXJ3|D5AXJ3_RICPP	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWI9|D5AWI9_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXE5|D5AXE5_RICPP	42	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|D5AW48|D5AW48_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXA9|D5AXA9_RICPP	61	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|D5AWP1|D5AWP1_RICPP	18	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWA5|D5AWA5_RICPP	37	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|D5AXF9|D5AXF9_RICPP	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWQ9|D5AWQ9_RICPP	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX17|D5AX17_RICPP	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY44|D5AY44_RICPP	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AY70|D5AY70_RICPP	28	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AXS4|D5AXS4_RICPP	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVV9|D5AVV9_RICPP	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AWK2|D5AWK2_RICPP	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AYA5|D5AYA5_RICPP	42	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AW63|D5AW63_RICPP	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXB8|D5AXB8_RICPP	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWP0|D5AWP0_RICPP	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AYD6|D5AYD6_RICPP	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AXC8|D5AXC8_RICPP	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWJ4|D5AWJ4_RICPP	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY93|D5AY93_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|D5AXY4|D5AXY4_RICPP	20	secreted	host cell cytoplasm GO:0030430(IDA);
+tr|D5AWK6|D5AWK6_RICPP	7	inner membrane	integral to plasma membrane GO:0005887(ISS);
+tr|D5AW41|D5AW41_RICPP	15	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|D5AXB3|D5AXB3_RICPP	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AXT2|D5AXT2_RICPP	17	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|D5AWD7|D5AWD7_RICPP	18	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AWK7|D5AWK7_RICPP	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW75|D5AW75_RICPP	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY35|D5AY35_RICPP	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWN2|D5AWN2_RICPP	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY37|D5AY37_RICPP	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AYC1|D5AYC1_RICPP	26	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|D5AY69|D5AY69_RICPP	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|D5AX45|D5AX45_RICPP	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY08|D5AY08_RICPP	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY46|D5AY46_RICPP	24	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|D5AXS3|D5AXS3_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWN6|D5AWN6_RICPP	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|D5AY72|D5AY72_RICPP	26	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|D5AXL7|D5AXL7_RICPP	36	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AYD9|D5AYD9_RICPP	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY59|D5AY59_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYF2|D5AYF2_RICPP	54	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AWT4|D5AWT4_RICPP	30	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|D5AVT6|D5AVT6_RICPP	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AWE1|D5AWE1_RICPP	5	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|D5AX97|D5AX97_RICPP	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXK5|D5AXK5_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWG8|D5AWG8_RICPP	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AXI6|D5AXI6_RICPP	50	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|D5AW36|D5AW36_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWU8|D5AWU8_RICPP	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW54|D5AW54_RICPP	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IMP);
+tr|D5AY66|D5AY66_RICPP	52	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVZ4|D5AVZ4_RICPP	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AXN0|D5AXN0_RICPP	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXV1|D5AXV1_RICPP	26	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|D5AXG9|D5AXG9_RICPP	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXL4|D5AXL4_RICPP	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW50|D5AW50_RICPP	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW90|D5AW90_RICPP	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AY57|D5AY57_RICPP	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXB0|D5AXB0_RICPP	31	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|D5AW42|D5AW42_RICPP	20	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|D5AY78|D5AY78_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|D5AXW9|D5AXW9_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWC5|D5AWC5_RICPP	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXT9|D5AXT9_RICPP	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AVV7|D5AVV7_RICPP	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWU7|D5AWU7_RICPP	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW29|D5AW29_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWX8|D5AWX8_RICPP	14	periplasm	periplasmic space GO:0042597(IDA);
+tr|D5AX54|D5AX54_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYB2|D5AYB2_RICPP	8	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWW7|D5AWW7_RICPP	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWN7|D5AWN7_RICPP	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AX04|D5AX04_RICPP	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW01|D5AW01_RICPP	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AY67|D5AY67_RICPP	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWH9|D5AWH9_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|D5AX52|D5AX52_RICPP	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY18|D5AY18_RICPP	24	inner membrane	integral to plasma membrane GO:0005887(TAS);
+tr|D5AWC7|D5AWC7_RICPP	21	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AW94|D5AW94_RICPP	38	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|D5AY90|D5AY90_RICPP	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW33|D5AW33_RICPP	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWB2|D5AWB2_RICPP	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWT0|D5AWT0_RICPP	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AXE6|D5AXE6_RICPP	24	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AW78|D5AW78_RICPP	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXC0|D5AXC0_RICPP	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW05|D5AW05_RICPP	30	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|D5AXW7|D5AXW7_RICPP	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWY9|D5AWY9_RICPP	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AXJ5|D5AXJ5_RICPP	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVW5|D5AVW5_RICPP	47	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AY68|D5AY68_RICPP	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWJ8|D5AWJ8_RICPP	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYG0|D5AYG0_RICPP	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AXG4|D5AXG4_RICPP	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXB1|D5AXB1_RICPP	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYA8|D5AYA8_RICPP	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX78|D5AX78_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVX8|D5AVX8_RICPP	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXH4|D5AXH4_RICPP	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX05|D5AX05_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWX0|D5AWX0_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|D5AWK4|D5AWK4_RICPP	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWZ8|D5AWZ8_RICPP	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AXU5|D5AXU5_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY98|D5AY98_RICPP	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY58|D5AY58_RICPP	20	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|D5AWT2|D5AWT2_RICPP	7	cytoplasm	ribosome GO:0005840(IEA);
+tr|D5AVT3|D5AVT3_RICPP	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVT0|D5AVT0_RICPP	89	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY42|D5AY42_RICPP	12	periplasm	periplasmic space GO:0042597(IDA);
+tr|D5AVS7|D5AVS7_RICPP	9	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AX94|D5AX94_RICPP	3	secreted	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AX31|D5AX31_RICPP	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW98|D5AW98_RICPP	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AXW2|D5AXW2_RICPP	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXM4|D5AXM4_RICPP	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWY0|D5AWY0_RICPP	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVY2|D5AVY2_RICPP	32	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|D5AXX1|D5AXX1_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWW0|D5AWW0_RICPP	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW35|D5AW35_RICPP	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|D5AXT3|D5AXT3_RICPP	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWH2|D5AWH2_RICPP	10	inner membrane	cell division site GO:0032153(IEA); integral to plasma membrane GO:0005887(IDA);
+tr|D5AWY7|D5AWY7_RICPP	19	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|D5AY00|D5AY00_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWH1|D5AWH1_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXW6|D5AXW6_RICPP	8	secreted	extracellular region GO:0005576(IEA); outer membrane GO:0019867(IEA);
+tr|D5AX43|D5AX43_RICPP	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXY6|D5AXY6_RICPP	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW43|D5AW43_RICPP	27	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|D5AW81|D5AW81_RICPP	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AVS6|D5AVS6_RICPP	28	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|D5AX11|D5AX11_RICPP	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY88|D5AY88_RICPP	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY81|D5AY81_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY10|D5AY10_RICPP	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWR1|D5AWR1_RICPP	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX30|D5AX30_RICPP	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWY5|D5AWY5_RICPP	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AY71|D5AY71_RICPP	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AVZ3|D5AVZ3_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW34|D5AW34_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX14|D5AX14_RICPP	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXP2|D5AXP2_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWZ6|D5AWZ6_RICPP	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXV8|D5AXV8_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX08|D5AX08_RICPP	17	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|D5AVV8|D5AVV8_RICPP	44	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|D5AWF2|D5AWF2_RICPP	27	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|D5AXG2|D5AXG2_RICPP	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AXR8|D5AXR8_RICPP	50	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|D5AXE1|D5AXE1_RICPP	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWI3|D5AWI3_RICPP	8	secreted	extracellular region GO:0005576(IEA);
+tr|D5AW91|D5AW91_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWV2|D5AWV2_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AYD7|D5AYD7_RICPP	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWH5|D5AWH5_RICPP	23	periplasm	periplasmic space GO:0042597(IDA);
+tr|D5AYB8|D5AYB8_RICPP	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWQ4|D5AWQ4_RICPP	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYF7|D5AYF7_RICPP	13	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AX32|D5AX32_RICPP	15	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|D5AVU4|D5AVU4_RICPP	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|D5AY24|D5AY24_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AW53|D5AW53_RICPP	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW95|D5AW95_RICPP	23	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AXT6|D5AXT6_RICPP	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXL9|D5AXL9_RICPP	15	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|D5AXI2|D5AXI2_RICPP	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AYG2|D5AYG2_RICPP	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AYH3|D5AYH3_RICPP	31	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AY55|D5AY55_RICPP	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXK3|D5AXK3_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW69|D5AW69_RICPP	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AWL6|D5AWL6_RICPP	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW76|D5AW76_RICPP	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXM2|D5AXM2_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXF5|D5AXF5_RICPP	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AVY3|D5AVY3_RICPP	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWI4|D5AWI4_RICPP	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYH2|D5AYH2_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX77|D5AX77_RICPP	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX07|D5AX07_RICPP	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AW13|D5AW13_RICPP	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AW00|D5AW00_RICPP	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXV2|D5AXV2_RICPP	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AX37|D5AX37_RICPP	20	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AY87|D5AY87_RICPP	20	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|D5AY62|D5AY62_RICPP	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY54|D5AY54_RICPP	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|D5AW03|D5AW03_RICPP	33	cytoplasm	cytosol GO:0005829(IBA);
+tr|D5AXG0|D5AXG0_RICPP	12	secreted	host cell membrane GO:0033644(IEA); membrane GO:0016020(IEA);
+tr|D5AVY5|D5AVY5_RICPP	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXB4|D5AXB4_RICPP	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|D5AXV5|D5AXV5_RICPP	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AW15|D5AW15_RICPP	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|D5AXB2|D5AXB2_RICPP	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXC5|D5AXC5_RICPP	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY12|D5AY12_RICPP	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX41|D5AX41_RICPP	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWT8|D5AWT8_RICPP	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY38|D5AY38_RICPP	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AW12|D5AW12_RICPP	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXF1|D5AXF1_RICPP	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWX2|D5AWX2_RICPP	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|D5AY53|D5AY53_RICPP	58	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AWM5|D5AWM5_RICPP	17	secreted	extracellular region GO:0005576(IEA);
+tr|D5AX60|D5AX60_RICPP	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYC2|D5AYC2_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY36|D5AY36_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXM1|D5AXM1_RICPP	25	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AX74|D5AX74_RICPP	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AYB3|D5AYB3_RICPP	6	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXH0|D5AXH0_RICPP	22	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|D5AX73|D5AX73_RICPP	26	cytoplasm	cytosol GO:0005829(IDA);
+tr|D5AY39|D5AY39_RICPP	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWZ3|D5AWZ3_RICPP	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|D5AYB4|D5AYB4_RICPP	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AX82|D5AX82_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX67|D5AX67_RICPP	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AX21|D5AX21_RICPP	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AX35|D5AX35_RICPP	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWV6|D5AWV6_RICPP	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYC7|D5AYC7_RICPP	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXW0|D5AXW0_RICPP	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|D5AWK3|D5AWK3_RICPP	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|D5AYD0|D5AYD0_RICPP	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX86|D5AX86_RICPP	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX09|D5AX09_RICPP	13	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|D5AWP6|D5AWP6_RICPP	38	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|D5AWW1|D5AWW1_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXU4|D5AXU4_RICPP	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXK1|D5AXK1_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXJ0|D5AXJ0_RICPP	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|D5AW14|D5AW14_RICPP	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXU3|D5AXU3_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWU2|D5AWU2_RICPP	41	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWN4|D5AWN4_RICPP	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXJ6|D5AXJ6_RICPP	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AYH5|D5AYH5_RICPP	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXP3|D5AXP3_RICPP	38	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|D5AXI7|D5AXI7_RICPP	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AXM8|D5AXM8_RICPP	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY85|D5AY85_RICPP	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWZ5|D5AWZ5_RICPP	24	secreted	extracellular region GO:0005576(IEA);
+tr|D5AWP7|D5AWP7_RICPP	45	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|D5AWE4|D5AWE4_RICPP	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXS2|D5AXS2_RICPP	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWA3|D5AWA3_RICPP	14	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|D5AVX7|D5AVX7_RICPP	21	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|D5AWP2|D5AWP2_RICPP	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|D5AXR5|D5AXR5_RICPP	76	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXJ9|D5AXJ9_RICPP	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWB5|D5AWB5_RICPP	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVU9|D5AVU9_RICPP	13	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|D5AWX6|D5AWX6_RICPP	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|D5AW38|D5AW38_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|D5AWG5|D5AWG5_RICPP	12	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|D5AXT5|D5AXT5_RICPP	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AY03|D5AY03_RICPP	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY17|D5AY17_RICPP	30	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|D5AW99|D5AW99_RICPP	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWL7|D5AWL7_RICPP	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWF9|D5AWF9_RICPP	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXZ6|D5AXZ6_RICPP	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|D5AVX9|D5AVX9_RICPP	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY80|D5AY80_RICPP	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWG9|D5AWG9_RICPP	11	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|D5AW45|D5AW45_RICPP	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|D5AYB5|D5AYB5_RICPP	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWN9|D5AWN9_RICPP	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWM8|D5AWM8_RICPP	11	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|D5AXM3|D5AXM3_RICPP	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AWX1|D5AWX1_RICPP	42	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|D5AY47|D5AY47_RICPP	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AX58|D5AX58_RICPP	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|D5AWV5|D5AWV5_RICPP	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWX9|D5AWX9_RICPP	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AWN3|D5AWN3_RICPP	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|D5AY04|D5AY04_RICPP	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AVX0|D5AVX0_RICPP	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|D5AY05|D5AY05_RICPP	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AXD7|D5AXD7_RICPP	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|D5AY84|D5AY84_RICPP	12	secreted	extracellular region GO:0005576(IEA);
+tr|D5AX87|D5AX87_RICPP	5	inner membrane	integral to plasma membrane GO:0005887(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|D5AY16|D5AY16_RICPP	82	periplasm	periplasmic space GO:0042597;
+tr|D5AVU7|D5AVU7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWA6|D5AWA6_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AYH1|D5AYH1_RICPP	43	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR2|D5AWR2_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ0|D5AXZ0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWY6|D5AWY6_RICPP	84	cytoplasm	cytoplasm GO:0005737
+tr|D5AW60|D5AW60_RICPP	72	secreted	extracellular region GO:0005576;
+tr|D5AWV0|D5AWV0_RICPP	58	periplasm	periplasmic space GO:0042597;
+tr|D5AXX6|D5AXX6_RICPP	74	secreted	extracellular region GO:0005576;
+tr|D5AWI5|D5AWI5_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWW2|D5AWW2_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWT6|D5AWT6_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AX76|D5AX76_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AWJ6|D5AWJ6_RICPP	39	periplasm	periplasmic space GO:0042597;
+tr|D5AXK8|D5AXK8_RICPP	62	cytoplasm	cytoplasm GO:0005737
+tr|D5AVU3|D5AVU3_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXG1|D5AXG1_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR6|D5AWR6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXN7|D5AXN7_RICPP	28	cytoplasm	cytoplasm GO:0005737
+tr|D5AW31|D5AW31_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR4|D5AWR4_RICPP	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWM1|D5AWM1_RICPP	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWJ9|D5AWJ9_RICPP	60	secreted	extracellular region GO:0005576;
+tr|D5AXX2|D5AXX2_RICPP	79	secreted	extracellular region GO:0005576;
+tr|D5AWL8|D5AWL8_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV6|D5AVV6_RICPP	79	secreted	extracellular region GO:0005576;
+tr|D5AW58|D5AW58_RICPP	88	cytoplasm	cytoplasm GO:0005737
+tr|D5AWT3|D5AWT3_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AXH8|D5AXH8_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXA4|D5AXA4_RICPP	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW52|D5AW52_RICPP	80	cytoplasm	cytoplasm GO:0005737
+tr|D5AW87|D5AW87_RICPP	68	cytoplasm	cytoplasm GO:0005737
+tr|D5AXI9|D5AXI9_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS5|D5AWS5_RICPP	78	cytoplasm	cytoplasm GO:0005737
+tr|D5AWQ3|D5AWQ3_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AXJ7|D5AXJ7_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AVS8|D5AVS8_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXE8|D5AXE8_RICPP	56	secreted	extracellular region GO:0005576;
+tr|D5AYB9|D5AYB9_RICPP	39	secreted	extracellular region GO:0005576;
+tr|D5AWQ0|D5AWQ0_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AYA1|D5AYA1_RICPP	45	secreted	extracellular region GO:0005576;
+tr|D5AW26|D5AW26_RICPP	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWV3|D5AWV3_RICPP	49	secreted	extracellular region GO:0005576;
+tr|D5AYF9|D5AYF9_RICPP	45	secreted	extracellular region GO:0005576;
+tr|D5AWC0|D5AWC0_RICPP	91	secreted	extracellular region GO:0005576;
+tr|D5AWA8|D5AWA8_RICPP	22	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW72|D5AW72_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWX5|D5AWX5_RICPP	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYF5|D5AYF5_RICPP	85	secreted	extracellular region GO:0005576;
+tr|D5AW23|D5AW23_RICPP	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXA3|D5AXA3_RICPP	80	cytoplasm	cytoplasm GO:0005737
+tr|D5AWB7|D5AWB7_RICPP	46	secreted	extracellular region GO:0005576;
+tr|D5AX61|D5AX61_RICPP	75	cytoplasm	cytoplasm GO:0005737
+tr|D5AVY0|D5AVY0_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AVU6|D5AVU6_RICPP	70	periplasm	periplasmic space GO:0042597;
+tr|D5AWR8|D5AWR8_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXF4|D5AXF4_RICPP	22	periplasm	periplasmic space GO:0042597;
+tr|D5AXP4|D5AXP4_RICPP	92	cytoplasm	cytoplasm GO:0005737
+tr|D5AX71|D5AX71_RICPP	67	secreted	extracellular region GO:0005576;
+tr|D5AXY7|D5AXY7_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AX57|D5AX57_RICPP	42	secreted	extracellular region GO:0005576;
+tr|D5AXS8|D5AXS8_RICPP	43	secreted	extracellular region GO:0005576;
+tr|D5AVX6|D5AVX6_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYE2|D5AYE2_RICPP	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWJ1|D5AWJ1_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVT8|D5AVT8_RICPP	38	secreted	extracellular region GO:0005576;
+tr|D5AYB6|D5AYB6_RICPP	46	secreted	extracellular region GO:0005576;
+tr|D5AX34|D5AX34_RICPP	83	cytoplasm	cytoplasm GO:0005737
+tr|D5AXG8|D5AXG8_RICPP	55	secreted	extracellular region GO:0005576;
+tr|D5AXV3|D5AXV3_RICPP	71	cytoplasm	cytoplasm GO:0005737
+tr|D5AY86|D5AY86_RICPP	72	secreted	extracellular region GO:0005576;
+tr|D5AYD1|D5AYD1_RICPP	77	cytoplasm	cytoplasm GO:0005737
+tr|D5AWJ3|D5AWJ3_RICPP	46	secreted	extracellular region GO:0005576;
+tr|D5AWK5|D5AWK5_RICPP	73	secreted	extracellular region GO:0005576;
+tr|D5AWG4|D5AWG4_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYD5|D5AYD5_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AX80|D5AX80_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AY56|D5AY56_RICPP	51	secreted	extracellular region GO:0005576;
+tr|D5AX36|D5AX36_RICPP	76	secreted	extracellular region GO:0005576;
+tr|D5AWI2|D5AWI2_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AWA2|D5AWA2_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AY20|D5AY20_RICPP	37	secreted	extracellular region GO:0005576;
+tr|D5AW97|D5AW97_RICPP	78	secreted	extracellular region GO:0005576;
+tr|D5AWH0|D5AWH0_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AX10|D5AX10_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AY52|D5AY52_RICPP	76	secreted	extracellular region GO:0005576;
+tr|D5AY25|D5AY25_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AXZ9|D5AXZ9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWB4|D5AWB4_RICPP	16	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWA7|D5AWA7_RICPP	82	secreted	extracellular region GO:0005576;
+tr|D5AY83|D5AY83_RICPP	34	cytoplasm	cytoplasm GO:0005737
+tr|D5AWQ7|D5AWQ7_RICPP	53	secreted	extracellular region GO:0005576;
+tr|D5AWT7|D5AWT7_RICPP	34	secreted	extracellular region GO:0005576;
+tr|D5AXE2|D5AXE2_RICPP	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXA6|D5AXA6_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AXD5|D5AXD5_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXY2|D5AXY2_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AVZ8|D5AVZ8_RICPP	97	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|D5AXI8|D5AXI8_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWU0|D5AWU0_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS0|D5AWS0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWE9|D5AWE9_RICPP	92	secreted	extracellular region GO:0005576;
+tr|D5AW16|D5AW16_RICPP	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXX4|D5AXX4_RICPP	38	secreted	extracellular region GO:0005576;
+tr|D5AY79|D5AY79_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC3|D5AXC3_RICPP	83	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC9|D5AWC9_RICPP	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWT9|D5AWT9_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AW83|D5AW83_RICPP	45	cytoplasm	cytoplasm GO:0005737
+tr|D5AX25|D5AX25_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWI1|D5AWI1_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYF1|D5AYF1_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXE3|D5AXE3_RICPP	34	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ1|D5AXZ1_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AY01|D5AY01_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYA6|D5AYA6_RICPP	82	secreted	extracellular region GO:0005576;
+tr|D5AWY3|D5AWY3_RICPP	24	secreted	extracellular region GO:0005576;
+tr|D5AXZ4|D5AXZ4_RICPP	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXD1|D5AXD1_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXD3|D5AXD3_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AY15|D5AY15_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWG2|D5AWG2_RICPP	35	secreted	extracellular region GO:0005576;
+tr|D5AW93|D5AW93_RICPP	92	cytoplasm	cytoplasm GO:0005737
+tr|D5AW44|D5AW44_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AYC4|D5AYC4_RICPP	54	secreted	extracellular region GO:0005576;
+tr|D5AWU4|D5AWU4_RICPP	51	secreted	extracellular region GO:0005576;
+tr|D5AW10|D5AW10_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWB3|D5AWB3_RICPP	27	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVW2|D5AVW2_RICPP	63	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC2|D5AXC2_RICPP	66	secreted	extracellular region GO:0005576;
+tr|D5AYD2|D5AYD2_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXU6|D5AXU6_RICPP	37	secreted	extracellular region GO:0005576;
+tr|D5AWE2|D5AWE2_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXS5|D5AXS5_RICPP	71	secreted	extracellular region GO:0005576;
+tr|D5AVU5|D5AVU5_RICPP	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVW1|D5AVW1_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AX33|D5AX33_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX56|D5AX56_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AY95|D5AY95_RICPP	41	cytoplasm	cytoplasm GO:0005737
+tr|D5AYD3|D5AYD3_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXB5|D5AXB5_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXH2|D5AXH2_RICPP	72	secreted	extracellular region GO:0005576;
+tr|D5AXT0|D5AXT0_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AXX8|D5AXX8_RICPP	76	secreted	extracellular region GO:0005576;
+tr|D5AYB1|D5AYB1_RICPP	90	cytoplasm	cytoplasm GO:0005737
+tr|D5AWB6|D5AWB6_RICPP	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWM2|D5AWM2_RICPP	84	cytoplasm	cytoplasm GO:0005737
+tr|D5AY27|D5AY27_RICPP	37	secreted	extracellular region GO:0005576;
+tr|D5AXU1|D5AXU1_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AX23|D5AX23_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWW5|D5AWW5_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYA3|D5AYA3_RICPP	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWV7|D5AWV7_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXL0|D5AXL0_RICPP	63	cytoplasm	cytoplasm GO:0005737
+tr|D5AWV4|D5AWV4_RICPP	38	secreted	extracellular region GO:0005576;
+tr|D5AXW1|D5AXW1_RICPP	72	secreted	extracellular region GO:0005576;
+tr|D5AX48|D5AX48_RICPP	33	periplasm	periplasmic space GO:0042597;
+tr|D5AW55|D5AW55_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AVY6|D5AVY6_RICPP	78	cytoplasm	cytoplasm GO:0005737
+tr|D5AXS7|D5AXS7_RICPP	37	secreted	extracellular region GO:0005576;
+tr|D5AXS1|D5AXS1_RICPP	83	cytoplasm	cytoplasm GO:0005737
+tr|D5AXH6|D5AXH6_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AX79|D5AX79_RICPP	65	cytoplasm	cytoplasm GO:0005737
+tr|D5AW04|D5AW04_RICPP	89	cytoplasm	cytoplasm GO:0005737
+tr|D5AX64|D5AX64_RICPP	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWV8|D5AWV8_RICPP	88	cytoplasm	cytoplasm GO:0005737
+tr|D5AXA1|D5AXA1_RICPP	55	secreted	extracellular region GO:0005576;
+tr|D5AWZ7|D5AWZ7_RICPP	73	secreted	extracellular region GO:0005576;
+tr|D5AXA7|D5AXA7_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR4|D5AXR4_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AXD0|D5AXD0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AY77|D5AY77_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AY31|D5AY31_RICPP	78	secreted	extracellular region GO:0005576;
+tr|D5AX03|D5AX03_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWL9|D5AWL9_RICPP	51	secreted	extracellular region GO:0005576;
+tr|D5AW65|D5AW65_RICPP	34	cytoplasm	cytoplasm GO:0005737
+tr|D5AVZ6|D5AVZ6_RICPP	58	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC6|D5AWC6_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXJ8|D5AXJ8_RICPP	77	cytoplasm	cytoplasm GO:0005737
+tr|D5AVZ5|D5AVZ5_RICPP	89	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR7|D5AXR7_RICPP	65	cytoplasm	cytoplasm GO:0005737
+tr|D5AVZ1|D5AVZ1_RICPP	99	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|D5AY49|D5AY49_RICPP	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXN9|D5AXN9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXJ1|D5AXJ1_RICPP	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWD6|D5AWD6_RICPP	75	secreted	extracellular region GO:0005576;
+tr|D5AYG9|D5AYG9_RICPP	45	secreted	extracellular region GO:0005576;
+tr|D5AWP9|D5AWP9_RICPP	27	secreted	extracellular region GO:0005576;
+tr|D5AVU1|D5AVU1_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AVT7|D5AVT7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWL3|D5AWL3_RICPP	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXP9|D5AXP9_RICPP	72	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR6|D5AXR6_RICPP	68	secreted	extracellular region GO:0005576;
+tr|D5AWN5|D5AWN5_RICPP	79	secreted	extracellular region GO:0005576;
+tr|D5AVT4|D5AVT4_RICPP	70	cytoplasm	cytoplasm GO:0005737
+tr|D5AY28|D5AY28_RICPP	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX98|D5AX98_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AX46|D5AX46_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AX47|D5AX47_RICPP	40	secreted	extracellular region GO:0005576;
+tr|D5AWB8|D5AWB8_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AW67|D5AW67_RICPP	61	secreted	extracellular region GO:0005576;
+tr|D5AVW7|D5AVW7_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AX38|D5AX38_RICPP	74	cytoplasm	cytoplasm GO:0005737
+tr|D5AY41|D5AY41_RICPP	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXL5|D5AXL5_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AWU6|D5AWU6_RICPP	77	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC4|D5AXC4_RICPP	44	secreted	extracellular region GO:0005576;
+tr|D5AWD4|D5AWD4_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG5|D5AYG5_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AXA0|D5AXA0_RICPP	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXV6|D5AXV6_RICPP	71	secreted	extracellular region GO:0005576;
+tr|D5AYC8|D5AYC8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AYC3|D5AYC3_RICPP	22	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYH0|D5AYH0_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AY43|D5AY43_RICPP	81	cytoplasm	cytoplasm GO:0005737
+tr|D5AW22|D5AW22_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AWG1|D5AWG1_RICPP	88	cytoplasm	cytoplasm GO:0005737
+tr|D5AVW4|D5AVW4_RICPP	78	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR9|D5AWR9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWX4|D5AWX4_RICPP	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXF8|D5AXF8_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWL5|D5AWL5_RICPP	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWA9|D5AWA9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXY0|D5AXY0_RICPP	58	cytoplasm	cytoplasm GO:0005737
+tr|D5AXV7|D5AXV7_RICPP	28	secreted	extracellular region GO:0005576;
+tr|D5AX24|D5AX24_RICPP	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXK2|D5AXK2_RICPP	49	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV3|D5AVV3_RICPP	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXB6|D5AXB6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG1|D5AYG1_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS6|D5AWS6_RICPP	68	cytoplasm	cytoplasm GO:0005737
+tr|D5AY26|D5AY26_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR5|D5AWR5_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AW32|D5AW32_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWK0|D5AWK0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AYE3|D5AYE3_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AW20|D5AW20_RICPP	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX49|D5AX49_RICPP	86	secreted	extracellular region GO:0005576;
+tr|D5AY64|D5AY64_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWQ6|D5AWQ6_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AWD3|D5AWD3_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AY48|D5AY48_RICPP	56	cytoplasm	cytoplasm GO:0005737
+tr|D5AVS5|D5AVS5_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AW57|D5AW57_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS7|D5AWS7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWU3|D5AWU3_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWM7|D5AWM7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AW70|D5AW70_RICPP	35	cytoplasm	cytoplasm GO:0005737
+tr|D5AWX7|D5AWX7_RICPP	53	secreted	extracellular region GO:0005576;
+tr|D5AY29|D5AY29_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWG6|D5AWG6_RICPP	54	secreted	extracellular region GO:0005576;
+tr|D5AY23|D5AY23_RICPP	53	cytoplasm	cytoplasm GO:0005737
+tr|D5AWM3|D5AWM3_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXL3|D5AXL3_RICPP	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXH9|D5AXH9_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AXP6|D5AXP6_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AXY9|D5AXY9_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXH3|D5AXH3_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AW18|D5AW18_RICPP	38	secreted	extracellular region GO:0005576;
+tr|D5AY22|D5AY22_RICPP	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXU2|D5AXU2_RICPP	45	secreted	extracellular region GO:0005576;
+tr|D5AYE6|D5AYE6_RICPP	75	cytoplasm	cytoplasm GO:0005737
+tr|D5AXL6|D5AXL6_RICPP	63	cytoplasm	cytoplasm GO:0005737
+tr|D5AX40|D5AX40_RICPP	34	secreted	extracellular region GO:0005576;
+tr|D5AWT5|D5AWT5_RICPP	30	cytoplasm	cytoplasm GO:0005737
+tr|D5AWL0|D5AWL0_RICPP	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWW4|D5AWW4_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AW85|D5AW85_RICPP	78	secreted	extracellular region GO:0005576;
+tr|D5AVW3|D5AVW3_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWW8|D5AWW8_RICPP	41	secreted	extracellular region GO:0005576;
+tr|D5AWF3|D5AWF3_RICPP	69	periplasm	periplasmic space GO:0042597;
+tr|D5AWF8|D5AWF8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AX26|D5AX26_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWL1|D5AWL1_RICPP	43	secreted	extracellular region GO:0005576;
+tr|D5AWY2|D5AWY2_RICPP	70	cytoplasm	cytoplasm GO:0005737
+tr|D5AVT9|D5AVT9_RICPP	80	secreted	extracellular region GO:0005576;
+tr|D5AXN4|D5AXN4_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWJ2|D5AWJ2_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX51|D5AX51_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR3|D5AXR3_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AXM7|D5AXM7_RICPP	43	secreted	extracellular region GO:0005576;
+tr|D5AXH7|D5AXH7_RICPP	54	periplasm	periplasmic space GO:0042597;
+tr|D5AXP1|D5AXP1_RICPP	83	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR9|D5AXR9_RICPP	66	secreted	extracellular region GO:0005576;
+tr|D5AXV4|D5AXV4_RICPP	76	secreted	extracellular region GO:0005576;
+tr|D5AWF6|D5AWF6_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AWF5|D5AWF5_RICPP	58	secreted	extracellular region GO:0005576;
+tr|D5AWI0|D5AWI0_RICPP	76	secreted	extracellular region GO:0005576;
+tr|D5AYE9|D5AYE9_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX96|D5AX96_RICPP	56	secreted	extracellular region GO:0005576;
+tr|D5AXE7|D5AXE7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV5|D5AVV5_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXY8|D5AXY8_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AXG7|D5AXG7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV4|D5AVV4_RICPP	53	cytoplasm	cytoplasm GO:0005737
+tr|D5AWB9|D5AWB9_RICPP	85	periplasm	periplasmic space GO:0042597;
+tr|D5AW51|D5AW51_RICPP	56	cytoplasm	cytoplasm GO:0005737
+tr|D5AY99|D5AY99_RICPP	71	secreted	extracellular region GO:0005576;
+tr|D5AXQ5|D5AXQ5_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AX00|D5AX00_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXB9|D5AXB9_RICPP	92	cytoplasm	cytoplasm GO:0005737
+tr|D5AXS6|D5AXS6_RICPP	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYC5|D5AYC5_RICPP	42	secreted	extracellular region GO:0005576;
+tr|D5AY40|D5AY40_RICPP	51	secreted	extracellular region GO:0005576;
+tr|D5AW25|D5AW25_RICPP	60	secreted	extracellular region GO:0005576;
+tr|D5AW79|D5AW79_RICPP	34	secreted	extracellular region GO:0005576;
+tr|D5AW21|D5AW21_RICPP	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW88|D5AW88_RICPP	90	cytoplasm	cytoplasm GO:0005737
+tr|D5AW40|D5AW40_RICPP	82	cytoplasm	cytoplasm GO:0005737
+tr|D5AWI6|D5AWI6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVZ0|D5AVZ0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXE4|D5AXE4_RICPP	66	secreted	extracellular region GO:0005576;
+tr|D5AWZ4|D5AWZ4_RICPP	58	secreted	extracellular region GO:0005576;
+tr|D5AXP5|D5AXP5_RICPP	53	cytoplasm	cytoplasm GO:0005737
+tr|D5AYB7|D5AYB7_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXT8|D5AXT8_RICPP	78	cytoplasm	cytoplasm GO:0005737
+tr|D5AXI0|D5AXI0_RICPP	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYF0|D5AYF0_RICPP	62	secreted	extracellular region GO:0005576;
+tr|D5AX83|D5AX83_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AVY7|D5AVY7_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWK8|D5AWK8_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWU1|D5AWU1_RICPP	90	cytoplasm	cytoplasm GO:0005737
+tr|D5AW59|D5AW59_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXF0|D5AXF0_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AYE0|D5AYE0_RICPP	80	secreted	extracellular region GO:0005576;
+tr|D5AX70|D5AX70_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYE5|D5AYE5_RICPP	52	secreted	extracellular region GO:0005576;
+tr|D5AXI5|D5AXI5_RICPP	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW28|D5AW28_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AX99|D5AX99_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC7|D5AXC7_RICPP	80	cytoplasm	cytoplasm GO:0005737
+tr|D5AWD9|D5AWD9_RICPP	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWM4|D5AWM4_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWW3|D5AWW3_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AYA0|D5AYA0_RICPP	48	secreted	extracellular region GO:0005576;
+tr|D5AX18|D5AX18_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV1|D5AVV1_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AX28|D5AX28_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXA8|D5AXA8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR0|D5AXR0_RICPP	33	secreted	extracellular region GO:0005576;
+tr|D5AVY9|D5AVY9_RICPP	39	secreted	extracellular region GO:0005576;
+tr|D5AXY3|D5AXY3_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AWF0|D5AWF0_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AX20|D5AX20_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AX39|D5AX39_RICPP	54	secreted	extracellular region GO:0005576;
+tr|D5AX90|D5AX90_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AY02|D5AY02_RICPP	84	cytoplasm	cytoplasm GO:0005737
+tr|D5AWQ2|D5AWQ2_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXW5|D5AXW5_RICPP	43	secreted	extracellular region GO:0005576;
+tr|D5AWI8|D5AWI8_RICPP	97	periplasm	periplasmic space GO:0042597;
+tr|D5AXP8|D5AXP8_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC1|D5AXC1_RICPP	33	secreted	extracellular region GO:0005576;
+tr|D5AX06|D5AX06_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AWA0|D5AWA0_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AXX0|D5AXX0_RICPP	55	cytoplasm	cytoplasm GO:0005737
+tr|D5AWA1|D5AWA1_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AVW9|D5AVW9_RICPP	33	secreted	extracellular region GO:0005576;
+tr|D5AW30|D5AW30_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AY33|D5AY33_RICPP	68	secreted	extracellular region GO:0005576;
+tr|D5AXX9|D5AXX9_RICPP	52	secreted	extracellular region GO:0005576;
+tr|D5AXQ4|D5AXQ4_RICPP	74	cytoplasm	cytoplasm GO:0005737
+tr|D5AY75|D5AY75_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC3|D5AWC3_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWN1|D5AWN1_RICPP	52	secreted	extracellular region GO:0005576;
+tr|D5AW11|D5AW11_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AVW0|D5AVW0_RICPP	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXD9|D5AXD9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AX50|D5AX50_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AWE8|D5AWE8_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AW73|D5AW73_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AYF8|D5AYF8_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AY14|D5AY14_RICPP	58	secreted	extracellular region GO:0005576;
+tr|D5AX12|D5AX12_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AY60|D5AY60_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS9|D5AWS9_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AY91|D5AY91_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AWM9|D5AWM9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWK9|D5AWK9_RICPP	75	periplasm	periplasmic space GO:0042597;
+tr|D5AY11|D5AY11_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AYA4|D5AYA4_RICPP	49	secreted	extracellular region GO:0005576;
+tr|D5AYF4|D5AYF4_RICPP	96	periplasm	periplasmic space GO:0042597;
+tr|D5AXD4|D5AXD4_RICPP	34	secreted	extracellular region GO:0005576;
+tr|D5AXI4|D5AXI4_RICPP	58	secreted	extracellular region GO:0005576;
+tr|D5AX69|D5AX69_RICPP	55	cytoplasm	cytoplasm GO:0005737
+tr|D5AX55|D5AX55_RICPP	90	cytoplasm	cytoplasm GO:0005737
+tr|D5AWQ1|D5AWQ1_RICPP	45	secreted	extracellular region GO:0005576;
+tr|D5AY19|D5AY19_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AX53|D5AX53_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AXT1|D5AXT1_RICPP	57	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|D5AYH4|D5AYH4_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWL2|D5AWL2_RICPP	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVV2|D5AVV2_RICPP	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW84|D5AW84_RICPP	59	secreted	extracellular region GO:0005576;
+tr|D5AWE5|D5AWE5_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AXD8|D5AXD8_RICPP	55	cytoplasm	cytoplasm GO:0005737
+tr|D5AWK1|D5AWK1_RICPP	74	secreted	extracellular region GO:0005576;
+tr|D5AXH5|D5AXH5_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AWP3|D5AWP3_RICPP	58	cytoplasm	cytoplasm GO:0005737
+tr|D5AW62|D5AW62_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXN2|D5AXN2_RICPP	73	secreted	extracellular region GO:0005576;
+tr|D5AWE3|D5AWE3_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AXQ9|D5AXQ9_RICPP	58	cytoplasm	cytoplasm GO:0005737
+tr|D5AWH7|D5AWH7_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXR1|D5AXR1_RICPP	78	cytoplasm	cytoplasm GO:0005737
+tr|D5AW17|D5AW17_RICPP	69	cytoplasm	cytoplasm GO:0005737
+tr|D5AXY1|D5AXY1_RICPP	40	secreted	extracellular region GO:0005576;
+tr|D5AX84|D5AX84_RICPP	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AY51|D5AY51_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC4|D5AWC4_RICPP	56	cytoplasm	cytoplasm GO:0005737
+tr|D5AX22|D5AX22_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR3|D5AWR3_RICPP	49	secreted	extracellular region GO:0005576;
+tr|D5AX88|D5AX88_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AX65|D5AX65_RICPP	78	secreted	extracellular region GO:0005576;
+tr|D5AX91|D5AX91_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXE0|D5AXE0_RICPP	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX92|D5AX92_RICPP	79	cytoplasm	cytoplasm GO:0005737
+tr|D5AWN0|D5AWN0_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AY94|D5AY94_RICPP	71	cytoplasm	cytoplasm GO:0005737
+tr|D5AYE8|D5AYE8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AW07|D5AW07_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AWW6|D5AWW6_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AY82|D5AY82_RICPP	39	secreted	extracellular region GO:0005576;
+tr|D5AX62|D5AX62_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AXX5|D5AXX5_RICPP	58	secreted	extracellular region GO:0005576;
+tr|D5AXQ8|D5AXQ8_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG7|D5AYG7_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AX42|D5AX42_RICPP	86	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|D5AW47|D5AW47_RICPP	50	secreted	extracellular region GO:0005576;
+tr|D5AWS4|D5AWS4_RICPP	59	cytoplasm	cytoplasm GO:0005737
+tr|D5AWU9|D5AWU9_RICPP	41	secreted	extracellular region GO:0005576;
+tr|D5AWE0|D5AWE0_RICPP	52	cytoplasm	cytoplasm GO:0005737
+tr|D5AXM5|D5AXM5_RICPP	70	secreted	extracellular region GO:0005576;
+tr|D5AXQ6|D5AXQ6_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AWH3|D5AWH3_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVU2|D5AVU2_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AYA7|D5AYA7_RICPP	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXF3|D5AXF3_RICPP	60	secreted	extracellular region GO:0005576;
+tr|D5AX02|D5AX02_RICPP	31	secreted	extracellular region GO:0005576;
+tr|D5AWL4|D5AWL4_RICPP	41	periplasm	periplasmic space GO:0042597;
+tr|D5AXF6|D5AXF6_RICPP	59	secreted	extracellular region GO:0005576;
+tr|D5AXN8|D5AXN8_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AWN8|D5AWN8_RICPP	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXK6|D5AXK6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXU9|D5AXU9_RICPP	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXI3|D5AXI3_RICPP	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXF2|D5AXF2_RICPP	67	secreted	extracellular region GO:0005576;
+tr|D5AYD4|D5AYD4_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ3|D5AXZ3_RICPP	44	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG6|D5AYG6_RICPP	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWD0|D5AWD0_RICPP	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW86|D5AW86_RICPP	69	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC1|D5AWC1_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AXH1|D5AXH1_RICPP	83	periplasm	periplasmic space GO:0042597;
+tr|D5AXQ0|D5AXQ0_RICPP	83	cytoplasm	cytoplasm GO:0005737
+tr|D5AY74|D5AY74_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AWE6|D5AWE6_RICPP	57	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ2|D5AXZ2_RICPP	51	secreted	extracellular region GO:0005576;
+tr|D5AW24|D5AW24_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYH6|D5AYH6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVY4|D5AVY4_RICPP	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXD2|D5AXD2_RICPP	93	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG4|D5AYG4_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AY61|D5AY61_RICPP	94	secreted	extracellular region GO:0005576;
+tr|D5AXX7|D5AXX7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWC8|D5AWC8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXQ7|D5AXQ7_RICPP	88	cytoplasm	cytoplasm GO:0005737
+tr|D5AW56|D5AW56_RICPP	47	cytoplasm	cytoplasm GO:0005737
+tr|D5AX01|D5AX01_RICPP	82	secreted	extracellular region GO:0005576;
+tr|D5AWD1|D5AWD1_RICPP	90	cytoplasm	cytoplasm GO:0005737
+tr|D5AXL1|D5AXL1_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AXC9|D5AXC9_RICPP	42	cytoplasm	cytoplasm GO:0005737
+tr|D5AWV1|D5AWV1_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWX3|D5AWX3_RICPP	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXL8|D5AXL8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AW74|D5AW74_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AY97|D5AY97_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AY34|D5AY34_RICPP	57	secreted	extracellular region GO:0005576;
+tr|D5AX68|D5AX68_RICPP	43	secreted	extracellular region GO:0005576;
+tr|D5AWS3|D5AWS3_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AY89|D5AY89_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AW89|D5AW89_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWY4|D5AWY4_RICPP	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXN6|D5AXN6_RICPP	97	cytoplasm	cytoplasm GO:0005737
+tr|D5AWG7|D5AWG7_RICPP	88	cytoplasm	cytoplasm GO:0005737
+tr|D5AWH8|D5AWH8_RICPP	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AY13|D5AY13_RICPP	80	cytoplasm	cytoplasm GO:0005737
+tr|D5AXJ2|D5AXJ2_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AW49|D5AW49_RICPP	82	secreted	extracellular region GO:0005576;
+tr|D5AX29|D5AX29_RICPP	73	secreted	extracellular region GO:0005576;
+tr|D5AXZ8|D5AXZ8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWS8|D5AWS8_RICPP	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWB0|D5AWB0_RICPP	41	cytoplasm	cytoplasm GO:0005737
+tr|D5AXB7|D5AXB7_RICPP	61	secreted	extracellular region GO:0005576;
+tr|D5AXG3|D5AXG3_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWQ5|D5AWQ5_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AYA9|D5AYA9_RICPP	63	secreted	extracellular region GO:0005576;
+tr|D5AXK0|D5AXK0_RICPP	65	cytoplasm	cytoplasm GO:0005737
+tr|D5AXK4|D5AXK4_RICPP	69	secreted	extracellular region GO:0005576;
+tr|D5AWM0|D5AWM0_RICPP	36	secreted	extracellular region GO:0005576;
+tr|D5AXK7|D5AXK7_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AY06|D5AY06_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXE9|D5AXE9_RICPP	80	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX44|D5AX44_RICPP	64	secreted	extracellular region GO:0005576;
+tr|D5AW61|D5AW61_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AYC6|D5AYC6_RICPP	92	cytoplasm	cytoplasm GO:0005737
+tr|D5AXD6|D5AXD6_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AX27|D5AX27_RICPP	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWV9|D5AWV9_RICPP	61	cytoplasm	cytoplasm GO:0005737
+tr|D5AVX3|D5AVX3_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ7|D5AXZ7_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AXL2|D5AXL2_RICPP	68	cytoplasm	cytoplasm GO:0005737
+tr|D5AY73|D5AY73_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYD8|D5AYD8_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AVW6|D5AVW6_RICPP	58	cytoplasm	cytoplasm GO:0005737
+tr|D5AWM6|D5AWM6_RICPP	25	secreted	extracellular region GO:0005576;
+tr|D5AXV0|D5AXV0_RICPP	89	secreted	extracellular region GO:0005576;
+tr|D5AXR2|D5AXR2_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AXW8|D5AXW8_RICPP	47	cytoplasm	cytoplasm GO:0005737
+tr|D5AXQ3|D5AXQ3_RICPP	66	cytoplasm	cytoplasm GO:0005737
+tr|D5AXU8|D5AXU8_RICPP	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX95|D5AX95_RICPP	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWB1|D5AWB1_RICPP	71	secreted	extracellular region GO:0005576;
+tr|D5AWF1|D5AWF1_RICPP	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXW4|D5AXW4_RICPP	65	secreted	extracellular region GO:0005576;
+tr|D5AX66|D5AX66_RICPP	81	cytoplasm	cytoplasm GO:0005737
+tr|D5AXM0|D5AXM0_RICPP	75	secreted	extracellular region GO:0005576;
+tr|D5AWY1|D5AWY1_RICPP	69	periplasm	periplasmic space GO:0042597;
+tr|D5AWW9|D5AWW9_RICPP	49	secreted	extracellular region GO:0005576;
+tr|D5AWC2|D5AWC2_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AW92|D5AW92_RICPP	75	secreted	extracellular region GO:0005576;
+tr|D5AXC6|D5AXC6_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AW77|D5AW77_RICPP	59	cytoplasm	cytoplasm GO:0005737
+tr|D5AWG3|D5AWG3_RICPP	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AX15|D5AX15_RICPP	92	cytoplasm	cytoplasm GO:0005737
+tr|D5AYF6|D5AYF6_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AX85|D5AX85_RICPP	69	cytoplasm	cytoplasm GO:0005737
+tr|D5AXT7|D5AXT7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWY8|D5AWY8_RICPP	67	secreted	extracellular region GO:0005576;
+tr|D5AX13|D5AX13_RICPP	74	cytoplasm	cytoplasm GO:0005737
+tr|D5AW82|D5AW82_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AW64|D5AW64_RICPP	86	cytoplasm	cytoplasm GO:0005737
+tr|D5AWF4|D5AWF4_RICPP	72	periplasm	periplasmic space GO:0042597;
+tr|D5AX75|D5AX75_RICPP	54	cytoplasm	cytoplasm GO:0005737
+tr|D5AY32|D5AY32_RICPP	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW39|D5AW39_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AYE1|D5AYE1_RICPP	32	secreted	extracellular region GO:0005576;
+tr|D5AY45|D5AY45_RICPP	36	secreted	extracellular region GO:0005576;
+tr|D5AW06|D5AW06_RICPP	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXA2|D5AXA2_RICPP	72	cytoplasm	cytoplasm GO:0005737
+tr|D5AW09|D5AW09_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWF7|D5AWF7_RICPP	95	cytoplasm	cytoplasm GO:0005737
+tr|D5AWP5|D5AWP5_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWJ7|D5AWJ7_RICPP	85	cytoplasm	cytoplasm GO:0005737
+tr|D5AXX3|D5AXX3_RICPP	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWP8|D5AWP8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVX4|D5AVX4_RICPP	88	secreted	extracellular region GO:0005576;
+tr|D5AXP7|D5AXP7_RICPP	96	cytoplasm	cytoplasm GO:0005737
+tr|D5AWR0|D5AWR0_RICPP	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXF7|D5AXF7_RICPP	99	cytoplasm	cytoplasm GO:0005737
+tr|D5AW08|D5AW08_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXZ5|D5AXZ5_RICPP	80	secreted	extracellular region GO:0005576;
+tr|D5AWP4|D5AWP4_RICPP	57	cytoplasm	cytoplasm GO:0005737
+tr|D5AVS9|D5AVS9_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AVU8|D5AVU8_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG8|D5AYG8_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AXN3|D5AXN3_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AXU7|D5AXU7_RICPP	47	cytoplasm	cytoplasm GO:0005737
+tr|D5AXG5|D5AXG5_RICPP	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYA2|D5AYA2_RICPP	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AW27|D5AW27_RICPP	40	cytoplasm	cytoplasm GO:0005737
+tr|D5AW80|D5AW80_RICPP	85	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|D5AX89|D5AX89_RICPP	84	cytoplasm	cytoplasm GO:0005737
+tr|D5AW02|D5AW02_RICPP	69	secreted	extracellular region GO:0005576;
+tr|D5AXM6|D5AXM6_RICPP	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVU0|D5AVU0_RICPP	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AVZ2|D5AVZ2_RICPP	94	cytoplasm	cytoplasm GO:0005737
+tr|D5AXT4|D5AXT4_RICPP	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWJ0|D5AWJ0_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXK9|D5AXK9_RICPP	75	cytoplasm	cytoplasm GO:0005737
+tr|D5AWJ5|D5AWJ5_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AXY5|D5AXY5_RICPP	91	cytoplasm	cytoplasm GO:0005737
+tr|D5AVV0|D5AVV0_RICPP	74	secreted	extracellular region GO:0005576;
+tr|D5AXQ1|D5AXQ1_RICPP	89	cytoplasm	cytoplasm GO:0005737
+tr|D5AWA4|D5AWA4_RICPP	67	periplasm	periplasmic space GO:0042597;
+tr|D5AX63|D5AX63_RICPP	72	cytoplasm	cytoplasm GO:0005737
+tr|D5AX59|D5AX59_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWZ1|D5AWZ1_RICPP	87	cytoplasm	cytoplasm GO:0005737
+tr|D5AVX5|D5AVX5_RICPP	67	secreted	extracellular region GO:0005576;
+tr|D5AWH4|D5AWH4_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AWZ0|D5AWZ0_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AXP0|D5AXP0_RICPP	61	cytoplasm	cytoplasm GO:0005737
+tr|D5AXS9|D5AXS9_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AWH6|D5AWH6_RICPP	54	secreted	extracellular region GO:0005576;
+tr|D5AW19|D5AW19_RICPP	98	cytoplasm	cytoplasm GO:0005737
+tr|D5AYG3|D5AYG3_RICPP	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|D5AYE7|D5AYE7_RICPP	100	cytoplasm	cytoplasm GO:0005737
+tr|D5AWT1|D5AWT1_RICPP	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;

@@ -1,0 +1,875 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|I0FBP5|I0FBP5_BORCA	18	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); organelle inner membrane GO:0019866(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBI5|I0FBI5_BORCA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD36|I0FD36_BORCA	18	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|I0FDB2|I0FDB2_BORCA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCN6|I0FCN6_BORCA	25	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|I0FDT0|I0FDT0_BORCA	19	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I0FC39|I0FC39_BORCA	22	secreted	extracellular region GO:0005576(IEA);
+tr|I0FC89|I0FC89_BORCA	17	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FDD4|I0FDD4_BORCA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDG3|I0FDG3_BORCA	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|I0FD24|I0FD24_BORCA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBE9|I0FBE9_BORCA	10	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|I0FC59|I0FC59_BORCA	26	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|I0FBX3|I0FBX3_BORCA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD51|I0FD51_BORCA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC36|I0FC36_BORCA	20	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|I0FBV3|I0FBV3_BORCA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCY1|I0FCY1_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCI1|I0FCI1_BORCA	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBV0|I0FBV0_BORCA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDQ6|I0FDQ6_BORCA	8	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|I0FCY8|I0FCY8_BORCA	40	cytoplasm	phosphoenolpyruvate-dependent sugar phosphotransferase complex GO:0019197(IDA);
+tr|I0FCU6|I0FCU6_BORCA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDJ7|I0FDJ7_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBY1|I0FBY1_BORCA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCJ3|I0FCJ3_BORCA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCZ6|I0FCZ6_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDC2|I0FDC2_BORCA	27	fimbrium	pilus GO:0009289(IEA);
+tr|I0FBK1|I0FBK1_BORCA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBX7|I0FBX7_BORCA	14	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|I0FBD4|I0FBD4_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDQ3|I0FDQ3_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBI7|I0FBI7_BORCA	30	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|I0FDC8|I0FDC8_BORCA	11	cytoplasm	ribosome GO:0005840(IEA);
+tr|I0FDL6|I0FDL6_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCX3|I0FCX3_BORCA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC49|I0FC49_BORCA	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD30|I0FD30_BORCA	21	cytoplasm	cytosol GO:0005829(ISS);
+tr|I0FBP6|I0FBP6_BORCA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBV9|I0FBV9_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDL9|I0FDL9_BORCA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCJ9|I0FCJ9_BORCA	13	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|I0FBW7|I0FBW7_BORCA	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FBH6|I0FBH6_BORCA	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD10|I0FD10_BORCA	26	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FD43|I0FD43_BORCA	30	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|I0FDG2|I0FDG2_BORCA	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCP1|I0FCP1_BORCA	66	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|I0FCP3|I0FCP3_BORCA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCM7|I0FCM7_BORCA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC29|I0FC29_BORCA	76	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBZ2|I0FBZ2_BORCA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FD92|I0FD92_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCW8|I0FCW8_BORCA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCB5|I0FCB5_BORCA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDG4|I0FDG4_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC28|I0FC28_BORCA	6	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FDA1|I0FDA1_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBN8|I0FBN8_BORCA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDP2|I0FDP2_BORCA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDM4|I0FDM4_BORCA	41	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDC3|I0FDC3_BORCA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD09|I0FD09_BORCA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBK7|I0FBK7_BORCA	7	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|I0FBT4|I0FBT4_BORCA	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|I0FCU5|I0FCU5_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBZ3|I0FBZ3_BORCA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCZ9|I0FCZ9_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC35|I0FC35_BORCA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBK5|I0FBK5_BORCA	5	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FBR0|I0FBR0_BORCA	50	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|I0FD01|I0FD01_BORCA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCB6|I0FCB6_BORCA	34	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I0FCL5|I0FCL5_BORCA	1	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|I0FBK6|I0FBK6_BORCA	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FCE9|I0FCE9_BORCA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD28|I0FD28_BORCA	3	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC22|I0FC22_BORCA	22	periplasm	periplasmic space GO:0042597(IMP);
+tr|I0FBS5|I0FBS5_BORCA	58	periplasm	periplasmic flagellum GO:0055040(IEA);
+tr|I0FDS2|I0FDS2_BORCA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCR9|I0FCR9_BORCA	29	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|I0FC03|I0FC03_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I0FBZ9|I0FBZ9_BORCA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBN3|I0FBN3_BORCA	23	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|I0FD53|I0FD53_BORCA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDC5|I0FDC5_BORCA	32	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|I0FCM5|I0FCM5_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBD1|I0FBD1_BORCA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD86|I0FD86_BORCA	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDT5|I0FDT5_BORCA	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBW9|I0FBW9_BORCA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDD7|I0FDD7_BORCA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBL4|I0FBL4_BORCA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC19|I0FC19_BORCA	17	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|I0FC17|I0FC17_BORCA	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBP7|I0FBP7_BORCA	11	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FCK1|I0FCK1_BORCA	28	cytoplasm	cytosol GO:0005829(IBA);
+tr|I0FBH9|I0FBH9_BORCA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD41|I0FD41_BORCA	48	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I0FBR8|I0FBR8_BORCA	6	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FCL6|I0FCL6_BORCA	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|I0FC40|I0FC40_BORCA	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|I0FDS8|I0FDS8_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBT7|I0FBT7_BORCA	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FD80|I0FD80_BORCA	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCU4|I0FCU4_BORCA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC46|I0FC46_BORCA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD37|I0FD37_BORCA	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|I0FD17|I0FD17_BORCA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBF2|I0FBF2_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|I0FCJ4|I0FCJ4_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCA2|I0FCA2_BORCA	9	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I0FD82|I0FD82_BORCA	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FC95|I0FC95_BORCA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDR5|I0FDR5_BORCA	33	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); organelle inner membrane GO:0019866(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD27|I0FD27_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|I0FCZ8|I0FCZ8_BORCA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBX6|I0FBX6_BORCA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD88|I0FD88_BORCA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDA2|I0FDA2_BORCA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC09|I0FC09_BORCA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD33|I0FD33_BORCA	43	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I0FBP8|I0FBP8_BORCA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDB4|I0FDB4_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDT8|I0FDT8_BORCA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBJ3|I0FBJ3_BORCA	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FD71|I0FD71_BORCA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBJ0|I0FBJ0_BORCA	16	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|I0FD15|I0FD15_BORCA	0	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC47|I0FC47_BORCA	16	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|I0FDI1|I0FDI1_BORCA	11	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCW3|I0FCW3_BORCA	15	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|I0FCN5|I0FCN5_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|I0FCI8|I0FCI8_BORCA	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FC60|I0FC60_BORCA	4	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|I0FD19|I0FD19_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCB3|I0FCB3_BORCA	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCE2|I0FCE2_BORCA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD83|I0FD83_BORCA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD04|I0FD04_BORCA	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FBW4|I0FBW4_BORCA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC24|I0FC24_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBQ0|I0FBQ0_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCW7|I0FCW7_BORCA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBL6|I0FBL6_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBY8|I0FBY8_BORCA	22	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FBZ0|I0FBZ0_BORCA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBD5|I0FBD5_BORCA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC48|I0FC48_BORCA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBF9|I0FBF9_BORCA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD70|I0FD70_BORCA	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FC86|I0FC86_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD40|I0FD40_BORCA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDM2|I0FDM2_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCU8|I0FCU8_BORCA	21	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|I0FC75|I0FC75_BORCA	38	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|I0FBP3|I0FBP3_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDC4|I0FDC4_BORCA	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD76|I0FD76_BORCA	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC18|I0FC18_BORCA	41	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FD16|I0FD16_BORCA	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FCK2|I0FCK2_BORCA	26	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|I0FDS9|I0FDS9_BORCA	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBE5|I0FBE5_BORCA	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|I0FD73|I0FD73_BORCA	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I0FC85|I0FC85_BORCA	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCE4|I0FCE4_BORCA	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FCQ4|I0FCQ4_BORCA	0	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBI3|I0FBI3_BORCA	90	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBI0|I0FBI0_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|I0FDG5|I0FDG5_BORCA	21	secreted	extracellular region GO:0005576(IEA);
+tr|I0FCU1|I0FCU1_BORCA	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBR5|I0FBR5_BORCA	9	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FCG1|I0FCG1_BORCA	4	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|I0FC15|I0FC15_BORCA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|I0FBN4|I0FBN4_BORCA	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDF1|I0FDF1_BORCA	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FDI2|I0FDI2_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBS1|I0FBS1_BORCA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FD72|I0FD72_BORCA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBF1|I0FBF1_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|I0FBN7|I0FBN7_BORCA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD74|I0FD74_BORCA	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FCM6|I0FCM6_BORCA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDD6|I0FDD6_BORCA	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FDH7|I0FDH7_BORCA	15	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I0FDH9|I0FDH9_BORCA	12	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|I0FCQ6|I0FCQ6_BORCA	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD18|I0FD18_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCK3|I0FCK3_BORCA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCE8|I0FCE8_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBW0|I0FBW0_BORCA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDL2|I0FDL2_BORCA	24	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FC76|I0FC76_BORCA	44	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|I0FDK3|I0FDK3_BORCA	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FC05|I0FC05_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCI2|I0FCI2_BORCA	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBL2|I0FBL2_BORCA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC84|I0FC84_BORCA	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDH6|I0FDH6_BORCA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCP7|I0FCP7_BORCA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FCY9|I0FCY9_BORCA	67	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBR4|I0FBR4_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDP9|I0FDP9_BORCA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC67|I0FC67_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I0FBL5|I0FBL5_BORCA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBI1|I0FBI1_BORCA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDS6|I0FDS6_BORCA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBQ7|I0FBQ7_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDN8|I0FDN8_BORCA	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBV2|I0FBV2_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBS2|I0FBS2_BORCA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCJ8|I0FCJ8_BORCA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBM1|I0FBM1_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I0FBN0|I0FBN0_BORCA	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD60|I0FD60_BORCA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD42|I0FD42_BORCA	25	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|I0FCT8|I0FCT8_BORCA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDJ2|I0FDJ2_BORCA	30	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I0FBT3|I0FBT3_BORCA	6	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FBV6|I0FBV6_BORCA	11	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|I0FBE4|I0FBE4_BORCA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBQ1|I0FBQ1_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD98|I0FD98_BORCA	18	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|I0FCF6|I0FCF6_BORCA	40	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FBI2|I0FBI2_BORCA	74	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCM0|I0FCM0_BORCA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCQ0|I0FCQ0_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDA0|I0FDA0_BORCA	65	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|I0FCB4|I0FCB4_BORCA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FDG1|I0FDG1_BORCA	15	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|I0FDI9|I0FDI9_BORCA	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FD91|I0FD91_BORCA	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD61|I0FD61_BORCA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC83|I0FC83_BORCA	21	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FDH4|I0FDH4_BORCA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBI6|I0FBI6_BORCA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCW1|I0FCW1_BORCA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCY4|I0FCY4_BORCA	1	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCU3|I0FCU3_BORCA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCF1|I0FCF1_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC26|I0FC26_BORCA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBS3|I0FBS3_BORCA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FC34|I0FC34_BORCA	35	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|I0FDJ6|I0FDJ6_BORCA	26	secreted	extracellular region GO:0005576(IEA);
+tr|I0FDA4|I0FDA4_BORCA	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC98|I0FC98_BORCA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBN2|I0FBN2_BORCA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCF5|I0FCF5_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|I0FCK9|I0FCK9_BORCA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCB1|I0FCB1_BORCA	19	periplasm	periplasmic space GO:0042597(IDA);
+tr|I0FBH3|I0FBH3_BORCA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCJ6|I0FCJ6_BORCA	64	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDJ8|I0FDJ8_BORCA	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FCE7|I0FCE7_BORCA	21	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|I0FDB6|I0FDB6_BORCA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCF0|I0FCF0_BORCA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD84|I0FD84_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FCI6|I0FCI6_BORCA	28	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|I0FBY3|I0FBY3_BORCA	5	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|I0FBH0|I0FBH0_BORCA	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FCJ1|I0FCJ1_BORCA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBM2|I0FBM2_BORCA	11	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I0FC32|I0FC32_BORCA	27	secreted	extracellular region GO:0005576(IEA);
+tr|I0FC27|I0FC27_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD57|I0FD57_BORCA	11	secreted	cell surface GO:0009986(IEA); extracellular region GO:0005576(IEA);
+tr|I0FBZ4|I0FBZ4_BORCA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBS4|I0FBS4_BORCA	89	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|I0FCL1|I0FCL1_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|I0FDF4|I0FDF4_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD05|I0FD05_BORCA	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FBT9|I0FBT9_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCN2|I0FCN2_BORCA	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I0FDB3|I0FDB3_BORCA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDB5|I0FDB5_BORCA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCZ0|I0FCZ0_BORCA	50	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I0FBZ1|I0FBZ1_BORCA	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|I0FCB2|I0FCB2_BORCA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD34|I0FD34_BORCA	26	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|I0FDN7|I0FDN7_BORCA	11	cytoplasm	cytosol GO:0005829(IDA);
+tr|I0FBR6|I0FBR6_BORCA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FD25|I0FD25_BORCA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDB0|I0FDB0_BORCA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDF8|I0FDF8_BORCA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBU2|I0FBU2_BORCA	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCS8|I0FCS8_BORCA	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBU0|I0FBU0_BORCA	20	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|I0FCL4|I0FCL4_BORCA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FC79|I0FC79_BORCA	36	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|I0FDI8|I0FDI8_BORCA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FC11|I0FC11_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FDM6|I0FDM6_BORCA	18	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|I0FC50|I0FC50_BORCA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FD47|I0FD47_BORCA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBQ6|I0FBQ6_BORCA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDF3|I0FDF3_BORCA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBS8|I0FBS8_BORCA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDH3|I0FDH3_BORCA	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBX1|I0FBX1_BORCA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FDA9|I0FDA9_BORCA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I0FBX8|I0FBX8_BORCA	14	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|I0FDS5|I0FDS5_BORCA	25	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|I0FC96|I0FC96_BORCA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FCB0|I0FCB0_BORCA	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|I0FBK3|I0FBK3_BORCA	14	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|I0FD44|I0FD44_BORCA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I0FBU1|I0FBU1_BORCA	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I0FCE3|I0FCE3_BORCA	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|I0FCR6|I0FCR6_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCV3|I0FCV3_BORCA	80	secreted	extracellular region GO:0005576;
+tr|I0FC97|I0FC97_BORCA	73	cytoplasm	cytoplasm GO:0005737
+tr|I0FCA8|I0FCA8_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK9|I0FDK9_BORCA	77	secreted	extracellular region GO:0005576;
+tr|I0FD13|I0FD13_BORCA	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC88|I0FC88_BORCA	47	secreted	extracellular region GO:0005576;
+tr|I0FDD3|I0FDD3_BORCA	46	secreted	extracellular region GO:0005576;
+tr|I0FD99|I0FD99_BORCA	60	secreted	extracellular region GO:0005576;
+tr|I0FD62|I0FD62_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FC93|I0FC93_BORCA	63	secreted	extracellular region GO:0005576;
+tr|I0FBF0|I0FBF0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG6|I0FCG6_BORCA	86	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC1|I0FCC1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX0|I0FCX0_BORCA	60	secreted	extracellular region GO:0005576;
+tr|I0FCT6|I0FCT6_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDT3|I0FDT3_BORCA	83	secreted	extracellular region GO:0005576;
+tr|I0FBS9|I0FBS9_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FDA5|I0FDA5_BORCA	82	secreted	extracellular region GO:0005576;
+tr|I0FCV1|I0FCV1_BORCA	87	cytoplasm	cytoplasm GO:0005737
+tr|I0FBL9|I0FBL9_BORCA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCW4|I0FCW4_BORCA	57	cytoplasm	cytoplasm GO:0005737
+tr|I0FC64|I0FC64_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FC80|I0FC80_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC0|I0FCC0_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FDC9|I0FDC9_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCM3|I0FCM3_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBC6|I0FBC6_BORCA	49	secreted	extracellular region GO:0005576;
+tr|I0FCI9|I0FCI9_BORCA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD66|I0FD66_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX9|I0FCX9_BORCA	76	cytoplasm	cytoplasm GO:0005737
+tr|I0FBK9|I0FBK9_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FDN3|I0FDN3_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FBQ5|I0FBQ5_BORCA	80	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH1|I0FCH1_BORCA	91	cytoplasm	cytoplasm GO:0005737
+tr|I0FDL4|I0FDL4_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FCA4|I0FCA4_BORCA	36	secreted	extracellular region GO:0005576;
+tr|I0FCW6|I0FCW6_BORCA	88	cytoplasm	cytoplasm GO:0005737
+tr|I0FCR8|I0FCR8_BORCA	79	cytoplasm	cytoplasm GO:0005737
+tr|I0FC62|I0FC62_BORCA	40	secreted	extracellular region GO:0005576;
+tr|I0FCT2|I0FCT2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDI4|I0FDI4_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FC12|I0FC12_BORCA	51	secreted	extracellular region GO:0005576;
+tr|I0FDL7|I0FDL7_BORCA	91	cytoplasm	cytoplasm GO:0005737
+tr|I0FC70|I0FC70_BORCA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD08|I0FD08_BORCA	82	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK6|I0FDK6_BORCA	78	cytoplasm	cytoplasm GO:0005737
+tr|I0FBL8|I0FBL8_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBK2|I0FBK2_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FBC7|I0FBC7_BORCA	49	secreted	extracellular region GO:0005576;
+tr|I0FDK4|I0FDK4_BORCA	60	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT4|I0FCT4_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBV4|I0FBV4_BORCA	74	secreted	extracellular region GO:0005576;
+tr|I0FDF5|I0FDF5_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD95|I0FD95_BORCA	15	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBR9|I0FBR9_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX4|I0FCX4_BORCA	69	cytoplasm	cytoplasm GO:0005737
+tr|I0FBW3|I0FBW3_BORCA	62	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS2|I0FCS2_BORCA	75	cytoplasm	cytoplasm GO:0005737
+tr|I0FDM7|I0FDM7_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBZ8|I0FBZ8_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FCY3|I0FCY3_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBS6|I0FBS6_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD64|I0FD64_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FBR1|I0FBR1_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBD0|I0FBD0_BORCA	25	secreted	extracellular region GO:0005576;
+tr|I0FBH7|I0FBH7_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBD9|I0FBD9_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG5|I0FCG5_BORCA	64	periplasm	periplasmic space GO:0042597;
+tr|I0FD20|I0FD20_BORCA	89	cytoplasm	cytoplasm GO:0005737
+tr|I0FBP1|I0FBP1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCR3|I0FCR3_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBC5|I0FBC5_BORCA	62	secreted	extracellular region GO:0005576;
+tr|I0FBU6|I0FBU6_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBM9|I0FBM9_BORCA	90	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK5|I0FDK5_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBT5|I0FBT5_BORCA	55	secreted	extracellular region GO:0005576;
+tr|I0FCE1|I0FCE1_BORCA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD68|I0FD68_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT3|I0FCT3_BORCA	88	cytoplasm	cytoplasm GO:0005737
+tr|I0FBG9|I0FBG9_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCA0|I0FCA0_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDP5|I0FDP5_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD81|I0FD81_BORCA	69	cytoplasm	cytoplasm GO:0005737
+tr|I0FDQ5|I0FDQ5_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDA7|I0FDA7_BORCA	69	cytoplasm	cytoplasm GO:0005737
+tr|I0FDM8|I0FDM8_BORCA	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCD7|I0FCD7_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC30|I0FC30_BORCA	75	secreted	extracellular region GO:0005576;
+tr|I0FCJ0|I0FCJ0_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDG8|I0FDG8_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FBR3|I0FBR3_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FDC1|I0FDC1_BORCA	32	secreted	extracellular region GO:0005576;
+tr|I0FBS7|I0FBS7_BORCA	65	cytoplasm	cytoplasm GO:0005737
+tr|I0FCR1|I0FCR1_BORCA	45	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR8|I0FDR8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBQ3|I0FBQ3_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FDT2|I0FDT2_BORCA	41	cytoplasm	cytoplasm GO:0005737
+tr|I0FDN5|I0FDN5_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH6|I0FCH6_BORCA	40	secreted	extracellular region GO:0005576;
+tr|I0FDM1|I0FDM1_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBH1|I0FBH1_BORCA	67	secreted	extracellular region GO:0005576;
+tr|I0FDG7|I0FDG7_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FDA3|I0FDA3_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FD07|I0FD07_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD93|I0FD93_BORCA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBM3|I0FBM3_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FD46|I0FD46_BORCA	89	cytoplasm	cytoplasm GO:0005737
+tr|I0FD90|I0FD90_BORCA	79	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX2|I0FCX2_BORCA	22	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|I0FDQ0|I0FDQ0_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC3|I0FCC3_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FDF0|I0FDF0_BORCA	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCC8|I0FCC8_BORCA	69	secreted	extracellular region GO:0005576;
+tr|I0FCA9|I0FCA9_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FD32|I0FD32_BORCA	72	secreted	extracellular region GO:0005576;
+tr|I0FCS6|I0FCS6_BORCA	70	cytoplasm	cytoplasm GO:0005737
+tr|I0FD06|I0FD06_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDT4|I0FDT4_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK8|I0FDK8_BORCA	92	secreted	extracellular region GO:0005576;
+tr|I0FCX5|I0FCX5_BORCA	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDS7|I0FDS7_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBK4|I0FBK4_BORCA	88	secreted	extracellular region GO:0005576;
+tr|I0FCX1|I0FCX1_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE0|I0FDE0_BORCA	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCZ7|I0FCZ7_BORCA	76	cytoplasm	cytoplasm GO:0005737
+tr|I0FDI0|I0FDI0_BORCA	89	cytoplasm	cytoplasm GO:0005737
+tr|I0FCN8|I0FCN8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCI0|I0FCI0_BORCA	68	cytoplasm	cytoplasm GO:0005737
+tr|I0FDN9|I0FDN9_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC7|I0FCC7_BORCA	46	secreted	extracellular region GO:0005576;
+tr|I0FCU0|I0FCU0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD67|I0FD67_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FD65|I0FD65_BORCA	67	secreted	extracellular region GO:0005576;
+tr|I0FBK8|I0FBK8_BORCA	40	secreted	extracellular region GO:0005576;
+tr|I0FBL0|I0FBL0_BORCA	55	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK1|I0FDK1_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDP7|I0FDP7_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FC78|I0FC78_BORCA	73	cytoplasm	cytoplasm GO:0005737
+tr|I0FBQ2|I0FBQ2_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FCV7|I0FCV7_BORCA	77	secreted	extracellular region GO:0005576;
+tr|I0FCN0|I0FCN0_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCD6|I0FCD6_BORCA	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCN7|I0FCN7_BORCA	73	secreted	extracellular region GO:0005576;
+tr|I0FCA7|I0FCA7_BORCA	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDD8|I0FDD8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC08|I0FC08_BORCA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBY2|I0FBY2_BORCA	62	secreted	extracellular region GO:0005576;
+tr|I0FD69|I0FD69_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCC5|I0FCC5_BORCA	51	cytoplasm	cytoplasm GO:0005737
+tr|I0FCP5|I0FCP5_BORCA	70	secreted	extracellular region GO:0005576;
+tr|I0FCV9|I0FCV9_BORCA	71	cytoplasm	cytoplasm GO:0005737
+tr|I0FC16|I0FC16_BORCA	45	secreted	extracellular region GO:0005576;
+tr|I0FBG2|I0FBG2_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBW1|I0FBW1_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FBM8|I0FBM8_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS1|I0FCS1_BORCA	52	cytoplasm	cytoplasm GO:0005737
+tr|I0FBC9|I0FBC9_BORCA	51	secreted	extracellular region GO:0005576;
+tr|I0FCA1|I0FCA1_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCH4|I0FCH4_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG2|I0FCG2_BORCA	57	periplasm	periplasmic space GO:0042597;
+tr|I0FCN9|I0FCN9_BORCA	41	secreted	extracellular region GO:0005576;
+tr|I0FDR4|I0FDR4_BORCA	68	secreted	extracellular region GO:0005576;
+tr|I0FDP1|I0FDP1_BORCA	71	cytoplasm	cytoplasm GO:0005737
+tr|I0FBT6|I0FBT6_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBX0|I0FBX0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC56|I0FC56_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCK6|I0FCK6_BORCA	48	secreted	extracellular region GO:0005576;
+tr|I0FCI3|I0FCI3_BORCA	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD22|I0FD22_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD79|I0FD79_BORCA	80	secreted	extracellular region GO:0005576;
+tr|I0FCH9|I0FCH9_BORCA	38	cytoplasm	cytoplasm GO:0005737
+tr|I0FC90|I0FC90_BORCA	47	secreted	extracellular region GO:0005576;
+tr|I0FCP4|I0FCP4_BORCA	87	cytoplasm	cytoplasm GO:0005737
+tr|I0FC68|I0FC68_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC69|I0FC69_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FD58|I0FD58_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH2|I0FCH2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCE5|I0FCE5_BORCA	89	cytoplasm	cytoplasm GO:0005737
+tr|I0FBI9|I0FBI9_BORCA	25	periplasm	periplasmic space GO:0042597;
+tr|I0FBV5|I0FBV5_BORCA	83	secreted	extracellular region GO:0005576;
+tr|I0FD94|I0FD94_BORCA	58	cytoplasm	cytoplasm GO:0005737
+tr|I0FCL8|I0FCL8_BORCA	40	cytoplasm	cytoplasm GO:0005737
+tr|I0FBP0|I0FBP0_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FDQ9|I0FDQ9_BORCA	49	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS0|I0FCS0_BORCA	91	cytoplasm	cytoplasm GO:0005737
+tr|I0FCV5|I0FCV5_BORCA	30	secreted	extracellular region GO:0005576;
+tr|I0FCV6|I0FCV6_BORCA	73	cytoplasm	cytoplasm GO:0005737
+tr|I0FDB8|I0FDB8_BORCA	67	secreted	extracellular region GO:0005576;
+tr|I0FD54|I0FD54_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC72|I0FC72_BORCA	65	secreted	extracellular region GO:0005576;
+tr|I0FD78|I0FD78_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH3|I0FCH3_BORCA	49	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC4|I0FCC4_BORCA	63	secreted	extracellular region GO:0005576;
+tr|I0FCH7|I0FCH7_BORCA	34	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD8|I0FCD8_BORCA	58	secreted	extracellular region GO:0005576;
+tr|I0FBZ5|I0FBZ5_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCP6|I0FCP6_BORCA	20	secreted	extracellular region GO:0005576;
+tr|I0FCU9|I0FCU9_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FDD9|I0FDD9_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FD45|I0FD45_BORCA	85	secreted	extracellular region GO:0005576;
+tr|I0FCQ3|I0FCQ3_BORCA	37	periplasm	periplasmic space GO:0042597;
+tr|I0FCD1|I0FCD1_BORCA	64	cytoplasm	cytoplasm GO:0005737
+tr|I0FBX4|I0FBX4_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FBD8|I0FBD8_BORCA	30	cytoplasm	cytoplasm GO:0005737
+tr|I0FBY6|I0FBY6_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FD29|I0FD29_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBN1|I0FBN1_BORCA	76	secreted	extracellular region GO:0005576;
+tr|I0FBI4|I0FBI4_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBM6|I0FBM6_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FDL0|I0FDL0_BORCA	70	secreted	extracellular region GO:0005576;
+tr|I0FCC9|I0FCC9_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBG5|I0FBG5_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FC07|I0FC07_BORCA	56	cytoplasm	cytoplasm GO:0005737
+tr|I0FDI5|I0FDI5_BORCA	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBP2|I0FBP2_BORCA	68	cytoplasm	cytoplasm GO:0005737
+tr|I0FC54|I0FC54_BORCA	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCX6|I0FCX6_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FDS1|I0FDS1_BORCA	41	cytoplasm	cytoplasm GO:0005737
+tr|I0FBU3|I0FBU3_BORCA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCZ3|I0FCZ3_BORCA	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBW6|I0FBW6_BORCA	79	secreted	extracellular region GO:0005576;
+tr|I0FDQ4|I0FDQ4_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FCR7|I0FCR7_BORCA	87	cytoplasm	cytoplasm GO:0005737
+tr|I0FBF7|I0FBF7_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCI5|I0FCI5_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FC94|I0FC94_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FD63|I0FD63_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD2|I0FCD2_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT0|I0FCT0_BORCA	85	cytoplasm	cytoplasm GO:0005737
+tr|I0FC41|I0FC41_BORCA	76	cytoplasm	cytoplasm GO:0005737
+tr|I0FBX5|I0FBX5_BORCA	68	cytoplasm	cytoplasm GO:0005737
+tr|I0FCV4|I0FCV4_BORCA	31	secreted	extracellular region GO:0005576;
+tr|I0FDE6|I0FDE6_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE4|I0FDE4_BORCA	56	secreted	extracellular region GO:0005576;
+tr|I0FC31|I0FC31_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FD38|I0FD38_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE1|I0FBE1_BORCA	71	cytoplasm	cytoplasm GO:0005737
+tr|I0FD31|I0FD31_BORCA	35	fimbrium	pilus GO:0009289;
+tr|I0FCP2|I0FCP2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBV1|I0FBV1_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDB9|I0FDB9_BORCA	61	secreted	extracellular region GO:0005576;
+tr|I0FBU8|I0FBU8_BORCA	50	secreted	extracellular region GO:0005576;
+tr|I0FDA8|I0FDA8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDQ1|I0FDQ1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBJ6|I0FBJ6_BORCA	90	cytoplasm	cytoplasm GO:0005737
+tr|I0FCZ4|I0FCZ4_BORCA	20	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDI6|I0FDI6_BORCA	68	secreted	extracellular region GO:0005576;
+tr|I0FDJ5|I0FDJ5_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCK7|I0FCK7_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDL1|I0FDL1_BORCA	66	periplasm	periplasmic space GO:0042597;
+tr|I0FC65|I0FC65_BORCA	60	cytoplasm	cytoplasm GO:0005737
+tr|I0FC06|I0FC06_BORCA	68	secreted	extracellular region GO:0005576;
+tr|I0FCL2|I0FCL2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDD0|I0FDD0_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FD48|I0FD48_BORCA	50	secreted	extracellular region GO:0005576;
+tr|I0FCY2|I0FCY2_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT7|I0FCT7_BORCA	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD39|I0FD39_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBU5|I0FBU5_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDM3|I0FDM3_BORCA	60	cytoplasm	cytoplasm GO:0005737
+tr|I0FDJ1|I0FDJ1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT5|I0FCT5_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE7|I0FDE7_BORCA	83	cytoplasm	cytoplasm GO:0005737
+tr|I0FDD2|I0FDD2_BORCA	35	cytoplasm	cytoplasm GO:0005737
+tr|I0FDB7|I0FDB7_BORCA	43	cytoplasm	cytoplasm GO:0005737
+tr|I0FBK0|I0FBK0_BORCA	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC44|I0FC44_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBL3|I0FBL3_BORCA	76	secreted	extracellular region GO:0005576;
+tr|I0FDA6|I0FDA6_BORCA	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCR0|I0FCR0_BORCA	83	cytoplasm	cytoplasm GO:0005737
+tr|I0FBZ7|I0FBZ7_BORCA	35	periplasm	periplasmic space GO:0042597;
+tr|I0FC73|I0FC73_BORCA	54	secreted	extracellular region GO:0005576;
+tr|I0FCU2|I0FCU2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBQ4|I0FBQ4_BORCA	79	secreted	extracellular region GO:0005576;
+tr|I0FDN4|I0FDN4_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBW2|I0FBW2_BORCA	74	cytoplasm	cytoplasm GO:0005737
+tr|I0FCF9|I0FCF9_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE7|I0FBE7_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCZ5|I0FCZ5_BORCA	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCZ1|I0FCZ1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD03|I0FD03_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FCL0|I0FCL0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD26|I0FD26_BORCA	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBH2|I0FBH2_BORCA	51	secreted	extracellular region GO:0005576;
+tr|I0FCW0|I0FCW0_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBR2|I0FBR2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBY9|I0FBY9_BORCA	48	periplasm	periplasmic space GO:0042597;
+tr|I0FDP3|I0FDP3_BORCA	57	secreted	extracellular region GO:0005576;
+tr|I0FCH5|I0FCH5_BORCA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDD5|I0FDD5_BORCA	43	cytoplasm	cytoplasm GO:0005737
+tr|I0FCR2|I0FCR2_BORCA	63	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX7|I0FCX7_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCK4|I0FCK4_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FDJ3|I0FDJ3_BORCA	47	secreted	extracellular region GO:0005576;
+tr|I0FCS3|I0FCS3_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR1|I0FDR1_BORCA	85	secreted	extracellular region GO:0005576;
+tr|I0FCK0|I0FCK0_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FCN3|I0FCN3_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBY0|I0FBY0_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FBF6|I0FBF6_BORCA	90	secreted	extracellular region GO:0005576;
+tr|I0FDR3|I0FDR3_BORCA	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBU9|I0FBU9_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FCY5|I0FCY5_BORCA	66	secreted	extracellular region GO:0005576;
+tr|I0FBD7|I0FBD7_BORCA	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBG6|I0FBG6_BORCA	79	cytoplasm	cytoplasm GO:0005737
+tr|I0FDL8|I0FDL8_BORCA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDS4|I0FDS4_BORCA	82	secreted	extracellular region GO:0005576;
+tr|I0FC77|I0FC77_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCM2|I0FCM2_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC00|I0FC00_BORCA	86	secreted	extracellular region GO:0005576;
+tr|I0FCF3|I0FCF3_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD5|I0FCD5_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC01|I0FC01_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG3|I0FCG3_BORCA	70	periplasm	periplasmic space GO:0042597;
+tr|I0FCL3|I0FCL3_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBD6|I0FBD6_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FDF9|I0FDF9_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDT7|I0FDT7_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FD49|I0FD49_BORCA	88	cytoplasm	cytoplasm GO:0005737
+tr|I0FCB7|I0FCB7_BORCA	64	secreted	extracellular region GO:0005576;
+tr|I0FCV2|I0FCV2_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FD87|I0FD87_BORCA	59	cytoplasm	cytoplasm GO:0005737
+tr|I0FC91|I0FC91_BORCA	74	secreted	extracellular region GO:0005576;
+tr|I0FD11|I0FD11_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBJ7|I0FBJ7_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD96|I0FD96_BORCA	46	secreted	extracellular region GO:0005576;
+tr|I0FDC6|I0FDC6_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE2|I0FBE2_BORCA	60	cytoplasm	cytoplasm GO:0005737
+tr|I0FD75|I0FD75_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDN0|I0FDN0_BORCA	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCY7|I0FCY7_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FDJ9|I0FDJ9_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FDJ4|I0FDJ4_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCQ1|I0FCQ1_BORCA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC23|I0FC23_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBU4|I0FBU4_BORCA	74	cytoplasm	cytoplasm GO:0005737
+tr|I0FDJ0|I0FDJ0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBJ9|I0FBJ9_BORCA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC63|I0FC63_BORCA	80	secreted	extracellular region GO:0005576;
+tr|I0FC02|I0FC02_BORCA	35	secreted	extracellular region GO:0005576;
+tr|I0FC99|I0FC99_BORCA	76	secreted	extracellular region GO:0005576;
+tr|I0FBI8|I0FBI8_BORCA	85	cytoplasm	cytoplasm GO:0005737
+tr|I0FBP4|I0FBP4_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCF7|I0FCF7_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FDQ8|I0FDQ8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBJ8|I0FBJ8_BORCA	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCG8|I0FCG8_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBY7|I0FBY7_BORCA	68	secreted	extracellular region GO:0005576;
+tr|I0FBX9|I0FBX9_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC55|I0FC55_BORCA	59	secreted	extracellular region GO:0005576;
+tr|I0FDQ7|I0FDQ7_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDM0|I0FDM0_BORCA	83	cytoplasm	cytoplasm GO:0005737
+tr|I0FC71|I0FC71_BORCA	46	secreted	extracellular region GO:0005576;
+tr|I0FBJ2|I0FBJ2_BORCA	71	secreted	extracellular region GO:0005576;
+tr|I0FBW8|I0FBW8_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FDC0|I0FDC0_BORCA	34	secreted	extracellular region GO:0005576;
+tr|I0FBG7|I0FBG7_BORCA	69	secreted	extracellular region GO:0005576;
+tr|I0FCD9|I0FCD9_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FCP8|I0FCP8_BORCA	82	cytoplasm	cytoplasm GO:0005737
+tr|I0FC25|I0FC25_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBJ4|I0FBJ4_BORCA	76	cytoplasm	cytoplasm GO:0005737
+tr|I0FDP6|I0FDP6_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBN9|I0FBN9_BORCA	73	secreted	extracellular region GO:0005576;
+tr|I0FD35|I0FD35_BORCA	83	secreted	extracellular region GO:0005576;
+tr|I0FC21|I0FC21_BORCA	85	cytoplasm	cytoplasm GO:0005737
+tr|I0FD12|I0FD12_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG9|I0FCG9_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC74|I0FC74_BORCA	39	cytoplasm	cytoplasm GO:0005737
+tr|I0FDI3|I0FDI3_BORCA	87	secreted	extracellular region GO:0005576;
+tr|I0FCR5|I0FCR5_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE5|I0FDE5_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBL1|I0FBL1_BORCA	71	secreted	extracellular region GO:0005576;
+tr|I0FDH1|I0FDH1_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCY6|I0FCY6_BORCA	76	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE0|I0FBE0_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FCW9|I0FCW9_BORCA	72	secreted	extracellular region GO:0005576;
+tr|I0FC42|I0FC42_BORCA	90	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH8|I0FCH8_BORCA	68	secreted	extracellular region GO:0005576;
+tr|I0FC20|I0FC20_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCI4|I0FCI4_BORCA	38	secreted	extracellular region GO:0005576;
+tr|I0FBG4|I0FBG4_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR0|I0FDR0_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FD50|I0FD50_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCA3|I0FCA3_BORCA	66	periplasm	periplasmic space GO:0042597;
+tr|I0FDE8|I0FDE8_BORCA	34	secreted	extracellular region GO:0005576;
+tr|I0FDG0|I0FDG0_BORCA	72	cytoplasm	cytoplasm GO:0005737
+tr|I0FDN1|I0FDN1_BORCA	60	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|I0FCJ5|I0FCJ5_BORCA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDS0|I0FDS0_BORCA	71	secreted	extracellular region GO:0005576;
+tr|I0FDL3|I0FDL3_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCQ2|I0FCQ2_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC66|I0FC66_BORCA	54	cytoplasm	cytoplasm GO:0005737
+tr|I0FBJ1|I0FBJ1_BORCA	91	cytoplasm	cytoplasm GO:0005737
+tr|I0FCB9|I0FCB9_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD4|I0FCD4_BORCA	73	secreted	extracellular region GO:0005576;
+tr|I0FBC8|I0FBC8_BORCA	65	secreted	extracellular region GO:0005576;
+tr|I0FDN2|I0FDN2_BORCA	64	periplasm	periplasmic space GO:0042597;
+tr|I0FBT0|I0FBT0_BORCA	56	secreted	extracellular region GO:0005576;
+tr|I0FCV0|I0FCV0_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FD59|I0FD59_BORCA	37	secreted	extracellular region GO:0005576;
+tr|I0FDT6|I0FDT6_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDE1|I0FDE1_BORCA	64	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD0|I0FCD0_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC81|I0FC81_BORCA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCM8|I0FCM8_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FBU7|I0FBU7_BORCA	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDG9|I0FDG9_BORCA	46	secreted	extracellular region GO:0005576;
+tr|I0FCG7|I0FCG7_BORCA	45	cytoplasm	cytoplasm GO:0005737
+tr|I0FCW5|I0FCW5_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FBR7|I0FBR7_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR9|I0FDR9_BORCA	60	cytoplasm	cytoplasm GO:0005737
+tr|I0FCF4|I0FCF4_BORCA	65	cytoplasm	cytoplasm GO:0005737
+tr|I0FCN4|I0FCN4_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE9|I0FDE9_BORCA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBG3|I0FBG3_BORCA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD00|I0FD00_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDP8|I0FDP8_BORCA	64	secreted	extracellular region GO:0005576;
+tr|I0FDN6|I0FDN6_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCT9|I0FCT9_BORCA	70	cytoplasm	cytoplasm GO:0005737
+tr|I0FC87|I0FC87_BORCA	49	secreted	extracellular region GO:0005576;
+tr|I0FDK0|I0FDK0_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCJ7|I0FCJ7_BORCA	33	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|I0FDC7|I0FDC7_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBY4|I0FBY4_BORCA	85	cytoplasm	cytoplasm GO:0005737
+tr|I0FCQ9|I0FCQ9_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FBT8|I0FBT8_BORCA	42	cytoplasm	cytoplasm GO:0005737
+tr|I0FDQ2|I0FDQ2_BORCA	86	cytoplasm	cytoplasm GO:0005737
+tr|I0FCF8|I0FCF8_BORCA	67	cytoplasm	cytoplasm GO:0005737
+tr|I0FDH5|I0FDH5_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS7|I0FCS7_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FBD3|I0FBD3_BORCA	84	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE6|I0FBE6_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBH8|I0FBH8_BORCA	24	secreted	extracellular region GO:0005576;
+tr|I0FBF5|I0FBF5_BORCA	68	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCC6|I0FCC6_BORCA	72	cytoplasm	cytoplasm GO:0005737
+tr|I0FCE0|I0FCE0_BORCA	56	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS5|I0FCS5_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FC04|I0FC04_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FDG6|I0FDG6_BORCA	83	cytoplasm	cytoplasm GO:0005737
+tr|I0FCI7|I0FCI7_BORCA	86	secreted	extracellular region GO:0005576;
+tr|I0FDM5|I0FDM5_BORCA	71	secreted	extracellular region GO:0005576;
+tr|I0FBY5|I0FBY5_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCK8|I0FCK8_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FDH8|I0FDH8_BORCA	69	secreted	extracellular region GO:0005576;
+tr|I0FBM0|I0FBM0_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC10|I0FC10_BORCA	53	secreted	extracellular region GO:0005576;
+tr|I0FBF3|I0FBF3_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FC13|I0FC13_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCW2|I0FCW2_BORCA	51	secreted	extracellular region GO:0005576;
+tr|I0FBQ9|I0FBQ9_BORCA	62	cytoplasm	cytoplasm GO:0005737
+tr|I0FC14|I0FC14_BORCA	48	secreted	extracellular region GO:0005576;
+tr|I0FDP4|I0FDP4_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCA5|I0FCA5_BORCA	67	cytoplasm	cytoplasm GO:0005737
+tr|I0FDI7|I0FDI7_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCT1|I0FCT1_BORCA	72	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR6|I0FDR6_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FDK7|I0FDK7_BORCA	39	secreted	extracellular region GO:0005576;
+tr|I0FC58|I0FC58_BORCA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDE3|I0FDE3_BORCA	41	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS9|I0FCS9_BORCA	46	cytoplasm	cytoplasm GO:0005737
+tr|I0FC61|I0FC61_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FCG4|I0FCG4_BORCA	75	periplasm	periplasmic space GO:0042597;
+tr|I0FCL9|I0FCL9_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FC33|I0FC33_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FBE3|I0FBE3_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBG8|I0FBG8_BORCA	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCL7|I0FCL7_BORCA	48	secreted	extracellular region GO:0005576;
+tr|I0FCP9|I0FCP9_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBH4|I0FBH4_BORCA	59	cytoplasm	cytoplasm GO:0005737
+tr|I0FD55|I0FD55_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBN5|I0FBN5_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC37|I0FC37_BORCA	76	secreted	extracellular region GO:0005576;
+tr|I0FD23|I0FD23_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBQ8|I0FBQ8_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBD2|I0FBD2_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FD52|I0FD52_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCM4|I0FCM4_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FCC2|I0FCC2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBX2|I0FBX2_BORCA	72	secreted	extracellular region GO:0005576;
+tr|I0FBF4|I0FBF4_BORCA	93	cytoplasm	cytoplasm GO:0005737
+tr|I0FDB1|I0FDB1_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCV8|I0FCV8_BORCA	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD02|I0FD02_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBM7|I0FBM7_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBS0|I0FBS0_BORCA	61	periplasm	periplasmic space GO:0042597;
+tr|I0FBM5|I0FBM5_BORCA	48	secreted	extracellular region GO:0005576;
+tr|I0FDK2|I0FDK2_BORCA	53	cytoplasm	cytoplasm GO:0005737
+tr|I0FC57|I0FC57_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBG1|I0FBG1_BORCA	23	secreted	extracellular region GO:0005576;
+tr|I0FBT2|I0FBT2_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBM4|I0FBM4_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDP0|I0FDP0_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FCH0|I0FCH0_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCQ5|I0FCQ5_BORCA	82	secreted	extracellular region GO:0005576;
+tr|I0FBE8|I0FBE8_BORCA	69	secreted	extracellular region GO:0005576;
+tr|I0FCP0|I0FCP0_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDF2|I0FDF2_BORCA	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD21|I0FD21_BORCA	97	cytoplasm	cytoplasm GO:0005737
+tr|I0FBT1|I0FBT1_BORCA	88	secreted	extracellular region GO:0005576;
+tr|I0FC45|I0FC45_BORCA	67	secreted	extracellular region GO:0005576;
+tr|I0FCZ2|I0FCZ2_BORCA	63	cytoplasm	cytoplasm GO:0005737
+tr|I0FDT1|I0FDT1_BORCA	60	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|I0FC82|I0FC82_BORCA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCA6|I0FCA6_BORCA	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDM9|I0FDM9_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCX8|I0FCX8_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCS4|I0FCS4_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCM9|I0FCM9_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FCD3|I0FCD3_BORCA	64	secreted	extracellular region GO:0005576;
+tr|I0FDR2|I0FDR2_BORCA	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD89|I0FD89_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCB8|I0FCB8_BORCA	92	cytoplasm	cytoplasm GO:0005737
+tr|I0FD97|I0FD97_BORCA	86	cytoplasm	cytoplasm GO:0005737
+tr|I0FCY0|I0FCY0_BORCA	94	cytoplasm	cytoplasm GO:0005737
+tr|I0FBN6|I0FBN6_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FC92|I0FC92_BORCA	91	cytoplasm	cytoplasm GO:0005737
+tr|I0FCQ8|I0FCQ8_BORCA	81	cytoplasm	cytoplasm GO:0005737
+tr|I0FDE2|I0FDE2_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBV7|I0FBV7_BORCA	67	cytoplasm	cytoplasm GO:0005737
+tr|I0FDF7|I0FDF7_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FBZ6|I0FBZ6_BORCA	69	cytoplasm	cytoplasm GO:0005737
+tr|I0FDR7|I0FDR7_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDS3|I0FDS3_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FBV8|I0FBV8_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FDL5|I0FDL5_BORCA	41	secreted	extracellular region GO:0005576;
+tr|I0FCU7|I0FCU7_BORCA	54	cytoplasm	cytoplasm GO:0005737
+tr|I0FDH0|I0FDH0_BORCA	71	cytoplasm	cytoplasm GO:0005737
+tr|I0FBL7|I0FBL7_BORCA	47	cytoplasm	cytoplasm GO:0005737
+tr|I0FBW5|I0FBW5_BORCA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBF8|I0FBF8_BORCA	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCJ2|I0FCJ2_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FBG0|I0FBG0_BORCA	60	secreted	extracellular region GO:0005576;
+tr|I0FDH2|I0FDH2_BORCA	98	cytoplasm	cytoplasm GO:0005737
+tr|I0FCE6|I0FCE6_BORCA	56	secreted	extracellular region GO:0005576;
+tr|I0FC38|I0FC38_BORCA	95	cytoplasm	cytoplasm GO:0005737
+tr|I0FD14|I0FD14_BORCA	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FDD1|I0FDD1_BORCA	74	secreted	extracellular region GO:0005576;
+tr|I0FD56|I0FD56_BORCA	39	cytoplasm	cytoplasm GO:0005737
+tr|I0FBJ5|I0FBJ5_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCK5|I0FCK5_BORCA	99	cytoplasm	cytoplasm GO:0005737
+tr|I0FCM1|I0FCM1_BORCA	100	cytoplasm	cytoplasm GO:0005737
+tr|I0FDF6|I0FDF6_BORCA	92	secreted	extracellular region GO:0005576;
+tr|I0FD85|I0FD85_BORCA	70	secreted	extracellular region GO:0005576;
+tr|I0FCN1|I0FCN1_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FBP9|I0FBP9_BORCA	89	cytoplasm	cytoplasm GO:0005737
+tr|I0FC43|I0FC43_BORCA	59	secreted	extracellular region GO:0005576;
+tr|I0FCQ7|I0FCQ7_BORCA	96	cytoplasm	cytoplasm GO:0005737
+tr|I0FBH5|I0FBH5_BORCA	71	cytoplasm	cytoplasm GO:0005737
+tr|I0FCF2|I0FCF2_BORCA	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCG0|I0FCG0_BORCA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FC52|I0FC52_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FD77|I0FD77_BORCA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I0FCR4|I0FCR4_BORCA	80	cytoplasm	cytoplasm GO:0005737

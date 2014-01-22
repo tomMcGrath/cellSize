@@ -1,0 +1,845 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G8QD07|G8QD07_BORGR	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD95|G8QD95_BORGR	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QEB3|G8QEB3_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QES7|G8QES7_BORGR	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEG8|G8QEG8_BORGR	13	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QDW7|G8QDW7_BORGR	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDT0|G8QDT0_BORGR	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDF3|G8QDF3_BORGR	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEP8|G8QEP8_BORGR	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QET0|G8QET0_BORGR	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDG5|G8QDG5_BORGR	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QEC3|G8QEC3_BORGR	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCX7|G8QCX7_BORGR	16	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|G8QDM2|G8QDM2_BORGR	16	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G8QDW8|G8QDW8_BORGR	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QET7|G8QET7_BORGR	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEI2|G8QEI2_BORGR	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QDF1|G8QDF1_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEX3|G8QEX3_BORGR	6	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G8QEE7|G8QEE7_BORGR	7	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G8QDT2|G8QDT2_BORGR	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEH4|G8QEH4_BORGR	13	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QE15|G8QE15_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDB0|G8QDB0_BORGR	6	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QDP0|G8QDP0_BORGR	30	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8QDS9|G8QDS9_BORGR	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QDK9|G8QDK9_BORGR	39	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G8QD73|G8QD73_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEQ1|G8QEQ1_BORGR	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEP9|G8QEP9_BORGR	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEZ9|G8QEZ9_BORGR	26	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8QDG7|G8QDG7_BORGR	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QE45|G8QE45_BORGR	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEK1|G8QEK1_BORGR	19	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G8QE17|G8QE17_BORGR	93	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEN8|G8QEN8_BORGR	14	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEU9|G8QEU9_BORGR	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QEQ5|G8QEQ5_BORGR	92	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCX6|G8QCX6_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G8QD06|G8QD06_BORGR	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8QE62|G8QE62_BORGR	94	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|G8QEM2|G8QEM2_BORGR	17	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8QDP7|G8QDP7_BORGR	35	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G8QF30|G8QF30_BORGR	39	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEJ8|G8QEJ8_BORGR	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF78|G8QF78_BORGR	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF04|G8QF04_BORGR	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QEX4|G8QEX4_BORGR	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDT3|G8QDT3_BORGR	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8QD32|G8QD32_BORGR	6	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|G8QET6|G8QET6_BORGR	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDS7|G8QDS7_BORGR	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QF25|G8QF25_BORGR	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDH8|G8QDH8_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEZ0|G8QEZ0_BORGR	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEF2|G8QEF2_BORGR	94	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCW9|G8QCW9_BORGR	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEU7|G8QEU7_BORGR	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEU0|G8QEU0_BORGR	30	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G8QD70|G8QD70_BORGR	17	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDI7|G8QDI7_BORGR	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEI4|G8QEI4_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDJ2|G8QDJ2_BORGR	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8QES3|G8QES3_BORGR	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QD39|G8QD39_BORGR	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE36|G8QE36_BORGR	3	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|G8QDS8|G8QDS8_BORGR	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QF22|G8QF22_BORGR	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE74|G8QE74_BORGR	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDF4|G8QDF4_BORGR	12	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G8QCX4|G8QCX4_BORGR	13	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|G8QED0|G8QED0_BORGR	10	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8QD61|G8QD61_BORGR	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDL4|G8QDL4_BORGR	25	secreted	extracellular region GO:0005576(IEA);
+tr|G8QD13|G8QD13_BORGR	24	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G8QD96|G8QD96_BORGR	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF79|G8QF79_BORGR	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QDD6|G8QDD6_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD79|G8QD79_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDP8|G8QDP8_BORGR	42	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|G8QEJ1|G8QEJ1_BORGR	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF59|G8QF59_BORGR	7	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G8QEY9|G8QEY9_BORGR	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDI2|G8QDI2_BORGR	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8QD69|G8QD69_BORGR	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEC8|G8QEC8_BORGR	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDW9|G8QDW9_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDB4|G8QDB4_BORGR	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QF69|G8QF69_BORGR	8	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|G8QCX0|G8QCX0_BORGR	22	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8QD71|G8QD71_BORGR	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEX2|G8QEX2_BORGR	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDE4|G8QDE4_BORGR	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QD35|G8QD35_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDW6|G8QDW6_BORGR	17	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G8QE35|G8QE35_BORGR	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEA7|G8QEA7_BORGR	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8QER2|G8QER2_BORGR	20	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8QDM3|G8QDM3_BORGR	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEW0|G8QEW0_BORGR	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8QDL5|G8QDL5_BORGR	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G8QD91|G8QD91_BORGR	7	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QEK7|G8QEK7_BORGR	50	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8QE40|G8QE40_BORGR	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G8QE30|G8QE30_BORGR	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QD11|G8QD11_BORGR	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF28|G8QF28_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEG5|G8QEG5_BORGR	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD38|G8QD38_BORGR	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD88|G8QD88_BORGR	11	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QES8|G8QES8_BORGR	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDX3|G8QDX3_BORGR	12	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G8QEK6|G8QEK6_BORGR	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDD7|G8QDD7_BORGR	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD83|G8QD83_BORGR	50	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G8QEU3|G8QEU3_BORGR	12	cytoplasm	ribosome GO:0005840(IEA);
+tr|G8QEV0|G8QEV0_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEP7|G8QEP7_BORGR	22	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QEF1|G8QEF1_BORGR	41	cytoplasm	phosphoenolpyruvate-dependent sugar phosphotransferase complex GO:0019197(IDA);
+tr|G8QES6|G8QES6_BORGR	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDW5|G8QDW5_BORGR	-1	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDN3|G8QDN3_BORGR	6	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G8QEI3|G8QEI3_BORGR	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDD0|G8QDD0_BORGR	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD05|G8QD05_BORGR	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDC9|G8QDC9_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE20|G8QE20_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G8QEN5|G8QEN5_BORGR	19	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QES9|G8QES9_BORGR	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEK2|G8QEK2_BORGR	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8QD31|G8QD31_BORGR	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QER4|G8QER4_BORGR	96	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G8QEH7|G8QEH7_BORGR	13	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8QDR9|G8QDR9_BORGR	12	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8QDB9|G8QDB9_BORGR	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QEX6|G8QEX6_BORGR	20	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); peptidoglycan-based cell wall GO:0009274(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QED8|G8QED8_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDE1|G8QDE1_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDB7|G8QDB7_BORGR	15	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G8QDM4|G8QDM4_BORGR	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDG8|G8QDG8_BORGR	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QD57|G8QD57_BORGR	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEZ6|G8QEZ6_BORGR	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QET8|G8QET8_BORGR	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEW3|G8QEW3_BORGR	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QD97|G8QD97_BORGR	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QCW0|G8QCW0_BORGR	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDQ5|G8QDQ5_BORGR	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEY4|G8QEY4_BORGR	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD30|G8QD30_BORGR	2	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|G8QDN2|G8QDN2_BORGR	21	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G8QD09|G8QD09_BORGR	97	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD46|G8QD46_BORGR	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8QCY5|G8QCY5_BORGR	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QE32|G8QE32_BORGR	16	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G8QD66|G8QD66_BORGR	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEY1|G8QEY1_BORGR	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDT1|G8QDT1_BORGR	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDX9|G8QDX9_BORGR	5	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8QDW0|G8QDW0_BORGR	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QF56|G8QF56_BORGR	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEJ6|G8QEJ6_BORGR	20	cytoplasm	cytosol GO:0005829(ISS);
+tr|G8QDR2|G8QDR2_BORGR	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD68|G8QD68_BORGR	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDF5|G8QDF5_BORGR	13	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G8QCZ8|G8QCZ8_BORGR	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QE19|G8QE19_BORGR	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEG2|G8QEG2_BORGR	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF86|G8QF86_BORGR	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE63|G8QE63_BORGR	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDR5|G8QDR5_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD08|G8QD08_BORGR	91	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEX1|G8QEX1_BORGR	16	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|G8QEN7|G8QEN7_BORGR	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDV8|G8QDV8_BORGR	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDC0|G8QDC0_BORGR	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE57|G8QE57_BORGR	16	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|G8QE66|G8QE66_BORGR	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEG3|G8QEG3_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEI5|G8QEI5_BORGR	11	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G8QF42|G8QF42_BORGR	11	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8QF47|G8QF47_BORGR	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDQ6|G8QDQ6_BORGR	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDL1|G8QDL1_BORGR	23	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8QD26|G8QD26_BORGR	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEP5|G8QEP5_BORGR	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDW1|G8QDW1_BORGR	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDQ4|G8QDQ4_BORGR	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QD87|G8QD87_BORGR	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCV9|G8QCV9_BORGR	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEM5|G8QEM5_BORGR	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF03|G8QF03_BORGR	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF09|G8QF09_BORGR	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8QEF3|G8QEF3_BORGR	48	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8QD16|G8QD16_BORGR	23	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|G8QEY5|G8QEY5_BORGR	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDK5|G8QDK5_BORGR	96	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCV6|G8QCV6_BORGR	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEJ9|G8QEJ9_BORGR	33	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G8QD12|G8QD12_BORGR	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDK2|G8QDK2_BORGR	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDH1|G8QDH1_BORGR	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEB5|G8QEB5_BORGR	27	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G8QD28|G8QD28_BORGR	15	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G8QE01|G8QE01_BORGR	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEL7|G8QEL7_BORGR	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEN9|G8QEN9_BORGR	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEM0|G8QEM0_BORGR	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDV9|G8QDV9_BORGR	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8QF52|G8QF52_BORGR	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDB6|G8QDB6_BORGR	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDR3|G8QDR3_BORGR	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD53|G8QD53_BORGR	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD60|G8QD60_BORGR	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDI9|G8QDI9_BORGR	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEK8|G8QEK8_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDK0|G8QDK0_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QED4|G8QED4_BORGR	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD98|G8QD98_BORGR	99	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G8QDM1|G8QDM1_BORGR	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QD99|G8QD99_BORGR	94	periplasm	periplasmic flagellum GO:0055040(IEA);
+tr|G8QD19|G8QD19_BORGR	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8QEY7|G8QEY7_BORGR	14	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G8QD40|G8QD40_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEW2|G8QEW2_BORGR	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QD56|G8QD56_BORGR	20	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G8QEE5|G8QEE5_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDH0|G8QDH0_BORGR	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDE6|G8QDE6_BORGR	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD45|G8QD45_BORGR	16	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8QDG9|G8QDG9_BORGR	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QF75|G8QF75_BORGR	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QED3|G8QED3_BORGR	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QE69|G8QE69_BORGR	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDJ8|G8QDJ8_BORGR	25	secreted	extracellular region GO:0005576(IEA);
+tr|G8QEH5|G8QEH5_BORGR	26	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QDK7|G8QDK7_BORGR	24	secreted	extracellular region GO:0005576(IEA);
+tr|G8QDK4|G8QDK4_BORGR	5	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QER5|G8QER5_BORGR	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEW4|G8QEW4_BORGR	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEK9|G8QEK9_BORGR	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEP1|G8QEP1_BORGR	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEW8|G8QEW8_BORGR	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDB1|G8QDB1_BORGR	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8QEL9|G8QEL9_BORGR	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QCZ5|G8QCZ5_BORGR	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QDI4|G8QDI4_BORGR	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDA3|G8QDA3_BORGR	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDJ5|G8QDJ5_BORGR	19	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G8QEJ3|G8QEJ3_BORGR	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEJ0|G8QEJ0_BORGR	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QER6|G8QER6_BORGR	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD92|G8QD92_BORGR	15	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF76|G8QF76_BORGR	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD89|G8QD89_BORGR	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEB0|G8QEB0_BORGR	6	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8QDF2|G8QDF2_BORGR	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEB1|G8QEB1_BORGR	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEB2|G8QEB2_BORGR	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEQ6|G8QEQ6_BORGR	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QE97|G8QE97_BORGR	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QDQ8|G8QDQ8_BORGR	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8QF02|G8QF02_BORGR	21	secreted	extracellular region GO:0005576(IEA);
+tr|G8QDX4|G8QDX4_BORGR	38	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8QDD3|G8QDD3_BORGR	13	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G8QDL0|G8QDL0_BORGR	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QEQ2|G8QEQ2_BORGR	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QES4|G8QES4_BORGR	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF73|G8QF73_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QD80|G8QD80_BORGR	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QER8|G8QER8_BORGR	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE09|G8QE09_BORGR	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8QDK3|G8QDK3_BORGR	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF43|G8QF43_BORGR	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF12|G8QF12_BORGR	8	periplasm	bacterial-type flagellum GO:0009288(IEA); periplasmic space GO:0042597(IEA);
+tr|G8QEG7|G8QEG7_BORGR	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEN6|G8QEN6_BORGR	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QE46|G8QE46_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDQ1|G8QDQ1_BORGR	41	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|G8QD74|G8QD74_BORGR	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE07|G8QE07_BORGR	36	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G8QDX0|G8QDX0_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QF18|G8QF18_BORGR	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QEG0|G8QEG0_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QDC7|G8QDC7_BORGR	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE88|G8QE88_BORGR	30	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|G8QE73|G8QE73_BORGR	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8QF72|G8QF72_BORGR	6	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8QDE8|G8QDE8_BORGR	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8QE53|G8QE53_BORGR	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8QEJ4|G8QEJ4_BORGR	5	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G8QF48|G8QF48_BORGR	70	secreted	extracellular region GO:0005576;
+tr|G8QES0|G8QES0_BORGR	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDW3|G8QDW3_BORGR	60	secreted	extracellular region GO:0005576;
+tr|G8QEI0|G8QEI0_BORGR	62	secreted	extracellular region GO:0005576;
+tr|G8QE42|G8QE42_BORGR	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD67|G8QD67_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QF32|G8QF32_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QCZ1|G8QCZ1_BORGR	90	cytoplasm	cytoplasm GO:0005737
+tr|G8QEI6|G8QEI6_BORGR	85	cytoplasm	cytoplasm GO:0005737
+tr|G8QEH2|G8QEH2_BORGR	83	cytoplasm	cytoplasm GO:0005737
+tr|G8QDS1|G8QDS1_BORGR	55	secreted	extracellular region GO:0005576;
+tr|G8QEF5|G8QEF5_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QEB6|G8QEB6_BORGR	80	cytoplasm	cytoplasm GO:0005737
+tr|G8QEM8|G8QEM8_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QES2|G8QES2_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA4|G8QEA4_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDP3|G8QDP3_BORGR	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDP6|G8QDP6_BORGR	57	secreted	extracellular region GO:0005576;
+tr|G8QEG1|G8QEG1_BORGR	80	cytoplasm	cytoplasm GO:0005737
+tr|G8QE24|G8QE24_BORGR	67	secreted	extracellular region GO:0005576;
+tr|G8QDE9|G8QDE9_BORGR	56	secreted	extracellular region GO:0005576;
+tr|G8QDE7|G8QDE7_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE85|G8QE85_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QD90|G8QD90_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA9|G8QDA9_BORGR	75	secreted	extracellular region GO:0005576;
+tr|G8QEK3|G8QEK3_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDB2|G8QDB2_BORGR	53	secreted	extracellular region GO:0005576;
+tr|G8QEP2|G8QEP2_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF14|G8QF14_BORGR	84	secreted	extracellular region GO:0005576;
+tr|G8QF31|G8QF31_BORGR	71	secreted	extracellular region GO:0005576;
+tr|G8QDC8|G8QDC8_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEQ0|G8QEQ0_BORGR	47	secreted	extracellular region GO:0005576;
+tr|G8QCW8|G8QCW8_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY7|G8QDY7_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QDD9|G8QDD9_BORGR	81	cytoplasm	cytoplasm GO:0005737
+tr|G8QDT5|G8QDT5_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QE96|G8QE96_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QEU4|G8QEU4_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEV2|G8QEV2_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDV4|G8QDV4_BORGR	58	secreted	extracellular region GO:0005576;
+tr|G8QD62|G8QD62_BORGR	70	secreted	extracellular region GO:0005576;
+tr|G8QDT9|G8QDT9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE78|G8QE78_BORGR	65	secreted	extracellular region GO:0005576;
+tr|G8QD23|G8QD23_BORGR	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCX1|G8QCX1_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDL7|G8QDL7_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QEL0|G8QEL0_BORGR	87	secreted	extracellular region GO:0005576;
+tr|G8QEV9|G8QEV9_BORGR	34	cytoplasm	cytoplasm GO:0005737
+tr|G8QD25|G8QD25_BORGR	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE23|G8QE23_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QD27|G8QD27_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QDP1|G8QDP1_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEI9|G8QEI9_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDU5|G8QDU5_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEG9|G8QEG9_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QER1|G8QER1_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA8|G8QDA8_BORGR	86	secreted	extracellular region GO:0005576;
+tr|G8QDY6|G8QDY6_BORGR	47	cytoplasm	cytoplasm GO:0005737
+tr|G8QF15|G8QF15_BORGR	76	secreted	extracellular region GO:0005576;
+tr|G8QE91|G8QE91_BORGR	67	cytoplasm	cytoplasm GO:0005737
+tr|G8QDH3|G8QDH3_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QDH4|G8QDH4_BORGR	70	secreted	extracellular region GO:0005576;
+tr|G8QEE4|G8QEE4_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QEV6|G8QEV6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI0|G8QDI0_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDJ4|G8QDJ4_BORGR	59	secreted	extracellular region GO:0005576;
+tr|G8QE56|G8QE56_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QEZ4|G8QEZ4_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDX6|G8QDX6_BORGR	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD59|G8QD59_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QCX8|G8QCX8_BORGR	36	cytoplasm	cytoplasm GO:0005737
+tr|G8QDH9|G8QDH9_BORGR	83	secreted	extracellular region GO:0005576;
+tr|G8QD54|G8QD54_BORGR	95	secreted	extracellular region GO:0005576;
+tr|G8QD15|G8QD15_BORGR	22	periplasm	periplasmic space GO:0042597;
+tr|G8QDE2|G8QDE2_BORGR	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD72|G8QD72_BORGR	86	cytoplasm	cytoplasm GO:0005737
+tr|G8QD01|G8QD01_BORGR	75	secreted	extracellular region GO:0005576;
+tr|G8QDY0|G8QDY0_BORGR	68	periplasm	periplasmic space GO:0042597;
+tr|G8QES1|G8QES1_BORGR	71	cytoplasm	cytoplasm GO:0005737
+tr|G8QF67|G8QF67_BORGR	38	secreted	extracellular region GO:0005576;
+tr|G8QE51|G8QE51_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD17|G8QD17_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QEZ5|G8QEZ5_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE00|G8QE00_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDH6|G8QDH6_BORGR	70	secreted	extracellular region GO:0005576;
+tr|G8QD47|G8QD47_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF40|G8QF40_BORGR	90	cytoplasm	cytoplasm GO:0005737
+tr|G8QD44|G8QD44_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE11|G8QE11_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE10|G8QE10_BORGR	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDX5|G8QDX5_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ8|G8QDZ8_BORGR	78	cytoplasm	cytoplasm GO:0005737
+tr|G8QDJ9|G8QDJ9_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDF9|G8QDF9_BORGR	72	secreted	extracellular region GO:0005576;
+tr|G8QE22|G8QE22_BORGR	45	secreted	extracellular region GO:0005576;
+tr|G8QEB9|G8QEB9_BORGR	44	secreted	extracellular region GO:0005576;
+tr|G8QD85|G8QD85_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF23|G8QF23_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDU4|G8QDU4_BORGR	69	periplasm	periplasmic space GO:0042597;
+tr|G8QDN9|G8QDN9_BORGR	67	cytoplasm	cytoplasm GO:0005737
+tr|G8QE61|G8QE61_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF37|G8QF37_BORGR	64	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G8QE81|G8QE81_BORGR	64	cytoplasm	cytoplasm GO:0005737
+tr|G8QEW5|G8QEW5_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDV5|G8QDV5_BORGR	69	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ2|G8QDZ2_BORGR	50	cytoplasm	cytoplasm GO:0005737
+tr|G8QEU2|G8QEU2_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QEP3|G8QEP3_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QF24|G8QF24_BORGR	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE83|G8QE83_BORGR	83	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY3|G8QDY3_BORGR	80	periplasm	periplasmic space GO:0042597;
+tr|G8QEP4|G8QEP4_BORGR	77	secreted	extracellular region GO:0005576;
+tr|G8QF19|G8QF19_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QCW3|G8QCW3_BORGR	18	secreted	extracellular region GO:0005576;
+tr|G8QET1|G8QET1_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QE37|G8QE37_BORGR	46	secreted	extracellular region GO:0005576;
+tr|G8QCX5|G8QCX5_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QDT4|G8QDT4_BORGR	58	secreted	extracellular region GO:0005576;
+tr|G8QD75|G8QD75_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QF41|G8QF41_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD29|G8QD29_BORGR	83	secreted	extracellular region GO:0005576;
+tr|G8QEA9|G8QEA9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QCY1|G8QCY1_BORGR	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDF6|G8QDF6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEQ3|G8QEQ3_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF60|G8QF60_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEB4|G8QEB4_BORGR	64	cytoplasm	cytoplasm GO:0005737
+tr|G8QD64|G8QD64_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QCY8|G8QCY8_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDA0|G8QDA0_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDG0|G8QDG0_BORGR	89	cytoplasm	cytoplasm GO:0005737
+tr|G8QDL8|G8QDL8_BORGR	49	secreted	extracellular region GO:0005576;
+tr|G8QDW2|G8QDW2_BORGR	64	secreted	extracellular region GO:0005576;
+tr|G8QEK4|G8QEK4_BORGR	81	cytoplasm	cytoplasm GO:0005737
+tr|G8QDQ7|G8QDQ7_BORGR	46	secreted	extracellular region GO:0005576;
+tr|G8QDX2|G8QDX2_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QD51|G8QD51_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QEE3|G8QEE3_BORGR	73	cytoplasm	cytoplasm GO:0005737
+tr|G8QEV1|G8QEV1_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDN1|G8QDN1_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCZ6|G8QCZ6_BORGR	52	secreted	extracellular region GO:0005576;
+tr|G8QEE0|G8QEE0_BORGR	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDG1|G8QDG1_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QF61|G8QF61_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDQ2|G8QDQ2_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDV2|G8QDV2_BORGR	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCW2|G8QCW2_BORGR	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEH0|G8QEH0_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QD76|G8QD76_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF17|G8QF17_BORGR	55	periplasm	periplasmic space GO:0042597;
+tr|G8QEL5|G8QEL5_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QEF9|G8QEF9_BORGR	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEG4|G8QEG4_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEQ8|G8QEQ8_BORGR	56	cytoplasm	cytoplasm GO:0005737
+tr|G8QDF8|G8QDF8_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA2|G8QDA2_BORGR	62	secreted	extracellular region GO:0005576;
+tr|G8QDZ3|G8QDZ3_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDQ0|G8QDQ0_BORGR	85	cytoplasm	cytoplasm GO:0005737
+tr|G8QED5|G8QED5_BORGR	70	secreted	extracellular region GO:0005576;
+tr|G8QF35|G8QF35_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY2|G8QDY2_BORGR	77	periplasm	periplasmic space GO:0042597;
+tr|G8QF49|G8QF49_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF01|G8QF01_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QEB8|G8QEB8_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDC1|G8QDC1_BORGR	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF68|G8QF68_BORGR	54	secreted	extracellular region GO:0005576;
+tr|G8QDB5|G8QDB5_BORGR	52	cytoplasm	cytoplasm GO:0005737
+tr|G8QDU1|G8QDU1_BORGR	59	secreted	extracellular region GO:0005576;
+tr|G8QDC6|G8QDC6_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QDE0|G8QDE0_BORGR	62	cytoplasm	cytoplasm GO:0005737
+tr|G8QCV5|G8QCV5_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QEQ9|G8QEQ9_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QDX7|G8QDX7_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QF70|G8QF70_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ1|G8QDZ1_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE12|G8QE12_BORGR	51	secreted	extracellular region GO:0005576;
+tr|G8QEC9|G8QEC9_BORGR	57	secreted	extracellular region GO:0005576;
+tr|G8QF84|G8QF84_BORGR	87	secreted	extracellular region GO:0005576;
+tr|G8QEQ4|G8QEQ4_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA8|G8QEA8_BORGR	42	cytoplasm	cytoplasm GO:0005737
+tr|G8QD78|G8QD78_BORGR	77	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY1|G8QDY1_BORGR	78	periplasm	periplasmic space GO:0042597;
+tr|G8QD10|G8QD10_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF20|G8QF20_BORGR	82	cytoplasm	cytoplasm GO:0005737
+tr|G8QF82|G8QF82_BORGR	89	secreted	extracellular region GO:0005576;
+tr|G8QDP4|G8QDP4_BORGR	49	secreted	extracellular region GO:0005576;
+tr|G8QE55|G8QE55_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF85|G8QF85_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD58|G8QD58_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QE21|G8QE21_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QF33|G8QF33_BORGR	73	secreted	extracellular region GO:0005576;
+tr|G8QEM6|G8QEM6_BORGR	71	cytoplasm	cytoplasm GO:0005737
+tr|G8QEX7|G8QEX7_BORGR	81	cytoplasm	cytoplasm GO:0005737
+tr|G8QDK1|G8QDK1_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCZ2|G8QCZ2_BORGR	62	secreted	extracellular region GO:0005576;
+tr|G8QD65|G8QD65_BORGR	63	cytoplasm	cytoplasm GO:0005737
+tr|G8QEL4|G8QEL4_BORGR	45	secreted	extracellular region GO:0005576;
+tr|G8QEK5|G8QEK5_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDD1|G8QDD1_BORGR	53	cytoplasm	cytoplasm GO:0005737
+tr|G8QEM4|G8QEM4_BORGR	65	secreted	extracellular region GO:0005576;
+tr|G8QEJ7|G8QEJ7_BORGR	56	secreted	extracellular region GO:0005576;
+tr|G8QD84|G8QD84_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD00|G8QD00_BORGR	69	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY4|G8QDY4_BORGR	64	periplasm	periplasmic space GO:0042597;
+tr|G8QES5|G8QES5_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDW4|G8QDW4_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QE64|G8QE64_BORGR	67	secreted	extracellular region GO:0005576;
+tr|G8QDV7|G8QDV7_BORGR	39	secreted	extracellular region GO:0005576;
+tr|G8QD22|G8QD22_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDQ3|G8QDQ3_BORGR	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE95|G8QE95_BORGR	61	cytoplasm	cytoplasm GO:0005737
+tr|G8QCZ3|G8QCZ3_BORGR	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEL1|G8QEL1_BORGR	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEB7|G8QEB7_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QED7|G8QED7_BORGR	22	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G8QF63|G8QF63_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QDT6|G8QDT6_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QDT7|G8QDT7_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QCW5|G8QCW5_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF54|G8QF54_BORGR	90	cytoplasm	cytoplasm GO:0005737
+tr|G8QCV8|G8QCV8_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QD50|G8QD50_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY8|G8QDY8_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QEP0|G8QEP0_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEP6|G8QEP6_BORGR	73	cytoplasm	cytoplasm GO:0005737
+tr|G8QD41|G8QD41_BORGR	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEV8|G8QEV8_BORGR	86	cytoplasm	cytoplasm GO:0005737
+tr|G8QE03|G8QE03_BORGR	78	secreted	extracellular region GO:0005576;
+tr|G8QDA6|G8QDA6_BORGR	90	secreted	extracellular region GO:0005576;
+tr|G8QEF7|G8QEF7_BORGR	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE76|G8QE76_BORGR	76	cytoplasm	cytoplasm GO:0005737
+tr|G8QF64|G8QF64_BORGR	38	secreted	extracellular region GO:0005576;
+tr|G8QD63|G8QD63_BORGR	85	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ6|G8QDZ6_BORGR	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEZ1|G8QEZ1_BORGR	89	secreted	extracellular region GO:0005576;
+tr|G8QE31|G8QE31_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDC4|G8QDC4_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEJ2|G8QEJ2_BORGR	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDQ9|G8QDQ9_BORGR	57	secreted	extracellular region GO:0005576;
+tr|G8QF81|G8QF81_BORGR	66	secreted	extracellular region GO:0005576;
+tr|G8QDU7|G8QDU7_BORGR	49	cytoplasm	cytoplasm GO:0005737
+tr|G8QDS3|G8QDS3_BORGR	30	periplasm	periplasmic space GO:0042597;
+tr|G8QD02|G8QD02_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDJ7|G8QDJ7_BORGR	82	cytoplasm	cytoplasm GO:0005737
+tr|G8QDU2|G8QDU2_BORGR	85	cytoplasm	cytoplasm GO:0005737
+tr|G8QDP2|G8QDP2_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE80|G8QE80_BORGR	42	cytoplasm	cytoplasm GO:0005737
+tr|G8QD77|G8QD77_BORGR	69	secreted	extracellular region GO:0005576;
+tr|G8QEE9|G8QEE9_BORGR	64	cytoplasm	cytoplasm GO:0005737
+tr|G8QE43|G8QE43_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QEF4|G8QEF4_BORGR	64	secreted	extracellular region GO:0005576;
+tr|G8QEL8|G8QEL8_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE60|G8QE60_BORGR	69	secreted	extracellular region GO:0005576;
+tr|G8QER7|G8QER7_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QDN0|G8QDN0_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD24|G8QD24_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDA5|G8QDA5_BORGR	64	secreted	extracellular region GO:0005576;
+tr|G8QEW1|G8QEW1_BORGR	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF29|G8QF29_BORGR	71	cytoplasm	cytoplasm GO:0005737
+tr|G8QED9|G8QED9_BORGR	54	cytoplasm	cytoplasm GO:0005737
+tr|G8QDC3|G8QDC3_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDN8|G8QDN8_BORGR	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDH5|G8QDH5_BORGR	47	secreted	extracellular region GO:0005576;
+tr|G8QF26|G8QF26_BORGR	81	cytoplasm	cytoplasm GO:0005737
+tr|G8QER0|G8QER0_BORGR	75	secreted	extracellular region GO:0005576;
+tr|G8QEF0|G8QEF0_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDR4|G8QDR4_BORGR	76	cytoplasm	cytoplasm GO:0005737
+tr|G8QD37|G8QD37_BORGR	64	secreted	extracellular region GO:0005576;
+tr|G8QE04|G8QE04_BORGR	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF21|G8QF21_BORGR	52	secreted	extracellular region GO:0005576;
+tr|G8QF45|G8QF45_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QEE1|G8QEE1_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE13|G8QE13_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QD43|G8QD43_BORGR	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCW1|G8QCW1_BORGR	89	cytoplasm	cytoplasm GO:0005737
+tr|G8QCX3|G8QCX3_BORGR	73	secreted	extracellular region GO:0005576;
+tr|G8QED1|G8QED1_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDC2|G8QDC2_BORGR	61	cytoplasm	cytoplasm GO:0005737
+tr|G8QE54|G8QE54_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDV0|G8QDV0_BORGR	68	secreted	extracellular region GO:0005576;
+tr|G8QE72|G8QE72_BORGR	24	periplasm	periplasmic space GO:0042597;
+tr|G8QD86|G8QD86_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QD34|G8QD34_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QE50|G8QE50_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDG2|G8QDG2_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF77|G8QF77_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QF07|G8QF07_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA7|G8QDA7_BORGR	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDE5|G8QDE5_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QCY6|G8QCY6_BORGR	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF10|G8QF10_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QF57|G8QF57_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE26|G8QE26_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC5|G8QEC5_BORGR	72	secreted	extracellular region GO:0005576;
+tr|G8QDU3|G8QDU3_BORGR	62	cytoplasm	cytoplasm GO:0005737
+tr|G8QF39|G8QF39_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA4|G8QDA4_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA2|G8QEA2_BORGR	77	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI5|G8QDI5_BORGR	42	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI6|G8QDI6_BORGR	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEV7|G8QEV7_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE98|G8QE98_BORGR	48	cytoplasm	cytoplasm GO:0005737
+tr|G8QE39|G8QE39_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QED2|G8QED2_BORGR	88	cytoplasm	cytoplasm GO:0005737
+tr|G8QE27|G8QE27_BORGR	51	secreted	extracellular region GO:0005576;
+tr|G8QDV6|G8QDV6_BORGR	52	secreted	extracellular region GO:0005576;
+tr|G8QEI1|G8QEI1_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDP5|G8QDP5_BORGR	64	secreted	extracellular region GO:0005576;
+tr|G8QE77|G8QE77_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI3|G8QDI3_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QDD4|G8QDD4_BORGR	72	cytoplasm	cytoplasm GO:0005737
+tr|G8QD03|G8QD03_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCY0|G8QCY0_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QEH3|G8QEH3_BORGR	47	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC6|G8QEC6_BORGR	40	secreted	extracellular region GO:0005576;
+tr|G8QEA3|G8QEA3_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEJ5|G8QEJ5_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QD55|G8QD55_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD18|G8QD18_BORGR	67	secreted	extracellular region GO:0005576;
+tr|G8QE52|G8QE52_BORGR	42	secreted	extracellular region GO:0005576;
+tr|G8QDM7|G8QDM7_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDU0|G8QDU0_BORGR	87	cytoplasm	cytoplasm GO:0005737
+tr|G8QF38|G8QF38_BORGR	53	periplasm	periplasmic space GO:0042597;
+tr|G8QEV5|G8QEV5_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEX9|G8QEX9_BORGR	83	cytoplasm	cytoplasm GO:0005737
+tr|G8QD48|G8QD48_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEY6|G8QEY6_BORGR	67	secreted	extracellular region GO:0005576;
+tr|G8QEE6|G8QEE6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA6|G8QEA6_BORGR	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF50|G8QF50_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDV3|G8QDV3_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF11|G8QF11_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI1|G8QDI1_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QEN4|G8QEN4_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QER3|G8QER3_BORGR	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCY7|G8QCY7_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QE05|G8QE05_BORGR	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCY9|G8QCY9_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE70|G8QE70_BORGR	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCY2|G8QCY2_BORGR	91	secreted	extracellular region GO:0005576;
+tr|G8QDD5|G8QDD5_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF74|G8QF74_BORGR	85	secreted	extracellular region GO:0005576;
+tr|G8QEN3|G8QEN3_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDX1|G8QDX1_BORGR	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEV4|G8QEV4_BORGR	80	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDY5|G8QDY5_BORGR	69	cytoplasm	cytoplasm GO:0005737
+tr|G8QDS6|G8QDS6_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE89|G8QE89_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QCZ4|G8QCZ4_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QDN4|G8QDN4_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QE82|G8QE82_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QEW6|G8QEW6_BORGR	91	secreted	extracellular region GO:0005576;
+tr|G8QDJ6|G8QDJ6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDA1|G8QDA1_BORGR	77	cytoplasm	cytoplasm GO:0005737
+tr|G8QE68|G8QE68_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEW9|G8QEW9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDX8|G8QDX8_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDC5|G8QDC5_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE71|G8QE71_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEU5|G8QEU5_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QF71|G8QF71_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC7|G8QEC7_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QDS5|G8QDS5_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEU8|G8QEU8_BORGR	35	cytoplasm	cytoplasm GO:0005737
+tr|G8QE79|G8QE79_BORGR	80	cytoplasm	cytoplasm GO:0005737
+tr|G8QCZ9|G8QCZ9_BORGR	44	secreted	extracellular region GO:0005576;
+tr|G8QE47|G8QE47_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEH6|G8QEH6_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD94|G8QD94_BORGR	37	secreted	extracellular region GO:0005576;
+tr|G8QD81|G8QD81_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDN7|G8QDN7_BORGR	69	cytoplasm	cytoplasm GO:0005737
+tr|G8QDE3|G8QDE3_BORGR	83	secreted	extracellular region GO:0005576;
+tr|G8QEE8|G8QEE8_BORGR	50	secreted	extracellular region GO:0005576;
+tr|G8QE38|G8QE38_BORGR	41	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ7|G8QDZ7_BORGR	62	secreted	extracellular region GO:0005576;
+tr|G8QE25|G8QE25_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QDJ1|G8QDJ1_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDL2|G8QDL2_BORGR	41	secreted	extracellular region GO:0005576;
+tr|G8QDL9|G8QDL9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE28|G8QE28_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDU9|G8QDU9_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QDK6|G8QDK6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF80|G8QF80_BORGR	57	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G8QDF7|G8QDF7_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QE67|G8QE67_BORGR	59	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA1|G8QEA1_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEM1|G8QEM1_BORGR	48	secreted	extracellular region GO:0005576;
+tr|G8QCZ7|G8QCZ7_BORGR	43	cytoplasm	cytoplasm GO:0005737
+tr|G8QET5|G8QET5_BORGR	50	secreted	extracellular region GO:0005576;
+tr|G8QEF6|G8QEF6_BORGR	79	cytoplasm	cytoplasm GO:0005737
+tr|G8QE41|G8QE41_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD49|G8QD49_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QE59|G8QE59_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QEQ7|G8QEQ7_BORGR	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF66|G8QF66_BORGR	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QE02|G8QE02_BORGR	62	cytoplasm	cytoplasm GO:0005737
+tr|G8QE93|G8QE93_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QEL6|G8QEL6_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QD82|G8QD82_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QCX9|G8QCX9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDR7|G8QDR7_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEX0|G8QEX0_BORGR	82	cytoplasm	cytoplasm GO:0005737
+tr|G8QDM0|G8QDM0_BORGR	37	secreted	extracellular region GO:0005576;
+tr|G8QF53|G8QF53_BORGR	52	cytoplasm	cytoplasm GO:0005737
+tr|G8QDR6|G8QDR6_BORGR	77	secreted	extracellular region GO:0005576;
+tr|G8QE90|G8QE90_BORGR	55	cytoplasm	cytoplasm GO:0005737
+tr|G8QEE2|G8QEE2_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QE92|G8QE92_BORGR	82	cytoplasm	cytoplasm GO:0005737
+tr|G8QD93|G8QD93_BORGR	46	cytoplasm	cytoplasm GO:0005737
+tr|G8QEW7|G8QEW7_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ4|G8QDZ4_BORGR	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDH7|G8QDH7_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QEM7|G8QEM7_BORGR	49	secreted	extracellular region GO:0005576;
+tr|G8QDG6|G8QDG6_BORGR	70	periplasm	periplasmic space GO:0042597;
+tr|G8QEA0|G8QEA0_BORGR	71	cytoplasm	cytoplasm GO:0005737
+tr|G8QDV1|G8QDV1_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCW6|G8QCW6_BORGR	56	cytoplasm	cytoplasm GO:0005737
+tr|G8QE34|G8QE34_BORGR	86	cytoplasm	cytoplasm GO:0005737
+tr|G8QF13|G8QF13_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QEM9|G8QEM9_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QE84|G8QE84_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ5|G8QDZ5_BORGR	39	secreted	extracellular region GO:0005576;
+tr|G8QEH9|G8QEH9_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEI7|G8QEI7_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QEK0|G8QEK0_BORGR	80	secreted	extracellular region GO:0005576;
+tr|G8QF46|G8QF46_BORGR	74	cytoplasm	cytoplasm GO:0005737
+tr|G8QF06|G8QF06_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF55|G8QF55_BORGR	57	secreted	extracellular region GO:0005576;
+tr|G8QF34|G8QF34_BORGR	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDM8|G8QDM8_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEY0|G8QEY0_BORGR	93	cytoplasm	cytoplasm GO:0005737
+tr|G8QCV7|G8QCV7_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QF44|G8QF44_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDR8|G8QDR8_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD14|G8QD14_BORGR	73	cytoplasm	cytoplasm GO:0005737
+tr|G8QCX2|G8QCX2_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF05|G8QF05_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDM6|G8QDM6_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDG3|G8QDG3_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE99|G8QE99_BORGR	85	cytoplasm	cytoplasm GO:0005737
+tr|G8QF00|G8QF00_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEX8|G8QEX8_BORGR	82	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ0|G8QDZ0_BORGR	89	cytoplasm	cytoplasm GO:0005737
+tr|G8QDR1|G8QDR1_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QDM9|G8QDM9_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QD36|G8QD36_BORGR	40	secreted	extracellular region GO:0005576;
+tr|G8QEL2|G8QEL2_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QE75|G8QE75_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDN5|G8QDN5_BORGR	77	secreted	extracellular region GO:0005576;
+tr|G8QD33|G8QD33_BORGR	49	secreted	extracellular region GO:0005576;
+tr|G8QDS2|G8QDS2_BORGR	75	cytoplasm	cytoplasm GO:0005737
+tr|G8QE58|G8QE58_BORGR	56	secreted	extracellular region GO:0005576;
+tr|G8QEC4|G8QEC4_BORGR	81	cytoplasm	cytoplasm GO:0005737
+tr|G8QEN0|G8QEN0_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDJ0|G8QDJ0_BORGR	51	secreted	extracellular region GO:0005576;
+tr|G8QE14|G8QE14_BORGR	74	secreted	extracellular region GO:0005576;
+tr|G8QE33|G8QE33_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QF36|G8QF36_BORGR	52	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G8QDM5|G8QDM5_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QD04|G8QD04_BORGR	27	cytoplasm	cytoplasm GO:0005737
+tr|G8QDI8|G8QDI8_BORGR	37	secreted	extracellular region GO:0005576;
+tr|G8QEZ7|G8QEZ7_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC2|G8QEC2_BORGR	31	cytoplasm	cytoplasm GO:0005737
+tr|G8QDB8|G8QDB8_BORGR	51	secreted	extracellular region GO:0005576;
+tr|G8QEY3|G8QEY3_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QE86|G8QE86_BORGR	88	cytoplasm	cytoplasm GO:0005737
+tr|G8QDS0|G8QDS0_BORGR	50	periplasm	periplasmic space GO:0042597;
+tr|G8QD52|G8QD52_BORGR	76	cytoplasm	cytoplasm GO:0005737
+tr|G8QEN2|G8QEN2_BORGR	88	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC0|G8QEC0_BORGR	60	secreted	extracellular region GO:0005576;
+tr|G8QF27|G8QF27_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QDK8|G8QDK8_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QF58|G8QF58_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEC1|G8QEC1_BORGR	31	cytoplasm	cytoplasm GO:0005737
+tr|G8QE48|G8QE48_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QEZ2|G8QEZ2_BORGR	63	cytoplasm	cytoplasm GO:0005737
+tr|G8QE16|G8QE16_BORGR	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDH2|G8QDH2_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF65|G8QF65_BORGR	77	secreted	extracellular region GO:0005576;
+tr|G8QCZ0|G8QCZ0_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QEZ3|G8QEZ3_BORGR	71	secreted	extracellular region GO:0005576;
+tr|G8QEY2|G8QEY2_BORGR	46	secreted	extracellular region GO:0005576;
+tr|G8QCW4|G8QCW4_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QDD8|G8QDD8_BORGR	79	cytoplasm	cytoplasm GO:0005737
+tr|G8QD42|G8QD42_BORGR	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDG4|G8QDG4_BORGR	66	secreted	extracellular region GO:0005576;
+tr|G8QET9|G8QET9_BORGR	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEU6|G8QEU6_BORGR	65	cytoplasm	cytoplasm GO:0005737
+tr|G8QDB3|G8QDB3_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE18|G8QE18_BORGR	66	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G8QDL6|G8QDL6_BORGR	57	cytoplasm	cytoplasm GO:0005737
+tr|G8QDL3|G8QDL3_BORGR	92	cytoplasm	cytoplasm GO:0005737
+tr|G8QEA5|G8QEA5_BORGR	95	cytoplasm	cytoplasm GO:0005737
+tr|G8QEZ8|G8QEZ8_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QE94|G8QE94_BORGR	98	cytoplasm	cytoplasm GO:0005737
+tr|G8QDZ9|G8QDZ9_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QED6|G8QED6_BORGR	83	cytoplasm	cytoplasm GO:0005737
+tr|G8QE08|G8QE08_BORGR	84	secreted	extracellular region GO:0005576;
+tr|G8QE06|G8QE06_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QCY4|G8QCY4_BORGR	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QDR0|G8QDR0_BORGR	61	secreted	extracellular region GO:0005576;
+tr|G8QDJ3|G8QDJ3_BORGR	45	secreted	extracellular region GO:0005576;
+tr|G8QF51|G8QF51_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEU1|G8QEU1_BORGR	91	cytoplasm	cytoplasm GO:0005737
+tr|G8QDD2|G8QDD2_BORGR	78	secreted	extracellular region GO:0005576;
+tr|G8QDS4|G8QDS4_BORGR	21	secreted	extracellular region GO:0005576;
+tr|G8QE29|G8QE29_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QDU8|G8QDU8_BORGR	72	cytoplasm	cytoplasm GO:0005737
+tr|G8QEH8|G8QEH8_BORGR	63	cytoplasm	cytoplasm GO:0005737
+tr|G8QDY9|G8QDY9_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QEF8|G8QEF8_BORGR	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QEV3|G8QEV3_BORGR	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QCY3|G8QCY3_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QDP9|G8QDP9_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEG6|G8QEG6_BORGR	99	cytoplasm	cytoplasm GO:0005737
+tr|G8QET2|G8QET2_BORGR	73	secreted	extracellular region GO:0005576;
+tr|G8QCW7|G8QCW7_BORGR	54	cytoplasm	cytoplasm GO:0005737
+tr|G8QD20|G8QD20_BORGR	94	cytoplasm	cytoplasm GO:0005737
+tr|G8QEL3|G8QEL3_BORGR	41	secreted	extracellular region GO:0005576;
+tr|G8QET3|G8QET3_BORGR	71	secreted	extracellular region GO:0005576;
+tr|G8QDF0|G8QDF0_BORGR	29	secreted	extracellular region GO:0005576;
+tr|G8QDT8|G8QDT8_BORGR	90	cytoplasm	cytoplasm GO:0005737
+tr|G8QEX5|G8QEX5_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QE44|G8QE44_BORGR	96	cytoplasm	cytoplasm GO:0005737
+tr|G8QEM3|G8QEM3_BORGR	90	cytoplasm	cytoplasm GO:0005737
+tr|G8QF62|G8QF62_BORGR	53	cytoplasm	cytoplasm GO:0005737
+tr|G8QE87|G8QE87_BORGR	64	cytoplasm	cytoplasm GO:0005737
+tr|G8QE49|G8QE49_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEY8|G8QEY8_BORGR	69	cytoplasm	cytoplasm GO:0005737
+tr|G8QET4|G8QET4_BORGR	58	cytoplasm	cytoplasm GO:0005737
+tr|G8QF08|G8QF08_BORGR	54	cytoplasm	cytoplasm GO:0005737
+tr|G8QEI8|G8QEI8_BORGR	36	secreted	extracellular region GO:0005576;
+tr|G8QDU6|G8QDU6_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QEN1|G8QEN1_BORGR	97	cytoplasm	cytoplasm GO:0005737
+tr|G8QE65|G8QE65_BORGR	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8QF83|G8QF83_BORGR	32	cytoplasm	cytoplasm GO:0005737
+tr|G8QD21|G8QD21_BORGR	100	cytoplasm	cytoplasm GO:0005737
+tr|G8QF16|G8QF16_BORGR	71	secreted	extracellular region GO:0005576;
+tr|G8QDN6|G8QDN6_BORGR	82	secreted	extracellular region GO:0005576;
+tr|G8QER9|G8QER9_BORGR	76	secreted	extracellular region GO:0005576;
+tr|G8QEH1|G8QEH1_BORGR	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;

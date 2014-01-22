@@ -1,0 +1,1337 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|F8I0N7|F8I0N7_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY33|F8HY33_WEIKK	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0T9|F8I0T9_WEIKK	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYJ3|F8HYJ3_WEIKK	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F8I067|F8I067_WEIKK	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I025|F8I025_WEIKK	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I059|F8I059_WEIKK	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I075|F8I075_WEIKK	38	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|F8HY66|F8HY66_WEIKK	45	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8I1G1|F8I1G1_WEIKK	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I1A4|F8I1A4_WEIKK	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ23|F8HZ23_WEIKK	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZH5|F8HZH5_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYK6|F8HYK6_WEIKK	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY59|F8HY59_WEIKK	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ91|F8HZ91_WEIKK	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1J0|F8I1J0_WEIKK	5	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0T6|F8I0T6_WEIKK	12	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZC2|F8HZC2_WEIKK	33	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|F8HYI5|F8HYI5_WEIKK	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZC3|F8HZC3_WEIKK	25	cytoplasm	cytosol GO:0005829(IBA);
+tr|F8HZ25|F8HZ25_WEIKK	24	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HYC3|F8HYC3_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY01|F8HY01_WEIKK	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1H0|F8I1H0_WEIKK	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYN7|F8HYN7_WEIKK	34	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8I0L1|F8I0L1_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|F8HYJ1|F8HYJ1_WEIKK	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0D4|F8I0D4_WEIKK	15	secreted	extracellular region GO:0005576(IEA);
+tr|F8I052|F8I052_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I014|F8I014_WEIKK	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IMP);
+tr|F8I017|F8I017_WEIKK	13	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|F8HZF2|F8HZF2_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F8HY15|F8HY15_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I040|F8I040_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZB4|F8HZB4_WEIKK	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZP1|F8HZP1_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYE5|F8HYE5_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYD1|F8HYD1_WEIKK	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HYZ5|F8HYZ5_WEIKK	57	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|F8HZA0|F8HZA0_WEIKK	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1D6|F8I1D6_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYI4|F8HYI4_WEIKK	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0K5|F8I0K5_WEIKK	32	secreted	cell surface GO:0009986(IEA); extracellular region GO:0005576(IEA);
+tr|F8I1F9|F8I1F9_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|F8I1B5|F8I1B5_WEIKK	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0Y9|F8I0Y9_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZD3|F8HZD3_WEIKK	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYN9|F8HYN9_WEIKK	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZN4|F8HZN4_WEIKK	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I109|F8I109_WEIKK	45	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I1E3|F8I1E3_WEIKK	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1C4|F8I1C4_WEIKK	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I056|F8I056_WEIKK	24	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HZX7|F8HZX7_WEIKK	40	cytoplasm	cytosol GO:0005829(ISS);
+tr|F8I188|F8I188_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYR6|F8HYR6_WEIKK	27	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8HZH1|F8HZH1_WEIKK	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZU4|F8HZU4_WEIKK	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZE1|F8HZE1_WEIKK	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYB8|F8HYB8_WEIKK	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY89|F8HY89_WEIKK	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0Z8|F8I0Z8_WEIKK	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I079|F8I079_WEIKK	73	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0L2|F8I0L2_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1H9|F8I1H9_WEIKK	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZZ2|F8HZZ2_WEIKK	6	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|F8I100|F8I100_WEIKK	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I050|F8I050_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYQ0|F8HYQ0_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0G2|F8I0G2_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYR5|F8HYR5_WEIKK	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ75|F8HZ75_WEIKK	43	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8HZ69|F8HZ69_WEIKK	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I104|F8I104_WEIKK	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0P7|F8I0P7_WEIKK	10	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F8I054|F8I054_WEIKK	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYN6|F8HYN6_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY20|F8HY20_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1L1|F8I1L1_WEIKK	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZA1|F8HZA1_WEIKK	36	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F8HYA6|F8HYA6_WEIKK	40	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8I081|F8I081_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I179|F8I179_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYR1|F8HYR1_WEIKK	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I194|F8I194_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYA8|F8HYA8_WEIKK	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I019|F8I019_WEIKK	21	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I0H6|F8I0H6_WEIKK	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ34|F8HZ34_WEIKK	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1F6|F8I1F6_WEIKK	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZV2|F8HZV2_WEIKK	21	inner membrane	integral to membrane GO:0016021(ISS); plasma membrane GO:0005886(IDA);
+tr|F8I0V2|F8I0V2_WEIKK	15	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8HZC1|F8HZC1_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0N8|F8I0N8_WEIKK	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1J1|F8I1J1_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYM7|F8HYM7_WEIKK	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8I0R6|F8I0R6_WEIKK	32	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F8I1F3|F8I1F3_WEIKK	26	secreted	extracellular region GO:0005576(IEA);
+tr|F8HZR1|F8HZR1_WEIKK	13	periplasm	periplasmic space GO:0042597(IDA);
+tr|F8I186|F8I186_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYP6|F8HYP6_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZY8|F8HZY8_WEIKK	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I101|F8I101_WEIKK	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I140|F8I140_WEIKK	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY46|F8HY46_WEIKK	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYJ4|F8HYJ4_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZV0|F8HZV0_WEIKK	54	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZ37|F8HZ37_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|F8HZH0|F8HZH0_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HXV5|F8HXV5_WEIKK	8	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|F8HZ57|F8HZ57_WEIKK	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F8HXW0|F8HXW0_WEIKK	11	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F8I0Z9|F8I0Z9_WEIKK	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY21|F8HY21_WEIKK	28	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HY40|F8HY40_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I136|F8I136_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I172|F8I172_WEIKK	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0F5|F8I0F5_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0G5|F8I0G5_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|F8I0M2|F8I0M2_WEIKK	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1A6|F8I1A6_WEIKK	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY71|F8HY71_WEIKK	15	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|F8HZ65|F8HZ65_WEIKK	24	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8I0M0|F8I0M0_WEIKK	18	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|F8I018|F8I018_WEIKK	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0N1|F8I0N1_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY25|F8HY25_WEIKK	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HY23|F8HY23_WEIKK	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0K7|F8I0K7_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1A8|F8I1A8_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYF3|F8HYF3_WEIKK	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZE2|F8HZE2_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I034|F8I034_WEIKK	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I111|F8I111_WEIKK	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0H7|F8I0H7_WEIKK	15	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|F8I1M3|F8I1M3_WEIKK	10	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|F8I0I7|F8I0I7_WEIKK	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F8HY26|F8HY26_WEIKK	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HY19|F8HY19_WEIKK	18	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|F8HZI5|F8HZI5_WEIKK	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0J5|F8I0J5_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYC5|F8HYC5_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ92|F8HZ92_WEIKK	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXY3|F8HXY3_WEIKK	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|F8HYC1|F8HYC1_WEIKK	8	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8HYK9|F8HYK9_WEIKK	20	cytoplasm	cytosol GO:0005829(IBA);
+tr|F8I0R5|F8I0R5_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|F8I0J3|F8I0J3_WEIKK	2	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8HZY3|F8HZY3_WEIKK	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0G0|F8I0G0_WEIKK	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYM3|F8HYM3_WEIKK	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ70|F8HZ70_WEIKK	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0H5|F8I0H5_WEIKK	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I190|F8I190_WEIKK	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|F8HYH4|F8HYH4_WEIKK	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZI2|F8HZI2_WEIKK	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY94|F8HY94_WEIKK	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYS8|F8HYS8_WEIKK	36	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8HYT1|F8HYT1_WEIKK	19	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HYY7|F8HYY7_WEIKK	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|F8I0S5|F8I0S5_WEIKK	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1H2|F8I1H2_WEIKK	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I072|F8I072_WEIKK	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZG3|F8HZG3_WEIKK	15	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|F8I1B1|F8I1B1_WEIKK	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I138|F8I138_WEIKK	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY02|F8HY02_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZZ8|F8HZZ8_WEIKK	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ81|F8HZ81_WEIKK	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY03|F8HY03_WEIKK	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0Y7|F8I0Y7_WEIKK	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F8I1G6|F8I1G6_WEIKK	31	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|F8HZQ7|F8HZQ7_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZS4|F8HZS4_WEIKK	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I0Z6|F8I0Z6_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I171|F8I171_WEIKK	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZG1|F8HZG1_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZF6|F8HZF6_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0F6|F8I0F6_WEIKK	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY63|F8HY63_WEIKK	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY08|F8HY08_WEIKK	23	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|F8I1I1|F8I1I1_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYF9|F8HYF9_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HXY6|F8HXY6_WEIKK	19	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|F8HZ26|F8HZ26_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZZ0|F8HZZ0_WEIKK	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I022|F8I022_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HZF9|F8HZF9_WEIKK	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1D4|F8I1D4_WEIKK	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXU8|F8HXU8_WEIKK	33	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HZ31|F8HZ31_WEIKK	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZY2|F8HZY2_WEIKK	19	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0B9|F8I0B9_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0D7|F8I0D7_WEIKK	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HY65|F8HY65_WEIKK	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8HY95|F8HY95_WEIKK	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I066|F8I066_WEIKK	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I1G4|F8I1G4_WEIKK	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYP7|F8HYP7_WEIKK	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZD7|F8HZD7_WEIKK	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I020|F8I020_WEIKK	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HZT6|F8HZT6_WEIKK	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F8HYM4|F8HYM4_WEIKK	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYG4|F8HYG4_WEIKK	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYD0|F8HYD0_WEIKK	18	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8HZP0|F8HZP0_WEIKK	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZG7|F8HZG7_WEIKK	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0G1|F8I0G1_WEIKK	35	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8I027|F8I027_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYL2|F8HYL2_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY07|F8HY07_WEIKK	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1K2|F8I1K2_WEIKK	11	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HY28|F8HY28_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYJ8|F8HYJ8_WEIKK	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ53|F8HZ53_WEIKK	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0I6|F8I0I6_WEIKK	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I134|F8I134_WEIKK	11	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA);
+tr|F8HYN4|F8HYN4_WEIKK	23	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8HZW0|F8HZW0_WEIKK	28	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I006|F8I006_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZA7|F8HZA7_WEIKK	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZP9|F8HZP9_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HY88|F8HY88_WEIKK	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|F8HYP5|F8HYP5_WEIKK	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY85|F8HY85_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZU1|F8HZU1_WEIKK	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1M5|F8I1M5_WEIKK	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0Y5|F8I0Y5_WEIKK	66	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I175|F8I175_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXZ0|F8HXZ0_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1E0|F8I1E0_WEIKK	24	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|F8I1E4|F8I1E4_WEIKK	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0I2|F8I0I2_WEIKK	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYY6|F8HYY6_WEIKK	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZJ8|F8HZJ8_WEIKK	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXX9|F8HXX9_WEIKK	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ43|F8HZ43_WEIKK	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|F8I0J4|F8I0J4_WEIKK	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYF6|F8HYF6_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I044|F8I044_WEIKK	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYW6|F8HYW6_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0C7|F8I0C7_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZF8|F8HZF8_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I080|F8I080_WEIKK	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYU8|F8HYU8_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ45|F8HZ45_WEIKK	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYF8|F8HYF8_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZL0|F8HZL0_WEIKK	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I121|F8I121_WEIKK	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8I008|F8I008_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZE4|F8HZE4_WEIKK	36	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|F8HXV9|F8HXV9_WEIKK	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I000|F8I000_WEIKK	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8HZ89|F8HZ89_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I148|F8I148_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYN8|F8HYN8_WEIKK	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZC8|F8HZC8_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1D2|F8I1D2_WEIKK	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1L7|F8I1L7_WEIKK	49	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HYB6|F8HYB6_WEIKK	14	periplasm	cytoplasm GO:0005737(IDA); periplasmic space GO:0042597(IEA);
+tr|F8HZT7|F8HZT7_WEIKK	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I105|F8I105_WEIKK	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); outer membrane GO:0019867(IEA);
+tr|F8HZZ9|F8HZZ9_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1E9|F8I1E9_WEIKK	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ32|F8HZ32_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I106|F8I106_WEIKK	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYC8|F8HYC8_WEIKK	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I151|F8I151_WEIKK	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYE6|F8HYE6_WEIKK	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HXZ3|F8HXZ3_WEIKK	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I189|F8I189_WEIKK	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYB9|F8HYB9_WEIKK	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY17|F8HY17_WEIKK	49	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|F8HZH8|F8HZH8_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I160|F8I160_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYW5|F8HYW5_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYE2|F8HYE2_WEIKK	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ97|F8HZ97_WEIKK	12	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HY32|F8HY32_WEIKK	10	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F8I0J2|F8I0J2_WEIKK	40	secreted	extracellular region GO:0005576(IEA);
+tr|F8I162|F8I162_WEIKK	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0B7|F8I0B7_WEIKK	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1J9|F8I1J9_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYX9|F8HYX9_WEIKK	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I0X0|F8I0X0_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYM1|F8HYM1_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZW4|F8HZW4_WEIKK	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I037|F8I037_WEIKK	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I012|F8I012_WEIKK	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZ93|F8HZ93_WEIKK	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYU6|F8HYU6_WEIKK	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0A3|F8I0A3_WEIKK	14	secreted	extracellular space GO:0005615(IEA);
+tr|F8HYP2|F8HYP2_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8I068|F8I068_WEIKK	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0I1|F8I0I1_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F8HZL7|F8HZL7_WEIKK	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HZ52|F8HZ52_WEIKK	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXY5|F8HXY5_WEIKK	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1J2|F8I1J2_WEIKK	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8I069|F8I069_WEIKK	19	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8I0S3|F8I0S3_WEIKK	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0H2|F8I0H2_WEIKK	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYC4|F8HYC4_WEIKK	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I1C7|F8I1C7_WEIKK	30	secreted	extracellular region GO:0005576(IEA);
+tr|F8I1M4|F8I1M4_WEIKK	34	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|F8HYH2|F8HYH2_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1J7|F8I1J7_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZQ1|F8HZQ1_WEIKK	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I033|F8I033_WEIKK	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I065|F8I065_WEIKK	64	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXY4|F8HXY4_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ16|F8HZ16_WEIKK	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYU5|F8HYU5_WEIKK	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0F0|F8I0F0_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ84|F8HZ84_WEIKK	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I146|F8I146_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ42|F8HZ42_WEIKK	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|F8I1D9|F8I1D9_WEIKK	9	inner membrane	integral to membrane GO:0016021(IEA);
+tr|F8HY14|F8HY14_WEIKK	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZP5|F8HZP5_WEIKK	39	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|F8HZ28|F8HZ28_WEIKK	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0G4|F8I0G4_WEIKK	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ20|F8HZ20_WEIKK	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYI9|F8HYI9_WEIKK	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYJ5|F8HYJ5_WEIKK	29	secreted	extracellular region GO:0005576(IEA);
+tr|F8I0G8|F8I0G8_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|F8HZD8|F8HZD8_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYF4|F8HYF4_WEIKK	4	inner membrane	integral to membrane GO:0016021(IEA);
+tr|F8HZV6|F8HZV6_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I158|F8I158_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZQ8|F8HZQ8_WEIKK	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ67|F8HZ67_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZP4|F8HZP4_WEIKK	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZU8|F8HZU8_WEIKK	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I176|F8I176_WEIKK	15	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F8HYL7|F8HYL7_WEIKK	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYG0|F8HYG0_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0J1|F8I0J1_WEIKK	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ48|F8HZ48_WEIKK	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY44|F8HY44_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1D7|F8I1D7_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); plasma membrane GO:0005886(IEA);
+tr|F8HZB1|F8HZB1_WEIKK	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0U0|F8I0U0_WEIKK	16	secreted	cell surface GO:0009986(IEA); extracellular region GO:0005576(IEA);
+tr|F8I0R4|F8I0R4_WEIKK	33	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F8HYW4|F8HYW4_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY24|F8HY24_WEIKK	12	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8I191|F8I191_WEIKK	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYG2|F8HYG2_WEIKK	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYP8|F8HYP8_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXX3|F8HXX3_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0M7|F8I0M7_WEIKK	9	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZ86|F8HZ86_WEIKK	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZG4|F8HZG4_WEIKK	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HXU3|F8HXU3_WEIKK	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I173|F8I173_WEIKK	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|F8I0U6|F8I0U6_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0R2|F8I0R2_WEIKK	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I110|F8I110_WEIKK	43	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HZG8|F8HZG8_WEIKK	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYA3|F8HYA3_WEIKK	10	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|F8I0R3|F8I0R3_WEIKK	5	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|F8HYS2|F8HYS2_WEIKK	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I070|F8I070_WEIKK	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYR2|F8HYR2_WEIKK	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ50|F8HZ50_WEIKK	12	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|F8HY36|F8HY36_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0X5|F8I0X5_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HZV1|F8HZV1_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I118|F8I118_WEIKK	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0B8|F8I0B8_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I174|F8I174_WEIKK	21	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8I036|F8I036_WEIKK	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXZ4|F8HXZ4_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I004|F8I004_WEIKK	15	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA);
+tr|F8HZT4|F8HZT4_WEIKK	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY29|F8HY29_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYL6|F8HYL6_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HXU9|F8HXU9_WEIKK	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0K0|F8I0K0_WEIKK	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY12|F8HY12_WEIKK	6	cytoplasm	ribosome GO:0005840(IEA);
+tr|F8HZE3|F8HZE3_WEIKK	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1L4|F8I1L4_WEIKK	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYU7|F8HYU7_WEIKK	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYK5|F8HYK5_WEIKK	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|F8HY37|F8HY37_WEIKK	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0T8|F8I0T8_WEIKK	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZQ0|F8HZQ0_WEIKK	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HYY5|F8HYY5_WEIKK	66	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXV6|F8HXV6_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|F8I021|F8I021_WEIKK	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HZF5|F8HZF5_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0V6|F8I0V6_WEIKK	9	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HZW3|F8HZW3_WEIKK	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HZV7|F8HZV7_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0C3|F8I0C3_WEIKK	35	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|F8HY91|F8HY91_WEIKK	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY84|F8HY84_WEIKK	23	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|F8I195|F8I195_WEIKK	10	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|F8I1B9|F8I1B9_WEIKK	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY41|F8HY41_WEIKK	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8I0G6|F8I0G6_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|F8HY58|F8HY58_WEIKK	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HY54|F8HY54_WEIKK	25	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8HZQ3|F8HZQ3_WEIKK	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8I0L8|F8I0L8_WEIKK	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I149|F8I149_WEIKK	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZS1|F8HZS1_WEIKK	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1I5|F8I1I5_WEIKK	38	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZL4|F8HZL4_WEIKK	5	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8I1K8|F8I1K8_WEIKK	56	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|F8HYJ2|F8HYJ2_WEIKK	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HZT1|F8HZT1_WEIKK	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZW6|F8HZW6_WEIKK	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HYG3|F8HYG3_WEIKK	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1K1|F8I1K1_WEIKK	29	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I097|F8I097_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXW6|F8HXW6_WEIKK	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXX8|F8HXX8_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZF7|F8HZF7_WEIKK	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYA2|F8HYA2_WEIKK	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8I0L6|F8I0L6_WEIKK	8	cytoplasm	cytoplasm GO:0005737(NAS);
+tr|F8HZU2|F8HZU2_WEIKK	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0K9|F8I0K9_WEIKK	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0F1|F8I0F1_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I048|F8I048_WEIKK	22	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HYC7|F8HYC7_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYT4|F8HYT4_WEIKK	44	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|F8I0J9|F8I0J9_WEIKK	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0S4|F8I0S4_WEIKK	9	inner membrane	integral to membrane GO:0016021(IEA);
+tr|F8HZJ5|F8HZJ5_WEIKK	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HY93|F8HY93_WEIKK	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZB7|F8HZB7_WEIKK	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0U3|F8I0U3_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZJ1|F8HZJ1_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0D5|F8I0D5_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ39|F8HZ39_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|F8HZ27|F8HZ27_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYR4|F8HYR4_WEIKK	20	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|F8HZG9|F8HZG9_WEIKK	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I1C6|F8I1C6_WEIKK	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I0F4|F8I0F4_WEIKK	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYM8|F8HYM8_WEIKK	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXY0|F8HXY0_WEIKK	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I197|F8I197_WEIKK	41	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|F8I1B8|F8I1B8_WEIKK	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYB3|F8HYB3_WEIKK	36	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|F8I1A5|F8I1A5_WEIKK	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|F8HZR0|F8HZR0_WEIKK	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HZD1|F8HZD1_WEIKK	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HXX5|F8HXX5_WEIKK	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYT5|F8HYT5_WEIKK	19	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|F8HXW9|F8HXW9_WEIKK	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZ73|F8HZ73_WEIKK	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYW3|F8HYW3_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYA5|F8HYA5_WEIKK	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYS3|F8HYS3_WEIKK	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0K4|F8I0K4_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8I1K6|F8I1K6_WEIKK	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8HYI6|F8HYI6_WEIKK	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8HZ17|F8HZ17_WEIKK	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZZ7|F8HZZ7_WEIKK	19	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|F8I029|F8I029_WEIKK	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|F8HZ60|F8HZ60_WEIKK	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1I9|F8I1I9_WEIKK	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYQ2|F8HYQ2_WEIKK	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|F8I1I3|F8I1I3_WEIKK	15	periplasm	periplasmic space GO:0042597(IDA);
+tr|F8I0X9|F8I0X9_WEIKK	67	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0N5|F8I0N5_WEIKK	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|F8HY51|F8HY51_WEIKK	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0X8|F8I0X8_WEIKK	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0T3|F8I0T3_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1I4|F8I1I4_WEIKK	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZB3|F8HZB3_WEIKK	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZN9|F8HZN9_WEIKK	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYG5|F8HYG5_WEIKK	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I1H4|F8I1H4_WEIKK	30	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|F8I053|F8I053_WEIKK	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|F8I077|F8I077_WEIKK	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I1H3|F8I1H3_WEIKK	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HYC6|F8HYC6_WEIKK	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8HZC9|F8HZC9_WEIKK	35	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I1F0|F8I1F0_WEIKK	39	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|F8I0S2|F8I0S2_WEIKK	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|F8I0B6|F8I0B6_WEIKK	9	cytoplasm	cytosol GO:0005829(IDA);
+tr|F8I024|F8I024_WEIKK	11	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|F8I095|F8I095_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V4|F8I0V4_WEIKK	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0R0|F8I0R0_WEIKK	69	secreted	extracellular region GO:0005576;
+tr|F8I084|F8I084_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8HZD6|F8HZD6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ94|F8HZ94_WEIKK	59	secreted	extracellular region GO:0005576;
+tr|F8HZM8|F8HZM8_WEIKK	68	secreted	extracellular region GO:0005576;
+tr|F8HZ18|F8HZ18_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY45|F8HY45_WEIKK	29	secreted	extracellular region GO:0005576;
+tr|F8I1I7|F8I1I7_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZM7|F8HZM7_WEIKK	62	secreted	extracellular region GO:0005576;
+tr|F8I0W5|F8I0W5_WEIKK	72	secreted	extracellular region GO:0005576;
+tr|F8I0S1|F8I0S1_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C0|F8I1C0_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ19|F8HZ19_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1E5|F8I1E5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0C2|F8I0C2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYR7|F8HYR7_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ56|F8HZ56_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ85|F8HZ85_WEIKK	37	secreted	extracellular region GO:0005576;
+tr|F8I1G5|F8I1G5_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I142|F8I142_WEIKK	56	secreted	extracellular region GO:0005576;
+tr|F8I0H3|F8I0H3_WEIKK	77	secreted	extracellular region GO:0005576;
+tr|F8I007|F8I007_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8HZV5|F8HZV5_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZP6|F8HZP6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I1I0|F8I1I0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0I5|F8I0I5_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q5|F8I0Q5_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I1B7|F8I1B7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYR9|F8HYR9_WEIKK	48	secreted	extracellular region GO:0005576;
+tr|F8I0J8|F8I0J8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0R9|F8I0R9_WEIKK	59	secreted	extracellular region GO:0005576;
+sp|F8HZP7|DIVIB_WEIKK	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ88|F8HZ88_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8HYB5|F8HYB5_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C8|F8I0C8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZB2|F8HZB2_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYV9|F8HYV9_WEIKK	47	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C3|F8I1C3_WEIKK	70	cytoplasm	cytoplasm GO:0005737
+tr|F8HZA5|F8HZA5_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HYB7|F8HYB7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYA9|F8HYA9_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W6|F8I0W6_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8HYS9|F8HYS9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I178|F8I178_WEIKK	80	secreted	extracellular region GO:0005576;
+tr|F8I0P1|F8I0P1_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I1B3|F8I1B3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I133|F8I133_WEIKK	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZY6|F8HZY6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD6|F8HYD6_WEIKK	73	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX2|F8HYX2_WEIKK	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZF3|F8HZF3_WEIKK	68	cytoplasm	cytoplasm GO:0005737
+tr|F8HY50|F8HY50_WEIKK	76	cytoplasm	cytoplasm GO:0005737
+tr|F8I1J3|F8I1J3_WEIKK	23	cytoplasm	cytoplasm GO:0005737
+tr|F8HXW2|F8HXW2_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I049|F8I049_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8I0U4|F8I0U4_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8HZT0|F8HZT0_WEIKK	37	cytoplasm	cytoplasm GO:0005737
+tr|F8HY34|F8HY34_WEIKK	77	cytoplasm	cytoplasm GO:0005737
+tr|F8HY67|F8HY67_WEIKK	32	periplasm	periplasmic space GO:0042597;
+tr|F8I011|F8I011_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0F9|F8I0F9_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I055|F8I055_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I103|F8I103_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXU5|F8HXU5_WEIKK	38	secreted	extracellular region GO:0005576;
+tr|F8I0I8|F8I0I8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0R8|F8I0R8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I123|F8I123_WEIKK	58	cytoplasm	cytoplasm GO:0005737
+tr|F8I1A9|F8I1A9_WEIKK	77	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD4|F8HYD4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ35|F8HZ35_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I119|F8I119_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYP3|F8HYP3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZE6|F8HZE6_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8HYJ0|F8HYJ0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I169|F8I169_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ44|F8HZ44_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I031|F8I031_WEIKK	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ14|F8HZ14_WEIKK	51	secreted	extracellular region GO:0005576;
+tr|F8I124|F8I124_WEIKK	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYE7|F8HYE7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ06|F8HZ06_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L2|F8I1L2_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI1|F8HZI1_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I116|F8I116_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8I181|F8I181_WEIKK	45	cytoplasm	cytoplasm GO:0005737
+tr|F8I074|F8I074_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0X4|F8I0X4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY61|F8HY61_WEIKK	29	cytoplasm	cytoplasm GO:0005737
+tr|F8I0X1|F8I0X1_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0X2|F8I0X2_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HY35|F8HY35_WEIKK	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZN7|F8HZN7_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I1H7|F8I1H7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1L3|F8I1L3_WEIKK	53	secreted	extracellular region GO:0005576;
+tr|F8HZ15|F8HZ15_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK7|F8HYK7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I107|F8I107_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ71|F8HZ71_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ04|F8HZ04_WEIKK	79	cytoplasm	cytoplasm GO:0005737
+tr|F8I063|F8I063_WEIKK	65	cytoplasm	cytoplasm GO:0005737
+tr|F8I131|F8I131_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL0|F8HYL0_WEIKK	57	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ7|F8HYZ7_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HYM2|F8HYM2_WEIKK	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY04|F8HY04_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ47|F8HZ47_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYP0|F8HYP0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I083|F8I083_WEIKK	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0B0|F8I0B0_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HY31|F8HY31_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZH4|F8HZH4_WEIKK	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYV4|F8HYV4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZF1|F8HZF1_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8I112|F8I112_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0I4|F8I0I4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZQ4|F8HZQ4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYU2|F8HYU2_WEIKK	23	secreted	extracellular region GO:0005576;
+tr|F8HYB0|F8HYB0_WEIKK	76	cytoplasm	cytoplasm GO:0005737
+tr|F8HZA9|F8HZA9_WEIKK	46	cytoplasm	cytoplasm GO:0005737
+tr|F8I003|F8I003_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ01|F8HZ01_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZR9|F8HZR9_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q1|F8I0Q1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZM2|F8HZM2_WEIKK	48	secreted	extracellular region GO:0005576;
+tr|F8HZL8|F8HZL8_WEIKK	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ79|F8HZ79_WEIKK	44	secreted	extracellular region GO:0005576;
+tr|F8I0E8|F8I0E8_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8HZU3|F8HZU3_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL1|F8HYL1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1K7|F8I1K7_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HZL3|F8HZL3_WEIKK	70	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W2|F8I0W2_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HZZ3|F8HZZ3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZX6|F8HZX6_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ29|F8HZ29_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYA7|F8HYA7_WEIKK	61	cytoplasm	cytoplasm GO:0005737
+tr|F8I0U9|F8I0U9_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZV8|F8HZV8_WEIKK	56	secreted	extracellular region GO:0005576;
+tr|F8HZN8|F8HZN8_WEIKK	39	cytoplasm	cytoplasm GO:0005737
+tr|F8HYG1|F8HYG1_WEIKK	65	cytoplasm	cytoplasm GO:0005737
+tr|F8HZJ3|F8HZJ3_WEIKK	38	secreted	extracellular region GO:0005576;
+tr|F8HY77|F8HY77_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A2|F8I0A2_WEIKK	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0P9|F8I0P9_WEIKK	53	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL4|F8HYL4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0A5|F8I0A5_WEIKK	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZN1|F8HZN1_WEIKK	66	secreted	extracellular region GO:0005576;
+tr|F8HZB6|F8HZB6_WEIKK	42	secreted	extracellular region GO:0005576;
+tr|F8I0D2|F8I0D2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ41|F8HZ41_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I0H1|F8I0H1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HXX1|F8HXX1_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZX4|F8HZX4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HY64|F8HY64_WEIKK	84	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD2|F8HYD2_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ66|F8HZ66_WEIKK	45	cytoplasm	cytoplasm GO:0005737
+tr|F8I051|F8I051_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0D3|F8I0D3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZD5|F8HZD5_WEIKK	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYT6|F8HYT6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I089|F8I089_WEIKK	56	secreted	extracellular region GO:0005576;
+tr|F8HZH9|F8HZH9_WEIKK	67	cytoplasm	cytoplasm GO:0005737
+tr|F8HYV0|F8HYV0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ05|F8HZ05_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E2|F8I0E2_WEIKK	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0Y1|F8I0Y1_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0W7|F8I0W7_WEIKK	54	secreted	extracellular region GO:0005576;
+tr|F8HXZ5|F8HXZ5_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I1G7|F8I1G7_WEIKK	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY48|F8HY48_WEIKK	65	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V3|F8I0V3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0N3|F8I0N3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY47|F8HY47_WEIKK	67	secreted	extracellular region GO:0005576;
+tr|F8HZX1|F8HZX1_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I098|F8I098_WEIKK	35	secreted	extracellular region GO:0005576;
+tr|F8HXW8|F8HXW8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ4|F8HYZ4_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y8|F8I0Y8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0M6|F8I0M6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1K0|F8I1K0_WEIKK	42	secreted	extracellular region GO:0005576;
+tr|F8I182|F8I182_WEIKK	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZZ4|F8HZZ4_WEIKK	22	cytoplasm	cytoplasm GO:0005737
+tr|F8HZH6|F8HZH6_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY83|F8HY83_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V5|F8I0V5_WEIKK	63	secreted	extracellular region GO:0005576;
+tr|F8HYD5|F8HYD5_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY16|F8HY16_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8I1D1|F8I1D1_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8HYW7|F8HYW7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1H1|F8I1H1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Z2|F8I0Z2_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ68|F8HZ68_WEIKK	70	cytoplasm	cytoplasm GO:0005737
+tr|F8I0D1|F8I0D1_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ09|F8HZ09_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HYP9|F8HYP9_WEIKK	63	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ9|F8HYZ9_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX5|F8HYX5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0V1|F8I0V1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZU5|F8HZU5_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX3|F8HYX3_WEIKK	45	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY1|F8HYY1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1G2|F8I1G2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1F4|F8I1F4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH6|F8HYH6_WEIKK	80	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZE9|F8HZE9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W0|F8I0W0_WEIKK	64	secreted	extracellular region GO:0005576;
+tr|F8HZY7|F8HZY7_WEIKK	46	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ74|F8HZ74_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ58|F8HZ58_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYP1|F8HYP1_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HXZ8|F8HXZ8_WEIKK	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I026|F8I026_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I128|F8I128_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0R1|F8I0R1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY2|F8HYY2_WEIKK	73	cytoplasm	cytoplasm GO:0005737
+tr|F8HXW5|F8HXW5_WEIKK	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZX5|F8HZX5_WEIKK	79	cytoplasm	cytoplasm GO:0005737
+tr|F8HZG0|F8HZG0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1D3|F8I1D3_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I1E7|F8I1E7_WEIKK	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I032|F8I032_WEIKK	42	cytoplasm	cytoplasm GO:0005737
+tr|F8HY42|F8HY42_WEIKK	41	secreted	extracellular region GO:0005576;
+tr|F8HZ72|F8HZ72_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I163|F8I163_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZN3|F8HZN3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0K8|F8I0K8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY96|F8HY96_WEIKK	56	secreted	extracellular region GO:0005576;
+tr|F8HXX0|F8HXX0_WEIKK	32	cytoplasm	cytoplasm GO:0005737
+tr|F8HXU2|F8HXU2_WEIKK	72	cytoplasm	cytoplasm GO:0005737
+tr|F8I155|F8I155_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZB0|F8HZB0_WEIKK	58	cytoplasm	cytoplasm GO:0005737
+tr|F8I157|F8I157_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I035|F8I035_WEIKK	37	cytoplasm	cytoplasm GO:0005737
+tr|F8HZP3|F8HZP3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ98|F8HZ98_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZE7|F8HZE7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZS3|F8HZS3_WEIKK	34	secreted	extracellular region GO:0005576;
+tr|F8HY86|F8HY86_WEIKK	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0N0|F8I0N0_WEIKK	67	secreted	extracellular region GO:0005576;
+tr|F8HZ96|F8HZ96_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYI8|F8HYI8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HXW1|F8HXW1_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HZW2|F8HZW2_WEIKK	59	cytoplasm	cytoplasm GO:0005737
+tr|F8HYM0|F8HYM0_WEIKK	34	cytoplasm	cytoplasm GO:0005737
+tr|F8HXU7|F8HXU7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZQ9|F8HZQ9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZS0|F8HZS0_WEIKK	60	cytoplasm	cytoplasm GO:0005737
+tr|F8HYS5|F8HYS5_WEIKK	54	secreted	extracellular region GO:0005576;
+tr|F8HYF1|F8HYF1_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8I183|F8I183_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8I0X6|F8I0X6_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8HZF0|F8HZF0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZR3|F8HZR3_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I002|F8I002_WEIKK	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZL6|F8HZL6_WEIKK	75	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C5|F8I1C5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1E6|F8I1E6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ7|F8HYQ7_WEIKK	34	secreted	extracellular region GO:0005576;
+tr|F8HYJ9|F8HYJ9_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E1|F8I0E1_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0L0|F8I0L0_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8HY06|F8HY06_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ6|F8HYQ6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I085|F8I085_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q7|F8I0Q7_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ54|F8HZ54_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I1A1|F8I1A1_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYN3|F8HYN3_WEIKK	51	cytoplasm	cytoplasm GO:0005737
+tr|F8I1G8|F8I1G8_WEIKK	42	secreted	extracellular region GO:0005576;
+tr|F8HZ90|F8HZ90_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZM6|F8HZM6_WEIKK	79	cytoplasm	cytoplasm GO:0005737
+tr|F8I187|F8I187_WEIKK	45	secreted	extracellular region GO:0005576;
+tr|F8I0L7|F8I0L7_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ02|F8HZ02_WEIKK	61	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q4|F8I0Q4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0F3|F8I0F3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZY9|F8HZY9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ30|F8HZ30_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY68|F8HY68_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0H4|F8I0H4_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8HY81|F8HY81_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ63|F8HZ63_WEIKK	35	secreted	extracellular region GO:0005576;
+tr|F8I1J8|F8I1J8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYC0|F8HYC0_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD8|F8HYD8_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HZC4|F8HZC4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0J0|F8I0J0_WEIKK	36	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A1|F8I0A1_WEIKK	56	secreted	extracellular region GO:0005576;
+tr|F8I0L9|F8I0L9_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q6|F8I0Q6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HXY7|F8HXY7_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZT8|F8HZT8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ38|F8HZ38_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HY79|F8HY79_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZT3|F8HZT3_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8I1H5|F8I1H5_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZX8|F8HZX8_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8I001|F8I001_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0N6|F8I0N6_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0S9|F8I0S9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L9|F8I1L9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXV3|F8HXV3_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ13|F8HZ13_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1A0|F8I1A0_WEIKK	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0T0|F8I0T0_WEIKK	72	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ55|F8HZ55_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0M3|F8I0M3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I041|F8I041_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0J6|F8I0J6_WEIKK	52	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ9|F8HYQ9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY39|F8HY39_WEIKK	70	cytoplasm	cytoplasm GO:0005737
+tr|F8HYU4|F8HYU4_WEIKK	81	cytoplasm	cytoplasm GO:0005737
+tr|F8I120|F8I120_WEIKK	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXY9|F8HXY9_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY56|F8HY56_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HXX4|F8HXX4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0Z4|F8I0Z4_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK8|F8HYK8_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HXW7|F8HXW7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1J5|F8I1J5_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0I9|F8I0I9_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HXV2|F8HXV2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HY13|F8HY13_WEIKK	47	secreted	extracellular region GO:0005576;
+tr|F8I1K4|F8I1K4_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HZQ6|F8HZQ6_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HY52|F8HY52_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A6|F8I0A6_WEIKK	51	secreted	extracellular region GO:0005576;
+tr|F8HYS7|F8HYS7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY82|F8HY82_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C1|F8I1C1_WEIKK	52	cytoplasm	cytoplasm GO:0005737
+tr|F8I1K5|F8I1K5_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ64|F8HZ64_WEIKK	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0L4|F8I0L4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZD2|F8HZD2_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZH3|F8HZH3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYQ8|F8HYQ8_WEIKK	26	secreted	extracellular region GO:0005576;
+tr|F8I0F7|F8I0F7_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8HXU4|F8HXU4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I170|F8I170_WEIKK	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZS8|F8HZS8_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ46|F8HZ46_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1B6|F8I1B6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYV1|F8HYV1_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8HYG6|F8HYG6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L8|F8I1L8_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8I0I3|F8I0I3_WEIKK	88	secreted	extracellular region GO:0005576;
+tr|F8HYI0|F8HYI0_WEIKK	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXV1|F8HXV1_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I126|F8I126_WEIKK	84	cytoplasm	cytoplasm GO:0005737
+tr|F8I1A7|F8I1A7_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I113|F8I113_WEIKK	62	secreted	extracellular region GO:0005576;
+tr|F8HYV5|F8HYV5_WEIKK	72	cytoplasm	cytoplasm GO:0005737
+tr|F8HZA4|F8HZA4_WEIKK	50	secreted	extracellular region GO:0005576;
+tr|F8I030|F8I030_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E9|F8I0E9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I071|F8I071_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A9|F8I0A9_WEIKK	53	secreted	extracellular region GO:0005576;
+tr|F8HZ11|F8HZ11_WEIKK	62	cytoplasm	cytoplasm GO:0005737
+tr|F8HY57|F8HY57_WEIKK	56	cytoplasm	cytoplasm GO:0005737
+tr|F8HYM5|F8HYM5_WEIKK	60	cytoplasm	cytoplasm GO:0005737
+tr|F8I0T4|F8I0T4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I038|F8I038_WEIKK	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0F2|F8I0F2_WEIKK	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYS4|F8HYS4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HY38|F8HY38_WEIKK	59	secreted	extracellular region GO:0005576;
+tr|F8I0W8|F8I0W8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYI3|F8HYI3_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8I154|F8I154_WEIKK	70	secreted	extracellular region GO:0005576;
+tr|F8I0E5|F8I0E5_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y4|F8I0Y4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P3|F8I0P3_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8I1F1|F8I1F1_WEIKK	23	periplasm	periplasmic space GO:0042597;
+tr|F8I0D8|F8I0D8_WEIKK	39	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE0|F8HYE0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYR3|F8HYR3_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HZX0|F8HZX0_WEIKK	52	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ2|F8HYZ2_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8I0M5|F8I0M5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ76|F8HZ76_WEIKK	38	secreted	extracellular region GO:0005576;
+tr|F8HZC7|F8HZC7_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8I147|F8I147_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX0|F8HYX0_WEIKK	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0D9|F8I0D9_WEIKK	77	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W9|F8I0W9_WEIKK	61	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ6|F8HYZ6_WEIKK	72	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI8|F8HZI8_WEIKK	84	cytoplasm	cytoplasm GO:0005737
+tr|F8I0J7|F8I0J7_WEIKK	79	secreted	extracellular region GO:0005576;
+tr|F8HZY0|F8HZY0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYG7|F8HYG7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZE8|F8HZE8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1B2|F8I1B2_WEIKK	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I165|F8I165_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYB4|F8HYB4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYT8|F8HYT8_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I057|F8I057_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HXX2|F8HXX2_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8HYZ3|F8HYZ3_WEIKK	68	cytoplasm	cytoplasm GO:0005737
+tr|F8HZY1|F8HZY1_WEIKK	51	periplasm	periplasmic space GO:0042597;
+tr|F8I0F8|F8I0F8_WEIKK	74	cytoplasm	cytoplasm GO:0005737
+tr|F8I1I8|F8I1I8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E6|F8I0E6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0M9|F8I0M9_WEIKK	80	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH9|F8HYH9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ59|F8HZ59_WEIKK	33	secreted	extracellular region GO:0005576;
+tr|F8HYJ6|F8HYJ6_WEIKK	71	cytoplasm	cytoplasm GO:0005737
+tr|F8I117|F8I117_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1A2|F8I1A2_WEIKK	30	secreted	extracellular region GO:0005576;
+tr|F8HXZ1|F8HXZ1_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8HY55|F8HY55_WEIKK	64	cytoplasm	cytoplasm GO:0005737
+tr|F8HZS7|F8HZS7_WEIKK	51	fimbrium	pilus GO:0009289;
+tr|F8I192|F8I192_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL9|F8HYL9_WEIKK	70	secreted	extracellular region GO:0005576;
+tr|F8HZ83|F8HZ83_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I047|F8I047_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK9|F8HZK9_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W1|F8I0W1_WEIKK	72	secreted	extracellular region GO:0005576;
+tr|F8HZS5|F8HZS5_WEIKK	96	fimbrium	pilus GO:0009289;
+tr|F8HYU9|F8HYU9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZZ1|F8HZZ1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE3|F8HYE3_WEIKK	57	secreted	extracellular region GO:0005576;
+tr|F8HZA2|F8HZA2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK7|F8HZK7_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZG5|F8HZG5_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZB5|F8HZB5_WEIKK	43	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P0|F8I0P0_WEIKK	75	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ03|F8HZ03_WEIKK	40	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ78|F8HZ78_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZL5|F8HZL5_WEIKK	50	cytoplasm	cytoplasm GO:0005737
+tr|F8HZT2|F8HZT2_WEIKK	67	cytoplasm	cytoplasm GO:0005737
+tr|F8I0X7|F8I0X7_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I099|F8I099_WEIKK	88	secreted	extracellular region GO:0005576;
+tr|F8I0X3|F8I0X3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYP4|F8HYP4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD7|F8HYD7_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HY87|F8HY87_WEIKK	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I016|F8I016_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I0B4|F8I0B4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HYT9|F8HYT9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HY90|F8HY90_WEIKK	65	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD3|F8HYD3_WEIKK	81	cytoplasm	cytoplasm GO:0005737
+tr|F8HZJ0|F8HZJ0_WEIKK	38	cytoplasm	cytoplasm GO:0005737
+tr|F8HY76|F8HY76_WEIKK	47	cytoplasm	cytoplasm GO:0005737
+tr|F8I0D0|F8I0D0_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8HZR5|F8HZR5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZV9|F8HZV9_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HZR6|F8HZR6_WEIKK	53	cytoplasm	cytoplasm GO:0005737
+tr|F8HYN5|F8HYN5_WEIKK	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZR7|F8HZR7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZC6|F8HZC6_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HYS1|F8HYS1_WEIKK	75	fimbrium	pilus GO:0009289;
+tr|F8HZ07|F8HZ07_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZA6|F8HZA6_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY73|F8HY73_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYG9|F8HYG9_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZJ2|F8HZJ2_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0B3|F8I0B3_WEIKK	70	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY0|F8HYY0_WEIKK	59	cytoplasm	cytoplasm GO:0005737
+tr|F8I0H9|F8I0H9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK5|F8HZK5_WEIKK	77	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ8|F8HYZ8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I199|F8I199_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I156|F8I156_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Z0|F8I0Z0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I076|F8I076_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH5|F8HYH5_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZN5|F8HZN5_WEIKK	62	cytoplasm	cytoplasm GO:0005737
+tr|F8HYF5|F8HYF5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0T1|F8I0T1_WEIKK	73	cytoplasm	cytoplasm GO:0005737
+tr|F8I164|F8I164_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0W3|F8I0W3_WEIKK	65	secreted	extracellular region GO:0005576;
+tr|F8HY53|F8HY53_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0S8|F8I0S8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ24|F8HZ24_WEIKK	94	fimbrium	pilus GO:0009289;
+tr|F8HXZ2|F8HXZ2_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P8|F8I0P8_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8HZF4|F8HZF4_WEIKK	41	secreted	extracellular region GO:0005576;
+tr|F8HXU6|F8HXU6_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYT2|F8HYT2_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HZT5|F8HZT5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZS9|F8HZS9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I064|F8I064_WEIKK	78	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y0|F8I0Y0_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I1D5|F8I1D5_WEIKK	84	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C8|F8I1C8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYR8|F8HYR8_WEIKK	40	secreted	extracellular region GO:0005576;
+tr|F8HZI7|F8HZI7_WEIKK	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I168|F8I168_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0M1|F8I0M1_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0H0|F8I0H0_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I013|F8I013_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q2|F8I0Q2_WEIKK	69	secreted	extracellular region GO:0005576;
+tr|F8I0P2|F8I0P2_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0E4|F8I0E4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYV6|F8HYV6_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HYW2|F8HYW2_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZR8|F8HZR8_WEIKK	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYA4|F8HYA4_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYZ1|F8HYZ1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I010|F8I010_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HYC2|F8HYC2_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK4|F8HYK4_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HXV7|F8HXV7_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8I0W4|F8I0W4_WEIKK	71	secreted	extracellular region GO:0005576;
+tr|F8HZM4|F8HZM4_WEIKK	68	secreted	extracellular region GO:0005576;
+tr|F8I0C9|F8I0C9_WEIKK	80	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C5|F8I0C5_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I045|F8I045_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C4|F8I0C4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZN0|F8HZN0_WEIKK	87	secreted	extracellular region GO:0005576;
+tr|F8I139|F8I139_WEIKK	78	cytoplasm	cytoplasm GO:0005737
+tr|F8HY80|F8HY80_WEIKK	58	cytoplasm	cytoplasm GO:0005737
+tr|F8I196|F8I196_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I141|F8I141_WEIKK	50	secreted	extracellular region GO:0005576;
+tr|F8HY62|F8HY62_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1I6|F8I1I6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I137|F8I137_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZM3|F8HZM3_WEIKK	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZE5|F8HZE5_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL3|F8HYL3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY30|F8HY30_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZG6|F8HZG6_WEIKK	39	secreted	extracellular region GO:0005576;
+tr|F8HZN6|F8HZN6_WEIKK	79	cytoplasm	cytoplasm GO:0005737
+tr|F8I1K3|F8I1K3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK3|F8HYK3_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZX9|F8HZX9_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYN2|F8HYN2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I108|F8I108_WEIKK	47	secreted	extracellular region GO:0005576;
+tr|F8HZ12|F8HZ12_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1H6|F8I1H6_WEIKK	61	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX1|F8HYX1_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZM1|F8HZM1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I122|F8I122_WEIKK	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYT0|F8HYT0_WEIKK	71	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V0|F8I0V0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I058|F8I058_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I143|F8I143_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1F2|F8I1F2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ82|F8HZ82_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZM0|F8HZM0_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8HXV0|F8HXV0_WEIKK	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0Z1|F8I0Z1_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L6|F8I1L6_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I043|F8I043_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HXU1|F8HXU1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I1E8|F8I1E8_WEIKK	86	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Z5|F8I0Z5_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1I2|F8I1I2_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ61|F8HZ61_WEIKK	42	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI3|F8HZI3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L5|F8I1L5_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH0|F8HYH0_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I028|F8I028_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I046|F8I046_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P6|F8I0P6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0N9|F8I0N9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZX3|F8HZX3_WEIKK	46	secreted	extracellular region GO:0005576;
+tr|F8HYH8|F8HYH8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZQ5|F8HZQ5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYA0|F8HYA0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I078|F8I078_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I1B4|F8I1B4_WEIKK	61	fimbrium	pilus GO:0009289;
+tr|F8HXW4|F8HXW4_WEIKK	51	secreted	extracellular region GO:0005576;
+tr|F8HZ80|F8HZ80_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I167|F8I167_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ49|F8HZ49_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I161|F8I161_WEIKK	69	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE9|F8HYE9_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0U8|F8I0U8_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZL2|F8HZL2_WEIKK	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXX6|F8HXX6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ4|F8HYQ4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I091|F8I091_WEIKK	50	secreted	extracellular region GO:0005576;
+tr|F8I102|F8I102_WEIKK	61	cytoplasm	cytoplasm GO:0005737
+tr|F8I086|F8I086_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I1D8|F8I1D8_WEIKK	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I153|F8I153_WEIKK	81	secreted	extracellular region GO:0005576;
+tr|F8HXZ7|F8HXZ7_WEIKK	76	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V8|F8I0V8_WEIKK	64	secreted	extracellular region GO:0005576;
+tr|F8HYV7|F8HYV7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I092|F8I092_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE4|F8HYE4_WEIKK	50	secreted	extracellular region GO:0005576;
+tr|F8HYR0|F8HYR0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0U7|F8I0U7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Z7|F8I0Z7_WEIKK	47	secreted	extracellular region GO:0005576;
+tr|F8HYI7|F8HYI7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZA3|F8HZA3_WEIKK	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I082|F8I082_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HY92|F8HY92_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I177|F8I177_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY22|F8HY22_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ22|F8HZ22_WEIKK	74	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q3|F8I0Q3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1G3|F8I1G3_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK2|F8HYK2_WEIKK	63	secreted	extracellular region GO:0005576;
+tr|F8HXY1|F8HXY1_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HY70|F8HY70_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A8|F8I0A8_WEIKK	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZC5|F8HZC5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYZ0|F8HYZ0_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYK1|F8HYK1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1M2|F8I1M2_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8HZR4|F8HZR4_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYB2|F8HYB2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX8|F8HYX8_WEIKK	47	secreted	extracellular region GO:0005576;
+tr|F8I1A3|F8I1A3_WEIKK	31	secreted	extracellular region GO:0005576;
+tr|F8HY00|F8HY00_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ10|F8HZ10_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I060|F8I060_WEIKK	60	cytoplasm	cytoplasm GO:0005737
+tr|F8I1L0|F8I1L0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYX4|F8HYX4_WEIKK	36	secreted	extracellular region GO:0005576;
+tr|F8HYV8|F8HYV8_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZU9|F8HZU9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ87|F8HZ87_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ21|F8HZ21_WEIKK	40	secreted	extracellular region GO:0005576;
+tr|F8I1G0|F8I1G0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZY4|F8HZY4_WEIKK	72	cytoplasm	cytoplasm GO:0005737
+tr|F8HXY2|F8HXY2_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I1M0|F8I1M0_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I150|F8I150_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ3|F8HYQ3_WEIKK	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ51|F8HZ51_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH3|F8HYH3_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I1H8|F8I1H8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY4|F8HYY4_WEIKK	49	cytoplasm	cytoplasm GO:0005737
+tr|F8HY11|F8HY11_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYL8|F8HYL8_WEIKK	31	cytoplasm	cytoplasm GO:0005737
+tr|F8I185|F8I185_WEIKK	58	cytoplasm	cytoplasm GO:0005737
+tr|F8HZH7|F8HZH7_WEIKK	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0A7|F8I0A7_WEIKK	52	secreted	extracellular region GO:0005576;
+tr|F8I1B0|F8I1B0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I015|F8I015_WEIKK	81	cytoplasm	cytoplasm GO:0005737
+tr|F8HZE0|F8HZE0_WEIKK	86	secreted	extracellular region GO:0005576;
+tr|F8HYF0|F8HYF0_WEIKK	74	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY9|F8HYY9_WEIKK	60	cytoplasm	cytoplasm GO:0005737
+tr|F8HZW7|F8HZW7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I1J4|F8I1J4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0N4|F8I0N4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZL9|F8HZL9_WEIKK	62	cytoplasm	cytoplasm GO:0005737
+tr|F8I042|F8I042_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZD0|F8HZD0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZT9|F8HZT9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYJ7|F8HYJ7_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HY98|F8HY98_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+tr|F8HY18|F8HY18_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYY8|F8HYY8_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I1E2|F8I1E2_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8HYW0|F8HYW0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ40|F8HZ40_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8I0G9|F8I0G9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY78|F8HY78_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I061|F8I061_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y2|F8I0Y2_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HZJ7|F8HZJ7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYW1|F8HYW1_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0I0|F8I0I0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I005|F8I005_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZW9|F8HZW9_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V9|F8I0V9_WEIKK	67	secreted	extracellular region GO:0005576;
+tr|F8HZ62|F8HZ62_WEIKK	41	secreted	extracellular region GO:0005576;
+tr|F8HZU7|F8HZU7_WEIKK	41	periplasm	periplasmic space GO:0042597;
+tr|F8HXX7|F8HXX7_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZ77|F8HZ77_WEIKK	53	secreted	extracellular region GO:0005576;
+tr|F8I166|F8I166_WEIKK	33	cytoplasm	cytoplasm GO:0005737
+tr|F8I0K3|F8I0K3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I127|F8I127_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYW8|F8HYW8_WEIKK	66	cytoplasm	cytoplasm GO:0005737
+tr|F8HYF7|F8HYF7_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0R7|F8I0R7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZU6|F8HZU6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYH1|F8HYH1_WEIKK	51	cytoplasm	cytoplasm GO:0005737
+tr|F8HZP2|F8HZP2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZX2|F8HZX2_WEIKK	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I023|F8I023_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY97|F8HY97_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I0G3|F8I0G3_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I114|F8I114_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZD4|F8HZD4_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8I073|F8I073_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0Q8|F8I0Q8_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYF2|F8HYF2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I145|F8I145_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZH2|F8HZH2_WEIKK	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZR2|F8HZR2_WEIKK	66	cytoplasm	cytoplasm GO:0005737
+tr|F8HXW3|F8HXW3_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8HYQ5|F8HYQ5_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I129|F8I129_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HY74|F8HY74_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI4|F8HZI4_WEIKK	57	cytoplasm	cytoplasm GO:0005737
+tr|F8I062|F8I062_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I159|F8I159_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HXY8|F8HXY8_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C0|F8I0C0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZS2|F8HZS2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P4|F8I0P4_WEIKK	63	secreted	extracellular region GO:0005576;
+tr|F8HYT3|F8HYT3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0D6|F8I0D6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYM9|F8HYM9_WEIKK	82	cytoplasm	cytoplasm GO:0005737
+tr|F8HY69|F8HY69_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0P5|F8I0P5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I193|F8I193_WEIKK	65	cytoplasm	cytoplasm GO:0005737
+tr|F8I0L3|F8I0L3_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI0|F8HZI0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I115|F8I115_WEIKK	55	secreted	extracellular region GO:0005576;
+tr|F8HYL5|F8HYL5_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8HZV3|F8HZV3_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1G9|F8I1G9_WEIKK	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYB1|F8HYB1_WEIKK	29	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E7|F8I0E7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I184|F8I184_WEIKK	27	cytoplasm	cytoplasm GO:0005737
+tr|F8I0K6|F8I0K6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZN2|F8HZN2_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8HZB8|F8HZB8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0M4|F8I0M4_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZB9|F8HZB9_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8I0S6|F8I0S6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I039|F8I039_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HY72|F8HY72_WEIKK	93	cytoplasm	cytoplasm GO:0005737
+tr|F8I1F7|F8I1F7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0T7|F8I0T7_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1E1|F8I1E1_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1F5|F8I1F5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYY3|F8HYY3_WEIKK	91	cytoplasm	cytoplasm GO:0005737
+tr|F8I1M1|F8I1M1_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y3|F8I0Y3_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HY27|F8HY27_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8I0K1|F8I0K1_WEIKK	60	periplasm	periplasmic space GO:0042597;
+tr|F8HZZ6|F8HZZ6_WEIKK	58	secreted	extracellular region GO:0005576;
+tr|F8HZA8|F8HZA8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZU0|F8HZU0_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I180|F8I180_WEIKK	56	cytoplasm	cytoplasm GO:0005737
+tr|F8HYV3|F8HYV3_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYW9|F8HYW9_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8HY60|F8HY60_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HY10|F8HY10_WEIKK	46	secreted	extracellular region GO:0005576;
+tr|F8HYX6|F8HYX6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q9|F8I0Q9_WEIKK	49	secreted	extracellular region GO:0005576;
+tr|F8I0U1|F8I0U1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A4|F8I0A4_WEIKK	73	secreted	extracellular region GO:0005576;
+tr|F8I125|F8I125_WEIKK	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXV4|F8HXV4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYG8|F8HYG8_WEIKK	84	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ95|F8HZ95_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I087|F8I087_WEIKK	58	secreted	extracellular region GO:0005576;
+tr|F8HYN1|F8HYN1_WEIKK	35	cytoplasm	cytoplasm GO:0005737
+tr|F8HZZ5|F8HZZ5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYA1|F8HYA1_WEIKK	39	periplasm	periplasmic space GO:0042597;
+tr|F8HZW1|F8HZW1_WEIKK	87	cytoplasm	cytoplasm GO:0005737
+tr|F8I0S7|F8I0S7_WEIKK	41	fimbrium	pilus GO:0009289;
+tr|F8HY75|F8HY75_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZM9|F8HZM9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0M8|F8I0M8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZV4|F8HZV4_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0L5|F8I0L5_WEIKK	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0E0|F8I0E0_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0A0|F8I0A0_WEIKK	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HY43|F8HY43_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HZM5|F8HZM5_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ36|F8HZ36_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Q0|F8I0Q0_WEIKK	53	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ08|F8HZ08_WEIKK	67	cytoplasm	cytoplasm GO:0005737
+tr|F8I088|F8I088_WEIKK	80	secreted	extracellular region GO:0005576;
+tr|F8I0T2|F8I0T2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0H8|F8I0H8_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HXZ9|F8HXZ9_WEIKK	24	secreted	extracellular region GO:0005576;
+tr|F8HZD9|F8HZD9_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0K2|F8I0K2_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0B1|F8I0B1_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8HZL1|F8HZL1_WEIKK	90	cytoplasm	cytoplasm GO:0005737
+tr|F8I0V7|F8I0V7_WEIKK	92	cytoplasm	cytoplasm GO:0005737
+tr|F8HYT7|F8HYT7_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8I0B2|F8I0B2_WEIKK	85	cytoplasm	cytoplasm GO:0005737
+sp|F8I1D0|NNRE_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK8|F8HZK8_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C6|F8I0C6_WEIKK	54	cytoplasm	cytoplasm GO:0005737
+tr|F8HYX7|F8HYX7_WEIKK	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I144|F8I144_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8I0E3|F8I0E3_WEIKK	51	fimbrium	pilus GO:0009289;
+tr|F8HZC0|F8HZC0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYU3|F8HYU3_WEIKK	66	cytoplasm	cytoplasm GO:0005737
+tr|F8HY05|F8HY05_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8HYU1|F8HYU1_WEIKK	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I1C9|F8I1C9_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ33|F8HZ33_WEIKK	67	cytoplasm	cytoplasm GO:0005737
+tr|F8HXV8|F8HXV8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HXZ6|F8HXZ6_WEIKK	78	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK1|F8HZK1_WEIKK	51	cytoplasm	cytoplasm GO:0005737
+tr|F8I198|F8I198_WEIKK	96	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ99|F8HZ99_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYD9|F8HYD9_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HZY5|F8HZY5_WEIKK	59	cytoplasm	cytoplasm GO:0005737
+tr|F8I0N2|F8I0N2_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE8|F8HYE8_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HYV2|F8HYV2_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HYI1|F8HYI1_WEIKK	58	cytoplasm	cytoplasm GO:0005737
+tr|F8HZW5|F8HZW5_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0C1|F8I0C1_WEIKK	49	cytoplasm	cytoplasm GO:0005737
+tr|F8HZK6|F8HZK6_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I0U5|F8I0U5_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYH7|F8HYH7_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI9|F8HZI9_WEIKK	97	cytoplasm	cytoplasm GO:0005737
+tr|F8I0G7|F8I0G7_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8I130|F8I130_WEIKK	79	cytoplasm	cytoplasm GO:0005737
+tr|F8I1J6|F8I1J6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZS6|F8HZS6_WEIKK	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0U2|F8I0U2_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZI6|F8HZI6_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HZG2|F8HZG2_WEIKK	74	secreted	extracellular region GO:0005576;
+tr|F8HYC9|F8HYC9_WEIKK	34	secreted	extracellular region GO:0005576;
+tr|F8HYK0|F8HYK0_WEIKK	89	cytoplasm	cytoplasm GO:0005737
+tr|F8HZP8|F8HZP8_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I0T5|F8I0T5_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYQ1|F8HYQ1_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I152|F8I152_WEIKK	70	secreted	extracellular region GO:0005576;
+tr|F8HYU0|F8HYU0_WEIKK	61	secreted	extracellular region GO:0005576;
+tr|F8HYI2|F8HYI2_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8I1K9|F8I1K9_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYS6|F8HYS6_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I135|F8I135_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY49|F8HY49_WEIKK	74	secreted	extracellular region GO:0005576;
+tr|F8HZQ2|F8HZQ2_WEIKK	51	secreted	extracellular region GO:0005576;
+tr|F8I132|F8I132_WEIKK	22	cytoplasm	cytoplasm GO:0005737
+tr|F8HYS0|F8HYS0_WEIKK	67	secreted	extracellular region GO:0005576;
+tr|F8I1F8|F8I1F8_WEIKK	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HYN0|F8HYN0_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HYE1|F8HYE1_WEIKK	83	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Z3|F8I0Z3_WEIKK	99	cytoplasm	cytoplasm GO:0005737
+tr|F8HY09|F8HY09_WEIKK	88	cytoplasm	cytoplasm GO:0005737
+tr|F8HZ00|F8HZ00_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8HYM6|F8HYM6_WEIKK	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8HZW8|F8HZW8_WEIKK	94	cytoplasm	cytoplasm GO:0005737
+tr|F8I1C2|F8I1C2_WEIKK	45	secreted	extracellular region GO:0005576;
+tr|F8I009|F8I009_WEIKK	98	cytoplasm	cytoplasm GO:0005737
+tr|F8HY99|F8HY99_WEIKK	100	cytoplasm	cytoplasm GO:0005737
+tr|F8I0Y6|F8I0Y6_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|F8I0B5|F8I0B5_WEIKK	95	cytoplasm	cytoplasm GO:0005737
+tr|F8I0S0|F8I0S0_WEIKK	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;

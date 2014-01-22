@@ -1,0 +1,1353 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|H6QHS1|H6QHS1_RICRI	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QGD6|H6QGD6_RICRI	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHF9|H6QHF9_RICRI	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QH82|H6QH82_RICRI	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QG08|H6QG08_RICRI	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFU5|H6QFU5_RICRI	7	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QG65|H6QG65_RICRI	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG22|H6QG22_RICRI	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGQ1|H6QGQ1_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEM8|H6QEM8_RICRI	42	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|H6QGJ4|H6QGJ4_RICRI	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEB1|H6QEB1_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H6QHU1|H6QHU1_RICRI	18	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H6QFN3|H6QFN3_RICRI	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHJ8|H6QHJ8_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H6QFQ9|H6QFQ9_RICRI	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGK8|H6QGK8_RICRI	27	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H6QE46|H6QE46_RICRI	21	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QFK5|H6QFK5_RICRI	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QH54|H6QH54_RICRI	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH73|H6QH73_RICRI	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG02|H6QG02_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFC8|H6QFC8_RICRI	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGK0|H6QGK0_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFI5|H6QFI5_RICRI	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEG0|H6QEG0_RICRI	59	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H6QGM1|H6QGM1_RICRI	99	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFP6|H6QFP6_RICRI	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF23|H6QF23_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGT9|H6QGT9_RICRI	11	outer membrane	cell outer membrane GO:0009279(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|H6QHG6|H6QHG6_RICRI	10	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|H6QHF8|H6QHF8_RICRI	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGZ0|H6QGZ0_RICRI	24	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGR9|H6QGR9_RICRI	32	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QHN9|H6QHN9_RICRI	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF98|H6QF98_RICRI	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFM5|H6QFM5_RICRI	67	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QGI9|H6QGI9_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGT8|H6QGT8_RICRI	37	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H6QHP6|H6QHP6_RICRI	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QGS0|H6QGS0_RICRI	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QG39|H6QG39_RICRI	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGZ8|H6QGZ8_RICRI	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEU7|H6QEU7_RICRI	31	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QFU1|H6QFU1_RICRI	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGL6|H6QGL6_RICRI	27	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|H6QHC8|H6QHC8_RICRI	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QHV5|H6QHV5_RICRI	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QG19|H6QG19_RICRI	29	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QEY0|H6QEY0_RICRI	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFN5|H6QFN5_RICRI	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG36|H6QG36_RICRI	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFB5|H6QFB5_RICRI	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QE86|H6QE86_RICRI	4	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|H6QFG8|H6QFG8_RICRI	38	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QFC1|H6QFC1_RICRI	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHV2|H6QHV2_RICRI	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H6QEW4|H6QEW4_RICRI	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGC2|H6QGC2_RICRI	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH64|H6QH64_RICRI	44	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGL4|H6QGL4_RICRI	15	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|H6QGP1|H6QGP1_RICRI	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QGB2|H6QGB2_RICRI	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHD9|H6QHD9_RICRI	40	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|H6QGK5|H6QGK5_RICRI	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H6QFD0|H6QFD0_RICRI	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHM8|H6QHM8_RICRI	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH83|H6QH83_RICRI	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QEN5|H6QEN5_RICRI	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGU7|H6QGU7_RICRI	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEG2|H6QEG2_RICRI	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHS2|H6QHS2_RICRI	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QGN5|H6QGN5_RICRI	83	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF81|H6QF81_RICRI	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFJ2|H6QFJ2_RICRI	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGZ5|H6QGZ5_RICRI	9	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H6QGP9|H6QGP9_RICRI	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHK2|H6QHK2_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGS9|H6QGS9_RICRI	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHG9|H6QHG9_RICRI	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGJ8|H6QGJ8_RICRI	33	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QH74|H6QH74_RICRI	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGB6|H6QGB6_RICRI	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHQ0|H6QHQ0_RICRI	11	periplasm	periplasmic space GO:0042597(IDA);
+tr|H6QFD8|H6QFD8_RICRI	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFM1|H6QFM1_RICRI	15	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|H6QFU9|H6QFU9_RICRI	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE80|H6QE80_RICRI	38	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H6QEP5|H6QEP5_RICRI	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QF04|H6QF04_RICRI	35	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QFW8|H6QFW8_RICRI	4	secreted	extracellular region GO:0005576(IEA);
+tr|H6QH27|H6QH27_RICRI	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QEW3|H6QEW3_RICRI	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QF97|H6QF97_RICRI	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QH51|H6QH51_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHC1|H6QHC1_RICRI	31	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QHH8|H6QHH8_RICRI	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QFR0|H6QFR0_RICRI	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFK6|H6QFK6_RICRI	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGM0|H6QGM0_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEB2|H6QEB2_RICRI	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QFK2|H6QFK2_RICRI	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE59|H6QE59_RICRI	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFA0|H6QFA0_RICRI	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHB9|H6QHB9_RICRI	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGK3|H6QGK3_RICRI	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QH17|H6QH17_RICRI	16	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|H6QGF4|H6QGF4_RICRI	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG38|H6QG38_RICRI	30	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H6QEE7|H6QEE7_RICRI	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFM4|H6QFM4_RICRI	52	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QEK5|H6QEK5_RICRI	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QG82|H6QG82_RICRI	12	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QGT5|H6QGT5_RICRI	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHT8|H6QHT8_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHB2|H6QHB2_RICRI	13	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H6QFP0|H6QFP0_RICRI	20	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHQ6|H6QHQ6_RICRI	16	inner membrane	integral to membrane GO:0016021(IEA); outer membrane-bounded periplasmic space GO:0030288(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEV5|H6QEV5_RICRI	15	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|H6QHR8|H6QHR8_RICRI	27	secreted	extracellular region GO:0005576(IEA);
+tr|H6QE45|H6QE45_RICRI	29	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QFV0|H6QFV0_RICRI	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF14|H6QF14_RICRI	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHB8|H6QHB8_RICRI	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHM1|H6QHM1_RICRI	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFP7|H6QFP7_RICRI	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEM2|H6QEM2_RICRI	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFQ5|H6QFQ5_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H6QEG1|H6QEG1_RICRI	33	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H6QH84|H6QH84_RICRI	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF62|H6QF62_RICRI	78	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFG9|H6QFG9_RICRI	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG33|H6QG33_RICRI	26	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QGP8|H6QGP8_RICRI	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHF4|H6QHF4_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFL1|H6QFL1_RICRI	12	periplasm	periplasmic space GO:0042597(IDA);
+tr|H6QET2|H6QET2_RICRI	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG44|H6QG44_RICRI	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QED3|H6QED3_RICRI	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEH5|H6QEH5_RICRI	24	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|H6QEJ4|H6QEJ4_RICRI	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHT9|H6QHT9_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFM3|H6QFM3_RICRI	70	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QG04|H6QG04_RICRI	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEA6|H6QEA6_RICRI	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHE0|H6QHE0_RICRI	46	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|H6QF72|H6QF72_RICRI	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHP8|H6QHP8_RICRI	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|H6QG23|H6QG23_RICRI	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QF15|H6QF15_RICRI	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHG7|H6QHG7_RICRI	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFR5|H6QFR5_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEH3|H6QEH3_RICRI	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QFP5|H6QFP5_RICRI	50	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHC7|H6QHC7_RICRI	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H6QGA8|H6QGA8_RICRI	20	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QH44|H6QH44_RICRI	21	periplasm	periplasmic space GO:0042597(IDA);
+tr|H6QG34|H6QG34_RICRI	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHR1|H6QHR1_RICRI	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QHJ5|H6QHJ5_RICRI	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGF3|H6QGF3_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFT9|H6QFT9_RICRI	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH88|H6QH88_RICRI	8	inner membrane	integral to plasma membrane GO:0005887(IDA); plasma membrane respiratory chain complex I GO:0045272(IDA);
+tr|H6QGK4|H6QGK4_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHI3|H6QHI3_RICRI	7	cytoplasm	ribosome GO:0005840(IEA);
+tr|H6QHR7|H6QHR7_RICRI	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|H6QHP7|H6QHP7_RICRI	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGM5|H6QGM5_RICRI	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHR5|H6QHR5_RICRI	54	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|H6QGP0|H6QGP0_RICRI	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGR5|H6QGR5_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QF83|H6QF83_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHQ9|H6QHQ9_RICRI	16	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H6QGK6|H6QGK6_RICRI	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFH1|H6QFH1_RICRI	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE36|H6QE36_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEU0|H6QEU0_RICRI	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFD3|H6QFD3_RICRI	22	secreted	extracellular region GO:0005576(IEA);
+tr|H6QF38|H6QF38_RICRI	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHH0|H6QHH0_RICRI	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGM4|H6QGM4_RICRI	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH26|H6QH26_RICRI	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF19|H6QF19_RICRI	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEY3|H6QEY3_RICRI	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG29|H6QG29_RICRI	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFP9|H6QFP9_RICRI	23	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QFA3|H6QFA3_RICRI	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGS2|H6QGS2_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGZ1|H6QGZ1_RICRI	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QE99|H6QE99_RICRI	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHL3|H6QHL3_RICRI	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEE8|H6QEE8_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFP4|H6QFP4_RICRI	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFR4|H6QFR4_RICRI	14	secreted	extracellular region GO:0005576(IEA);
+tr|H6QER2|H6QER2_RICRI	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QEB3|H6QEB3_RICRI	20	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QF16|H6QF16_RICRI	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF10|H6QF10_RICRI	15	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|H6QG55|H6QG55_RICRI	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG92|H6QG92_RICRI	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGB0|H6QGB0_RICRI	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH48|H6QH48_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|H6QGE1|H6QGE1_RICRI	33	cytoplasm	cytosol GO:0005829(IBA);
+tr|H6QEM6|H6QEM6_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFE6|H6QFE6_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QED5|H6QED5_RICRI	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF20|H6QF20_RICRI	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEQ7|H6QEQ7_RICRI	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QFB8|H6QFB8_RICRI	20	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|H6QGL5|H6QGL5_RICRI	21	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|H6QH01|H6QH01_RICRI	43	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFL8|H6QFL8_RICRI	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEI3|H6QEI3_RICRI	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGQ6|H6QGQ6_RICRI	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QGD5|H6QGD5_RICRI	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QE94|H6QE94_RICRI	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGD0|H6QGD0_RICRI	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF78|H6QF78_RICRI	16	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|H6QFL3|H6QFL3_RICRI	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGE3|H6QGE3_RICRI	33	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H6QFU2|H6QFU2_RICRI	6	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|H6QHS9|H6QHS9_RICRI	43	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QEQ5|H6QEQ5_RICRI	18	secreted	extracellular region GO:0005576(ISS); host cell GO:0043657(IEA);
+tr|H6QG79|H6QG79_RICRI	27	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QEF9|H6QEF9_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG06|H6QG06_RICRI	28	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QGN8|H6QGN8_RICRI	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF87|H6QF87_RICRI	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QER6|H6QER6_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|H6QEV1|H6QEV1_RICRI	53	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H6QFC2|H6QFC2_RICRI	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QG31|H6QG31_RICRI	9	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFQ1|H6QFQ1_RICRI	24	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H6QFI2|H6QFI2_RICRI	18	inner membrane	integral to plasma membrane GO:0005887(TAS);
+tr|H6QHV0|H6QHV0_RICRI	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFI1|H6QFI1_RICRI	30	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|H6QEZ8|H6QEZ8_RICRI	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF68|H6QF68_RICRI	38	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|H6QHA9|H6QHA9_RICRI	17	periplasm	periplasmic space GO:0042597(IMP);
+tr|H6QGK7|H6QGK7_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHK4|H6QHK4_RICRI	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEA8|H6QEA8_RICRI	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFA1|H6QFA1_RICRI	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QH97|H6QH97_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEU8|H6QEU8_RICRI	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFC5|H6QFC5_RICRI	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFQ7|H6QFQ7_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H6QFN4|H6QFN4_RICRI	20	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|H6QG54|H6QG54_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFS3|H6QFS3_RICRI	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFL6|H6QFL6_RICRI	32	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|H6QFC6|H6QFC6_RICRI	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHK1|H6QHK1_RICRI	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF12|H6QF12_RICRI	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGW4|H6QGW4_RICRI	19	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H6QF39|H6QF39_RICRI	38	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H6QEM0|H6QEM0_RICRI	12	secreted	host cell GO:0043657(IDA); host cell membrane GO:0033644(IEA); membrane GO:0016020(IEA);
+tr|H6QHG1|H6QHG1_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QFQ0|H6QFQ0_RICRI	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHB6|H6QHB6_RICRI	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGL9|H6QGL9_RICRI	98	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEQ4|H6QEQ4_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE95|H6QE95_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFW1|H6QFW1_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFT4|H6QFT4_RICRI	27	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QHI5|H6QHI5_RICRI	30	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|H6QGR8|H6QGR8_RICRI	38	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|H6QFL4|H6QFL4_RICRI	24	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|H6QG43|H6QG43_RICRI	26	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|H6QFT2|H6QFT2_RICRI	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHU8|H6QHU8_RICRI	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHK7|H6QHK7_RICRI	12	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QGY0|H6QGY0_RICRI	14	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|H6QHT0|H6QHT0_RICRI	29	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QE41|H6QE41_RICRI	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGF6|H6QGF6_RICRI	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QHD2|H6QHD2_RICRI	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEP4|H6QEP4_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFK3|H6QFK3_RICRI	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QEE2|H6QEE2_RICRI	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QFM6|H6QFM6_RICRI	34	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QF65|H6QF65_RICRI	50	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|H6QHQ7|H6QHQ7_RICRI	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QHJ1|H6QHJ1_RICRI	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFY4|H6QFY4_RICRI	27	secreted	extracellular region GO:0005576(IEA);
+tr|H6QGF8|H6QGF8_RICRI	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGC9|H6QGC9_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH38|H6QH38_RICRI	12	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|H6QHD1|H6QHD1_RICRI	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF74|H6QF74_RICRI	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFV8|H6QFV8_RICRI	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGR6|H6QGR6_RICRI	22	secreted	cell wall GO:0005618(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QFJ7|H6QFJ7_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGB4|H6QGB4_RICRI	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEZ4|H6QEZ4_RICRI	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFB7|H6QFB7_RICRI	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGL8|H6QGL8_RICRI	99	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|H6QEV2|H6QEV2_RICRI	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QE76|H6QE76_RICRI	12	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QFK4|H6QFK4_RICRI	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFG5|H6QFG5_RICRI	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFY3|H6QFY3_RICRI	7	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|H6QHV7|H6QHV7_RICRI	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QER0|H6QER0_RICRI	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHQ2|H6QHQ2_RICRI	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEE0|H6QEE0_RICRI	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHL4|H6QHL4_RICRI	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGY8|H6QGY8_RICRI	21	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H6QGV0|H6QGV0_RICRI	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH08|H6QH08_RICRI	6	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGF7|H6QGF7_RICRI	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QG32|H6QG32_RICRI	9	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFN0|H6QFN0_RICRI	26	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QH14|H6QH14_RICRI	25	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|H6QHU6|H6QHU6_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGD9|H6QGD9_RICRI	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QEM9|H6QEM9_RICRI	24	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QG21|H6QG21_RICRI	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QH11|H6QH11_RICRI	9	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|H6QFT8|H6QFT8_RICRI	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHQ1|H6QHQ1_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFN9|H6QFN9_RICRI	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QE61|H6QE61_RICRI	26	secreted	extracellular region GO:0005576(IEA); spore wall GO:0031160(IEA);
+tr|H6QF70|H6QF70_RICRI	55	periplasm	periplasmic space GO:0042597(IDA);
+tr|H6QEW2|H6QEW2_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QEW7|H6QEW7_RICRI	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHW2|H6QHW2_RICRI	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGA9|H6QGA9_RICRI	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG01|H6QG01_RICRI	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHU0|H6QHU0_RICRI	39	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QFG4|H6QFG4_RICRI	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QFK1|H6QFK1_RICRI	57	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|H6QGJ7|H6QGJ7_RICRI	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QH80|H6QH80_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHC9|H6QHC9_RICRI	9	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|H6QFS2|H6QFS2_RICRI	20	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|H6QFB0|H6QFB0_RICRI	26	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|H6QG24|H6QG24_RICRI	40	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QH59|H6QH59_RICRI	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG78|H6QG78_RICRI	52	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QFC4|H6QFC4_RICRI	7	secreted	extracellular region GO:0005576(IEA); outer membrane GO:0019867(IEA);
+tr|H6QEW1|H6QEW1_RICRI	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHD3|H6QHD3_RICRI	18	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QEC4|H6QEC4_RICRI	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QG64|H6QG64_RICRI	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QHT1|H6QHT1_RICRI	26	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QFK9|H6QFK9_RICRI	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFT5|H6QFT5_RICRI	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH37|H6QH37_RICRI	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QFF1|H6QFF1_RICRI	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFB1|H6QFB1_RICRI	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H6QHV3|H6QHV3_RICRI	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHD4|H6QHD4_RICRI	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|H6QHW3|H6QHW3_RICRI	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QG72|H6QG72_RICRI	38	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|H6QH87|H6QH87_RICRI	6	inner membrane	integral to plasma membrane GO:0005887(ISS);
+tr|H6QH02|H6QH02_RICRI	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGD3|H6QGD3_RICRI	41	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QGW8|H6QGW8_RICRI	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF73|H6QF73_RICRI	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QGI6|H6QGI6_RICRI	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QF48|H6QF48_RICRI	48	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|H6QHU2|H6QHU2_RICRI	13	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|H6QG13|H6QG13_RICRI	48	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QFN1|H6QFN1_RICRI	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE37|H6QE37_RICRI	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QER4|H6QER4_RICRI	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QE51|H6QE51_RICRI	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH32|H6QH32_RICRI	12	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|H6QEI0|H6QEI0_RICRI	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QF25|H6QF25_RICRI	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QGP3|H6QGP3_RICRI	15	secreted	cell surface GO:0009986(IEA); extracellular region GO:0005576(IEA);
+tr|H6QGB3|H6QGB3_RICRI	32	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|H6QFX7|H6QFX7_RICRI	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|H6QFV1|H6QFV1_RICRI	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHR9|H6QHR9_RICRI	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H6QHP5|H6QHP5_RICRI	43	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H6QGW6|H6QGW6_RICRI	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QE38|H6QE38_RICRI	14	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|H6QFW2|H6QFW2_RICRI	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|H6QHT2|H6QHT2_RICRI	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QE87|H6QE87_RICRI	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFB9|H6QFB9_RICRI	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H6QGS8|H6QGS8_RICRI	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H6QEE1|H6QEE1_RICRI	21	cytoplasm	cytosol GO:0005829(IDA);
+tr|H6QGU0|H6QGU0_RICRI	19	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|H6QH40|H6QH40_RICRI	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QH96|H6QH96_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QHP2|H6QHP2_RICRI	17	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|H6QH81|H6QH81_RICRI	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H6QG26|H6QG26_RICRI	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H6QFP8|H6QFP8_RICRI	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|H6QGF2|H6QGF2_RICRI	63	periplasm	periplasmic space GO:0042597;
+tr|H6QHI6|H6QHI6_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QHP9|H6QHP9_RICRI	43	cytoplasm	cytoplasm GO:0005737
+tr|H6QH68|H6QH68_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QHE4|H6QHE4_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QG30|H6QG30_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QFD6|H6QFD6_RICRI	46	cytoplasm	cytoplasm GO:0005737
+tr|H6QF21|H6QF21_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QFH8|H6QFH8_RICRI	48	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH3|H6QFH3_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QGX9|H6QGX9_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QGU3|H6QGU3_RICRI	22	periplasm	periplasmic space GO:0042597;
+tr|H6QE92|H6QE92_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG96|H6QG96_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QFR7|H6QFR7_RICRI	50	secreted	extracellular region GO:0005576;
+tr|H6QH21|H6QH21_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QFF0|H6QFF0_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QFE1|H6QFE1_RICRI	79	secreted	extracellular region GO:0005576;
+tr|H6QGC7|H6QGC7_RICRI	99	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H6QFF8|H6QFF8_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QHU4|H6QHU4_RICRI	41	secreted	extracellular region GO:0005576;
+tr|H6QH00|H6QH00_RICRI	29	cytoplasm	cytoplasm GO:0005737
+tr|H6QFF4|H6QFF4_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QHT5|H6QHT5_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG37|H6QG37_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QEF8|H6QEF8_RICRI	55	cytoplasm	cytoplasm GO:0005737
+tr|H6QGY1|H6QGY1_RICRI	42	secreted	extracellular region GO:0005576;
+tr|H6QGN2|H6QGN2_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFK7|H6QFK7_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QHU7|H6QHU7_RICRI	81	secreted	extracellular region GO:0005576;
+tr|H6QEQ6|H6QEQ6_RICRI	70	cytoplasm	cytoplasm GO:0005737
+tr|H6QE72|H6QE72_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QF91|H6QF91_RICRI	48	secreted	extracellular region GO:0005576;
+tr|H6QEA1|H6QEA1_RICRI	32	cytoplasm	cytoplasm GO:0005737
+tr|H6QF61|H6QF61_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QH04|H6QH04_RICRI	42	secreted	extracellular region GO:0005576;
+tr|H6QFN6|H6QFN6_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QHL0|H6QHL0_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QE89|H6QE89_RICRI	84	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA6|H6QGA6_RICRI	30	cytoplasm	cytoplasm GO:0005737
+tr|H6QEI7|H6QEI7_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QFV3|H6QFV3_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QG97|H6QG97_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGE2|H6QGE2_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QEI1|H6QEI1_RICRI	66	secreted	extracellular region GO:0005576;
+tr|H6QGQ9|H6QGQ9_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QFY9|H6QFY9_RICRI	83	secreted	extracellular region GO:0005576;
+tr|H6QGP2|H6QGP2_RICRI	51	cytoplasm	cytoplasm GO:0005737
+tr|H6QF94|H6QF94_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QFV5|H6QFV5_RICRI	80	secreted	extracellular region GO:0005576;
+tr|H6QF17|H6QF17_RICRI	37	periplasm	periplasmic space GO:0042597;
+tr|H6QGE4|H6QGE4_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QEC7|H6QEC7_RICRI	81	secreted	extracellular region GO:0005576;
+tr|H6QGL3|H6QGL3_RICRI	82	cytoplasm	cytoplasm GO:0005737
+tr|H6QE63|H6QE63_RICRI	47	secreted	extracellular region GO:0005576;
+tr|H6QGS5|H6QGS5_RICRI	66	secreted	extracellular region GO:0005576;
+tr|H6QHN4|H6QHN4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QF26|H6QF26_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QES0|H6QES0_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QEP9|H6QEP9_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QFX8|H6QFX8_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE82|H6QE82_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QGY4|H6QGY4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX0|H6QEX0_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QGA0|H6QGA0_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QFM7|H6QFM7_RICRI	81	secreted	extracellular region GO:0005576;
+tr|H6QF33|H6QF33_RICRI	22	periplasm	periplasmic space GO:0042597;
+tr|H6QHI8|H6QHI8_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QHA6|H6QHA6_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QG25|H6QG25_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG66|H6QG66_RICRI	32	secreted	extracellular region GO:0005576;
+tr|H6QFX4|H6QFX4_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QHH9|H6QHH9_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH85|H6QH85_RICRI	53	cytoplasm	cytoplasm GO:0005737
+tr|H6QEA7|H6QEA7_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QGC8|H6QGC8_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QHB7|H6QHB7_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QE83|H6QE83_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE68|H6QE68_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QEI5|H6QEI5_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QF67|H6QF67_RICRI	84	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG1|H6QGG1_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QGC3|H6QGC3_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QF59|H6QF59_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QH16|H6QH16_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QGS1|H6QGS1_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QEE4|H6QEE4_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QGX5|H6QGX5_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QHG4|H6QHG4_RICRI	72	cytoplasm	cytoplasm GO:0005737
+tr|H6QE70|H6QE70_RICRI	54	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH5|H6QFH5_RICRI	86	secreted	extracellular region GO:0005576;
+tr|H6QEI2|H6QEI2_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QFZ7|H6QFZ7_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QHA7|H6QHA7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QET6|H6QET6_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QGY3|H6QGY3_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QF43|H6QF43_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QGV7|H6QGV7_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QEZ3|H6QEZ3_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QG90|H6QG90_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QFZ9|H6QFZ9_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QGN9|H6QGN9_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QF03|H6QF03_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QGB5|H6QGB5_RICRI	44	secreted	extracellular region GO:0005576;
+tr|H6QG98|H6QG98_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QGC6|H6QGC6_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QHW4|H6QHW4_RICRI	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG95|H6QG95_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX1|H6QEX1_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QG56|H6QG56_RICRI	70	cytoplasm	cytoplasm GO:0005737
+tr|H6QFD7|H6QFD7_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QH12|H6QH12_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QEM4|H6QEM4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGK1|H6QGK1_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEY5|H6QEY5_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHS8|H6QHS8_RICRI	62	secreted	extracellular region GO:0005576;
+tr|H6QFP2|H6QFP2_RICRI	40	cytoplasm	cytoplasm GO:0005737
+tr|H6QG09|H6QG09_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGV1|H6QGV1_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QEY4|H6QEY4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFS0|H6QFS0_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX3|H6QEX3_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QGH0|H6QGH0_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW1|H6QHW1_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QFW4|H6QFW4_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QEU2|H6QEU2_RICRI	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG52|H6QG52_RICRI	57	secreted	extracellular region GO:0005576;
+tr|H6QEP7|H6QEP7_RICRI	28	cytoplasm	cytoplasm GO:0005737
+tr|H6QF86|H6QF86_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QEK2|H6QEK2_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QH61|H6QH61_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEY1|H6QEY1_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QGM6|H6QGM6_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QG83|H6QG83_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QFJ5|H6QFJ5_RICRI	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHI1|H6QHI1_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QGM9|H6QGM9_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QF40|H6QF40_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QGM3|H6QGM3_RICRI	84	cytoplasm	cytoplasm GO:0005737
+tr|H6QF89|H6QF89_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHD7|H6QHD7_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHU9|H6QHU9_RICRI	72	cytoplasm	cytoplasm GO:0005737
+tr|H6QE66|H6QE66_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT3|H6QGT3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QGQ3|H6QGQ3_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QEP3|H6QEP3_RICRI	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH78|H6QH78_RICRI	87	secreted	extracellular region GO:0005576;
+tr|H6QFT1|H6QFT1_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QF51|H6QF51_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QF76|H6QF76_RICRI	75	cytoplasm	cytoplasm GO:0005737
+tr|H6QGZ2|H6QGZ2_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QGZ9|H6QGZ9_RICRI	72	secreted	extracellular region GO:0005576;
+tr|H6QER5|H6QER5_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QHJ3|H6QHJ3_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHC0|H6QHC0_RICRI	69	cytoplasm	cytoplasm GO:0005737
+tr|H6QGU4|H6QGU4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFX3|H6QFX3_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QGT1|H6QGT1_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QFQ4|H6QFQ4_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEV4|H6QEV4_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QEY9|H6QEY9_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH34|H6QH34_RICRI	58	cytoplasm	cytoplasm GO:0005737
+tr|H6QEA3|H6QEA3_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QFI7|H6QFI7_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QG45|H6QG45_RICRI	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGN7|H6QGN7_RICRI	34	cytoplasm	cytoplasm GO:0005737
+tr|H6QH15|H6QH15_RICRI	54	periplasm	periplasmic space GO:0042597;
+tr|H6QH70|H6QH70_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QHN6|H6QHN6_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QH65|H6QH65_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH42|H6QH42_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGR3|H6QGR3_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QE79|H6QE79_RICRI	35	cytoplasm	cytoplasm GO:0005737
+tr|H6QFP1|H6QFP1_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHF3|H6QHF3_RICRI	79	secreted	extracellular region GO:0005576;
+tr|H6QES6|H6QES6_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QG70|H6QG70_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QFA9|H6QFA9_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEV9|H6QEV9_RICRI	57	secreted	extracellular region GO:0005576;
+tr|H6QG71|H6QG71_RICRI	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGR4|H6QGR4_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEF3|H6QEF3_RICRI	41	secreted	extracellular region GO:0005576;
+tr|H6QG51|H6QG51_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGE5|H6QGE5_RICRI	81	secreted	extracellular region GO:0005576;
+tr|H6QFR9|H6QFR9_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QHA1|H6QHA1_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QEN2|H6QEN2_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QFK0|H6QFK0_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH93|H6QH93_RICRI	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEN9|H6QEN9_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QGK2|H6QGK2_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEW9|H6QEW9_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QG17|H6QG17_RICRI	81	secreted	extracellular region GO:0005576;
+tr|H6QGV4|H6QGV4_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QGG5|H6QGG5_RICRI	65	cytoplasm	cytoplasm GO:0005737
+tr|H6QER9|H6QER9_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QGI3|H6QGI3_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QH20|H6QH20_RICRI	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QES7|H6QES7_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QHN7|H6QHN7_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QER8|H6QER8_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QE64|H6QE64_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QH03|H6QH03_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QFC9|H6QFC9_RICRI	40	cytoplasm	cytoplasm GO:0005737
+tr|H6QF69|H6QF69_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QH92|H6QH92_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QFS8|H6QFS8_RICRI	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEB9|H6QEB9_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QFQ8|H6QFQ8_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHH3|H6QHH3_RICRI	78	cytoplasm	cytoplasm GO:0005737
+tr|H6QHU5|H6QHU5_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QEA2|H6QEA2_RICRI	60	cytoplasm	cytoplasm GO:0005737
+tr|H6QE84|H6QE84_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGH3|H6QGH3_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QG15|H6QG15_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QHL6|H6QHL6_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QEK6|H6QEK6_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QEF2|H6QEF2_RICRI	60	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT2|H6QGT2_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QHB1|H6QHB1_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHH7|H6QHH7_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QFE7|H6QFE7_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEQ1|H6QEQ1_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QHS6|H6QHS6_RICRI	62	secreted	extracellular region GO:0005576;
+tr|H6QFS9|H6QFS9_RICRI	86	fimbrium	pilus GO:0009289;
+tr|H6QG05|H6QG05_RICRI	87	secreted	extracellular region GO:0005576;
+tr|H6QEB7|H6QEB7_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QE44|H6QE44_RICRI	48	secreted	extracellular region GO:0005576;
+tr|H6QHG2|H6QHG2_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QHI0|H6QHI0_RICRI	47	cytoplasm	cytoplasm GO:0005737
+tr|H6QG16|H6QG16_RICRI	48	cytoplasm	cytoplasm GO:0005737
+tr|H6QGN6|H6QGN6_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QGX6|H6QGX6_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHN3|H6QHN3_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHT3|H6QHT3_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QEM1|H6QEM1_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QHP4|H6QHP4_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QEB6|H6QEB6_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QH10|H6QH10_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QFX6|H6QFX6_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHL2|H6QHL2_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QGF9|H6QGF9_RICRI	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF01|H6QF01_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QGJ3|H6QGJ3_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QEW0|H6QEW0_RICRI	87	secreted	extracellular region GO:0005576;
+tr|H6QHK5|H6QHK5_RICRI	63	periplasm	periplasmic space GO:0042597;
+tr|H6QG85|H6QG85_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGN4|H6QGN4_RICRI	74	cytoplasm	cytoplasm GO:0005737
+tr|H6QEU3|H6QEU3_RICRI	28	secreted	extracellular region GO:0005576;
+tr|H6QGW2|H6QGW2_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QEK3|H6QEK3_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QE35|H6QE35_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QE49|H6QE49_RICRI	50	cytoplasm	cytoplasm GO:0005737
+tr|H6QE85|H6QE85_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGL1|H6QGL1_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QG50|H6QG50_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEA9|H6QEA9_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFN8|H6QFN8_RICRI	94	secreted	extracellular region GO:0005576;
+tr|H6QGG4|H6QGG4_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QG81|H6QG81_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFG1|H6QFG1_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHB5|H6QHB5_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QEI8|H6QEI8_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QFW0|H6QFW0_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QEL2|H6QEL2_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA7|H6QFA7_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QEH2|H6QEH2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEY6|H6QEY6_RICRI	63	cytoplasm	cytoplasm GO:0005737
+tr|H6QF44|H6QF44_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QH99|H6QH99_RICRI	44	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG3|H6QGG3_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QGY7|H6QGY7_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QHA5|H6QHA5_RICRI	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QES1|H6QES1_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QEK8|H6QEK8_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QH95|H6QH95_RICRI	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGI8|H6QGI8_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX8|H6QEX8_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QH41|H6QH41_RICRI	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE69|H6QE69_RICRI	35	secreted	extracellular region GO:0005576;
+tr|H6QHM0|H6QHM0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHM2|H6QHM2_RICRI	84	secreted	extracellular region GO:0005576;
+tr|H6QHI4|H6QHI4_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QFV6|H6QFV6_RICRI	66	secreted	extracellular region GO:0005576;
+tr|H6QG40|H6QG40_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QFD2|H6QFD2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEE3|H6QEE3_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QEK9|H6QEK9_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QEG9|H6QEG9_RICRI	56	cytoplasm	cytoplasm GO:0005737
+tr|H6QFJ9|H6QFJ9_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF54|H6QF54_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGX0|H6QGX0_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QGM8|H6QGM8_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHM3|H6QHM3_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QFG3|H6QFG3_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QEP6|H6QEP6_RICRI	71	cytoplasm	cytoplasm GO:0005737
+tr|H6QGR2|H6QGR2_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QH57|H6QH57_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QG18|H6QG18_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QEB4|H6QEB4_RICRI	35	secreted	extracellular region GO:0005576;
+tr|H6QFV9|H6QFV9_RICRI	72	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT7|H6QGT7_RICRI	50	cytoplasm	cytoplasm GO:0005737
+tr|H6QFX1|H6QFX1_RICRI	80	cytoplasm	cytoplasm GO:0005737
+tr|H6QEC1|H6QEC1_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QG75|H6QG75_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX9|H6QEX9_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QFW6|H6QFW6_RICRI	50	secreted	extracellular region GO:0005576;
+tr|H6QG94|H6QG94_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHR3|H6QHR3_RICRI	79	secreted	extracellular region GO:0005576;
+tr|H6QGV2|H6QGV2_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QE42|H6QE42_RICRI	44	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG6|H6QGG6_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QGF5|H6QGF5_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QET5|H6QET5_RICRI	47	periplasm	periplasmic space GO:0042597;
+tr|H6QGS6|H6QGS6_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QEC3|H6QEC3_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA4|H6QFA4_RICRI	25	cytoplasm	cytoplasm GO:0005737
+tr|H6QE58|H6QE58_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QEW8|H6QEW8_RICRI	72	secreted	extracellular region GO:0005576;
+tr|H6QGU6|H6QGU6_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QGE9|H6QGE9_RICRI	68	cytoplasm	cytoplasm GO:0005737
+tr|H6QFG6|H6QFG6_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QHJ7|H6QHJ7_RICRI	23	secreted	extracellular region GO:0005576;
+tr|H6QF37|H6QF37_RICRI	83	cytoplasm	cytoplasm GO:0005737
+tr|H6QE93|H6QE93_RICRI	33	secreted	extracellular region GO:0005576;
+tr|H6QEZ2|H6QEZ2_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QEC6|H6QEC6_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QET4|H6QET4_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QF28|H6QF28_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QGQ4|H6QGQ4_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QE73|H6QE73_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QFI9|H6QFI9_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QFF9|H6QFF9_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QGD7|H6QGD7_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QG20|H6QG20_RICRI	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHF0|H6QHF0_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QG58|H6QG58_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QE65|H6QE65_RICRI	82	fimbrium	pilus GO:0009289;
+tr|H6QGG7|H6QGG7_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGZ6|H6QGZ6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFF7|H6QFF7_RICRI	80	secreted	extracellular region GO:0005576;
+tr|H6QFW9|H6QFW9_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QEL1|H6QEL1_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGC0|H6QGC0_RICRI	65	cytoplasm	cytoplasm GO:0005737
+tr|H6QEX5|H6QEX5_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QEX6|H6QEX6_RICRI	72	secreted	extracellular region GO:0005576;
+tr|H6QFR6|H6QFR6_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QEQ9|H6QEQ9_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QHQ5|H6QHQ5_RICRI	32	secreted	extracellular region GO:0005576;
+tr|H6QET1|H6QET1_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEH7|H6QEH7_RICRI	57	secreted	extracellular region GO:0005576;
+tr|H6QFJ8|H6QFJ8_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QFQ3|H6QFQ3_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QE75|H6QE75_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QGI7|H6QGI7_RICRI	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFH6|H6QFH6_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QGI4|H6QGI4_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QEA0|H6QEA0_RICRI	81	cytoplasm	cytoplasm GO:0005737
+tr|H6QGC1|H6QGC1_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QFM0|H6QFM0_RICRI	36	periplasm	periplasmic space GO:0042597;
+tr|H6QG77|H6QG77_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGE8|H6QGE8_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHJ2|H6QHJ2_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QEZ0|H6QEZ0_RICRI	71	cytoplasm	cytoplasm GO:0005737
+tr|H6QHM4|H6QHM4_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QEF6|H6QEF6_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA5|H6QFA5_RICRI	44	secreted	extracellular region GO:0005576;
+tr|H6QGY5|H6QGY5_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QGD4|H6QGD4_RICRI	94	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H6QH94|H6QH94_RICRI	32	secreted	extracellular region GO:0005576;
+tr|H6QGC4|H6QGC4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGI0|H6QGI0_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QHB3|H6QHB3_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QH86|H6QH86_RICRI	73	cytoplasm	cytoplasm GO:0005737
+tr|H6QEU6|H6QEU6_RICRI	62	cytoplasm	cytoplasm GO:0005737
+tr|H6QES5|H6QES5_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QG10|H6QG10_RICRI	68	cytoplasm	cytoplasm GO:0005737
+tr|H6QGI5|H6QGI5_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QED1|H6QED1_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QFI0|H6QFI0_RICRI	80	periplasm	periplasmic space GO:0042597;
+tr|H6QEJ9|H6QEJ9_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QGW0|H6QGW0_RICRI	86	periplasm	periplasmic space GO:0042597;
+tr|H6QED4|H6QED4_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QFX0|H6QFX0_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QH58|H6QH58_RICRI	94	periplasm	periplasmic space GO:0042597;
+tr|H6QEN6|H6QEN6_RICRI	75	cytoplasm	cytoplasm GO:0005737
+tr|H6QHG3|H6QHG3_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QFZ5|H6QFZ5_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QFZ3|H6QFZ3_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH24|H6QH24_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QF29|H6QF29_RICRI	45	cytoplasm	cytoplasm GO:0005737
+tr|H6QHK0|H6QHK0_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QEH4|H6QEH4_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QF50|H6QF50_RICRI	78	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW8|H6QHW8_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHR0|H6QHR0_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QFM8|H6QFM8_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QG86|H6QG86_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QEG5|H6QEG5_RICRI	89	secreted	extracellular region GO:0005576;
+tr|H6QFJ0|H6QFJ0_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QFC7|H6QFC7_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QFU7|H6QFU7_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGE7|H6QGE7_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QH28|H6QH28_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QHE3|H6QHE3_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QF53|H6QF53_RICRI	87	cytoplasm	cytoplasm GO:0005737
+tr|H6QF71|H6QF71_RICRI	84	cytoplasm	cytoplasm GO:0005737
+tr|H6QHQ8|H6QHQ8_RICRI	83	cytoplasm	cytoplasm GO:0005737
+tr|H6QGJ2|H6QGJ2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFD5|H6QFD5_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFX5|H6QFX5_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGQ7|H6QGQ7_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG00|H6QG00_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QH76|H6QH76_RICRI	66	secreted	extracellular region GO:0005576;
+tr|H6QHH6|H6QHH6_RICRI	80	secreted	extracellular region GO:0005576;
+tr|H6QEK1|H6QEK1_RICRI	42	secreted	extracellular region GO:0005576;
+tr|H6QHF1|H6QHF1_RICRI	57	secreted	extracellular region GO:0005576;
+tr|H6QFJ3|H6QFJ3_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QHR2|H6QHR2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QF46|H6QF46_RICRI	83	cytoplasm	cytoplasm GO:0005737
+tr|H6QF58|H6QF58_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QEH9|H6QEH9_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QEJ7|H6QEJ7_RICRI	84	secreted	extracellular region GO:0005576;
+tr|H6QGX4|H6QGX4_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFC0|H6QFC0_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QF80|H6QF80_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QET8|H6QET8_RICRI	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHM7|H6QHM7_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QH33|H6QH33_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QHL1|H6QHL1_RICRI	44	secreted	extracellular region GO:0005576;
+tr|H6QHN8|H6QHN8_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QHA4|H6QHA4_RICRI	47	secreted	extracellular region GO:0005576;
+tr|H6QEL8|H6QEL8_RICRI	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEP8|H6QEP8_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QH79|H6QH79_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QHN5|H6QHN5_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QEG7|H6QEG7_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QF77|H6QF77_RICRI	60	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H6QEM7|H6QEM7_RICRI	72	cytoplasm	cytoplasm GO:0005737
+tr|H6QF05|H6QF05_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QGQ5|H6QGQ5_RICRI	80	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H6QFW5|H6QFW5_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHT6|H6QHT6_RICRI	34	cytoplasm	cytoplasm GO:0005737
+tr|H6QED2|H6QED2_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEM3|H6QEM3_RICRI	43	cytoplasm	cytoplasm GO:0005737
+tr|H6QG11|H6QG11_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QF27|H6QF27_RICRI	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH98|H6QH98_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QGN0|H6QGN0_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QES3|H6QES3_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QEE6|H6QEE6_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QG07|H6QG07_RICRI	79	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGP5|H6QGP5_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QFB3|H6QFB3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QED0|H6QED0_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHG8|H6QHG8_RICRI	60	cytoplasm	cytoplasm GO:0005737
+tr|H6QEQ8|H6QEQ8_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE50|H6QE50_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QF24|H6QF24_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHV4|H6QHV4_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGU9|H6QGU9_RICRI	71	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW0|H6QHW0_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QFJ4|H6QFJ4_RICRI	55	cytoplasm	cytoplasm GO:0005737
+tr|H6QH63|H6QH63_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QGJ6|H6QGJ6_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHE6|H6QHE6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QG93|H6QG93_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QG49|H6QG49_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHE2|H6QHE2_RICRI	68	cytoplasm	cytoplasm GO:0005737
+tr|H6QFS7|H6QFS7_RICRI	90	fimbrium	pilus GO:0009289;
+tr|H6QEQ2|H6QEQ2_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH72|H6QH72_RICRI	51	cytoplasm	cytoplasm GO:0005737
+tr|H6QHT4|H6QHT4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFL0|H6QFL0_RICRI	70	cytoplasm	cytoplasm GO:0005737
+tr|H6QFK8|H6QFK8_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW9|H6QHW9_RICRI	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHP1|H6QHP1_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QGV9|H6QGV9_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGV6|H6QGV6_RICRI	47	secreted	extracellular region GO:0005576;
+tr|H6QFS5|H6QFS5_RICRI	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG63|H6QG63_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QFI6|H6QFI6_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QFE3|H6QFE3_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QEY8|H6QEY8_RICRI	66	cytoplasm	cytoplasm GO:0005737
+tr|H6QFY8|H6QFY8_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QHF7|H6QHF7_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QEH8|H6QEH8_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QF02|H6QF02_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QGS3|H6QGS3_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QED6|H6QED6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHJ4|H6QHJ4_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QE88|H6QE88_RICRI	74	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA4|H6QGA4_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QGS4|H6QGS4_RICRI	82	cytoplasm	cytoplasm GO:0005737
+tr|H6QE33|H6QE33_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QHB0|H6QHB0_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QE43|H6QE43_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QHD0|H6QHD0_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QEK4|H6QEK4_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QGP7|H6QGP7_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHF2|H6QHF2_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QFX9|H6QFX9_RICRI	96	periplasm	periplasmic space GO:0042597;
+tr|H6QHP3|H6QHP3_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QF82|H6QF82_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE77|H6QE77_RICRI	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG48|H6QG48_RICRI	63	cytoplasm	cytoplasm GO:0005737
+tr|H6QHN0|H6QHN0_RICRI	35	secreted	extracellular region GO:0005576;
+tr|H6QG61|H6QG61_RICRI	56	cytoplasm	cytoplasm GO:0005737
+tr|H6QEN4|H6QEN4_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFZ0|H6QFZ0_RICRI	90	secreted	extracellular region GO:0005576;
+tr|H6QE97|H6QE97_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHS5|H6QHS5_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QF08|H6QF08_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QG80|H6QG80_RICRI	92	periplasm	periplasmic space GO:0042597;
+tr|H6QH39|H6QH39_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEE9|H6QEE9_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QEH1|H6QEH1_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QFS4|H6QFS4_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGP6|H6QGP6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFI3|H6QFI3_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QFS1|H6QFS1_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QFV2|H6QFV2_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QGN1|H6QGN1_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QF34|H6QF34_RICRI	85	cytoplasm	cytoplasm GO:0005737
+tr|H6QH67|H6QH67_RICRI	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF96|H6QF96_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QH45|H6QH45_RICRI	89	secreted	extracellular region GO:0005576;
+tr|H6QH36|H6QH36_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QF92|H6QF92_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QF13|H6QF13_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QET9|H6QET9_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QHC3|H6QHC3_RICRI	47	cytoplasm	cytoplasm GO:0005737
+tr|H6QEZ7|H6QEZ7_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QGD2|H6QGD2_RICRI	47	cytoplasm	cytoplasm GO:0005737
+tr|H6QH18|H6QH18_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QEV7|H6QEV7_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QE54|H6QE54_RICRI	75	fimbrium	pilus GO:0009289;
+tr|H6QH31|H6QH31_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHS0|H6QHS0_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QGB7|H6QGB7_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QG74|H6QG74_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG47|H6QG47_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QF11|H6QF11_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QE62|H6QE62_RICRI	45	cytoplasm	cytoplasm GO:0005737
+tr|H6QF31|H6QF31_RICRI	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFB2|H6QFB2_RICRI	80	cytoplasm	cytoplasm GO:0005737
+tr|H6QF75|H6QF75_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGH1|H6QGH1_RICRI	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEL3|H6QEL3_RICRI	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGV5|H6QGV5_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QF56|H6QF56_RICRI	33	secreted	extracellular region GO:0005576;
+tr|H6QEF4|H6QEF4_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW5|H6QHW5_RICRI	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEJ0|H6QEJ0_RICRI	57	periplasm	periplasmic space GO:0042597;
+tr|H6QGL2|H6QGL2_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QGV3|H6QGV3_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QGU1|H6QGU1_RICRI	57	cytoplasm	cytoplasm GO:0005737
+tr|H6QGD1|H6QGD1_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QEC8|H6QEC8_RICRI	46	cytoplasm	cytoplasm GO:0005737
+tr|H6QHG5|H6QHG5_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGX7|H6QGX7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGS7|H6QGS7_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QFU6|H6QFU6_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGR1|H6QGR1_RICRI	82	cytoplasm	cytoplasm GO:0005737
+tr|H6QGN3|H6QGN3_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QGY9|H6QGY9_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QEH0|H6QEH0_RICRI	71	cytoplasm	cytoplasm GO:0005737
+tr|H6QFT7|H6QFT7_RICRI	35	cytoplasm	cytoplasm GO:0005737
+tr|H6QHJ9|H6QHJ9_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGU2|H6QGU2_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QFU3|H6QFU3_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QEI6|H6QEI6_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QH25|H6QH25_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHV6|H6QHV6_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA6|H6QFA6_RICRI	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHE8|H6QHE8_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QHX1|H6QHX1_RICRI	37	secreted	extracellular region GO:0005576;
+tr|H6QFZ1|H6QFZ1_RICRI	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH23|H6QH23_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QHM6|H6QHM6_RICRI	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE34|H6QE34_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QEL4|H6QEL4_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QG69|H6QG69_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QEV0|H6QEV0_RICRI	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE96|H6QE96_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QG68|H6QG68_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QEL5|H6QEL5_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QEP1|H6QEP1_RICRI	38	cytoplasm	cytoplasm GO:0005737
+tr|H6QHX2|H6QHX2_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QEY2|H6QEY2_RICRI	60	secreted	extracellular region GO:0005576;
+tr|H6QHV9|H6QHV9_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QG73|H6QG73_RICRI	75	cytoplasm	cytoplasm GO:0005737
+tr|H6QH35|H6QH35_RICRI	31	cytoplasm	cytoplasm GO:0005737
+tr|H6QGP4|H6QGP4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG14|H6QG14_RICRI	44	cytoplasm	cytoplasm GO:0005737
+tr|H6QHA3|H6QHA3_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QGX3|H6QGX3_RICRI	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFL9|H6QFL9_RICRI	51	cytoplasm	cytoplasm GO:0005737
+tr|H6QHS4|H6QHS4_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QEN3|H6QEN3_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QHR4|H6QHR4_RICRI	81	cytoplasm	cytoplasm GO:0005737
+tr|H6QH47|H6QH47_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH29|H6QH29_RICRI	34	cytoplasm	cytoplasm GO:0005737
+tr|H6QGM7|H6QGM7_RICRI	46	cytoplasm	cytoplasm GO:0005737
+tr|H6QFU8|H6QFU8_RICRI	41	secreted	extracellular region GO:0005576;
+tr|H6QGI1|H6QGI1_RICRI	55	cytoplasm	cytoplasm GO:0005737
+tr|H6QGW9|H6QGW9_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QHC6|H6QHC6_RICRI	63	cytoplasm	cytoplasm GO:0005737
+tr|H6QE53|H6QE53_RICRI	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG88|H6QG88_RICRI	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGJ0|H6QGJ0_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QF85|H6QF85_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QEC0|H6QEC0_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QE55|H6QE55_RICRI	68	cytoplasm	cytoplasm GO:0005737
+tr|H6QFC3|H6QFC3_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QGZ3|H6QGZ3_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QHT7|H6QHT7_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QEU5|H6QEU5_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG9|H6QGG9_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH53|H6QH53_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHP0|H6QHP0_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFQ2|H6QFQ2_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEU9|H6QEU9_RICRI	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF45|H6QF45_RICRI	68	cytoplasm	cytoplasm GO:0005737
+tr|H6QHN1|H6QHN1_RICRI	59	cytoplasm	cytoplasm GO:0005737
+tr|H6QF00|H6QF00_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QG99|H6QG99_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QFE5|H6QFE5_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QH91|H6QH91_RICRI	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHF6|H6QHF6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH49|H6QH49_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHF5|H6QHF5_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHA0|H6QHA0_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QHI7|H6QHI7_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QHE1|H6QHE1_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QHD5|H6QHD5_RICRI	63	cytoplasm	cytoplasm GO:0005737
+tr|H6QH90|H6QH90_RICRI	74	periplasm	periplasmic space GO:0042597;
+tr|H6QFD4|H6QFD4_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEZ6|H6QEZ6_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QHL5|H6QHL5_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE47|H6QE47_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QFS6|H6QFS6_RICRI	50	secreted	extracellular region GO:0005576;
+tr|H6QE78|H6QE78_RICRI	20	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH13|H6QH13_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QFJ1|H6QFJ1_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QF57|H6QF57_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QEJ2|H6QEJ2_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QFQ6|H6QFQ6_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QGW5|H6QGW5_RICRI	83	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA7|H6QGA7_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF95|H6QF95_RICRI	83	secreted	extracellular region GO:0005576;
+tr|H6QEM5|H6QEM5_RICRI	48	secreted	extracellular region GO:0005576;
+tr|H6QFJ6|H6QFJ6_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHK9|H6QHK9_RICRI	81	cytoplasm	cytoplasm GO:0005737
+tr|H6QFV7|H6QFV7_RICRI	59	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG0|H6QGG0_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QEA5|H6QEA5_RICRI	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE74|H6QE74_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QEC2|H6QEC2_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QED8|H6QED8_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHI9|H6QHI9_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QEC9|H6QEC9_RICRI	50	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT4|H6QGT4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QF52|H6QF52_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QE81|H6QE81_RICRI	71	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH9|H6QFH9_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHN2|H6QHN2_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEJ3|H6QEJ3_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QED7|H6QED7_RICRI	75	secreted	extracellular region GO:0005576;
+tr|H6QGD8|H6QGD8_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QEE5|H6QEE5_RICRI	52	cytoplasm	cytoplasm GO:0005737
+tr|H6QFG2|H6QFG2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHC5|H6QHC5_RICRI	86	secreted	extracellular region GO:0005576;
+tr|H6QGR7|H6QGR7_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QE71|H6QE71_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QGJ1|H6QGJ1_RICRI	48	secreted	extracellular region GO:0005576;
+tr|H6QFY5|H6QFY5_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QHQ4|H6QHQ4_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QHC2|H6QHC2_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QF60|H6QF60_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QER1|H6QER1_RICRI	21	secreted	extracellular region GO:0005576;
+tr|H6QFL5|H6QFL5_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QH71|H6QH71_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QHH1|H6QHH1_RICRI	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFR3|H6QFR3_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QE48|H6QE48_RICRI	86	secreted	extracellular region GO:0005576;
+tr|H6QEB0|H6QEB0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEN1|H6QEN1_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QF79|H6QF79_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QEQ3|H6QEQ3_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFZ4|H6QFZ4_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QFY6|H6QFY6_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QFM9|H6QFM9_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QFD9|H6QFD9_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QFB6|H6QFB6_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QFY0|H6QFY0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QH09|H6QH09_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHD8|H6QHD8_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QF30|H6QF30_RICRI	50	secreted	extracellular region GO:0005576;
+tr|H6QF09|H6QF09_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG89|H6QG89_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QEQ0|H6QEQ0_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QEZ5|H6QEZ5_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QH50|H6QH50_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QH55|H6QH55_RICRI	41	cytoplasm	cytoplasm GO:0005737
+tr|H6QG60|H6QG60_RICRI	54	cytoplasm	cytoplasm GO:0005737
+tr|H6QFF3|H6QFF3_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QHM5|H6QHM5_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QG27|H6QG27_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QET7|H6QET7_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QFT3|H6QFT3_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QF99|H6QF99_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEI4|H6QEI4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG57|H6QG57_RICRI	46	cytoplasm	cytoplasm GO:0005737
+tr|H6QHG0|H6QHG0_RICRI	36	cytoplasm	cytoplasm GO:0005737
+tr|H6QH60|H6QH60_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGU8|H6QGU8_RICRI	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QH77|H6QH77_RICRI	65	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA2|H6QFA2_RICRI	39	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH0|H6QFH0_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QGJ9|H6QGJ9_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG62|H6QG62_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHK3|H6QHK3_RICRI	60	cytoplasm	cytoplasm GO:0005737
+tr|H6QE90|H6QE90_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QEV6|H6QEV6_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGU5|H6QGU5_RICRI	59	cytoplasm	cytoplasm GO:0005737
+tr|H6QET0|H6QET0_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QEJ1|H6QEJ1_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QHX0|H6QHX0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QFE0|H6QFE0_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGX2|H6QGX2_RICRI	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QG76|H6QG76_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEL6|H6QEL6_RICRI	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHS3|H6QHS3_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH46|H6QH46_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QG59|H6QG59_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QHK8|H6QHK8_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QFL7|H6QFL7_RICRI	38	cytoplasm	cytoplasm GO:0005737
+tr|H6QEV3|H6QEV3_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGY6|H6QGY6_RICRI	45	secreted	extracellular region GO:0005576;
+tr|H6QE57|H6QE57_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QE91|H6QE91_RICRI	58	cytoplasm	cytoplasm GO:0005737
+tr|H6QG53|H6QG53_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QEU4|H6QEU4_RICRI	84	secreted	extracellular region GO:0005576;
+tr|H6QGF1|H6QGF1_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QFU0|H6QFU0_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QHL8|H6QHL8_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QHE7|H6QHE7_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QFW7|H6QFW7_RICRI	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QF35|H6QF35_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEI9|H6QEI9_RICRI	85	secreted	extracellular region GO:0005576;
+tr|H6QH06|H6QH06_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QE60|H6QE60_RICRI	36	cytoplasm	cytoplasm GO:0005737
+tr|H6QEJ8|H6QEJ8_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG46|H6QG46_RICRI	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEN0|H6QEN0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QH07|H6QH07_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QHA8|H6QHA8_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QH56|H6QH56_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QFZ2|H6QFZ2_RICRI	53	cytoplasm	cytoplasm GO:0005737
+tr|H6QF66|H6QF66_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW7|H6QHW7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHH5|H6QHH5_RICRI	77	secreted	extracellular region GO:0005576;
+tr|H6QEN7|H6QEN7_RICRI	87	cytoplasm	cytoplasm GO:0005737
+tr|H6QHI2|H6QHI2_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QHH2|H6QHH2_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QGW1|H6QGW1_RICRI	91	secreted	extracellular region GO:0005576;
+tr|H6QF55|H6QF55_RICRI	58	cytoplasm	cytoplasm GO:0005737
+tr|H6QH30|H6QH30_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGX8|H6QGX8_RICRI	40	cytoplasm	cytoplasm GO:0005737
+tr|H6QHK6|H6QHK6_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGM2|H6QGM2_RICRI	42	cytoplasm	cytoplasm GO:0005737
+tr|H6QEW5|H6QEW5_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH7|H6QFH7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QF22|H6QF22_RICRI	77	secreted	extracellular region GO:0005576;
+tr|H6QHH4|H6QHH4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QGX1|H6QGX1_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHS7|H6QHS7_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QED9|H6QED9_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QHV8|H6QHV8_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QEJ5|H6QEJ5_RICRI	94	cytoplasm	cytoplasm GO:0005737
+tr|H6QHD6|H6QHD6_RICRI	34	cytoplasm	cytoplasm GO:0005737
+tr|H6QHJ0|H6QHJ0_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QEG6|H6QEG6_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE39|H6QE39_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QE52|H6QE52_RICRI	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGF0|H6QGF0_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QHA2|H6QHA2_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QG91|H6QG91_RICRI	95	cytoplasm	cytoplasm GO:0005737
+tr|H6QFT0|H6QFT0_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QHM9|H6QHM9_RICRI	76	cytoplasm	cytoplasm GO:0005737
+tr|H6QFG0|H6QFG0_RICRI	39	secreted	extracellular region GO:0005576;
+tr|H6QEP2|H6QEP2_RICRI	57	secreted	extracellular region GO:0005576;
+tr|H6QFD1|H6QFD1_RICRI	89	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA5|H6QGA5_RICRI	45	cytoplasm	cytoplasm GO:0005737
+tr|H6QFI8|H6QFI8_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QH69|H6QH69_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA2|H6QGA2_RICRI	88	secreted	extracellular region GO:0005576;
+tr|H6QGJ5|H6QGJ5_RICRI	83	secreted	extracellular region GO:0005576;
+tr|H6QHU3|H6QHU3_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QHE9|H6QHE9_RICRI	31	secreted	extracellular region GO:0005576;
+tr|H6QEN8|H6QEN8_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QES9|H6QES9_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QH05|H6QH05_RICRI	41	cytoplasm	cytoplasm GO:0005737
+tr|H6QF06|H6QF06_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QFL2|H6QFL2_RICRI	77	cytoplasm	cytoplasm GO:0005737
+tr|H6QEV8|H6QEV8_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QG41|H6QG41_RICRI	63	secreted	extracellular region GO:0005576;
+tr|H6QGZ7|H6QGZ7_RICRI	68	secreted	extracellular region GO:0005576;
+tr|H6QEX4|H6QEX4_RICRI	73	cytoplasm	cytoplasm GO:0005737
+tr|H6QFG7|H6QFG7_RICRI	38	secreted	extracellular region GO:0005576;
+tr|H6QEL7|H6QEL7_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QFR1|H6QFR1_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QF64|H6QF64_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QFE9|H6QFE9_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QH43|H6QH43_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFY7|H6QFY7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEG8|H6QEG8_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QH62|H6QH62_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGH5|H6QGH5_RICRI	13	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT6|H6QGT6_RICRI	49	periplasm	periplasmic space GO:0042597;
+tr|H6QFE2|H6QFE2_RICRI	57	cytoplasm	cytoplasm GO:0005737
+tr|H6QGL0|H6QGL0_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEG4|H6QEG4_RICRI	66	secreted	extracellular region GO:0005576;
+tr|H6QEA4|H6QEA4_RICRI	65	secreted	extracellular region GO:0005576;
+tr|H6QF18|H6QF18_RICRI	49	secreted	extracellular region GO:0005576;
+tr|H6QHC4|H6QHC4_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QET3|H6QET3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QFA8|H6QFA8_RICRI	47	secreted	extracellular region GO:0005576;
+tr|H6QGW7|H6QGW7_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QFY1|H6QFY1_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEF7|H6QEF7_RICRI	77	secreted	extracellular region GO:0005576;
+tr|H6QHR6|H6QHR6_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QF32|H6QF32_RICRI	59	cytoplasm	cytoplasm GO:0005737
+tr|H6QE56|H6QE56_RICRI	46	secreted	extracellular region GO:0005576;
+tr|H6QHL7|H6QHL7_RICRI	39	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG8|H6QGG8_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QGB9|H6QGB9_RICRI	56	secreted	extracellular region GO:0005576;
+tr|H6QEH6|H6QEH6_RICRI	70	secreted	extracellular region GO:0005576;
+tr|H6QFX2|H6QFX2_RICRI	62	secreted	extracellular region GO:0005576;
+tr|H6QER7|H6QER7_RICRI	92	periplasm	periplasmic space GO:0042597;
+tr|H6QGH4|H6QGH4_RICRI	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEK7|H6QEK7_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFZ6|H6QFZ6_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QGH7|H6QGH7_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QFW3|H6QFW3_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGH6|H6QGH6_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QEX2|H6QEX2_RICRI	42	secreted	extracellular region GO:0005576;
+tr|H6QG87|H6QG87_RICRI	76	secreted	extracellular region GO:0005576;
+tr|H6QGA3|H6QGA3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QGB8|H6QGB8_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QFR2|H6QFR2_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QGY2|H6QGY2_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QEW6|H6QEW6_RICRI	73	cytoplasm	cytoplasm GO:0005737
+tr|H6QG28|H6QG28_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFY2|H6QFY2_RICRI	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFR8|H6QFR8_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QG42|H6QG42_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QGQ0|H6QGQ0_RICRI	50	cytoplasm	cytoplasm GO:0005737
+tr|H6QF88|H6QF88_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEK0|H6QEK0_RICRI	86	cytoplasm	cytoplasm GO:0005737
+tr|H6QFU4|H6QFU4_RICRI	54	cytoplasm	cytoplasm GO:0005737
+tr|H6QGG2|H6QGG2_RICRI	61	secreted	extracellular region GO:0005576;
+tr|H6QFF2|H6QFF2_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QEX7|H6QEX7_RICRI	83	secreted	extracellular region GO:0005576;
+tr|H6QGL7|H6QGL7_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QGR0|H6QGR0_RICRI	71	secreted	extracellular region GO:0005576;
+tr|H6QH52|H6QH52_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGW3|H6QGW3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QGZ4|H6QGZ4_RICRI	40	cytoplasm	cytoplasm GO:0005737
+tr|H6QGQ8|H6QGQ8_RICRI	62	cytoplasm	cytoplasm GO:0005737
+tr|H6QF36|H6QF36_RICRI	60	cytoplasm	cytoplasm GO:0005737
+tr|H6QG35|H6QG35_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QHL9|H6QHL9_RICRI	91	cytoplasm	cytoplasm GO:0005737
+tr|H6QEF1|H6QEF1_RICRI	41	secreted	extracellular region GO:0005576;
+tr|H6QES2|H6QES2_RICRI	34	secreted	extracellular region GO:0005576;
+tr|H6QES8|H6QES8_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QFB4|H6QFB4_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QHJ6|H6QHJ6_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGI2|H6QGI2_RICRI	52	cytoplasm	cytoplasm GO:0005737
+tr|H6QF63|H6QF63_RICRI	67	cytoplasm	cytoplasm GO:0005737
+tr|H6QGA1|H6QGA1_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QH75|H6QH75_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QEZ1|H6QEZ1_RICRI	78	secreted	extracellular region GO:0005576;
+tr|H6QGV8|H6QGV8_RICRI	67	secreted	extracellular region GO:0005576;
+tr|H6QEC5|H6QEC5_RICRI	74	cytoplasm	cytoplasm GO:0005737
+tr|H6QHV1|H6QHV1_RICRI	88	cytoplasm	cytoplasm GO:0005737
+tr|H6QHQ3|H6QHQ3_RICRI	54	periplasm	periplasmic space GO:0042597;
+tr|H6QFF5|H6QFF5_RICRI	47	secreted	extracellular region GO:0005576;
+tr|H6QF41|H6QF41_RICRI	52	cytoplasm	cytoplasm GO:0005737
+tr|H6QF47|H6QF47_RICRI	90	cytoplasm	cytoplasm GO:0005737
+tr|H6QF93|H6QF93_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QF07|H6QF07_RICRI	84	secreted	extracellular region GO:0005576;
+tr|H6QE67|H6QE67_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QES4|H6QES4_RICRI	33	cytoplasm	cytoplasm GO:0005737
+tr|H6QFN7|H6QFN7_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QG84|H6QG84_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QGH2|H6QGH2_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFV4|H6QFV4_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QGC5|H6QGC5_RICRI	54	secreted	extracellular region GO:0005576;
+tr|H6QG03|H6QG03_RICRI	74	secreted	extracellular region GO:0005576;
+tr|H6QEZ9|H6QEZ9_RICRI	73	secreted	extracellular region GO:0005576;
+tr|H6QFI4|H6QFI4_RICRI	37	secreted	extracellular region GO:0005576;
+tr|H6QH89|H6QH89_RICRI	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFM2|H6QFM2_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QF84|H6QF84_RICRI	79	cytoplasm	cytoplasm GO:0005737
+tr|H6QFH2|H6QFH2_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QH66|H6QH66_RICRI	51	secreted	extracellular region GO:0005576;
+tr|H6QEU1|H6QEU1_RICRI	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QEG3|H6QEG3_RICRI	93	cytoplasm	cytoplasm GO:0005737
+tr|H6QEF0|H6QEF0_RICRI	55	secreted	extracellular region GO:0005576;
+tr|H6QFN2|H6QFN2_RICRI	69	secreted	extracellular region GO:0005576;
+tr|H6QEJ6|H6QEJ6_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QG67|H6QG67_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QEB5|H6QEB5_RICRI	35	cytoplasm	cytoplasm GO:0005737
+tr|H6QEP0|H6QEP0_RICRI	43	secreted	extracellular region GO:0005576;
+tr|H6QGE6|H6QGE6_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QER3|H6QER3_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QG12|H6QG12_RICRI	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QFH4|H6QFH4_RICRI	77	secreted	extracellular region GO:0005576;
+tr|H6QFP3|H6QFP3_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QGH8|H6QGH8_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QGH9|H6QGH9_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QE40|H6QE40_RICRI	75	cytoplasm	cytoplasm GO:0005737
+tr|H6QH19|H6QH19_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QGT0|H6QGT0_RICRI	92	cytoplasm	cytoplasm GO:0005737
+tr|H6QHE5|H6QHE5_RICRI	58	secreted	extracellular region GO:0005576;
+tr|H6QFF6|H6QFF6_RICRI	39	cytoplasm	cytoplasm GO:0005737
+tr|H6QEY7|H6QEY7_RICRI	75	cytoplasm	cytoplasm GO:0005737
+tr|H6QGB1|H6QGB1_RICRI	99	cytoplasm	cytoplasm GO:0005737
+tr|H6QFT6|H6QFT6_RICRI	82	secreted	extracellular region GO:0005576;
+tr|H6QF90|H6QF90_RICRI	52	secreted	extracellular region GO:0005576;
+tr|H6QGK9|H6QGK9_RICRI	74	cytoplasm	cytoplasm GO:0005737
+tr|H6QF42|H6QF42_RICRI	96	cytoplasm	cytoplasm GO:0005737
+tr|H6QHB4|H6QHB4_RICRI	59	secreted	extracellular region GO:0005576;
+tr|H6QFE4|H6QFE4_RICRI	100	cytoplasm	cytoplasm GO:0005737
+tr|H6QEL9|H6QEL9_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QFE8|H6QFE8_RICRI	61	cytoplasm	cytoplasm GO:0005737
+tr|H6QHW6|H6QHW6_RICRI	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H6QGE0|H6QGE0_RICRI	37	cytoplasm	cytoplasm GO:0005737
+tr|H6QFZ8|H6QFZ8_RICRI	64	secreted	extracellular region GO:0005576;
+tr|H6QGQ2|H6QGQ2_RICRI	36	secreted	extracellular region GO:0005576;
+tr|H6QF49|H6QF49_RICRI	67	cytoplasm	cytoplasm GO:0005737
+tr|H6QH22|H6QH22_RICRI	53	secreted	extracellular region GO:0005576;
+tr|H6QEB8|H6QEB8_RICRI	40	secreted	extracellular region GO:0005576;
+tr|H6QE98|H6QE98_RICRI	97	cytoplasm	cytoplasm GO:0005737
+tr|H6QEF5|H6QEF5_RICRI	98	cytoplasm	cytoplasm GO:0005737
+tr|H6QEL0|H6QEL0_RICRI	61	cytoplasm	cytoplasm GO:0005737

@@ -1,0 +1,2273 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G8VH08|G8VH08_PROAA	20	secreted	extracellular region GO:0005576(IDA);
+tr|G8VJN0|G8VJN0_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIV7|G8VIV7_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJU5|G8VJU5_PROAA	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIP9|G8VIP9_PROAA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VJ87|G8VJ87_PROAA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFF9|G8VFF9_PROAA	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDK5|G8VDK5_PROAA	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VJP4|G8VJP4_PROAA	16	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VHN4|G8VHN4_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFU2|G8VFU2_PROAA	25	secreted	extracellular region GO:0005576(IEA);
+tr|G8VHS8|G8VHS8_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGE0|G8VGE0_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDQ0|G8VDQ0_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFL1|G8VFL1_PROAA	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIW4|G8VIW4_PROAA	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHT9|G8VHT9_PROAA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VG16|G8VG16_PROAA	48	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHD5|G8VHD5_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH31|G8VH31_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G8VJR3|G8VJR3_PROAA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJA0|G8VJA0_PROAA	26	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFJ8|G8VFJ8_PROAA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG26|G8VG26_PROAA	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJL1|G8VJL1_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEM5|G8VEM5_PROAA	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJL9|G8VJL9_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGL4|G8VGL4_PROAA	33	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G8VJQ2|G8VJQ2_PROAA	26	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VHE2|G8VHE2_PROAA	78	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFX8|G8VFX8_PROAA	44	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|G8VE71|G8VE71_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|G8VE35|G8VE35_PROAA	26	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VEL1|G8VEL1_PROAA	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VEK2|G8VEK2_PROAA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE01|G8VE01_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEH7|G8VEH7_PROAA	36	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VFY3|G8VFY3_PROAA	7	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|G8VDT7|G8VDT7_PROAA	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VIE5|G8VIE5_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHI7|G8VHI7_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VFK9|G8VFK9_PROAA	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJR8|G8VJR8_PROAA	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VDP6|G8VDP6_PROAA	38	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHJ0|G8VHJ0_PROAA	39	secreted	extracellular region GO:0005576(IEA);
+tr|G8VIJ6|G8VIJ6_PROAA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDK6|G8VDK6_PROAA	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG69|G8VG69_PROAA	13	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G8VFF0|G8VFF0_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHK4|G8VHK4_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ37|G8VJ37_PROAA	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VJU7|G8VJU7_PROAA	20	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHP2|G8VHP2_PROAA	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(NAS);
+tr|G8VEX1|G8VEX1_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEC6|G8VEC6_PROAA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHT0|G8VHT0_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIE1|G8VIE1_PROAA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGM4|G8VGM4_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDR7|G8VDR7_PROAA	9	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VJE7|G8VJE7_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFY1|G8VFY1_PROAA	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDX0|G8VDX0_PROAA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG99|G8VG99_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEI0|G8VEI0_PROAA	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEC3|G8VEC3_PROAA	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VII0|G8VII0_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFE1|G8VFE1_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEY6|G8VEY6_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFX6|G8VFX6_PROAA	64	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH30|G8VH30_PROAA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJ28|G8VJ28_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJI2|G8VJI2_PROAA	24	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VDJ6|G8VDJ6_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJH4|G8VJH4_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G8VF33|G8VF33_PROAA	23	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VIM1|G8VIM1_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF00|G8VF00_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIL1|G8VIL1_PROAA	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VES9|G8VES9_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA); riboflavin synthase complex GO:0009349(IEA);
+tr|G8VGD0|G8VGD0_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJB6|G8VJB6_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHC2|G8VHC2_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VEC8|G8VEC8_PROAA	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VGX3|G8VGX3_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH23|G8VH23_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHU5|G8VHU5_PROAA	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFS6|G8VFS6_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG59|G8VG59_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VHR1|G8VHR1_PROAA	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VG81|G8VG81_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VHF7|G8VHF7_PROAA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIN0|G8VIN0_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VDK3|G8VDK3_PROAA	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VGI6|G8VGI6_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ39|G8VJ39_PROAA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDX7|G8VDX7_PROAA	12	secreted	extracellular region GO:0005576(IEA);
+tr|G8VH00|G8VH00_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHG8|G8VHG8_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDR3|G8VDR3_PROAA	6	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VHY5|G8VHY5_PROAA	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VHX7|G8VHX7_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHW4|G8VHW4_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGV8|G8VGV8_PROAA	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE54|G8VE54_PROAA	3	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8VH84|G8VH84_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJJ2|G8VJJ2_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEZ5|G8VEZ5_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G8VI95|G8VI95_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJX6|G8VJX6_PROAA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDU0|G8VDU0_PROAA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI03|G8VI03_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIA6|G8VIA6_PROAA	20	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8VDM0|G8VDM0_PROAA	26	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|G8VEE8|G8VEE8_PROAA	18	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|G8VED2|G8VED2_PROAA	42	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|G8VHA1|G8VHA1_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG02|G8VG02_PROAA	9	secreted	extracellular region GO:0005576(IEA);
+tr|G8VFF4|G8VFF4_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHJ5|G8VHJ5_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHU8|G8VHU8_PROAA	18	cytoplasm	phosphoenolpyruvate-dependent sugar phosphotransferase complex GO:0019197(IDA);
+tr|G8VED7|G8VED7_PROAA	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VGC5|G8VGC5_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI52|G8VI52_PROAA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ66|G8VJ66_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHY8|G8VHY8_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDL4|G8VDL4_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGD4|G8VGD4_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIH2|G8VIH2_PROAA	20	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VJF9|G8VJF9_PROAA	43	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G8VI80|G8VI80_PROAA	21	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VJ11|G8VJ11_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJK0|G8VJK0_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ08|G8VJ08_PROAA	32	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJ54|G8VJ54_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGG2|G8VGG2_PROAA	31	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VEY7|G8VEY7_PROAA	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VE46|G8VE46_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHI2|G8VHI2_PROAA	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VG23|G8VG23_PROAA	49	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G8VDJ8|G8VDJ8_PROAA	8	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|G8VJN2|G8VJN2_PROAA	19	periplasm	cytoplasm GO:0005737(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VIG9|G8VIG9_PROAA	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJB5|G8VJB5_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGW2|G8VGW2_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGJ1|G8VGJ1_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDS9|G8VDS9_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHX3|G8VHX3_PROAA	18	secreted	extracellular space GO:0005615(IEA);
+tr|G8VDW7|G8VDW7_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGE2|G8VGE2_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH12|G8VH12_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ33|G8VJ33_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIS2|G8VIS2_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEC7|G8VEC7_PROAA	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VJY0|G8VJY0_PROAA	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHG2|G8VHG2_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJN6|G8VJN6_PROAA	16	secreted	extracellular region GO:0005576(IDA);
+tr|G8VFT6|G8VFT6_PROAA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFS9|G8VFS9_PROAA	31	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VI63|G8VI63_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VFC4|G8VFC4_PROAA	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIA0|G8VIA0_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFU0|G8VFU0_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGV1|G8VGV1_PROAA	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VIF5|G8VIF5_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJA3|G8VJA3_PROAA	6	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VEZ1|G8VEZ1_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH29|G8VH29_PROAA	30	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VFR3|G8VFR3_PROAA	16	secreted	extracellular region GO:0005576(IEA);
+tr|G8VF20|G8VF20_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGM3|G8VGM3_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI84|G8VI84_PROAA	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VHH4|G8VHH4_PROAA	23	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VJT9|G8VJT9_PROAA	18	secreted	extracellular region GO:0005576(NAS);
+tr|G8VIL4|G8VIL4_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G8VEW1|G8VEW1_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJ74|G8VJ74_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJN3|G8VJN3_PROAA	37	secreted	extracellular space GO:0005615(IEA);
+tr|G8VHR9|G8VHR9_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH96|G8VH96_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G8VHE8|G8VHE8_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI33|G8VI33_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEC5|G8VEC5_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGA3|G8VGA3_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG66|G8VG66_PROAA	18	secreted	extracellular region GO:0005576(IEA);
+tr|G8VJB3|G8VJB3_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGV4|G8VGV4_PROAA	38	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VEZ7|G8VEZ7_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGH5|G8VGH5_PROAA	26	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFG2|G8VFG2_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G8VG88|G8VG88_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHX0|G8VHX0_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIA7|G8VIA7_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHR3|G8VHR3_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFT0|G8VFT0_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF73|G8VF73_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIM0|G8VIM0_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFN2|G8VFN2_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHA3|G8VHA3_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF85|G8VF85_PROAA	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFY2|G8VFY2_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDK0|G8VDK0_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIH3|G8VIH3_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFB0|G8VFB0_PROAA	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VG65|G8VG65_PROAA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHJ8|G8VHJ8_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHB6|G8VHB6_PROAA	14	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VDZ5|G8VDZ5_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIT1|G8VIT1_PROAA	31	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G8VIT5|G8VIT5_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VE34|G8VE34_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE96|G8VE96_PROAA	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJV6|G8VJV6_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG68|G8VG68_PROAA	22	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G8VH27|G8VH27_PROAA	52	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIS1|G8VIS1_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFN7|G8VFN7_PROAA	20	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8VIX6|G8VIX6_PROAA	25	secreted	extracellular region GO:0005576(IEA);
+tr|G8VF86|G8VF86_PROAA	37	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VE83|G8VE83_PROAA	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VI06|G8VI06_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEI6|G8VEI6_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF07|G8VF07_PROAA	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VGF3|G8VGF3_PROAA	18	secreted	extracellular region GO:0005576(NAS);
+tr|G8VJ22|G8VJ22_PROAA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEK5|G8VEK5_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE36|G8VE36_PROAA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VIZ6|G8VIZ6_PROAA	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VG52|G8VG52_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF43|G8VF43_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH37|G8VH37_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG41|G8VG41_PROAA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGM8|G8VGM8_PROAA	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIK3|G8VIK3_PROAA	8	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VJI8|G8VJI8_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDI3|G8VDI3_PROAA	29	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIF1|G8VIF1_PROAA	38	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VFG7|G8VFG7_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDQ5|G8VDQ5_PROAA	39	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VI32|G8VI32_PROAA	47	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VGJ8|G8VGJ8_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFC0|G8VFC0_PROAA	13	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VDN5|G8VDN5_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHW0|G8VHW0_PROAA	26	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VJE8|G8VJE8_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G8VIF6|G8VIF6_PROAA	55	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEG3|G8VEG3_PROAA	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VJA1|G8VJA1_PROAA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VER3|G8VER3_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHN8|G8VHN8_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHE5|G8VHE5_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEX9|G8VEX9_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG15|G8VG15_PROAA	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIF9|G8VIF9_PROAA	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFG8|G8VFG8_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIB4|G8VIB4_PROAA	9	secreted	extracellular region GO:0005576(IDA); extracellular space GO:0005615(IEA);
+tr|G8VGR7|G8VGR7_PROAA	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF03|G8VF03_PROAA	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJS0|G8VJS0_PROAA	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJF8|G8VJF8_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|G8VI44|G8VI44_PROAA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VE37|G8VE37_PROAA	16	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VJ90|G8VJ90_PROAA	48	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH17|G8VH17_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI35|G8VI35_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VER6|G8VER6_PROAA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDR5|G8VDR5_PROAA	7	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHX9|G8VHX9_PROAA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF13|G8VF13_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFB1|G8VFB1_PROAA	28	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VGK8|G8VGK8_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGF8|G8VGF8_PROAA	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF53|G8VF53_PROAA	19	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VG83|G8VG83_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJU0|G8VJU0_PROAA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEQ4|G8VEQ4_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VII6|G8VII6_PROAA	5	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G8VG25|G8VG25_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHT8|G8VHT8_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJH3|G8VJH3_PROAA	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJE5|G8VJE5_PROAA	13	secreted	extracellular region GO:0005576(IEA);
+tr|G8VJS5|G8VJS5_PROAA	3	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEA0|G8VEA0_PROAA	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VI40|G8VI40_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VGZ4|G8VGZ4_PROAA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIL0|G8VIL0_PROAA	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VIQ7|G8VIQ7_PROAA	12	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VI92|G8VI92_PROAA	25	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJA6|G8VJA6_PROAA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHJ4|G8VHJ4_PROAA	23	cytoplasm	cytosol GO:0005829(IBA);
+tr|G8VI14|G8VI14_PROAA	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEJ5|G8VEJ5_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8VE02|G8VE02_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJF4|G8VJF4_PROAA	29	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|G8VIY3|G8VIY3_PROAA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJM9|G8VJM9_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFJ7|G8VFJ7_PROAA	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VEB9|G8VEB9_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHI1|G8VHI1_PROAA	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VGK4|G8VGK4_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGC8|G8VGC8_PROAA	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJI6|G8VJI6_PROAA	28	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VJS1|G8VJS1_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIS6|G8VIS6_PROAA	38	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VJR9|G8VJR9_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJW0|G8VJW0_PROAA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJU8|G8VJU8_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHR2|G8VHR2_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDM2|G8VDM2_PROAA	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJR7|G8VJR7_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDR1|G8VDR1_PROAA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEV7|G8VEV7_PROAA	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VIP8|G8VIP8_PROAA	46	secreted	extracellular region GO:0005576(IEA);
+tr|G8VJS3|G8VJS3_PROAA	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJE1|G8VJE1_PROAA	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGP5|G8VGP5_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFU3|G8VFU3_PROAA	27	secreted	extracellular region GO:0005576(IEA);
+tr|G8VIN7|G8VIN7_PROAA	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH89|G8VH89_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDY2|G8VDY2_PROAA	29	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VFL0|G8VFL0_PROAA	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJL8|G8VJL8_PROAA	50	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEX0|G8VEX0_PROAA	32	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VGN2|G8VGN2_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ69|G8VJ69_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G8VIQ4|G8VIQ4_PROAA	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDK8|G8VDK8_PROAA	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIA2|G8VIA2_PROAA	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VE75|G8VE75_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH88|G8VH88_PROAA	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDL7|G8VDL7_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH05|G8VH05_PROAA	24	periplasm	ferredoxin hydrogenase complex GO:0009375(IEA); periplasmic space GO:0042597(IEA);
+tr|G8VJ92|G8VJ92_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIP5|G8VIP5_PROAA	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VEI1|G8VEI1_PROAA	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI91|G8VI91_PROAA	13	inner membrane	dimethyl sulfoxide reductase complex GO:0009390(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIK5|G8VIK5_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJG4|G8VJG4_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGU4|G8VGU4_PROAA	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFW6|G8VFW6_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDP7|G8VDP7_PROAA	54	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VEU0|G8VEU0_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VE03|G8VE03_PROAA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFC6|G8VFC6_PROAA	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VHS0|G8VHS0_PROAA	17	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VIK9|G8VIK9_PROAA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHV6|G8VHV6_PROAA	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VFR1|G8VFR1_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE33|G8VE33_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VI87|G8VI87_PROAA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIW8|G8VIW8_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGQ0|G8VGQ0_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHD4|G8VHD4_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VJF3|G8VJF3_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE45|G8VE45_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHI3|G8VHI3_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH62|G8VH62_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFC2|G8VFC2_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VED8|G8VED8_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFV7|G8VFV7_PROAA	15	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VJL6|G8VJL6_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE92|G8VE92_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ06|G8VJ06_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI58|G8VI58_PROAA	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEB5|G8VEB5_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGP3|G8VGP3_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGT4|G8VGT4_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG63|G8VG63_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI83|G8VI83_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); nitrate reductase complex GO:0009325(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJT6|G8VJT6_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDX1|G8VDX1_PROAA	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGG1|G8VGG1_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ12|G8VJ12_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGQ1|G8VGQ1_PROAA	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHL0|G8VHL0_PROAA	60	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G8VFZ3|G8VFZ3_PROAA	38	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|G8VHU6|G8VHU6_PROAA	44	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFD1|G8VFD1_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDQ6|G8VDQ6_PROAA	37	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VIS0|G8VIS0_PROAA	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF38|G8VF38_PROAA	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEZ9|G8VEZ9_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFD2|G8VFD2_PROAA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG87|G8VG87_PROAA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFE4|G8VFE4_PROAA	18	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VFC1|G8VFC1_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFC3|G8VFC3_PROAA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHD0|G8VHD0_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH73|G8VH73_PROAA	32	cytoplasm	cytosol GO:0005829(IBA);
+tr|G8VH92|G8VH92_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGW3|G8VGW3_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG96|G8VG96_PROAA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH32|G8VH32_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDJ7|G8VDJ7_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEY2|G8VEY2_PROAA	27	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VHI4|G8VHI4_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGX5|G8VGX5_PROAA	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF12|G8VF12_PROAA	8	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G8VEI2|G8VEI2_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF45|G8VF45_PROAA	68	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHB5|G8VHB5_PROAA	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH33|G8VH33_PROAA	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIG4|G8VIG4_PROAA	21	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA);
+tr|G8VIP2|G8VIP2_PROAA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGM0|G8VGM0_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJG3|G8VJG3_PROAA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGN4|G8VGN4_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF14|G8VF14_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE38|G8VE38_PROAA	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VF74|G8VF74_PROAA	15	secreted	extracellular region GO:0005576(IDA);
+tr|G8VHZ3|G8VHZ3_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDP9|G8VDP9_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); intrinsic to internal side of plasma membrane GO:0031235(IDA);
+tr|G8VI16|G8VI16_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJV5|G8VJV5_PROAA	42	periplasm	membrane GO:0016020(ISS); periplasmic space GO:0042597(IEA);
+tr|G8VH21|G8VH21_PROAA	20	cytoplasm	citrate lyase complex GO:0009346(IEA);
+tr|G8VEG6|G8VEG6_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VG49|G8VG49_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJM3|G8VJM3_PROAA	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VGD1|G8VGD1_PROAA	16	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|G8VDX2|G8VDX2_PROAA	31	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VID0|G8VID0_PROAA	15	secreted	extracellular region GO:0005576(IEA);
+tr|G8VDY0|G8VDY0_PROAA	17	secreted	extracellular region GO:0005576(IEA);
+tr|G8VHL9|G8VHL9_PROAA	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VGW0|G8VGW0_PROAA	9	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VIH0|G8VIH0_PROAA	13	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|G8VES1|G8VES1_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGT5|G8VGT5_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG46|G8VG46_PROAA	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VIX9|G8VIX9_PROAA	23	secreted	extracellular region GO:0005576(IEA);
+tr|G8VEI4|G8VEI4_PROAA	15	secreted	extracellular region GO:0005576(IEA);
+tr|G8VEK7|G8VEK7_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8VI93|G8VI93_PROAA	17	periplasm	membrane GO:0016020(IBA); periplasmic space GO:0042597(IEA);
+tr|G8VIK1|G8VIK1_PROAA	24	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G8VDX3|G8VDX3_PROAA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI08|G8VI08_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G8VE32|G8VE32_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHY0|G8VHY0_PROAA	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI20|G8VI20_PROAA	20	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|G8VIR1|G8VIR1_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE64|G8VE64_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH46|G8VH46_PROAA	13	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VGM5|G8VGM5_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G8VEC4|G8VEC4_PROAA	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VHW3|G8VHW3_PROAA	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI01|G8VI01_PROAA	22	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VEE6|G8VEE6_PROAA	49	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VDR9|G8VDR9_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDN4|G8VDN4_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJ57|G8VJ57_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFJ6|G8VFJ6_PROAA	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VDI6|G8VDI6_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGQ2|G8VGQ2_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G8VE00|G8VE00_PROAA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGT9|G8VGT9_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGL9|G8VGL9_PROAA	18	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8VEU5|G8VEU5_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE09|G8VE09_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJU2|G8VJU2_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); peptidoglycan-based cell wall GO:0009274(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGL6|G8VGL6_PROAA	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VE24|G8VE24_PROAA	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VGC9|G8VGC9_PROAA	19	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VI55|G8VI55_PROAA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEB7|G8VEB7_PROAA	33	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VGB5|G8VGB5_PROAA	18	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VED4|G8VED4_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHB4|G8VHB4_PROAA	25	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to plasma membrane GO:0005887(IDA);
+tr|G8VF04|G8VF04_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGR6|G8VGR6_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFA0|G8VFA0_PROAA	38	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); nucleoid GO:0009295(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VHT1|G8VHT1_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJG1|G8VJG1_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIA8|G8VIA8_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG24|G8VG24_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIM5|G8VIM5_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJM0|G8VJM0_PROAA	8	periplasm	periplasmic space GO:0042597(IDA);
+tr|G8VHV4|G8VHV4_PROAA	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI98|G8VI98_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIM2|G8VIM2_PROAA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIR2|G8VIR2_PROAA	99	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE47|G8VE47_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG42|G8VG42_PROAA	22	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VJG9|G8VJG9_PROAA	7	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VG61|G8VG61_PROAA	28	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G8VF41|G8VF41_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGX8|G8VGX8_PROAA	75	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE60|G8VE60_PROAA	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJ77|G8VJ77_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGA9|G8VGA9_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDK9|G8VDK9_PROAA	11	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIF3|G8VIF3_PROAA	12	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VH68|G8VH68_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDI8|G8VDI8_PROAA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIS3|G8VIS3_PROAA	26	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VI86|G8VI86_PROAA	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIQ8|G8VIQ8_PROAA	15	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G8VIB3|G8VIB3_PROAA	8	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G8VGP2|G8VGP2_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIT6|G8VIT6_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE26|G8VE26_PROAA	24	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G8VEW5|G8VEW5_PROAA	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJP7|G8VJP7_PROAA	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VII1|G8VII1_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDV5|G8VDV5_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHQ1|G8VHQ1_PROAA	24	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G8VDX9|G8VDX9_PROAA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJM8|G8VJM8_PROAA	16	periplasm	ATP-binding cassette (ABC) transporter complex, substrate-binding subunit-containing GO:0055052(IGI); periplasmic space GO:0042597(IDA);
+tr|G8VI05|G8VI05_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI99|G8VI99_PROAA	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGV2|G8VGV2_PROAA	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VDM7|G8VDM7_PROAA	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIH5|G8VIH5_PROAA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFR9|G8VFR9_PROAA	67	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHK0|G8VHK0_PROAA	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJP2|G8VJP2_PROAA	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF15|G8VF15_PROAA	18	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH56|G8VH56_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G8VJ15|G8VJ15_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHV3|G8VHV3_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VG32|G8VG32_PROAA	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VDQ3|G8VDQ3_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGE1|G8VGE1_PROAA	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDI4|G8VDI4_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEB0|G8VEB0_PROAA	31	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHT4|G8VHT4_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH94|G8VH94_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VI04|G8VI04_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIJ1|G8VIJ1_PROAA	30	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VFX9|G8VFX9_PROAA	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE84|G8VE84_PROAA	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHR8|G8VHR8_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG17|G8VG17_PROAA	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIN6|G8VIN6_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIL2|G8VIL2_PROAA	26	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G8VDY6|G8VDY6_PROAA	7	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VED6|G8VED6_PROAA	17	cytoplasm	cell pole GO:0060187(IDA); cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|G8VGK9|G8VGK9_PROAA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI85|G8VI85_PROAA	38	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDQ9|G8VDQ9_PROAA	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH44|G8VH44_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE06|G8VE06_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJA9|G8VJA9_PROAA	24	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VEQ1|G8VEQ1_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE72|G8VE72_PROAA	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|G8VEC1|G8VEC1_PROAA	28	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VFW4|G8VFW4_PROAA	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJ07|G8VJ07_PROAA	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFE2|G8VFE2_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEG7|G8VEG7_PROAA	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ78|G8VJ78_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEF7|G8VEF7_PROAA	38	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFB2|G8VFB2_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFS0|G8VFS0_PROAA	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGC0|G8VGC0_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ09|G8VJ09_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIR5|G8VIR5_PROAA	10	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8VH90|G8VH90_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGP4|G8VGP4_PROAA	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VHZ2|G8VHZ2_PROAA	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VGI3|G8VGI3_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHH5|G8VHH5_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGL7|G8VGL7_PROAA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGV3|G8VGV3_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGV0|G8VGV0_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHA4|G8VHA4_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG51|G8VG51_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE13|G8VE13_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDV0|G8VDV0_PROAA	23	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to plasma membrane GO:0005887(IDA);
+tr|G8VGY1|G8VGY1_PROAA	52	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VH47|G8VH47_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG43|G8VG43_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF36|G8VF36_PROAA	29	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIC1|G8VIC1_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE49|G8VE49_PROAA	9	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA);
+tr|G8VH57|G8VH57_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH24|G8VH24_PROAA	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHH0|G8VHH0_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJ88|G8VJ88_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGG3|G8VGG3_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEQ8|G8VEQ8_PROAA	17	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VEA1|G8VEA1_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ91|G8VJ91_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGK3|G8VGK3_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF77|G8VF77_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHG9|G8VHG9_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEP2|G8VEP2_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIY7|G8VIY7_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI22|G8VI22_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDS2|G8VDS2_PROAA	57	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VFG9|G8VFG9_PROAA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEA2|G8VEA2_PROAA	44	secreted	extracellular region GO:0005576(IEA);
+tr|G8VDZ9|G8VDZ9_PROAA	12	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VJ89|G8VJ89_PROAA	43	periplasm	cytoplasm GO:0005737(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VFJ4|G8VFJ4_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJK3|G8VJK3_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE94|G8VE94_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGM6|G8VGM6_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEJ3|G8VEJ3_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G8VJA4|G8VJA4_PROAA	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIQ6|G8VIQ6_PROAA	19	secreted	extracellular region GO:0005576(IEA);
+tr|G8VEF1|G8VEF1_PROAA	22	secreted	extracellular region GO:0005576(IEA);
+tr|G8VH14|G8VH14_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIR0|G8VIR0_PROAA	42	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VEG1|G8VEG1_PROAA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDM5|G8VDM5_PROAA	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDU4|G8VDU4_PROAA	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VDX5|G8VDX5_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G8VEU4|G8VEU4_PROAA	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGF0|G8VGF0_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDV1|G8VDV1_PROAA	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJB1|G8VJB1_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHW9|G8VHW9_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFH3|G8VFH3_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFD6|G8VFD6_PROAA	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHK2|G8VHK2_PROAA	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VJ98|G8VJ98_PROAA	36	secreted	extracellular region GO:0005576(IEA);
+tr|G8VF29|G8VF29_PROAA	50	secreted	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); extracellular region GO:0005576(IDA); plasma membrane GO:0005886(IDA);
+tr|G8VIS8|G8VIS8_PROAA	12	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VEH5|G8VEH5_PROAA	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFF2|G8VFF2_PROAA	63	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHC5|G8VHC5_PROAA	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHD1|G8VHD1_PROAA	21	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G8VIR6|G8VIR6_PROAA	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFA8|G8VFA8_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJU6|G8VJU6_PROAA	23	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(ISS); plasma membrane GO:0005886(IEA);
+tr|G8VFB3|G8VFB3_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGS3|G8VGS3_PROAA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGS5|G8VGS5_PROAA	15	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|G8VJG7|G8VJG7_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VET9|G8VET9_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEA4|G8VEA4_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDS1|G8VDS1_PROAA	50	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VFA4|G8VFA4_PROAA	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VJK6|G8VJK6_PROAA	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH25|G8VH25_PROAA	22	inner membrane	integral to plasma membrane GO:0005887(IDA); plasma membrane respiratory chain complex I GO:0045272(IDA);
+tr|G8VG29|G8VG29_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFE8|G8VFE8_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|G8VDW0|G8VDW0_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGC6|G8VGC6_PROAA	25	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to plasma membrane GO:0005887(IDA);
+tr|G8VGB8|G8VGB8_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIY5|G8VIY5_PROAA	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDZ7|G8VDZ7_PROAA	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDS3|G8VDS3_PROAA	28	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VHT3|G8VHT3_PROAA	23	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VJT0|G8VJT0_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG35|G8VG35_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJS6|G8VJS6_PROAA	20	fimbrium	pilus GO:0009289(IEA);
+tr|G8VDR2|G8VDR2_PROAA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VGN1|G8VGN1_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE89|G8VE89_PROAA	8	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VIY6|G8VIY6_PROAA	23	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VFH0|G8VFH0_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE93|G8VE93_PROAA	30	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8VES0|G8VES0_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGB0|G8VGB0_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VET8|G8VET8_PROAA	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VDL5|G8VDL5_PROAA	26	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJK7|G8VJK7_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFJ5|G8VFJ5_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VED0|G8VED0_PROAA	12	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G8VGH6|G8VGH6_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG92|G8VG92_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJK4|G8VJK4_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDW8|G8VDW8_PROAA	36	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); organelle inner membrane GO:0019866(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIX0|G8VIX0_PROAA	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VGW1|G8VGW1_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF59|G8VF59_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGQ6|G8VGQ6_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIE0|G8VIE0_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGB6|G8VGB6_PROAA	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VH26|G8VH26_PROAA	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHZ7|G8VHZ7_PROAA	19	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VDN1|G8VDN1_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI30|G8VI30_PROAA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VHP9|G8VHP9_PROAA	36	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G8VF47|G8VF47_PROAA	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIT7|G8VIT7_PROAA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFT2|G8VFT2_PROAA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH87|G8VH87_PROAA	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VJ58|G8VJ58_PROAA	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGT0|G8VGT0_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI27|G8VI27_PROAA	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VG62|G8VG62_PROAA	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VG27|G8VG27_PROAA	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VDK7|G8VDK7_PROAA	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VGQ7|G8VGQ7_PROAA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VGC3|G8VGC3_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF82|G8VF82_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJD3|G8VJD3_PROAA	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VH69|G8VH69_PROAA	63	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G8VDY8|G8VDY8_PROAA	13	secreted	extracellular region GO:0005576(IEA);
+tr|G8VJW6|G8VJW6_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIU0|G8VIU0_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIX1|G8VIX1_PROAA	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGD9|G8VGD9_PROAA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJC6|G8VJC6_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEW0|G8VEW0_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFT4|G8VFT4_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|G8VIZ4|G8VIZ4_PROAA	7	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|G8VHX8|G8VHX8_PROAA	31	secreted	cell wall GO:0005618(IDA); extracellular region GO:0005576(IDA);
+tr|G8VEN8|G8VEN8_PROAA	13	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|G8VJ05|G8VJ05_PROAA	8	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VGP9|G8VGP9_PROAA	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHY4|G8VHY4_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFP8|G8VFP8_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|G8VJD5|G8VJD5_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE63|G8VE63_PROAA	6	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VI62|G8VI62_PROAA	35	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G8VDQ7|G8VDQ7_PROAA	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGF9|G8VGF9_PROAA	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEQ7|G8VEQ7_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH28|G8VH28_PROAA	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHZ4|G8VHZ4_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF28|G8VF28_PROAA	34	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|G8VJ83|G8VJ83_PROAA	65	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI60|G8VI60_PROAA	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJE9|G8VJE9_PROAA	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VH65|G8VH65_PROAA	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJB4|G8VJB4_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGN9|G8VGN9_PROAA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGU0|G8VGU0_PROAA	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDR6|G8VDR6_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF65|G8VF65_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|G8VIZ3|G8VIZ3_PROAA	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFR0|G8VFR0_PROAA	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFW5|G8VFW5_PROAA	19	secreted	extracellular region GO:0005576(IEA);
+tr|G8VFU4|G8VFU4_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIJ3|G8VIJ3_PROAA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VH53|G8VH53_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEP7|G8VEP7_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEL6|G8VEL6_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI12|G8VI12_PROAA	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFP9|G8VFP9_PROAA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJQ3|G8VJQ3_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFE0|G8VFE0_PROAA	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VII9|G8VII9_PROAA	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDM8|G8VDM8_PROAA	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VGP8|G8VGP8_PROAA	14	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDV7|G8VDV7_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ04|G8VJ04_PROAA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEL7|G8VEL7_PROAA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE18|G8VE18_PROAA	11	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VHX6|G8VHX6_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VE90|G8VE90_PROAA	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI66|G8VI66_PROAA	33	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFW2|G8VFW2_PROAA	56	secreted	extracellular region GO:0005576(IEA);
+tr|G8VG34|G8VG34_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHL5|G8VHL5_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VH42|G8VH42_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G8VEG4|G8VEG4_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHC6|G8VHC6_PROAA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDJ5|G8VDJ5_PROAA	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VEX6|G8VEX6_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHP5|G8VHP5_PROAA	13	cytoplasm	ribosome GO:0005840(IEA);
+tr|G8VHZ8|G8VHZ8_PROAA	16	secreted	extracellular region GO:0005576(IDA);
+tr|G8VGN8|G8VGN8_PROAA	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G8VJS8|G8VJS8_PROAA	22	cytoplasm	anaerobic ribonucleoside-triphosphate reductase complex GO:0031250(IMP);
+tr|G8VJ79|G8VJ79_PROAA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFJ9|G8VFJ9_PROAA	6	periplasm	periplasmic space GO:0042597(IDA);
+tr|G8VHL8|G8VHL8_PROAA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJV7|G8VJV7_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGU9|G8VGU9_PROAA	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIY4|G8VIY4_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDM9|G8VDM9_PROAA	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF56|G8VF56_PROAA	26	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VJ35|G8VJ35_PROAA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIQ9|G8VIQ9_PROAA	37	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VFU9|G8VFU9_PROAA	18	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G8VHZ6|G8VHZ6_PROAA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGY5|G8VGY5_PROAA	34	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VFS5|G8VFS5_PROAA	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VJF5|G8VJF5_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ68|G8VJ68_PROAA	29	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G8VI81|G8VI81_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEJ9|G8VEJ9_PROAA	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|G8VE44|G8VE44_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHF2|G8VHF2_PROAA	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VIY8|G8VIY8_PROAA	13	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VEY1|G8VEY1_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHW2|G8VHW2_PROAA	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VER2|G8VER2_PROAA	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFF3|G8VFF3_PROAA	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHE9|G8VHE9_PROAA	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHS5|G8VHS5_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJU9|G8VJU9_PROAA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VDW4|G8VDW4_PROAA	68	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDI2|G8VDI2_PROAA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VHK5|G8VHK5_PROAA	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VFW1|G8VFW1_PROAA	8	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VH91|G8VH91_PROAA	43	cytoplasm	cytosol GO:0005829(IDA);
+tr|G8VEZ4|G8VEZ4_PROAA	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF32|G8VF32_PROAA	8	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VIC5|G8VIC5_PROAA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDL8|G8VDL8_PROAA	35	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G8VIN3|G8VIN3_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGM1|G8VGM1_PROAA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIV8|G8VIV8_PROAA	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G8VI39|G8VI39_PROAA	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VHQ8|G8VHQ8_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJ81|G8VJ81_PROAA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJ65|G8VJ65_PROAA	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJB7|G8VJB7_PROAA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VEM9|G8VEM9_PROAA	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGE9|G8VGE9_PROAA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHA7|G8VHA7_PROAA	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE22|G8VE22_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VF30|G8VF30_PROAA	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VH95|G8VH95_PROAA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VF83|G8VF83_PROAA	19	secreted	extracellular region GO:0005576(IEA);
+tr|G8VJI3|G8VJI3_PROAA	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VEG2|G8VEG2_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFP5|G8VFP5_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VER8|G8VER8_PROAA	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE48|G8VE48_PROAA	22	cytoplasm	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA);
+tr|G8VGF1|G8VGF1_PROAA	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VFV9|G8VFV9_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGY0|G8VGY0_PROAA	9	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G8VEQ6|G8VEQ6_PROAA	13	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G8VG84|G8VG84_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFX7|G8VFX7_PROAA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VHS1|G8VHS1_PROAA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G8VEE3|G8VEE3_PROAA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFQ0|G8VFQ0_PROAA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIJ5|G8VIJ5_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VGX6|G8VGX6_PROAA	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJX1|G8VJX1_PROAA	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VFT1|G8VFT1_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFD5|G8VFD5_PROAA	32	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VF16|G8VF16_PROAA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VHJ9|G8VHJ9_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIF4|G8VIF4_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIA5|G8VIA5_PROAA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VIS4|G8VIS4_PROAA	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VEH4|G8VEH4_PROAA	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VFQ1|G8VFQ1_PROAA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VGF7|G8VGF7_PROAA	22	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VIZ8|G8VIZ8_PROAA	26	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G8VJ85|G8VJ85_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VE41|G8VE41_PROAA	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VDX8|G8VDX8_PROAA	23	secreted	extracellular region GO:0005576(IEA);
+tr|G8VIG8|G8VIG8_PROAA	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G8VGN3|G8VGN3_PROAA	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VIZ2|G8VIZ2_PROAA	23	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G8VIQ5|G8VIQ5_PROAA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFB8|G8VFB8_PROAA	20	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G8VGP1|G8VGP1_PROAA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VI71|G8VI71_PROAA	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VDI7|G8VDI7_PROAA	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDJ9|G8VDJ9_PROAA	17	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G8VDK1|G8VDK1_PROAA	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VFA1|G8VFA1_PROAA	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJH6|G8VJH6_PROAA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G8VJF7|G8VJF7_PROAA	21	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G8VGJ7|G8VGJ7_PROAA	27	secreted	extracellular region GO:0005576(IEA);
+tr|G8VGT1|G8VGT1_PROAA	21	periplasm	membrane GO:0016020(ISS); periplasmic space GO:0042597(IEA);
+tr|G8VEV2|G8VEV2_PROAA	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VDM4|G8VDM4_PROAA	24	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G8VDL6|G8VDL6_PROAA	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G8VJG2|G8VJG2_PROAA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G8VEF3|G8VEF3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFR5|G8VFR5_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VI67|G8VI67_PROAA	56	cytoplasm	cytoplasm GO:0005737
+tr|G8VEG8|G8VEG8_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VEX3|G8VEX3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDP4|G8VDP4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJJ1|G8VJJ1_PROAA	60	cytoplasm	cytoplasm GO:0005737
+tr|G8VEY9|G8VEY9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFW9|G8VFW9_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VEC0|G8VEC0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJV3|G8VJV3_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ32|G8VJ32_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU5|G8VIU5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGH3|G8VGH3_PROAA	48	cytoplasm	cytoplasm GO:0005737
+tr|G8VI64|G8VI64_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV5|G8VHV5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF5|G8VEF5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDR4|G8VDR4_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VGL3|G8VGL3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG97|G8VG97_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEM4|G8VEM4_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHT2|G8VHT2_PROAA	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFQ9|G8VFQ9_PROAA	51	secreted	extracellular region GO:0005576;
+tr|G8VE99|G8VE99_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI02|G8VI02_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA6|G8VEA6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJM7|G8VJM7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGD8|G8VGD8_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFB7|G8VFB7_PROAA	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH52|G8VH52_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH20|G8VH20_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG76|G8VG76_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHB1|G8VHB1_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VET4|G8VET4_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC3|G8VHC3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEU9|G8VEU9_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF34|G8VF34_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT8|G8VJT8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI53|G8VI53_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VF02|G8VF02_PROAA	32	cytoplasm	cytoplasm GO:0005737
+tr|G8VDJ4|G8VDJ4_PROAA	67	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD6|G8VJD6_PROAA	70	secreted	extracellular region GO:0005576;
+tr|G8VEZ8|G8VEZ8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEK8|G8VEK8_PROAA	64	secreted	extracellular region GO:0005576;
+tr|G8VFB4|G8VFB4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VGD3|G8VGD3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG90|G8VG90_PROAA	82	secreted	extracellular region GO:0005576;
+tr|G8VGK7|G8VGK7_PROAA	50	secreted	extracellular region GO:0005576;
+tr|G8VGR8|G8VGR8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF44|G8VF44_PROAA	38	secreted	extracellular region GO:0005576;
+tr|G8VEM8|G8VEM8_PROAA	46	periplasm	periplasmic space GO:0042597;
+tr|G8VDN9|G8VDN9_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VI17|G8VI17_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VFM9|G8VFM9_PROAA	40	secreted	extracellular region GO:0005576;
+tr|G8VFG6|G8VFG6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDK2|G8VDK2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHW6|G8VHW6_PROAA	61	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV8|G8VHV8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX3|G8VJX3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGG8|G8VGG8_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VH79|G8VH79_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJR6|G8VJR6_PROAA	60	secreted	extracellular region GO:0005576;
+tr|G8VI82|G8VI82_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV2|G8VHV2_PROAA	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG03|G8VG03_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VIR8|G8VIR8_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VH18|G8VH18_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEZ6|G8VEZ6_PROAA	78	secreted	extracellular region GO:0005576;
+tr|G8VEG9|G8VEG9_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VE12|G8VE12_PROAA	63	secreted	extracellular region GO:0005576;
+tr|G8VHG7|G8VHG7_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VDV9|G8VDV9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHB9|G8VHB9_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJV9|G8VJV9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM1|G8VHM1_PROAA	64	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP9|G8VJP9_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ84|G8VJ84_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VET1|G8VET1_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VEK3|G8VEK3_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VDW9|G8VDW9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT4|G8VJT4_PROAA	49	secreted	extracellular region GO:0005576;
+tr|G8VEN7|G8VEN7_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG98|G8VG98_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY9|G8VFY9_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VGX9|G8VGX9_PROAA	79	secreted	extracellular region GO:0005576;
+tr|G8VIW0|G8VIW0_PROAA	60	secreted	extracellular region GO:0005576;
+tr|G8VGM2|G8VGM2_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJB9|G8VJB9_PROAA	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG31|G8VG31_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VG72|G8VG72_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHA0|G8VHA0_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJE0|G8VJE0_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ99|G8VJ99_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VH36|G8VH36_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU5|G8VGU5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFS4|G8VFS4_PROAA	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHH7|G8VHH7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIT3|G8VIT3_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VGV7|G8VGV7_PROAA	54	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP6|G8VJP6_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHE4|G8VHE4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEL8|G8VEL8_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGD6|G8VGD6_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VGE6|G8VGE6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEE5|G8VEE5_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFG0|G8VFG0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJG0|G8VJG0_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFJ3|G8VFJ3_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VF17|G8VF17_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT3|G8VJT3_PROAA	54	periplasm	periplasmic space GO:0042597;
+tr|G8VE77|G8VE77_PROAA	45	secreted	extracellular region GO:0005576;
+tr|G8VIB6|G8VIB6_PROAA	27	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGV9|G8VGV9_PROAA	69	periplasm	periplasmic space GO:0042597;
+tr|G8VFA7|G8VFA7_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VG54|G8VG54_PROAA	34	secreted	extracellular region GO:0005576;
+tr|G8VGK5|G8VGK5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGN6|G8VGN6_PROAA	82	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ25|G8VJ25_PROAA	38	secreted	extracellular region GO:0005576;
+tr|G8VJC3|G8VJC3_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VI10|G8VI10_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDL1|G8VDL1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHU9|G8VHU9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF99|G8VF99_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VG64|G8VG64_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ1|G8VFZ1_PROAA	62	cytoplasm	cytoplasm GO:0005737
+tr|G8VIZ7|G8VIZ7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ00|G8VJ00_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH2|G8VDH2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ47|G8VJ47_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH38|G8VH38_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF21|G8VF21_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHU0|G8VHU0_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VI38|G8VI38_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV1|G8VFV1_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VHQ2|G8VHQ2_PROAA	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGP6|G8VGP6_PROAA	31	secreted	extracellular region GO:0005576;
+tr|G8VEI8|G8VEI8_PROAA	66	secreted	extracellular region GO:0005576;
+tr|G8VJY2|G8VJY2_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ44|G8VJ44_PROAA	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDU9|G8VDU9_PROAA	98	periplasm	periplasmic space GO:0042597;
+tr|G8VFI7|G8VFI7_PROAA	41	cytoplasm	cytoplasm GO:0005737
+tr|G8VFX1|G8VFX1_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VH09|G8VH09_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHA8|G8VHA8_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VE07|G8VE07_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEH3|G8VEH3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIM6|G8VIM6_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGG6|G8VGG6_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VF06|G8VF06_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VJK1|G8VJK1_PROAA	60	secreted	extracellular region GO:0005576;
+tr|G8VGZ5|G8VGZ5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHJ2|G8VHJ2_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VG40|G8VG40_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI57|G8VI57_PROAA	41	periplasm	periplasmic space GO:0042597;
+tr|G8VI37|G8VI37_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEW2|G8VEW2_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VGM9|G8VGM9_PROAA	37	secreted	extracellular region GO:0005576;
+tr|G8VFZ4|G8VFZ4_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VFU8|G8VFU8_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VJH5|G8VJH5_PROAA	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIE6|G8VIE6_PROAA	66	cytoplasm	cytoplasm GO:0005737
+tr|G8VHQ0|G8VHQ0_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ70|G8VJ70_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VEB2|G8VEB2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDX4|G8VDX4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGJ0|G8VGJ0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJQ1|G8VJQ1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VII7|G8VII7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIF7|G8VIF7_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU1|G8VGU1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJN1|G8VJN1_PROAA	26	secreted	extracellular region GO:0005576;
+tr|G8VEU1|G8VEU1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ71|G8VJ71_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE19|G8VE19_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEG0|G8VEG0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFX0|G8VFX0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE51|G8VE51_PROAA	71	cytoplasm	cytoplasm GO:0005737
+tr|G8VHP8|G8VHP8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH71|G8VH71_PROAA	73	secreted	extracellular region GO:0005576;
+tr|G8VFI3|G8VFI3_PROAA	29	secreted	extracellular region GO:0005576;
+tr|G8VE61|G8VE61_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHD3|G8VHD3_PROAA	71	secreted	extracellular region GO:0005576;
+tr|G8VH03|G8VH03_PROAA	90	periplasm	periplasmic space GO:0042597;
+tr|G8VFM0|G8VFM0_PROAA	29	secreted	extracellular region GO:0005576;
+tr|G8VHA9|G8VHA9_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV9|G8VEV9_PROAA	53	secreted	extracellular region GO:0005576;
+tr|G8VDR0|G8VDR0_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VFU7|G8VFU7_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VIZ1|G8VIZ1_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VJJ3|G8VJJ3_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VHG3|G8VHG3_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ63|G8VJ63_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VE14|G8VE14_PROAA	30	secreted	extracellular region GO:0005576;
+tr|G8VHN1|G8VHN1_PROAA	43	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK8|G8VFK8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGJ5|G8VGJ5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDT3|G8VDT3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB9|G8VGB9_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VII5|G8VII5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFA3|G8VFA3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFK5|G8VFK5_PROAA	62	cytoplasm	cytoplasm GO:0005737
+tr|G8VJB2|G8VJB2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH55|G8VH55_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIU2|G8VIU2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJK9|G8VJK9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH22|G8VH22_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI61|G8VI61_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VEI9|G8VEI9_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM0|G8VHM0_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU3|G8VGU3_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VII3|G8VII3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VE50|G8VE50_PROAA	25	periplasm	periplasmic space GO:0042597;
+tr|G8VHM5|G8VHM5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEL4|G8VEL4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP7|G8VFP7_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VF11|G8VF11_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD9|G8VJD9_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ36|G8VJ36_PROAA	56	secreted	extracellular region GO:0005576;
+tr|G8VI69|G8VI69_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VFS3|G8VFS3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF62|G8VF62_PROAA	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFV6|G8VFV6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGM7|G8VGM7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHE6|G8VHE6_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VH07|G8VH07_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHG5|G8VHG5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW7|G8VJW7_PROAA	41	secreted	extracellular region GO:0005576;
+tr|G8VFN8|G8VFN8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG19|G8VG19_PROAA	45	secreted	extracellular region GO:0005576;
+tr|G8VF88|G8VF88_PROAA	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFS8|G8VFS8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJA7|G8VJA7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEU2|G8VEU2_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIP4|G8VIP4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIW5|G8VIW5_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY8|G8VFY8_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VE39|G8VE39_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG38|G8VG38_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VET5|G8VET5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGY2|G8VGY2_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VIF8|G8VIF8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHK6|G8VHK6_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH3|G8VDH3_PROAA	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHH9|G8VHH9_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG5|G8VIG5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ80|G8VJ80_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI8|G8VFI8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJQ0|G8VJQ0_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VHT7|G8VHT7_PROAA	91	periplasm	periplasmic space GO:0042597;
+tr|G8VDP5|G8VDP5_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE25|G8VE25_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN0|G8VFN0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEJ1|G8VEJ1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFB6|G8VFB6_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VH50|G8VH50_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ31|G8VJ31_PROAA	36	fimbrium	pilus GO:0009289;
+tr|G8VII8|G8VII8_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VGQ4|G8VGQ4_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VJK5|G8VJK5_PROAA	69	cytoplasm	cytoplasm GO:0005737
+tr|G8VEE0|G8VEE0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF08|G8VF08_PROAA	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDU5|G8VDU5_PROAA	71	secreted	extracellular region GO:0005576;
+tr|G8VEB1|G8VEB1_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VGI9|G8VGI9_PROAA	63	periplasm	periplasmic space GO:0042597;
+tr|G8VGW9|G8VGW9_PROAA	75	cytoplasm	cytoplasm GO:0005737
+tr|G8VHL3|G8VHL3_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VJH1|G8VJH1_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VEB4|G8VEB4_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VFT7|G8VFT7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEQ9|G8VEQ9_PROAA	45	cytoplasm	cytoplasm GO:0005737
+tr|G8VEQ5|G8VEQ5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH06|G8VH06_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VF01|G8VF01_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VG78|G8VG78_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VER5|G8VER5_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VH60|G8VH60_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VJW8|G8VJW8_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIC0|G8VIC0_PROAA	56	cytoplasm	cytoplasm GO:0005737
+tr|G8VIR4|G8VIR4_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VF50|G8VF50_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VF58|G8VF58_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ42|G8VJ42_PROAA	48	secreted	extracellular region GO:0005576;
+tr|G8VFJ0|G8VFJ0_PROAA	61	periplasm	periplasmic space GO:0042597;
+tr|G8VHE1|G8VHE1_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VE95|G8VE95_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VJT5|G8VJT5_PROAA	45	cytoplasm	cytoplasm GO:0005737
+tr|G8VGA0|G8VGA0_PROAA	66	secreted	extracellular region GO:0005576;
+tr|G8VJ17|G8VJ17_PROAA	29	secreted	extracellular region GO:0005576;
+tr|G8VIL5|G8VIL5_PROAA	85	secreted	extracellular region GO:0005576;
+tr|G8VE82|G8VE82_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJH0|G8VJH0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH99|G8VH99_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VIQ2|G8VIQ2_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VDL3|G8VDL3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VI90|G8VI90_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VGS9|G8VGS9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGS2|G8VGS2_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV1|G8VEV1_PROAA	45	cytoplasm	cytoplasm GO:0005737
+tr|G8VDU2|G8VDU2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP3|G8VFP3_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VHH6|G8VHH6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJH9|G8VJH9_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VG00|G8VG00_PROAA	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE68|G8VE68_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP8|G8VEP8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH81|G8VH81_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGI1|G8VGI1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHY1|G8VHY1_PROAA	98	periplasm	periplasmic space GO:0042597;
+tr|G8VGI8|G8VGI8_PROAA	39	fimbrium	pilus GO:0009289;
+tr|G8VH39|G8VH39_PROAA	78	secreted	extracellular region GO:0005576;
+tr|G8VIL3|G8VIL3_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VG58|G8VG58_PROAA	37	cytoplasm	cytoplasm GO:0005737
+tr|G8VEM0|G8VEM0_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ27|G8VJ27_PROAA	37	cytoplasm	cytoplasm GO:0005737
+tr|G8VIH7|G8VIH7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP3|G8VJP3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGJ3|G8VGJ3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEX5|G8VEX5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGZ9|G8VGZ9_PROAA	43	secreted	extracellular region GO:0005576;
+tr|G8VE23|G8VE23_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VJU4|G8VJU4_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGA5|G8VGA5_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU8|G8VGU8_PROAA	43	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIK8|G8VIK8_PROAA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF95|G8VF95_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHR6|G8VHR6_PROAA	74	cytoplasm	cytoplasm GO:0005737
+tr|G8VEB8|G8VEB8_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDH4|G8VDH4_PROAA	28	secreted	extracellular region GO:0005576;
+tr|G8VHF0|G8VHF0_PROAA	66	secreted	extracellular region GO:0005576;
+tr|G8VJ97|G8VJ97_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGQ9|G8VGQ9_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ14|G8VJ14_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJH8|G8VJH8_PROAA	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHD9|G8VHD9_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHX5|G8VHX5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX8|G8VJX8_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VF25|G8VF25_PROAA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF68|G8VF68_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU8|G8VIU8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIE9|G8VIE9_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK7|G8VFK7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIC2|G8VIC2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG56|G8VG56_PROAA	47	periplasm	periplasmic space GO:0042597;
+tr|G8VGT3|G8VGT3_PROAA	74	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH6|G8VEH6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIB9|G8VIB9_PROAA	26	periplasm	periplasmic space GO:0042597;
+tr|G8VHF4|G8VHF4_PROAA	67	cytoplasm	cytoplasm GO:0005737
+tr|G8VIL9|G8VIL9_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHW8|G8VHW8_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VHY9|G8VHY9_PROAA	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI77|G8VI77_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHR5|G8VHR5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIE7|G8VIE7_PROAA	31	secreted	extracellular region GO:0005576;
+tr|G8VGW4|G8VGW4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHX2|G8VHX2_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM6|G8VHM6_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VIW2|G8VIW2_PROAA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH41|G8VH41_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFM1|G8VFM1_PROAA	66	cytoplasm	cytoplasm GO:0005737
+tr|G8VJR4|G8VJR4_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG85|G8VG85_PROAA	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGN0|G8VGN0_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIF2|G8VIF2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX2|G8VJX2_PROAA	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGD7|G8VGD7_PROAA	74	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK4|G8VFK4_PROAA	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHP6|G8VHP6_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH9|G8VEH9_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ8|G8VFZ8_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VIA1|G8VIA1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIY0|G8VIY0_PROAA	56	secreted	extracellular region GO:0005576;
+tr|G8VHI9|G8VHI9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN9|G8VFN9_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIN4|G8VIN4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHF5|G8VHF5_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY7|G8VFY7_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ4|G8VDZ4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFK6|G8VFK6_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VDW3|G8VDW3_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VJ18|G8VJ18_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV4|G8VEV4_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJL5|G8VJL5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH13|G8VH13_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE31|G8VE31_PROAA	68	secreted	extracellular region GO:0005576;
+tr|G8VE65|G8VE65_PROAA	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEC9|G8VEC9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFT8|G8VFT8_PROAA	44	cytoplasm	cytoplasm GO:0005737
+tr|G8VHZ0|G8VHZ0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE67|G8VE67_PROAA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGZ7|G8VGZ7_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VGY8|G8VGY8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFE7|G8VFE7_PROAA	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE91|G8VE91_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIH1|G8VIH1_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VGL0|G8VGL0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ67|G8VJ67_PROAA	17	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI09|G8VI09_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF51|G8VF51_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHK9|G8VHK9_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VDY1|G8VDY1_PROAA	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE30|G8VE30_PROAA	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEN4|G8VEN4_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF09|G8VF09_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VF61|G8VF61_PROAA	53	secreted	extracellular region GO:0005576;
+tr|G8VFD0|G8VFD0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF9|G8VEF9_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VDN7|G8VDN7_PROAA	94	periplasm	periplasmic space GO:0042597;
+tr|G8VEK6|G8VEK6_PROAA	38	secreted	extracellular region GO:0005576;
+tr|G8VI50|G8VI50_PROAA	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VES8|G8VES8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJQ4|G8VJQ4_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE88|G8VE88_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH0|G8VEH0_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD4|G8VJD4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIK4|G8VIK4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGS6|G8VGS6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDN0|G8VDN0_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ43|G8VJ43_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VFE5|G8VFE5_PROAA	25	periplasm	periplasmic space GO:0042597;
+tr|G8VJC4|G8VJC4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGH4|G8VGH4_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VF35|G8VF35_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGJ9|G8VGJ9_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIN1|G8VIN1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VES7|G8VES7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFC9|G8VFC9_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VGG9|G8VGG9_PROAA	75	secreted	extracellular region GO:0005576;
+tr|G8VE81|G8VE81_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIJ7|G8VIJ7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIP7|G8VIP7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEX4|G8VEX4_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD7|G8VJD7_PROAA	38	secreted	extracellular region GO:0005576;
+tr|G8VG36|G8VG36_PROAA	60	secreted	extracellular region GO:0005576;
+tr|G8VJX4|G8VJX4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV4|G8VFV4_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VF69|G8VF69_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDU8|G8VDU8_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VEN0|G8VEN0_PROAA	45	secreted	extracellular region GO:0005576;
+tr|G8VHJ6|G8VHJ6_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VG08|G8VG08_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VF94|G8VF94_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VEZ2|G8VEZ2_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VEL5|G8VEL5_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGR2|G8VGR2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDV6|G8VDV6_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VGG4|G8VGG4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJV8|G8VJV8_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VFF5|G8VFF5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI42|G8VI42_PROAA	51	secreted	extracellular region GO:0005576;
+tr|G8VG71|G8VG71_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VDT5|G8VDT5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDY5|G8VDY5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG73|G8VG73_PROAA	45	cytoplasm	cytoplasm GO:0005737
+tr|G8VDY9|G8VDY9_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGI7|G8VGI7_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ2|G8VDZ2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG07|G8VG07_PROAA	66	secreted	extracellular region GO:0005576;
+tr|G8VED5|G8VED5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG12|G8VG12_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE53|G8VE53_PROAA	92	secreted	extracellular region GO:0005576;
+tr|G8VDL9|G8VDL9_PROAA	65	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ46|G8VJ46_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEJ4|G8VEJ4_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VHE0|G8VHE0_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VGZ1|G8VGZ1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF18|G8VF18_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH2|G8VFH2_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF4|G8VEF4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK3|G8VFK3_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI0|G8VFI0_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VHI8|G8VHI8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEJ0|G8VEJ0_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ8|G8VDZ8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFX2|G8VFX2_PROAA	49	cytoplasm	cytoplasm GO:0005737
+tr|G8VH16|G8VH16_PROAA	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDU3|G8VDU3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VET6|G8VET6_PROAA	54	cytoplasm	cytoplasm GO:0005737
+tr|G8VHD6|G8VHD6_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VHU4|G8VHU4_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI54|G8VI54_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEX7|G8VEX7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG74|G8VG74_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF75|G8VF75_PROAA	55	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIV5|G8VIV5_PROAA	29	secreted	extracellular region GO:0005576;
+tr|G8VGA1|G8VGA1_PROAA	42	fimbrium	pilus GO:0009289;
+tr|G8VG91|G8VG91_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VE79|G8VE79_PROAA	60	cytoplasm	cytoplasm GO:0005737
+tr|G8VES3|G8VES3_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGX0|G8VGX0_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VHS7|G8VHS7_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIB8|G8VIB8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFG5|G8VFG5_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VED1|G8VED1_PROAA	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHZ9|G8VHZ9_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ96|G8VJ96_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH40|G8VH40_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VG89|G8VG89_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB4|G8VGB4_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VHL4|G8VHL4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFQ4|G8VFQ4_PROAA	64	cytoplasm	cytoplasm GO:0005737
+tr|G8VI49|G8VI49_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VGE7|G8VGE7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGI5|G8VGI5_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN3|G8VFN3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI4|G8VFI4_PROAA	91	secreted	extracellular region GO:0005576;
+tr|G8VI45|G8VI45_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI74|G8VI74_PROAA	40	cytoplasm	cytoplasm GO:0005737
+tr|G8VJN8|G8VJN8_PROAA	46	secreted	extracellular region GO:0005576;
+tr|G8VG30|G8VG30_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VFC5|G8VFC5_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF2|G8VEF2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV1|G8VHV1_PROAA	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGL8|G8VGL8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEN6|G8VEN6_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VFM3|G8VFM3_PROAA	61	cytoplasm	cytoplasm GO:0005737
+tr|G8VI70|G8VI70_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGZ0|G8VGZ0_PROAA	57	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH1|G8VEH1_PROAA	59	secreted	extracellular region GO:0005576;
+tr|G8VI23|G8VI23_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VJ34|G8VJ34_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ7|G8VFZ7_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VDQ2|G8VDQ2_PROAA	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFR6|G8VFR6_PROAA	39	secreted	extracellular region GO:0005576;
+tr|G8VHU7|G8VHU7_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGH8|G8VGH8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFL7|G8VFL7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFL5|G8VFL5_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VE86|G8VE86_PROAA	39	cytoplasm	cytoplasm GO:0005737
+tr|G8VHT5|G8VHT5_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VEL9|G8VEL9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEE1|G8VEE1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY0|G8VFY0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFA5|G8VFA5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEX2|G8VEX2_PROAA	60	periplasm	periplasmic space GO:0042597;
+tr|G8VH64|G8VH64_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJC8|G8VJC8_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHQ9|G8VHQ9_PROAA	41	cytoplasm	cytoplasm GO:0005737
+tr|G8VJQ8|G8VJQ8_PROAA	82	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH6|G8VDH6_PROAA	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ82|G8VJ82_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG3|G8VIG3_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VHD2|G8VHD2_PROAA	73	secreted	extracellular region GO:0005576;
+tr|G8VH43|G8VH43_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHQ7|G8VHQ7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFL6|G8VFL6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU4|G8VIU4_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VID2|G8VID2_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJE4|G8VJE4_PROAA	33	cytoplasm	cytoplasm GO:0005737
+tr|G8VHF9|G8VHF9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY5|G8VFY5_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VEM7|G8VEM7_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VIX2|G8VIX2_PROAA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHN0|G8VHN0_PROAA	56	cytoplasm	cytoplasm GO:0005737
+tr|G8VID6|G8VID6_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VG95|G8VG95_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ95|G8VJ95_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF48|G8VF48_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VF26|G8VF26_PROAA	80	secreted	extracellular region GO:0005576;
+tr|G8VJC2|G8VJC2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG94|G8VG94_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHA5|G8VHA5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH35|G8VH35_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH1|G8VFH1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEN3|G8VEN3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGK0|G8VGK0_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VIT8|G8VIT8_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VGA4|G8VGA4_PROAA	69	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV2|G8VFV2_PROAA	43	secreted	extracellular region GO:0005576;
+tr|G8VIE4|G8VIE4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG80|G8VG80_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIK7|G8VIK7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGC1|G8VGC1_PROAA	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGF2|G8VGF2_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VIH8|G8VIH8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF55|G8VF55_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJK2|G8VJK2_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VIB7|G8VIB7_PROAA	53	secreted	extracellular region GO:0005576;
+tr|G8VFQ7|G8VFQ7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VI18|G8VI18_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFF7|G8VFF7_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW5|G8VJW5_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VEZ0|G8VEZ0_PROAA	67	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV0|G8VHV0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJN4|G8VJN4_PROAA	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI00|G8VI00_PROAA	35	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ51|G8VJ51_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEJ8|G8VEJ8_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDP2|G8VDP2_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VI78|G8VI78_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VI56|G8VI56_PROAA	36	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA7|G8VEA7_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VF81|G8VF81_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDQ8|G8VDQ8_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VHD7|G8VHD7_PROAA	61	cytoplasm	cytoplasm GO:0005737
+tr|G8VF31|G8VF31_PROAA	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGW8|G8VGW8_PROAA	44	cytoplasm	cytoplasm GO:0005737
+tr|G8VGS4|G8VGS4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG39|G8VG39_PROAA	82	cytoplasm	cytoplasm GO:0005737
+tr|G8VDV8|G8VDV8_PROAA	35	cytoplasm	cytoplasm GO:0005737
+tr|G8VIE8|G8VIE8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEI7|G8VEI7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ9|G8VFZ9_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VGG7|G8VGG7_PROAA	34	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ41|G8VJ41_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG77|G8VG77_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJJ4|G8VJJ4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF27|G8VF27_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VE78|G8VE78_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT2|G8VJT2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEI5|G8VEI5_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX7|G8VJX7_PROAA	46	cytoplasm	cytoplasm GO:0005737
+tr|G8VGV6|G8VGV6_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VEM6|G8VEM6_PROAA	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGC7|G8VGC7_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VE40|G8VE40_PROAA	34	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS5|G8VDS5_PROAA	53	secreted	extracellular region GO:0005576;
+tr|G8VGA8|G8VGA8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEE7|G8VEE7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF6|G8VEF6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFD4|G8VFD4_PROAA	46	secreted	extracellular region GO:0005576;
+tr|G8VGZ6|G8VGZ6_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VJA8|G8VJA8_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VG93|G8VG93_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFS2|G8VFS2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFK1|G8VFK1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VIQ3|G8VIQ3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHG4|G8VHG4_PROAA	33	secreted	extracellular region GO:0005576;
+tr|G8VGG5|G8VGG5_PROAA	38	cytoplasm	cytoplasm GO:0005737
+tr|G8VFQ6|G8VFQ6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH9|G8VDH9_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VH70|G8VH70_PROAA	53	secreted	extracellular region GO:0005576;
+tr|G8VHB0|G8VHB0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFR8|G8VFR8_PROAA	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJS2|G8VJS2_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEY8|G8VEY8_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VEN9|G8VEN9_PROAA	39	secreted	extracellular region GO:0005576;
+tr|G8VE20|G8VE20_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ72|G8VJ72_PROAA	47	cytoplasm	cytoplasm GO:0005737
+tr|G8VJH7|G8VJH7_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA5|G8VEA5_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VIW6|G8VIW6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VES4|G8VES4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW2|G8VJW2_PROAA	40	cytoplasm	cytoplasm GO:0005737
+tr|G8VIA3|G8VIA3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VGZ8|G8VGZ8_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP0|G8VJP0_PROAA	39	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP6|G8VFP6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJM4|G8VJM4_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VE56|G8VE56_PROAA	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGY3|G8VGY3_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VFL2|G8VFL2_PROAA	77	secreted	extracellular region GO:0005576;
+tr|G8VHM3|G8VHM3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGX4|G8VGX4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH80|G8VH80_PROAA	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFH9|G8VFH9_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VHU2|G8VHU2_PROAA	70	secreted	extracellular region GO:0005576;
+tr|G8VDZ0|G8VDZ0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ29|G8VJ29_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJC7|G8VJC7_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VI34|G8VI34_PROAA	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDT0|G8VDT0_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG01|G8VG01_PROAA	32	secreted	extracellular region GO:0005576;
+tr|G8VE08|G8VE08_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF97|G8VF97_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIN9|G8VIN9_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VET0|G8VET0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGY9|G8VGY9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHH2|G8VHH2_PROAA	59	secreted	extracellular region GO:0005576;
+tr|G8VJ40|G8VJ40_PROAA	78	periplasm	periplasmic space GO:0042597;
+tr|G8VIX5|G8VIX5_PROAA	55	secreted	extracellular region GO:0005576;
+tr|G8VEE2|G8VEE2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF66|G8VF66_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHH1|G8VHH1_PROAA	44	secreted	extracellular region GO:0005576;
+tr|G8VG06|G8VG06_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIV2|G8VIV2_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHN7|G8VHN7_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VDM3|G8VDM3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJG5|G8VJG5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHZ1|G8VHZ1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHZ5|G8VHZ5_PROAA	42	secreted	extracellular region GO:0005576;
+tr|G8VET3|G8VET3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJL3|G8VJL3_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VIR7|G8VIR7_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI9|G8VFI9_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIT4|G8VIT4_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGH0|G8VGH0_PROAA	31	cytoplasm	cytoplasm GO:0005737
+tr|G8VHP3|G8VHP3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH97|G8VH97_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGY7|G8VGY7_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VH75|G8VH75_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VI41|G8VI41_PROAA	41	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS0|G8VDS0_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF80|G8VF80_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP1|G8VJP1_PROAA	38	cytoplasm	cytoplasm GO:0005737
+tr|G8VHI6|G8VHI6_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VID5|G8VID5_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFD9|G8VFD9_PROAA	80	secreted	extracellular region GO:0005576;
+tr|G8VDT2|G8VDT2_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI21|G8VI21_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ56|G8VJ56_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGY4|G8VGY4_PROAA	46	fimbrium	pilus GO:0009289;
+tr|G8VJU1|G8VJU1_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VEM2|G8VEM2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF23|G8VF23_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ21|G8VJ21_PROAA	50	secreted	extracellular region GO:0005576;
+tr|G8VFN6|G8VFN6_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VF19|G8VF19_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VIM8|G8VIM8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHQ6|G8VHQ6_PROAA	79	secreted	extracellular region GO:0005576;
+tr|G8VIQ0|G8VIQ0_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VJE3|G8VJE3_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VF37|G8VF37_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VID8|G8VID8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC0|G8VHC0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF91|G8VF91_PROAA	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIH4|G8VIH4_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VHA6|G8VHA6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGJ2|G8VGJ2_PROAA	23	cytoplasm	cytoplasm GO:0005737
+tr|G8VE27|G8VE27_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH01|G8VH01_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDW1|G8VDW1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW9|G8VJW9_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VI36|G8VI36_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH8|G8VEH8_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD2|G8VJD2_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIH9|G8VIH9_PROAA	35	secreted	extracellular region GO:0005576;
+tr|G8VIS5|G8VIS5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG2|G8VIG2_PROAA	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH85|G8VH85_PROAA	39	secreted	extracellular region GO:0005576;
+tr|G8VIX7|G8VIX7_PROAA	83	secreted	extracellular region GO:0005576;
+tr|G8VEP1|G8VEP1_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VJ55|G8VJ55_PROAA	39	secreted	extracellular region GO:0005576;
+tr|G8VIR3|G8VIR3_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ10|G8VJ10_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VIJ0|G8VIJ0_PROAA	75	secreted	extracellular region GO:0005576;
+tr|G8VGN7|G8VGN7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHU1|G8VHU1_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VDI0|G8VDI0_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VJN5|G8VJN5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGA6|G8VGA6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE85|G8VE85_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP4|G8VFP4_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VHC4|G8VHC4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJJ0|G8VJJ0_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFX4|G8VFX4_PROAA	65	secreted	extracellular region GO:0005576;
+tr|G8VIC4|G8VIC4_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VE58|G8VE58_PROAA	64	secreted	extracellular region GO:0005576;
+tr|G8VJA2|G8VJA2_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VGH9|G8VGH9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFQ5|G8VFQ5_PROAA	34	secreted	extracellular region GO:0005576;
+tr|G8VDV3|G8VDV3_PROAA	48	secreted	extracellular region GO:0005576;
+tr|G8VJW3|G8VJW3_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ53|G8VJ53_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDM1|G8VDM1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE97|G8VE97_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIE2|G8VIE2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VF89|G8VF89_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VJY3|G8VJY3_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VGD5|G8VGD5_PROAA	59	secreted	extracellular region GO:0005576;
+tr|G8VF78|G8VF78_PROAA	91	secreted	extracellular region GO:0005576;
+tr|G8VEV8|G8VEV8_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VIW9|G8VIW9_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VH11|G8VH11_PROAA	71	secreted	extracellular region GO:0005576;
+tr|G8VJC9|G8VJC9_PROAA	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEJ6|G8VEJ6_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VEY0|G8VEY0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG28|G8VG28_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHV7|G8VHV7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI6|G8VFI6_PROAA	35	secreted	extracellular region GO:0005576;
+tr|G8VJM5|G8VJM5_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN5|G8VFN5_PROAA	68	secreted	extracellular region GO:0005576;
+tr|G8VJH2|G8VJH2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD0|G8VJD0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VI76|G8VI76_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEY4|G8VEY4_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VHI5|G8VHI5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR3|G8VGR3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFM4|G8VFM4_PROAA	21	cytoplasm	cytoplasm GO:0005737
+tr|G8VFL9|G8VFL9_PROAA	29	cytoplasm	cytoplasm GO:0005737
+tr|G8VJN9|G8VJN9_PROAA	73	cytoplasm	cytoplasm GO:0005737
+tr|G8VJD8|G8VJD8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHA2|G8VHA2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHP1|G8VHP1_PROAA	58	cytoplasm	cytoplasm GO:0005737
+tr|G8VFF8|G8VFF8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJM1|G8VJM1_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VEQ2|G8VEQ2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDK4|G8VDK4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHF3|G8VHF3_PROAA	55	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ59|G8VJ59_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VF10|G8VF10_PROAA	55	cytoplasm	cytoplasm GO:0005737
+tr|G8VFQ3|G8VFQ3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJF1|G8VJF1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG48|G8VG48_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VE21|G8VE21_PROAA	65	secreted	extracellular region GO:0005576;
+tr|G8VH77|G8VH77_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIC3|G8VIC3_PROAA	31	cytoplasm	cytoplasm GO:0005737
+tr|G8VI15|G8VI15_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ48|G8VJ48_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFS7|G8VFS7_PROAA	96	periplasm	periplasmic space GO:0042597;
+tr|G8VHS9|G8VHS9_PROAA	36	secreted	extracellular region GO:0005576;
+tr|G8VJ19|G8VJ19_PROAA	62	secreted	extracellular region GO:0005576;
+tr|G8VER0|G8VER0_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VDT4|G8VDT4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH5|G8VFH5_PROAA	73	secreted	extracellular region GO:0005576;
+tr|G8VF72|G8VF72_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ16|G8VJ16_PROAA	59	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR4|G8VGR4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VF46|G8VF46_PROAA	61	secreted	extracellular region GO:0005576;
+tr|G8VGJ4|G8VGJ4_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VI48|G8VI48_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VIP0|G8VIP0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIK0|G8VIK0_PROAA	85	secreted	extracellular region GO:0005576;
+tr|G8VFZ6|G8VFZ6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VH82|G8VH82_PROAA	50	cytoplasm	cytoplasm GO:0005737
+tr|G8VEX8|G8VEX8_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VF60|G8VF60_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG20|G8VG20_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIC8|G8VIC8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB7|G8VGB7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI89|G8VI89_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF71|G8VF71_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VI94|G8VI94_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP1|G8VFP1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU2|G8VGU2_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VEJ7|G8VEJ7_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VH15|G8VH15_PROAA	87	secreted	extracellular region GO:0005576;
+tr|G8VFL8|G8VFL8_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VID7|G8VID7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDX6|G8VDX6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHV9|G8VHV9_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIF0|G8VIF0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFJ1|G8VFJ1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIL6|G8VIL6_PROAA	72	secreted	extracellular region GO:0005576;
+tr|G8VF90|G8VF90_PROAA	72	secreted	extracellular region GO:0005576;
+tr|G8VDN2|G8VDN2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX5|G8VJX5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ93|G8VJ93_PROAA	75	secreted	extracellular region GO:0005576;
+tr|G8VHG1|G8VHG1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI2|G8VFI2_PROAA	65	secreted	extracellular region GO:0005576;
+tr|G8VF42|G8VF42_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIA9|G8VIA9_PROAA	80	secreted	extracellular region GO:0005576;
+tr|G8VHR0|G8VHR0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDY4|G8VDY4_PROAA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEN1|G8VEN1_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEV0|G8VEV0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGT6|G8VGT6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFW3|G8VFW3_PROAA	36	periplasm	periplasmic space GO:0042597;
+tr|G8VGE5|G8VGE5_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS4|G8VDS4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF93|G8VF93_PROAA	73	secreted	extracellular region GO:0005576;
+tr|G8VEL2|G8VEL2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEK4|G8VEK4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG86|G8VG86_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VFF6|G8VFF6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIN8|G8VIN8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJF6|G8VJF6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJV0|G8VJV0_PROAA	34	secreted	extracellular region GO:0005576;
+tr|G8VEW9|G8VEW9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI31|G8VI31_PROAA	33	secreted	extracellular region GO:0005576;
+tr|G8VIT0|G8VIT0_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEI3|G8VEI3_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFH6|G8VFH6_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGH2|G8VGH2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDW6|G8VDW6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH49|G8VH49_PROAA	78	secreted	extracellular region GO:0005576;
+tr|G8VEU7|G8VEU7_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VGJ6|G8VGJ6_PROAA	28	cytoplasm	cytoplasm GO:0005737
+tr|G8VIY1|G8VIY1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VHP4|G8VHP4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHR4|G8VHR4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFW0|G8VFW0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGF5|G8VGF5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJQ9|G8VJQ9_PROAA	74	cytoplasm	cytoplasm GO:0005737
+tr|G8VJJ5|G8VJJ5_PROAA	77	secreted	extracellular region GO:0005576;
+tr|G8VGG0|G8VGG0_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS7|G8VDS7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGU6|G8VGU6_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJF0|G8VJF0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHY2|G8VHY2_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VJS7|G8VJS7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHN2|G8VHN2_PROAA	72	cytoplasm	cytoplasm GO:0005737
+tr|G8VIL7|G8VIL7_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VEU6|G8VEU6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF64|G8VF64_PROAA	32	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV0|G8VFV0_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VJ61|G8VJ61_PROAA	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIC9|G8VIC9_PROAA	55	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP3|G8VEP3_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VFU6|G8VFU6_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA9|G8VEA9_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VH86|G8VH86_PROAA	63	secreted	extracellular region GO:0005576;
+tr|G8VE42|G8VE42_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJV1|G8VJV1_PROAA	71	cytoplasm	cytoplasm GO:0005737
+tr|G8VIM4|G8VIM4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIV1|G8VIV1_PROAA	32	secreted	extracellular region GO:0005576;
+tr|G8VFM6|G8VFM6_PROAA	36	secreted	extracellular region GO:0005576;
+tr|G8VGA2|G8VGA2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGP0|G8VGP0_PROAA	76	secreted	extracellular region GO:0005576;
+tr|G8VGT7|G8VGT7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHI0|G8VHI0_PROAA	55	cytoplasm	cytoplasm GO:0005737
+tr|G8VF96|G8VF96_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDV2|G8VDV2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHE7|G8VHE7_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VGI4|G8VGI4_PROAA	34	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS6|G8VDS6_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VDW5|G8VDW5_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF40|G8VF40_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHU3|G8VHU3_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VH83|G8VH83_PROAA	62	cytoplasm	cytoplasm GO:0005737
+tr|G8VEK0|G8VEK0_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJD1|G8VJD1_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VGH1|G8VGH1_PROAA	59	secreted	extracellular region GO:0005576;
+tr|G8VDH7|G8VDH7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGX7|G8VGX7_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHE3|G8VHE3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI97|G8VI97_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV6|G8VEV6_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VIK6|G8VIK6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJU3|G8VJU3_PROAA	24	secreted	extracellular region GO:0005576;
+tr|G8VIH6|G8VIH6_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VDN6|G8VDN6_PROAA	84	periplasm	periplasmic space GO:0042597;
+tr|G8VIR9|G8VIR9_PROAA	16	cytoplasm	cytoplasm GO:0005737
+tr|G8VF24|G8VF24_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF05|G8VF05_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDY3|G8VDY3_PROAA	42	cytoplasm	cytoplasm GO:0005737
+tr|G8VG70|G8VG70_PROAA	64	secreted	extracellular region GO:0005576;
+tr|G8VJB0|G8VJB0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJE2|G8VJE2_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VIB0|G8VIB0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG75|G8VG75_PROAA	67	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU3|G8VIU3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VET2|G8VET2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJF2|G8VJF2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEN2|G8VEN2_PROAA	31	secreted	extracellular region GO:0005576;
+tr|G8VJC5|G8VJC5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGX1|G8VGX1_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VHQ3|G8VHQ3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIZ5|G8VIZ5_PROAA	68	cytoplasm	cytoplasm GO:0005737
+tr|G8VHH8|G8VHH8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJN7|G8VJN7_PROAA	71	periplasm	periplasmic space GO:0042597;
+tr|G8VIY9|G8VIY9_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VIC7|G8VIC7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEY5|G8VEY5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGK2|G8VGK2_PROAA	63	secreted	extracellular region GO:0005576;
+tr|G8VEQ0|G8VEQ0_PROAA	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDU6|G8VDU6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGW7|G8VGW7_PROAA	65	cytoplasm	cytoplasm GO:0005737
+tr|G8VI68|G8VI68_PROAA	70	secreted	extracellular region GO:0005576;
+tr|G8VE04|G8VE04_PROAA	32	secreted	extracellular region GO:0005576;
+tr|G8VJY4|G8VJY4_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VET7|G8VET7_PROAA	44	periplasm	periplasmic space GO:0042597;
+tr|G8VGK1|G8VGK1_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VHW5|G8VHW5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDS8|G8VDS8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGW5|G8VGW5_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VER1|G8VER1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF67|G8VF67_PROAA	82	cytoplasm	cytoplasm GO:0005737
+tr|G8VJR2|G8VJR2_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VE59|G8VE59_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJR1|G8VJR1_PROAA	84	secreted	extracellular region GO:0005576;
+tr|G8VJ20|G8VJ20_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIY2|G8VIY2_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VH04|G8VH04_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIZ9|G8VIZ9_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VIJ9|G8VIJ9_PROAA	48	secreted	extracellular region GO:0005576;
+tr|G8VE62|G8VE62_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA8|G8VEA8_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VIW7|G8VIW7_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF84|G8VF84_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VH61|G8VH61_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH66|G8VH66_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIV4|G8VIV4_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VFS1|G8VFS1_PROAA	59	secreted	extracellular region GO:0005576;
+tr|G8VJV2|G8VJV2_PROAA	51	secreted	extracellular region GO:0005576;
+tr|G8VE76|G8VE76_PROAA	89	secreted	extracellular region GO:0005576;
+tr|G8VDJ1|G8VDJ1_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH45|G8VH45_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIC6|G8VIC6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG44|G8VG44_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VE43|G8VE43_PROAA	28	cytoplasm	cytoplasm GO:0005737
+tr|G8VF22|G8VF22_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VGZ2|G8VGZ2_PROAA	46	cytoplasm	cytoplasm GO:0005737
+tr|G8VF63|G8VF63_PROAA	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFC7|G8VFC7_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VGA7|G8VGA7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHD8|G8VHD8_PROAA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEL0|G8VEL0_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHX1|G8VHX1_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VH63|G8VH63_PROAA	43	secreted	extracellular region GO:0005576;
+tr|G8VDT8|G8VDT8_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI11|G8VI11_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ1|G8VDZ1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDL2|G8VDL2_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VG67|G8VG67_PROAA	63	cytoplasm	cytoplasm GO:0005737
+tr|G8VI43|G8VI43_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP4|G8VEP4_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ86|G8VJ86_PROAA	50	cytoplasm	cytoplasm GO:0005737
+tr|G8VIK2|G8VIK2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHP0|G8VHP0_PROAA	49	secreted	extracellular region GO:0005576;
+tr|G8VGV5|G8VGV5_PROAA	71	cytoplasm	cytoplasm GO:0005737
+tr|G8VGX2|G8VGX2_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY6|G8VFY6_PROAA	66	cytoplasm	cytoplasm GO:0005737
+tr|G8VE74|G8VE74_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHW1|G8VHW1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGF4|G8VGF4_PROAA	78	cytoplasm	cytoplasm GO:0005737
+tr|G8VGC2|G8VGC2_PROAA	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIW1|G8VIW1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIP1|G8VIP1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG04|G8VG04_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI1|G8VFI1_PROAA	69	cytoplasm	cytoplasm GO:0005737
+tr|G8VGK6|G8VGK6_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VGD2|G8VGD2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ13|G8VJ13_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJJ6|G8VJJ6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHR7|G8VHR7_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VEU3|G8VEU3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDQ1|G8VDQ1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGT2|G8VGT2_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEW6|G8VEW6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJL2|G8VJL2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG45|G8VG45_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG7|G8VIG7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFG3|G8VFG3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHS3|G8VHS3_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VDI1|G8VDI1_PROAA	81	cytoplasm	cytoplasm GO:0005737
+tr|G8VIM3|G8VIM3_PROAA	32	periplasm	periplasmic space GO:0042597;
+tr|G8VE69|G8VE69_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU6|G8VIU6_PROAA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIE3|G8VIE3_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VE80|G8VE80_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VH72|G8VH72_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ03|G8VJ03_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFL3|G8VFL3_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VFQ2|G8VFQ2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ62|G8VJ62_PROAA	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFR2|G8VFR2_PROAA	62	cytoplasm	cytoplasm GO:0005737
+tr|G8VID9|G8VID9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT1|G8VJT1_PROAA	55	secreted	extracellular region GO:0005576;
+tr|G8VI24|G8VI24_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFU5|G8VFU5_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VIJ4|G8VIJ4_PROAA	17	fimbrium	pilus GO:0009289;
+tr|G8VEF0|G8VEF0_PROAA	65	secreted	extracellular region GO:0005576;
+tr|G8VGS8|G8VGS8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFX5|G8VFX5_PROAA	52	cytoplasm	cytoplasm GO:0005737
+tr|G8VG50|G8VG50_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VDQ4|G8VDQ4_PROAA	42	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP0|G8VFP0_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VIV0|G8VIV0_PROAA	34	secreted	extracellular region GO:0005576;
+tr|G8VFM5|G8VFM5_PROAA	64	secreted	extracellular region GO:0005576;
+tr|G8VJ73|G8VJ73_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR5|G8VGR5_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB2|G8VGB2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VGS0|G8VGS0_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF92|G8VF92_PROAA	26	fimbrium	pilus GO:0009289;
+tr|G8VIB5|G8VIB5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG11|G8VG11_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEK1|G8VEK1_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHN6|G8VHN6_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VHN5|G8VHN5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ01|G8VJ01_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV8|G8VFV8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHJ7|G8VHJ7_PROAA	53	cytoplasm	cytoplasm GO:0005737
+tr|G8VH34|G8VH34_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VEL3|G8VEL3_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VH76|G8VH76_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VJL4|G8VJL4_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGN5|G8VGN5_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VHG6|G8VHG6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIN2|G8VIN2_PROAA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ30|G8VJ30_PROAA	62	secreted	extracellular region GO:0005576;
+tr|G8VEB6|G8VEB6_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF70|G8VF70_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHJ3|G8VHJ3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI07|G8VI07_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHW7|G8VHW7_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VEE9|G8VEE9_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC9|G8VHC9_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFA2|G8VFA2_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VDU7|G8VDU7_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VDU1|G8VDU1_PROAA	41	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ0|G8VFZ0_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VFD3|G8VFD3_PROAA	58	cytoplasm	cytoplasm GO:0005737
+tr|G8VED9|G8VED9_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJI0|G8VJI0_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VFT9|G8VFT9_PROAA	68	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP5|G8VJP5_PROAA	75	cytoplasm	cytoplasm GO:0005737
+tr|G8VI51|G8VI51_PROAA	55	cytoplasm	cytoplasm GO:0005737
+tr|G8VGQ8|G8VGQ8_PROAA	71	cytoplasm	cytoplasm GO:0005737
+tr|G8VH58|G8VH58_PROAA	72	secreted	extracellular region GO:0005576;
+tr|G8VHN3|G8VHN3_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJV4|G8VJV4_PROAA	57	cytoplasm	cytoplasm GO:0005737
+tr|G8VES6|G8VES6_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VDY7|G8VDY7_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH8|G8VFH8_PROAA	29	periplasm	periplasmic space GO:0042597;
+tr|G8VEC2|G8VEC2_PROAA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJ02|G8VJ02_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFQ8|G8VFQ8_PROAA	65	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU1|G8VIU1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ75|G8VJ75_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VGL5|G8VGL5_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN4|G8VFN4_PROAA	87	cytoplasm	cytoplasm GO:0005737
+tr|G8VGL2|G8VGL2_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH7|G8VFH7_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VG37|G8VG37_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIJ2|G8VIJ2_PROAA	33	secreted	extracellular region GO:0005576;
+tr|G8VEE4|G8VEE4_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VI19|G8VI19_PROAA	84	cytoplasm	cytoplasm GO:0005737
+tr|G8VHK3|G8VHK3_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHH3|G8VHH3_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ2|G8VFZ2_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VFE6|G8VFE6_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VG60|G8VG60_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VI13|G8VI13_PROAA	79	cytoplasm	cytoplasm GO:0005737
+tr|G8VGL1|G8VGL1_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VIX3|G8VIX3_PROAA	78	cytoplasm	cytoplasm GO:0005737
+tr|G8VG22|G8VG22_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFR4|G8VFR4_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH8|G8VDH8_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VHJ1|G8VHJ1_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG14|G8VG14_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEF8|G8VEF8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJQ5|G8VJQ5_PROAA	43	cytoplasm	cytoplasm GO:0005737
+tr|G8VH93|G8VH93_PROAA	53	periplasm	periplasmic space GO:0042597;
+tr|G8VFU1|G8VFU1_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VER7|G8VER7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VH54|G8VH54_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFX3|G8VFX3_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ3|G8VDZ3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEM1|G8VEM1_PROAA	78	cytoplasm	cytoplasm GO:0005737
+tr|G8VEA3|G8VEA3_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFT5|G8VFT5_PROAA	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDJ0|G8VDJ0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VF76|G8VF76_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHL1|G8VHL1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDM6|G8VDM6_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM8|G8VHM8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI72|G8VI72_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIV9|G8VIV9_PROAA	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEW4|G8VEW4_PROAA	66	secreted	extracellular region GO:0005576;
+tr|G8VFW7|G8VFW7_PROAA	32	secreted	extracellular region GO:0005576;
+tr|G8VE15|G8VE15_PROAA	35	secreted	extracellular region GO:0005576;
+tr|G8VHK1|G8VHK1_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFH4|G8VFH4_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB3|G8VGB3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR1|G8VGR1_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VH48|G8VH48_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VES5|G8VES5_PROAA	93	secreted	extracellular region GO:0005576;
+tr|G8VER9|G8VER9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDP3|G8VDP3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGH7|G8VGH7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH67|G8VH67_PROAA	67	cytoplasm	cytoplasm GO:0005737
+tr|G8VIP6|G8VIP6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFG4|G8VFG4_PROAA	35	secreted	extracellular region GO:0005576;
+tr|G8VID1|G8VID1_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VDJ2|G8VDJ2_PROAA	23	cytoplasm	cytoplasm GO:0005737
+tr|G8VIS9|G8VIS9_PROAA	36	secreted	extracellular region GO:0005576;
+tr|G8VJJ7|G8VJJ7_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VEB3|G8VEB3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF57|G8VF57_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VEU8|G8VEU8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHY7|G8VHY7_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJM6|G8VJM6_PROAA	69	cytoplasm	cytoplasm GO:0005737
+tr|G8VH98|G8VH98_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VI75|G8VI75_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ23|G8VJ23_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ38|G8VJ38_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFM2|G8VFM2_PROAA	55	secreted	extracellular region GO:0005576;
+tr|G8VJI9|G8VJI9_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VG79|G8VG79_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV3|G8VEV3_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIT9|G8VIT9_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VIJ8|G8VIJ8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEH2|G8VEH2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VI46|G8VI46_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFM7|G8VFM7_PROAA	51	cytoplasm	cytoplasm GO:0005737
+tr|G8VDR8|G8VDR8_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM2|G8VHM2_PROAA	45	secreted	extracellular region GO:0005576;
+tr|G8VDT6|G8VDT6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIV3|G8VIV3_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VF98|G8VF98_PROAA	76	cytoplasm	cytoplasm GO:0005737
+tr|G8VE57|G8VE57_PROAA	58	secreted	extracellular region GO:0005576;
+tr|G8VJS4|G8VJS4_PROAA	96	fimbrium	pilus GO:0009289;
+tr|G8VFW8|G8VFW8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH10|G8VH10_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGU7|G8VGU7_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIX8|G8VIX8_PROAA	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGW6|G8VGW6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ52|G8VJ52_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHQ4|G8VHQ4_PROAA	34	secreted	extracellular region GO:0005576;
+tr|G8VJJ9|G8VJJ9_PROAA	38	secreted	extracellular region GO:0005576;
+tr|G8VG33|G8VG33_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE16|G8VE16_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJQ6|G8VJQ6_PROAA	81	cytoplasm	cytoplasm GO:0005737
+tr|G8VI79|G8VI79_PROAA	78	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM7|G8VHM7_PROAA	38	cytoplasm	cytoplasm GO:0005737
+tr|G8VIN5|G8VIN5_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VFZ5|G8VFZ5_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VJR0|G8VJR0_PROAA	44	cytoplasm	cytoplasm GO:0005737
+tr|G8VI47|G8VI47_PROAA	74	secreted	extracellular region GO:0005576;
+tr|G8VE70|G8VE70_PROAA	56	cytoplasm	cytoplasm GO:0005737
+tr|G8VF87|G8VF87_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VDT9|G8VDT9_PROAA	85	secreted	extracellular region GO:0005576;
+tr|G8VE52|G8VE52_PROAA	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VI29|G8VI29_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJS9|G8VJS9_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHF1|G8VHF1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGI2|G8VGI2_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VIB2|G8VIB2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFN1|G8VFN1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJY1|G8VJY1_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHM9|G8VHM9_PROAA	60	secreted	extracellular region GO:0005576;
+tr|G8VJG6|G8VJG6_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VE10|G8VE10_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJP8|G8VJP8_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VHX4|G8VHX4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VER4|G8VER4_PROAA	87	periplasm	periplasmic space GO:0042597;
+tr|G8VGE8|G8VGE8_PROAA	65	fimbrium	pilus GO:0009289;
+tr|G8VJI5|G8VJI5_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VDP0|G8VDP0_PROAA	29	cytoplasm	cytoplasm GO:0005737
+tr|G8VI25|G8VI25_PROAA	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIV6|G8VIV6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGB1|G8VGB1_PROAA	65	cytoplasm	cytoplasm GO:0005737
+tr|G8VDP1|G8VDP1_PROAA	40	secreted	extracellular region GO:0005576;
+tr|G8VGS1|G8VGS1_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJL0|G8VJL0_PROAA	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHP7|G8VHP7_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VJT7|G8VJT7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHQ5|G8VHQ5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEV5|G8VEV5_PROAA	69	fimbrium	pilus GO:0009289;
+tr|G8VJ64|G8VJ64_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC7|G8VHC7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFA9|G8VFA9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VDI5|G8VDI5_PROAA	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEJ2|G8VEJ2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG55|G8VG55_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG10|G8VG10_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFG1|G8VFG1_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG47|G8VG47_PROAA	41	cytoplasm	cytoplasm GO:0005737
+tr|G8VGC4|G8VGC4_PROAA	97	periplasm	periplasmic space GO:0042597;
+tr|G8VDT1|G8VDT1_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP6|G8VEP6_PROAA	57	secreted	extracellular region GO:0005576;
+tr|G8VIU9|G8VIU9_PROAA	75	secreted	extracellular region GO:0005576;
+tr|G8VG53|G8VG53_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHK8|G8VHK8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFY4|G8VFY4_PROAA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHL6|G8VHL6_PROAA	52	cytoplasm	cytoplasm GO:0005737
+tr|G8VI28|G8VI28_PROAA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEY3|G8VEY3_PROAA	45	secreted	extracellular region GO:0005576;
+tr|G8VGS7|G8VGS7_PROAA	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHY6|G8VHY6_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJQ7|G8VJQ7_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFL4|G8VFL4_PROAA	40	secreted	extracellular region GO:0005576;
+tr|G8VEK9|G8VEK9_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VJK8|G8VJK8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIA4|G8VIA4_PROAA	41	secreted	extracellular region GO:0005576;
+tr|G8VJ60|G8VJ60_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VH51|G8VH51_PROAA	39	periplasm	periplasmic space GO:0042597;
+tr|G8VDW2|G8VDW2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGQ5|G8VGQ5_PROAA	67	periplasm	periplasmic space GO:0042597;
+tr|G8VHS2|G8VHS2_PROAA	92	secreted	extracellular region GO:0005576;
+tr|G8VIB1|G8VIB1_PROAA	47	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW1|G8VJW1_PROAA	86	cytoplasm	cytoplasm GO:0005737
+tr|G8VJJ8|G8VJJ8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIX4|G8VIX4_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VI59|G8VI59_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ26|G8VJ26_PROAA	57	cytoplasm	cytoplasm GO:0005737
+tr|G8VHN9|G8VHN9_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VI96|G8VI96_PROAA	38	cytoplasm	cytoplasm GO:0005737
+tr|G8VIM9|G8VIM9_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ49|G8VJ49_PROAA	33	secreted	extracellular region GO:0005576;
+tr|G8VHB2|G8VHB2_PROAA	36	secreted	extracellular region GO:0005576;
+tr|G8VEW3|G8VEW3_PROAA	83	cytoplasm	cytoplasm GO:0005737
+tr|G8VHT6|G8VHT6_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VFJ2|G8VFJ2_PROAA	34	cytoplasm	cytoplasm GO:0005737
+tr|G8VEG5|G8VEG5_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGE4|G8VGE4_PROAA	43	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK2|G8VFK2_PROAA	75	secreted	extracellular region GO:0005576;
+tr|G8VIQ1|G8VIQ1_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VF39|G8VF39_PROAA	81	cytoplasm	cytoplasm GO:0005737
+tr|G8VFP2|G8VFP2_PROAA	91	cytoplasm	cytoplasm GO:0005737
+tr|G8VHB7|G8VHB7_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP0|G8VEP0_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG0|G8VIG0_PROAA	27	secreted	extracellular region GO:0005576;
+tr|G8VEW8|G8VEW8_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFV3|G8VFV3_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VFE9|G8VFE9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGP7|G8VGP7_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP5|G8VEP5_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJR5|G8VJR5_PROAA	32	secreted	extracellular region GO:0005576;
+tr|G8VJX0|G8VJX0_PROAA	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE73|G8VE73_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VHY3|G8VHY3_PROAA	64	cytoplasm	cytoplasm GO:0005737
+tr|G8VFC8|G8VFC8_PROAA	54	cytoplasm	cytoplasm GO:0005737
+tr|G8VFA6|G8VFA6_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VDI9|G8VDI9_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHS4|G8VHS4_PROAA	69	secreted	extracellular region GO:0005576;
+tr|G8VF79|G8VF79_PROAA	70	cytoplasm	cytoplasm GO:0005737
+tr|G8VE98|G8VE98_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VFI5|G8VFI5_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VFM8|G8VFM8_PROAA	80	cytoplasm	cytoplasm GO:0005737
+tr|G8VE11|G8VE11_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR9|G8VGR9_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VE28|G8VE28_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VIL8|G8VIL8_PROAA	64	cytoplasm	cytoplasm GO:0005737
+tr|G8VH78|G8VH78_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VJA5|G8VJA5_PROAA	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDN8|G8VDN8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VE05|G8VE05_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHL7|G8VHL7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC1|G8VHC1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VES2|G8VES2_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VED3|G8VED3_PROAA	74	cytoplasm	cytoplasm GO:0005737
+tr|G8VFF1|G8VFF1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHK7|G8VHK7_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VJW4|G8VJW4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJC0|G8VJC0_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VDL0|G8VDL0_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VGR0|G8VGR0_PROAA	30	secreted	extracellular region GO:0005576;
+tr|G8VJI1|G8VJI1_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ76|G8VJ76_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VID3|G8VID3_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VI88|G8VI88_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VG57|G8VG57_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHB8|G8VHB8_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VG18|G8VG18_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VEQ3|G8VEQ3_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VIZ0|G8VIZ0_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VJI7|G8VJI7_PROAA	96	cytoplasm	cytoplasm GO:0005737
+tr|G8VHC8|G8VHC8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIW3|G8VIW3_PROAA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIM7|G8VIM7_PROAA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VID4|G8VID4_PROAA	72	secreted	extracellular region GO:0005576;
+tr|G8VJI4|G8VJI4_PROAA	64	secreted	extracellular region GO:0005576;
+tr|G8VHF6|G8VHF6_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VGT8|G8VGT8_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VHS6|G8VHS6_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VE17|G8VE17_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFB5|G8VFB5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEP9|G8VEP9_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VGE3|G8VGE3_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VG82|G8VG82_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VFK0|G8VFK0_PROAA	85	cytoplasm	cytoplasm GO:0005737
+tr|G8VH02|G8VH02_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIG6|G8VIG6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDJ3|G8VDJ3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VHL2|G8VHL2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIU7|G8VIU7_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VDZ6|G8VDZ6_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ45|G8VJ45_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VFB9|G8VFB9_PROAA	44	fimbrium	pilus GO:0009289;
+tr|G8VH19|G8VH19_PROAA	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VF54|G8VF54_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VDH5|G8VDH5_PROAA	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VJG8|G8VJG8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VII2|G8VII2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VEN5|G8VEN5_PROAA	94	cytoplasm	cytoplasm GO:0005737
+tr|G8VH74|G8VH74_PROAA	70	secreted	extracellular region GO:0005576;
+tr|G8VGF6|G8VGF6_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIS7|G8VIS7_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VEM3|G8VEM3_PROAA	36	secreted	extracellular region GO:0005576;
+tr|G8VGQ3|G8VGQ3_PROAA	26	secreted	extracellular region GO:0005576;
+tr|G8VJL7|G8VJL7_PROAA	89	cytoplasm	cytoplasm GO:0005737
+tr|G8VG13|G8VG13_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VH59|G8VH59_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VEW7|G8VEW7_PROAA	54	secreted	extracellular region GO:0005576;
+tr|G8VJC1|G8VJC1_PROAA	92	cytoplasm	cytoplasm GO:0005737
+tr|G8VDP8|G8VDP8_PROAA	42	secreted	extracellular region GO:0005576;
+tr|G8VDV4|G8VDV4_PROAA	66	cytoplasm	cytoplasm GO:0005737
+tr|G8VFD8|G8VFD8_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VGY6|G8VGY6_PROAA	40	secreted	extracellular region GO:0005576;
+tr|G8VGZ3|G8VGZ3_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VHG0|G8VHG0_PROAA	97	cytoplasm	cytoplasm GO:0005737
+tr|G8VJX9|G8VJX9_PROAA	68	secreted	extracellular region GO:0005576;
+tr|G8VHM4|G8VHM4_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VE55|G8VE55_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VDN3|G8VDN3_PROAA	77	cytoplasm	cytoplasm GO:0005737
+tr|G8VE29|G8VE29_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VG21|G8VG21_PROAA	86	secreted	extracellular region GO:0005576;
+tr|G8VJB8|G8VJB8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VFE3|G8VFE3_PROAA	90	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ94|G8VJ94_PROAA	78	secreted	extracellular region GO:0005576;
+tr|G8VJE6|G8VJE6_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFT3|G8VFT3_PROAA	35	secreted	extracellular region GO:0005576;
+tr|G8VFV5|G8VFV5_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VGI0|G8VGI0_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VHF8|G8VHF8_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIP3|G8VIP3_PROAA	98	cytoplasm	cytoplasm GO:0005737
+tr|G8VF52|G8VF52_PROAA	58	cytoplasm	cytoplasm GO:0005737
+tr|G8VI26|G8VI26_PROAA	39	secreted	extracellular region GO:0005576;
+tr|G8VG09|G8VG09_PROAA	93	cytoplasm	cytoplasm GO:0005737
+tr|G8VII4|G8VII4_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VE87|G8VE87_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VIT2|G8VIT2_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VJ24|G8VJ24_PROAA	100	cytoplasm	cytoplasm GO:0005737
+tr|G8VIG1|G8VIG1_PROAA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VFD7|G8VFD7_PROAA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G8VE66|G8VE66_PROAA	88	cytoplasm	cytoplasm GO:0005737
+tr|G8VEZ3|G8VEZ3_PROAA	82	cytoplasm	cytoplasm GO:0005737
+tr|G8VI65|G8VI65_PROAA	95	cytoplasm	cytoplasm GO:0005737
+tr|G8VHB3|G8VHB3_PROAA	44	cytoplasm	cytoplasm GO:0005737
+tr|G8VF49|G8VF49_PROAA	47	secreted	extracellular region GO:0005576;
+tr|G8VI73|G8VI73_PROAA	99	cytoplasm	cytoplasm GO:0005737
+tr|G8VFR7|G8VFR7_PROAA	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;

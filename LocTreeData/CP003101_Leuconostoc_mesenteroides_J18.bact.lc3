@@ -1,0 +1,1816 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G7VJM0|G7VJM0_LEUME	38	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VJ73|G7VJ73_LEUME	29	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VNB0|G7VNB0_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMU2|G7VMU2_LEUME	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VL78|G7VL78_LEUME	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VMS7|G7VMS7_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJZ3|G7VJZ3_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLB3|G7VLB3_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJF4|G7VJF4_LEUME	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJC1|G7VJC1_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKB1|G7VKB1_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G7VJI9|G7VJI9_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKK9|G7VKK9_LEUME	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK66|G7VK66_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLY7|G7VLY7_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VN14|G7VN14_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VND3|G7VND3_LEUME	15	secreted	extracellular region GO:0005576(IEA);
+tr|G7VK01|G7VK01_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMN4|G7VMN4_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLW6|G7VLW6_LEUME	33	secreted	extracellular region GO:0005576(IEA);
+tr|G7VJ70|G7VJ70_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK91|G7VK91_LEUME	24	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VMF2|G7VMF2_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJX4|G7VJX4_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKB9|G7VKB9_LEUME	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLS0|G7VLS0_LEUME	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G7VN61|G7VN61_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKR8|G7VKR8_LEUME	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJY1|G7VJY1_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ71|G7VJ71_LEUME	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VIS7|G7VIS7_LEUME	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ80|G7VJ80_LEUME	38	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G7VLU0|G7VLU0_LEUME	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIY0|G7VIY0_LEUME	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLX3|G7VLX3_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G7VMJ6|G7VMJ6_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ64|G7VJ64_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN51|G7VN51_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKH8|G7VKH8_LEUME	23	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G7VL90|G7VL90_LEUME	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VNH9|G7VNH9_LEUME	3	secreted	extracellular region GO:0005576(IEA);
+tr|G7VL72|G7VL72_LEUME	23	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|G7VKI7|G7VKI7_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJX5|G7VJX5_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN88|G7VN88_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKS1|G7VKS1_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKG6|G7VKG6_LEUME	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK69|G7VK69_LEUME	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKL3|G7VKL3_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMV6|G7VMV6_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKD1|G7VKD1_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJZ2|G7VJZ2_LEUME	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMT3|G7VMT3_LEUME	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMA6|G7VMA6_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIJ9|G7VIJ9_LEUME	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL43|G7VL43_LEUME	2	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL50|G7VL50_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA);
+tr|G7VN43|G7VN43_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMI5|G7VMI5_LEUME	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VN57|G7VN57_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLM3|G7VLM3_LEUME	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VL45|G7VL45_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKA7|G7VKA7_LEUME	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VNG4|G7VNG4_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLK8|G7VLK8_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ38|G7VJ38_LEUME	10	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|G7VLL7|G7VLL7_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKP1|G7VKP1_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJQ8|G7VJQ8_LEUME	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMQ7|G7VMQ7_LEUME	23	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G7VKD8|G7VKD8_LEUME	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJN8|G7VJN8_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKA4|G7VKA4_LEUME	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLJ6|G7VLJ6_LEUME	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJN0|G7VJN0_LEUME	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VJI1|G7VJI1_LEUME	71	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ65|G7VJ65_LEUME	40	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|G7VKT0|G7VKT0_LEUME	40	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VJ17|G7VJ17_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLT4|G7VLT4_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJR6|G7VJR6_LEUME	39	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VMS2|G7VMS2_LEUME	16	cytoplasm	membrane GO:0016020(IEA);
+tr|G7VKL5|G7VKL5_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIW0|G7VIW0_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKK6|G7VKK6_LEUME	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJ21|G7VJ21_LEUME	36	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G7VN40|G7VN40_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKE7|G7VKE7_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMF1|G7VMF1_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLS3|G7VLS3_LEUME	40	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VJ47|G7VJ47_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJH1|G7VJH1_LEUME	62	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|G7VKN0|G7VKN0_LEUME	31	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VLL0|G7VLL0_LEUME	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|G7VKE9|G7VKE9_LEUME	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VLM0|G7VLM0_LEUME	14	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|G7VL12|G7VL12_LEUME	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VLT3|G7VLT3_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN69|G7VN69_LEUME	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLU1|G7VLU1_LEUME	30	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VMM7|G7VMM7_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM92|G7VM92_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJN6|G7VJN6_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLU9|G7VLU9_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNA7|G7VNA7_LEUME	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKL4|G7VKL4_LEUME	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VLU8|G7VLU8_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL35|G7VL35_LEUME	16	periplasm	cytoplasm GO:0005737(IDA); periplasmic space GO:0042597(IEA);
+tr|G7VKP2|G7VKP2_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNE4|G7VNE4_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VML0|G7VML0_LEUME	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJU7|G7VJU7_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM56|G7VM56_LEUME	16	secreted	extracellular region GO:0005576(IEA);
+tr|G7VMW8|G7VMW8_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMF3|G7VMF3_LEUME	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VND5|G7VND5_LEUME	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNA3|G7VNA3_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKP0|G7VKP0_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJP5|G7VJP5_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIS3|G7VIS3_LEUME	7	secreted	extracellular region GO:0005576(IEA);
+tr|G7VLL8|G7VLL8_LEUME	10	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|G7VJA5|G7VJA5_LEUME	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN65|G7VN65_LEUME	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VM91|G7VM91_LEUME	32	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJI8|G7VJI8_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKL2|G7VKL2_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIK7|G7VIK7_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMG0|G7VMG0_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM89|G7VM89_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLQ7|G7VLQ7_LEUME	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLB2|G7VLB2_LEUME	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL74|G7VL74_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNN3|G7VNN3_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VNE7|G7VNE7_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G7VKK0|G7VKK0_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLI3|G7VLI3_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VME7|G7VME7_LEUME	11	inner membrane	integral to membrane GO:0016021(ISS); plasma membrane GO:0005886(IDA);
+tr|G7VN86|G7VN86_LEUME	16	secreted	extracellular region GO:0005576(IEA);
+tr|G7VLI2|G7VLI2_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMB8|G7VMB8_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKS9|G7VKS9_LEUME	7	secreted	extracellular region GO:0005576(IEA);
+tr|G7VIY8|G7VIY8_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ88|G7VJ88_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKF5|G7VKF5_LEUME	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMK1|G7VMK1_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLA5|G7VLA5_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMT5|G7VMT5_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMD7|G7VMD7_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA); riboflavin synthase complex GO:0009349(IEA);
+tr|G7VMY4|G7VMY4_LEUME	26	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G7VN19|G7VN19_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLI8|G7VLI8_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNF6|G7VNF6_LEUME	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLX7|G7VLX7_LEUME	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK47|G7VK47_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNF3|G7VNF3_LEUME	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK90|G7VK90_LEUME	31	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VM16|G7VM16_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNJ6|G7VNJ6_LEUME	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMH1|G7VMH1_LEUME	40	secreted	extracellular region GO:0005576(IEA);
+tr|G7VLY3|G7VLY3_LEUME	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VMP3|G7VMP3_LEUME	20	secreted	extracellular region GO:0005576(IEA);
+tr|G7VM38|G7VM38_LEUME	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJE1|G7VJE1_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLM2|G7VLM2_LEUME	23	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VKN2|G7VKN2_LEUME	62	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM79|G7VM79_LEUME	14	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VKQ3|G7VKQ3_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLR2|G7VLR2_LEUME	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLW8|G7VLW8_LEUME	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL88|G7VL88_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNN2|G7VNN2_LEUME	12	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VIL7|G7VIL7_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VNI7|G7VNI7_LEUME	36	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G7VM88|G7VM88_LEUME	29	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VKD2|G7VKD2_LEUME	9	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G7VLQ1|G7VLQ1_LEUME	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VL13|G7VL13_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK46|G7VK46_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VME6|G7VME6_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKF7|G7VKF7_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIZ1|G7VIZ1_LEUME	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VKJ7|G7VKJ7_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKH9|G7VKH9_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM01|G7VM01_LEUME	36	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VJN4|G7VJN4_LEUME	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK74|G7VK74_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNF5|G7VNF5_LEUME	37	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VLV2|G7VLV2_LEUME	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM30|G7VM30_LEUME	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIP2|G7VIP2_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNB9|G7VNB9_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIV8|G7VIV8_LEUME	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLV1|G7VLV1_LEUME	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMK4|G7VMK4_LEUME	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL55|G7VL55_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK04|G7VK04_LEUME	32	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|G7VN92|G7VN92_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLK6|G7VLK6_LEUME	12	periplasm	periplasmic space GO:0042597(IDA);
+tr|G7VKN4|G7VKN4_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKC2|G7VKC2_LEUME	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIR4|G7VIR4_LEUME	15	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|G7VL61|G7VL61_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL95|G7VL95_LEUME	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VNL6|G7VNL6_LEUME	30	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VJX1|G7VJX1_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VJC6|G7VJC6_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKR6|G7VKR6_LEUME	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNG3|G7VNG3_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKD4|G7VKD4_LEUME	30	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKI0|G7VKI0_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMP6|G7VMP6_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G7VKG2|G7VKG2_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VND8|G7VND8_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK65|G7VK65_LEUME	26	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VLU7|G7VLU7_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK88|G7VK88_LEUME	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VMA3|G7VMA3_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ11|G7VJ11_LEUME	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNC5|G7VNC5_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLN1|G7VLN1_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJS5|G7VJS5_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKX4|G7VKX4_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNI3|G7VNI3_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMJ9|G7VMJ9_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMD8|G7VMD8_LEUME	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIY4|G7VIY4_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKS8|G7VKS8_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNK8|G7VNK8_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKH4|G7VKH4_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKM9|G7VKM9_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|G7VJ05|G7VJ05_LEUME	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VJK7|G7VJK7_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLL9|G7VLL9_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM93|G7VM93_LEUME	16	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VN29|G7VN29_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ52|G7VJ52_LEUME	35	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VKV8|G7VKV8_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLN4|G7VLN4_LEUME	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VLD1|G7VLD1_LEUME	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJS2|G7VJS2_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIS8|G7VIS8_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNC0|G7VNC0_LEUME	6	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G7VL06|G7VL06_LEUME	62	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK53|G7VK53_LEUME	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJF8|G7VJF8_LEUME	24	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VMZ4|G7VMZ4_LEUME	28	secreted	extracellular region GO:0005576(IEA);
+tr|G7VK81|G7VK81_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM94|G7VM94_LEUME	23	periplasm	cytosol GO:0005829(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G7VNE5|G7VNE5_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ69|G7VJ69_LEUME	17	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VJN5|G7VJN5_LEUME	26	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VLH4|G7VLH4_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIT3|G7VIT3_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNP8|G7VNP8_LEUME	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLM1|G7VLM1_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM37|G7VM37_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJC8|G7VJC8_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL15|G7VL15_LEUME	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VKE1|G7VKE1_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL04|G7VL04_LEUME	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VMF7|G7VMF7_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIP3|G7VIP3_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ94|G7VJ94_LEUME	18	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G7VNA8|G7VNA8_LEUME	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMN0|G7VMN0_LEUME	29	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJE8|G7VJE8_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLR5|G7VLR5_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJZ0|G7VJZ0_LEUME	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ33|G7VJ33_LEUME	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLK3|G7VLK3_LEUME	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK92|G7VK92_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNG0|G7VNG0_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJB4|G7VJB4_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMA8|G7VMA8_LEUME	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VMQ8|G7VMQ8_LEUME	18	secreted	extracellular region GO:0005576(IEA);
+tr|G7VKR4|G7VKR4_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ48|G7VJ48_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN27|G7VN27_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK96|G7VK96_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKC5|G7VKC5_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G7VNM9|G7VNM9_LEUME	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIW6|G7VIW6_LEUME	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLM4|G7VLM4_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIQ4|G7VIQ4_LEUME	20	secreted	extracellular region GO:0005576(IEA);
+tr|G7VK94|G7VK94_LEUME	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKE6|G7VKE6_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VMU0|G7VMU0_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK22|G7VK22_LEUME	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G7VMT1|G7VMT1_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIN0|G7VIN0_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMT6|G7VMT6_LEUME	16	secreted	extracellular region GO:0005576(IEA);
+tr|G7VKD6|G7VKD6_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKL8|G7VKL8_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKV7|G7VKV7_LEUME	27	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VLI0|G7VLI0_LEUME	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VL21|G7VL21_LEUME	24	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VJJ0|G7VJJ0_LEUME	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VM84|G7VM84_LEUME	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VML2|G7VML2_LEUME	21	secreted	extracellular region GO:0005576(IEA);
+tr|G7VKG8|G7VKG8_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ24|G7VJ24_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNA9|G7VNA9_LEUME	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|G7VKA3|G7VKA3_LEUME	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLH2|G7VLH2_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VML3|G7VML3_LEUME	7	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VJM6|G7VJM6_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM19|G7VM19_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G7VMB7|G7VMB7_LEUME	1	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIL3|G7VIL3_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ41|G7VJ41_LEUME	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VLK9|G7VLK9_LEUME	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VK68|G7VK68_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN80|G7VN80_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKU5|G7VKU5_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM23|G7VM23_LEUME	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJC5|G7VJC5_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL37|G7VL37_LEUME	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL77|G7VL77_LEUME	3	secreted	extracellular space GO:0005615(IEA);
+tr|G7VKB5|G7VKB5_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMH2|G7VMH2_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLJ1|G7VLJ1_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIQ1|G7VIQ1_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIM6|G7VIM6_LEUME	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VK38|G7VK38_LEUME	34	secreted	extracellular region GO:0005576(IEA);
+tr|G7VIX2|G7VIX2_LEUME	8	cytoplasm	ribosome GO:0005840(IEA);
+tr|G7VKX3|G7VKX3_LEUME	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VJ23|G7VJ23_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLM6|G7VLM6_LEUME	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIR7|G7VIR7_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKV6|G7VKV6_LEUME	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLH6|G7VLH6_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK52|G7VK52_LEUME	68	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIT7|G7VIT7_LEUME	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNJ9|G7VNJ9_LEUME	23	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VMB5|G7VMB5_LEUME	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VK07|G7VK07_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJD3|G7VJD3_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN99|G7VN99_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G7VL34|G7VL34_LEUME	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKI6|G7VKI6_LEUME	16	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJE9|G7VJE9_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMP8|G7VMP8_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK03|G7VK03_LEUME	30	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|G7VMY9|G7VMY9_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKE8|G7VKE8_LEUME	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VNK3|G7VNK3_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLY1|G7VLY1_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ35|G7VJ35_LEUME	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLG6|G7VLG6_LEUME	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIY3|G7VIY3_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM49|G7VM49_LEUME	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VND0|G7VND0_LEUME	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL14|G7VL14_LEUME	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJW1|G7VJW1_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G7VKT8|G7VKT8_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLA6|G7VLA6_LEUME	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNQ1|G7VNQ1_LEUME	33	secreted	extracellular region GO:0005576(IEA);
+tr|G7VJ40|G7VJ40_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM22|G7VM22_LEUME	16	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G7VLD8|G7VLD8_LEUME	33	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VLU6|G7VLU6_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK83|G7VK83_LEUME	1	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMQ2|G7VMQ2_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLX5|G7VLX5_LEUME	99	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKJ9|G7VKJ9_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNM2|G7VNM2_LEUME	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ62|G7VJ62_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLM5|G7VLM5_LEUME	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VN58|G7VN58_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VN71|G7VN71_LEUME	34	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G7VJE0|G7VJE0_LEUME	22	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7VND9|G7VND9_LEUME	20	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VM62|G7VM62_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKM5|G7VKM5_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G7VLX6|G7VLX6_LEUME	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VND6|G7VND6_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIN9|G7VIN9_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJQ0|G7VJQ0_LEUME	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKN7|G7VKN7_LEUME	38	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VJB5|G7VJB5_LEUME	34	cytoplasm	anaerobic ribonucleoside-triphosphate reductase complex GO:0031250(IMP);
+tr|G7VN66|G7VN66_LEUME	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VLD5|G7VLD5_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIV4|G7VIV4_LEUME	36	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G7VIT1|G7VIT1_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKL9|G7VKL9_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKX8|G7VKX8_LEUME	22	secreted	extracellular region GO:0005576(IEA);
+tr|G7VJA6|G7VJA6_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKY4|G7VKY4_LEUME	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VMA0|G7VMA0_LEUME	48	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VNA6|G7VNA6_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN36|G7VN36_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIN7|G7VIN7_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ87|G7VJ87_LEUME	22	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|G7VJF0|G7VJF0_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMP1|G7VMP1_LEUME	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VK93|G7VK93_LEUME	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VMG7|G7VMG7_LEUME	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VJ39|G7VJ39_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMB3|G7VMB3_LEUME	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJS3|G7VJS3_LEUME	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL20|G7VL20_LEUME	14	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VMV0|G7VMV0_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKR0|G7VKR0_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VN22|G7VN22_LEUME	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VIN5|G7VIN5_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMQ6|G7VMQ6_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL39|G7VL39_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM86|G7VM86_LEUME	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VJZ9|G7VJZ9_LEUME	23	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VIU8|G7VIU8_LEUME	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLA7|G7VLA7_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLY4|G7VLY4_LEUME	12	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VL19|G7VL19_LEUME	20	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VN87|G7VN87_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMX0|G7VMX0_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL60|G7VL60_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G7VJZ8|G7VJZ8_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNG2|G7VNG2_LEUME	11	secreted	extracellular region GO:0005576(IDA); extracellular space GO:0005615(IEA);
+tr|G7VJF6|G7VJF6_LEUME	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VMD1|G7VMD1_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNC7|G7VNC7_LEUME	30	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VNG9|G7VNG9_LEUME	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VMS8|G7VMS8_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJT6|G7VJT6_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIP4|G7VIP4_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKS4|G7VKS4_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK57|G7VK57_LEUME	39	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VK20|G7VK20_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G7VN21|G7VN21_LEUME	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL84|G7VL84_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM36|G7VM36_LEUME	11	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VK43|G7VK43_LEUME	44	secreted	extracellular region GO:0005576(IEA);
+tr|G7VIK6|G7VIK6_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMR3|G7VMR3_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJE2|G7VJE2_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJY9|G7VJY9_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMD9|G7VMD9_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VL11|G7VL11_LEUME	16	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VJP6|G7VJP6_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G7VMT8|G7VMT8_LEUME	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G7VLB5|G7VLB5_LEUME	12	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VJD8|G7VJD8_LEUME	46	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7VM03|G7VM03_LEUME	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIY5|G7VIY5_LEUME	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIV1|G7VIV1_LEUME	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ18|G7VJ18_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNP4|G7VNP4_LEUME	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJZ7|G7VJZ7_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNC6|G7VNC6_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNH8|G7VNH8_LEUME	20	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA);
+tr|G7VMJ0|G7VMJ0_LEUME	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL00|G7VL00_LEUME	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJP4|G7VJP4_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLP6|G7VLP6_LEUME	16	secreted	extracellular region GO:0005576(IEA);
+tr|G7VLL3|G7VLL3_LEUME	6	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G7VJ00|G7VJ00_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKA6|G7VKA6_LEUME	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKV9|G7VKV9_LEUME	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKM1|G7VKM1_LEUME	20	secreted	extracellular region GO:0005576(IEA);
+tr|G7VNP9|G7VNP9_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLC1|G7VLC1_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK70|G7VK70_LEUME	75	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLX1|G7VLX1_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJP3|G7VJP3_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLW9|G7VLW9_LEUME	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK39|G7VK39_LEUME	12	secreted	extracellular space GO:0005615(IEA);
+tr|G7VNB8|G7VNB8_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIS4|G7VIS4_LEUME	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK23|G7VK23_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMM8|G7VMM8_LEUME	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VJL4|G7VJL4_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJC9|G7VJC9_LEUME	28	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|G7VIN4|G7VIN4_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJH9|G7VJH9_LEUME	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKF6|G7VKF6_LEUME	23	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VJT1|G7VJT1_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VML6|G7VML6_LEUME	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VIZ0|G7VIZ0_LEUME	14	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VMI3|G7VMI3_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VKD7|G7VKD7_LEUME	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKN6|G7VKN6_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJQ9|G7VJQ9_LEUME	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIL4|G7VIL4_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL98|G7VL98_LEUME	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJY4|G7VJY4_LEUME	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKF9|G7VKF9_LEUME	42	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G7VL57|G7VL57_LEUME	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ06|G7VJ06_LEUME	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VMB4|G7VMB4_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL59|G7VL59_LEUME	24	secreted	cytoplasm GO:0005737(IEA); extracellular region GO:0005576(IEA);
+tr|G7VL27|G7VL27_LEUME	5	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLZ2|G7VLZ2_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN67|G7VN67_LEUME	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIU5|G7VIU5_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIV2|G7VIV2_LEUME	15	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G7VNQ0|G7VNQ0_LEUME	11	secreted	extracellular region GO:0005576(IEA);
+tr|G7VMR7|G7VMR7_LEUME	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VNM3|G7VNM3_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKH6|G7VKH6_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLB6|G7VLB6_LEUME	29	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VJ96|G7VJ96_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJF7|G7VJF7_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL73|G7VL73_LEUME	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK89|G7VK89_LEUME	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); outer membrane GO:0019867(IEA);
+tr|G7VN35|G7VN35_LEUME	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKT4|G7VKT4_LEUME	55	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMR9|G7VMR9_LEUME	21	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VJ27|G7VJ27_LEUME	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VKG7|G7VKG7_LEUME	35	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJP0|G7VJP0_LEUME	26	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G7VK98|G7VK98_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMF4|G7VMF4_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIT4|G7VIT4_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLL5|G7VLL5_LEUME	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VL41|G7VL41_LEUME	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VIQ0|G7VIQ0_LEUME	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VLP3|G7VLP3_LEUME	44	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G7VLS8|G7VLS8_LEUME	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJJ8|G7VJJ8_LEUME	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK76|G7VK76_LEUME	25	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VNP2|G7VNP2_LEUME	6	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VK50|G7VK50_LEUME	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL29|G7VL29_LEUME	25	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VML9|G7VML9_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMC6|G7VMC6_LEUME	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VLH3|G7VLH3_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLZ9|G7VLZ9_LEUME	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNG7|G7VNG7_LEUME	24	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VMM5|G7VMM5_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL79|G7VL79_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNM5|G7VNM5_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLY9|G7VLY9_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJP7|G7VJP7_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJF5|G7VJF5_LEUME	19	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VJQ4|G7VJQ4_LEUME	22	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VN20|G7VN20_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLP9|G7VLP9_LEUME	29	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VNB1|G7VNB1_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJR3|G7VJR3_LEUME	47	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VN64|G7VN64_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJY7|G7VJY7_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNN1|G7VNN1_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMQ5|G7VMQ5_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM10|G7VM10_LEUME	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLC2|G7VLC2_LEUME	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G7VJW9|G7VJW9_LEUME	10	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|G7VMM2|G7VMM2_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMR2|G7VMR2_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL10|G7VL10_LEUME	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIK5|G7VIK5_LEUME	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VJX9|G7VJX9_LEUME	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN39|G7VN39_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJI0|G7VJI0_LEUME	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJV0|G7VJV0_LEUME	14	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VKV5|G7VKV5_LEUME	12	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G7VMG5|G7VMG5_LEUME	10	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G7VNL3|G7VNL3_LEUME	18	cytoplasm	cytosol GO:0005829(IBA);
+tr|G7VJ12|G7VJ12_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJN3|G7VJN3_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLF5|G7VLF5_LEUME	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G7VM15|G7VM15_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM00|G7VM00_LEUME	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VLB4|G7VLB4_LEUME	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIM7|G7VIM7_LEUME	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIK2|G7VIK2_LEUME	40	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G7VKP4|G7VKP4_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ91|G7VJ91_LEUME	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNN0|G7VNN0_LEUME	29	cytoplasm	cytosol GO:0005829(IBA);
+tr|G7VJA8|G7VJA8_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL56|G7VL56_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK58|G7VK58_LEUME	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJD0|G7VJD0_LEUME	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMF8|G7VMF8_LEUME	23	secreted	extracellular region GO:0005576(IEA);
+tr|G7VK17|G7VK17_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL05|G7VL05_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMP9|G7VMP9_LEUME	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VKH7|G7VKH7_LEUME	5	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G7VME0|G7VME0_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL32|G7VL32_LEUME	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VKE0|G7VKE0_LEUME	24	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VN78|G7VN78_LEUME	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VKM3|G7VKM3_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G7VM20|G7VM20_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKK3|G7VKK3_LEUME	13	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|G7VIV7|G7VIV7_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNK6|G7VNK6_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJA7|G7VJA7_LEUME	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLV5|G7VLV5_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMB6|G7VMB6_LEUME	43	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G7VJ42|G7VJ42_LEUME	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMF9|G7VMF9_LEUME	11	secreted	extracellular region GO:0005576(IEA);
+tr|G7VJX8|G7VJX8_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM90|G7VM90_LEUME	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKU6|G7VKU6_LEUME	29	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VML8|G7VML8_LEUME	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLQ9|G7VLQ9_LEUME	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJE6|G7VJE6_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VIL6|G7VIL6_LEUME	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK15|G7VK15_LEUME	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLV6|G7VLV6_LEUME	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMA2|G7VMA2_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN70|G7VN70_LEUME	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNP3|G7VNP3_LEUME	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLZ7|G7VLZ7_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK06|G7VK06_LEUME	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLH8|G7VLH8_LEUME	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VJI7|G7VJI7_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ99|G7VJ99_LEUME	99	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKB7|G7VKB7_LEUME	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G7VLA0|G7VLA0_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL62|G7VL62_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VN83|G7VN83_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNB2|G7VNB2_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKS3|G7VKS3_LEUME	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLM9|G7VLM9_LEUME	32	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G7VNA4|G7VNA4_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKI9|G7VKI9_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJQ1|G7VJQ1_LEUME	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VLL6|G7VLL6_LEUME	64	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G7VMB1|G7VMB1_LEUME	14	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VK63|G7VK63_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMV5|G7VMV5_LEUME	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNF7|G7VNF7_LEUME	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VJU9|G7VJU9_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK67|G7VK67_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNF1|G7VNF1_LEUME	38	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VM35|G7VM35_LEUME	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VK56|G7VK56_LEUME	41	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VLL1|G7VLL1_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJZ4|G7VJZ4_LEUME	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ09|G7VJ09_LEUME	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNK9|G7VNK9_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKB0|G7VKB0_LEUME	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ55|G7VJ55_LEUME	24	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G7VJN9|G7VJN9_LEUME	24	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G7VKC1|G7VKC1_LEUME	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VIN2|G7VIN2_LEUME	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7VKK4|G7VKK4_LEUME	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKB3|G7VKB3_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMA7|G7VMA7_LEUME	10	periplasm	membrane GO:0016020(IDA); periplasmic space GO:0042597(IEA);
+tr|G7VM02|G7VM02_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMC4|G7VMC4_LEUME	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VKB6|G7VKB6_LEUME	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); plasma membrane GO:0005886(IEA);
+tr|G7VL16|G7VL16_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VM25|G7VM25_LEUME	9	secreted	extracellular region GO:0005576(IEA);
+tr|G7VNE0|G7VNE0_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VND7|G7VND7_LEUME	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJK5|G7VJK5_LEUME	10	inner membrane	integral to membrane GO:0016021(IEA);
+tr|G7VM53|G7VM53_LEUME	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VNF8|G7VNF8_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ30|G7VJ30_LEUME	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLA8|G7VLA8_LEUME	31	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G7VKH5|G7VKH5_LEUME	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMR8|G7VMR8_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMN9|G7VMN9_LEUME	38	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJ03|G7VJ03_LEUME	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJE4|G7VJE4_LEUME	38	cytoplasm	cytosol GO:0005829(ISS);
+tr|G7VLQ5|G7VLQ5_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ84|G7VJ84_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLN6|G7VLN6_LEUME	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJD4|G7VJD4_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIQ3|G7VIQ3_LEUME	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMS9|G7VMS9_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VN25|G7VN25_LEUME	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIK0|G7VIK0_LEUME	12	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|G7VNB7|G7VNB7_LEUME	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VN84|G7VN84_LEUME	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VMF0|G7VMF0_LEUME	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VK27|G7VK27_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJC7|G7VJC7_LEUME	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL99|G7VL99_LEUME	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VLN5|G7VLN5_LEUME	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VLG4|G7VLG4_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL33|G7VL33_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL89|G7VL89_LEUME	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ26|G7VJ26_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ85|G7VJ85_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJD2|G7VJD2_LEUME	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VM04|G7VM04_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLP7|G7VLP7_LEUME	16	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|G7VNC8|G7VNC8_LEUME	20	periplasm	periplasmic space GO:0042597(IDA);
+tr|G7VKW4|G7VKW4_LEUME	21	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G7VMI2|G7VMI2_LEUME	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJM7|G7VJM7_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKR5|G7VKR5_LEUME	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VMT4|G7VMT4_LEUME	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VL67|G7VL67_LEUME	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJQ5|G7VJQ5_LEUME	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMN8|G7VMN8_LEUME	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL24|G7VL24_LEUME	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VKG1|G7VKG1_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKD3|G7VKD3_LEUME	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJF3|G7VJF3_LEUME	64	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKQ4|G7VKQ4_LEUME	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VMR4|G7VMR4_LEUME	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|G7VK30|G7VK30_LEUME	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VLG7|G7VLG7_LEUME	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VNI0|G7VNI0_LEUME	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VIY1|G7VIY1_LEUME	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VMK8|G7VMK8_LEUME	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VJ59|G7VJ59_LEUME	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VL18|G7VL18_LEUME	12	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|G7VK34|G7VK34_LEUME	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VJ19|G7VJ19_LEUME	13	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic space GO:0042597(IDA);
+tr|G7VL17|G7VL17_LEUME	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VN26|G7VN26_LEUME	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VME8|G7VME8_LEUME	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G7VJX3|G7VJX3_LEUME	32	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G7VLB7|G7VLB7_LEUME	8	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G7VJ45|G7VJ45_LEUME	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKT2|G7VKT2_LEUME	8	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G7VKP9|G7VKP9_LEUME	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VIU4|G7VIU4_LEUME	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7VKI2|G7VKI2_LEUME	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|G7VJ31|G7VJ31_LEUME	20	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G7VLF6|G7VLF6_LEUME	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7VKT7|G7VKT7_LEUME	20	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G7VN28|G7VN28_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VK11|G7VK11_LEUME	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM40|G7VM40_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKZ6|G7VKZ6_LEUME	72	secreted	extracellular region GO:0005576;
+tr|G7VL38|G7VL38_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM47|G7VM47_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT2|G7VLT2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMW9|G7VMW9_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VIS1|G7VIS1_LEUME	64	cytoplasm	cytoplasm GO:0005737
+tr|G7VN17|G7VN17_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VK09|G7VK09_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJL9|G7VJL9_LEUME	32	cytoplasm	cytoplasm GO:0005737
+tr|G7VNL4|G7VNL4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJD9|G7VJD9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKY8|G7VKY8_LEUME	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMC5|G7VMC5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIW4|G7VIW4_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX3|G7VIX3_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VNL8|G7VNL8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL69|G7VL69_LEUME	30	periplasm	periplasmic space GO:0042597;
+tr|G7VKU1|G7VKU1_LEUME	57	secreted	extracellular region GO:0005576;
+tr|G7VN08|G7VN08_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ8|G7VKJ8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIU3|G7VIU3_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK31|G7VK31_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMB9|G7VMB9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMV1|G7VMV1_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VL86|G7VL86_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM07|G7VM07_LEUME	61	cytoplasm	cytoplasm GO:0005737
+tr|G7VNN5|G7VNN5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK14|G7VK14_LEUME	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJI2|G7VJI2_LEUME	43	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF3|G7VLF3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLU4|G7VLU4_LEUME	54	cytoplasm	cytoplasm GO:0005737
+tr|G7VLK7|G7VLK7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNF9|G7VNF9_LEUME	45	secreted	extracellular region GO:0005576;
+tr|G7VJD7|G7VJD7_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMV2|G7VMV2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ0|G7VLJ0_LEUME	58	cytoplasm	cytoplasm GO:0005737
+tr|G7VKR1|G7VKR1_LEUME	39	cytoplasm	cytoplasm GO:0005737
+tr|G7VKF2|G7VKF2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VL81|G7VL81_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMG2|G7VMG2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIS2|G7VIS2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ32|G7VJ32_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNG1|G7VNG1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN44|G7VN44_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VN55|G7VN55_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VMQ4|G7VMQ4_LEUME	40	secreted	extracellular region GO:0005576;
+tr|G7VNE9|G7VNE9_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIT2|G7VIT2_LEUME	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VME9|G7VME9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLE3|G7VLE3_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ46|G7VJ46_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLW1|G7VLW1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKF3|G7VKF3_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ56|G7VJ56_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKZ5|G7VKZ5_LEUME	62	cytoplasm	cytoplasm GO:0005737
+tr|G7VJS6|G7VJS6_LEUME	56	secreted	extracellular region GO:0005576;
+tr|G7VM97|G7VM97_LEUME	64	secreted	extracellular region GO:0005576;
+tr|G7VKV4|G7VKV4_LEUME	69	secreted	extracellular region GO:0005576;
+tr|G7VM14|G7VM14_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VKZ0|G7VKZ0_LEUME	40	secreted	extracellular region GO:0005576;
+tr|G7VM45|G7VM45_LEUME	88	cytoplasm	cytoplasm GO:0005737
+tr|G7VNE1|G7VNE1_LEUME	59	cytoplasm	cytoplasm GO:0005737
+tr|G7VM44|G7VM44_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLR9|G7VLR9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLE5|G7VLE5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM46|G7VM46_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJX7|G7VJX7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMC1|G7VMC1_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VLE2|G7VLE2_LEUME	59	cytoplasm	cytoplasm GO:0005737
+tr|G7VIT8|G7VIT8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLR4|G7VLR4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM48|G7VM48_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJI5|G7VJI5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLD6|G7VLD6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLS5|G7VLS5_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VM34|G7VM34_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKC7|G7VKC7_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VKD9|G7VKD9_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VNA0|G7VNA0_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VM67|G7VM67_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VN59|G7VN59_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJV1|G7VJV1_LEUME	42	secreted	extracellular region GO:0005576;
+tr|G7VMH3|G7VMH3_LEUME	82	secreted	extracellular region GO:0005576;
+tr|G7VN18|G7VN18_LEUME	37	cytoplasm	cytoplasm GO:0005737
+tr|G7VK02|G7VK02_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM99|G7VM99_LEUME	75	cytoplasm	cytoplasm GO:0005737
+tr|G7VMG6|G7VMG6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJX6|G7VJX6_LEUME	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMS1|G7VMS1_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VNK5|G7VNK5_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VMY3|G7VMY3_LEUME	42	secreted	extracellular region GO:0005576;
+tr|G7VNL9|G7VNL9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKX0|G7VKX0_LEUME	56	cytoplasm	cytoplasm GO:0005737
+tr|G7VL75|G7VL75_LEUME	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMG1|G7VMG1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIX7|G7VIX7_LEUME	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLY5|G7VLY5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN10|G7VN10_LEUME	42	secreted	extracellular region GO:0005576;
+tr|G7VJG8|G7VJG8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VL94|G7VL94_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN16|G7VN16_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNN6|G7VNN6_LEUME	78	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ6|G7VJJ6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJH8|G7VJH8_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VK42|G7VK42_LEUME	77	cytoplasm	cytoplasm GO:0005737
+tr|G7VM95|G7VM95_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VN45|G7VN45_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNM6|G7VNM6_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VNB5|G7VNB5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJZ6|G7VJZ6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJA3|G7VJA3_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VJD5|G7VJD5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLQ2|G7VLQ2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK19|G7VK19_LEUME	43	cytoplasm	cytoplasm GO:0005737
+tr|G7VM43|G7VM43_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VN49|G7VN49_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VIW9|G7VIW9_LEUME	33	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK8|G7VJK8_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VLS4|G7VLS4_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VN72|G7VN72_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN94|G7VN94_LEUME	75	cytoplasm	cytoplasm GO:0005737
+tr|G7VIU7|G7VIU7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMU5|G7VMU5_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VLH5|G7VLH5_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VME5|G7VME5_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VLN2|G7VLN2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL42|G7VL42_LEUME	50	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH2|G7VNH2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VK05|G7VK05_LEUME	37	secreted	extracellular region GO:0005576;
+tr|G7VM66|G7VM66_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKX6|G7VKX6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL80|G7VL80_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMI9|G7VMI9_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VL92|G7VL92_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM9|G7VIM9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNN9|G7VNN9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK26|G7VK26_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMA9|G7VMA9_LEUME	20	periplasm	periplasmic space GO:0042597;
+tr|G7VKY2|G7VKY2_LEUME	62	cytoplasm	cytoplasm GO:0005737
+tr|G7VM98|G7VM98_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VL54|G7VL54_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ53|G7VJ53_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK18|G7VK18_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIN3|G7VIN3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJQ6|G7VJQ6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ07|G7VJ07_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNI5|G7VNI5_LEUME	76	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG4|G7VJG4_LEUME	67	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB6|G7VJB6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMV9|G7VMV9_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VN79|G7VN79_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJW7|G7VJW7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJH5|G7VJH5_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMP0|G7VMP0_LEUME	47	cytoplasm	cytoplasm GO:0005737
+tr|G7VMT2|G7VMT2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM21|G7VM21_LEUME	60	secreted	extracellular region GO:0005576;
+tr|G7VKY5|G7VKY5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMK6|G7VMK6_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNJ1|G7VNJ1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKE5|G7VKE5_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VMP4|G7VMP4_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKA0|G7VKA0_LEUME	33	secreted	extracellular region GO:0005576;
+tr|G7VLP8|G7VLP8_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM8|G7VIM8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKZ9|G7VKZ9_LEUME	66	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ2|G7VKQ2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIR5|G7VIR5_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VMQ3|G7VMQ3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKX9|G7VKX9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL66|G7VL66_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN31|G7VN31_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT0|G7VLT0_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VM11|G7VM11_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VMC7|G7VMC7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ7|G7VKQ7_LEUME	45	periplasm	periplasmic space GO:0042597;
+tr|G7VKA5|G7VKA5_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLI1|G7VLI1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF0|G7VLF0_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VJ66|G7VJ66_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJT7|G7VJT7_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VM64|G7VM64_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJM3|G7VJM3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMC9|G7VMC9_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ4|G7VJJ4_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VLB1|G7VLB1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VK49|G7VK49_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKF1|G7VKF1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF9|G7VLF9_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VNM1|G7VNM1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VM27|G7VM27_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMS4|G7VMS4_LEUME	59	cytoplasm	cytoplasm GO:0005737
+tr|G7VN03|G7VN03_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VJG5|G7VJG5_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VL30|G7VL30_LEUME	48	secreted	extracellular region GO:0005576;
+tr|G7VKS6|G7VKS6_LEUME	44	secreted	extracellular region GO:0005576;
+tr|G7VLP5|G7VLP5_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH9|G7VMH9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN60|G7VN60_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VLH1|G7VLH1_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VLS6|G7VLS6_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW7|G7VMW7_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ67|G7VJ67_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK80|G7VK80_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VKM4|G7VKM4_LEUME	76	cytoplasm	cytoplasm GO:0005737
+tr|G7VMG3|G7VMG3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMZ3|G7VMZ3_LEUME	57	secreted	extracellular region GO:0005576;
+tr|G7VMM4|G7VMM4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIM1|G7VIM1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM80|G7VM80_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ8|G7VLZ8_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW1|G7VMW1_LEUME	44	secreted	extracellular region GO:0005576;
+tr|G7VL02|G7VL02_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKJ2|G7VKJ2_LEUME	65	cytoplasm	cytoplasm GO:0005737
+tr|G7VM71|G7VM71_LEUME	27	periplasm	periplasmic space GO:0042597;
+tr|G7VL71|G7VL71_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK44|G7VK44_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ28|G7VJ28_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKL1|G7VKL1_LEUME	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNB3|G7VNB3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNK4|G7VNK4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB8|G7VJB8_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VMQ1|G7VMQ1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMR0|G7VMR0_LEUME	64	cytoplasm	cytoplasm GO:0005737
+tr|G7VKP3|G7VKP3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKE3|G7VKE3_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKH0|G7VKH0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM61|G7VM61_LEUME	67	secreted	extracellular region GO:0005576;
+tr|G7VLD2|G7VLD2_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VIQ2|G7VIQ2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJS4|G7VJS4_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ2|G7VMZ2_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU6|G7VJU6_LEUME	45	secreted	extracellular region GO:0005576;
+tr|G7VJL6|G7VJL6_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJF9|G7VJF9_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ22|G7VJ22_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMY6|G7VMY6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLA1|G7VLA1_LEUME	58	cytoplasm	cytoplasm GO:0005737
+tr|G7VN47|G7VN47_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VK77|G7VK77_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VNM7|G7VNM7_LEUME	64	secreted	extracellular region GO:0005576;
+tr|G7VKY9|G7VKY9_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VN15|G7VN15_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH5|G7VNH5_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMZ1|G7VMZ1_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VKB4|G7VKB4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK84|G7VK84_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF1|G7VLF1_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VMU9|G7VMU9_LEUME	52	cytoplasm	cytoplasm GO:0005737
+tr|G7VNL7|G7VNL7_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK33|G7VK33_LEUME	91	secreted	extracellular region GO:0005576;
+tr|G7VMX5|G7VMX5_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VLM8|G7VLM8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMR5|G7VMR5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMI4|G7VMI4_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VMB2|G7VMB2_LEUME	35	cytoplasm	cytoplasm GO:0005737
+tr|G7VNP6|G7VNP6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK41|G7VK41_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLK0|G7VLK0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLI7|G7VLI7_LEUME	41	cytoplasm	cytoplasm GO:0005737
+tr|G7VML5|G7VML5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJZ5|G7VJZ5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT5|G7VLT5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK1|G7VJK1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNL0|G7VNL0_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VMM0|G7VMM0_LEUME	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ83|G7VJ83_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNN7|G7VNN7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLW4|G7VLW4_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VKA1|G7VKA1_LEUME	36	cytoplasm	cytoplasm GO:0005737
+tr|G7VLN0|G7VLN0_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ60|G7VJ60_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKY7|G7VKY7_LEUME	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIS5|G7VIS5_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VJY5|G7VJY5_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK86|G7VK86_LEUME	76	secreted	extracellular region GO:0005576;
+tr|G7VIQ5|G7VIQ5_LEUME	55	secreted	extracellular region GO:0005576;
+tr|G7VJH6|G7VJH6_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIY7|G7VIY7_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKD5|G7VKD5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJE7|G7VJE7_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN76|G7VN76_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLX4|G7VLX4_LEUME	36	cytoplasm	cytoplasm GO:0005737
+tr|G7VN46|G7VN46_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VKN5|G7VKN5_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VNP0|G7VNP0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKU7|G7VKU7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJL7|G7VJL7_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW7|G7VKW7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMQ0|G7VMQ0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKT6|G7VKT6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH5|G7VMH5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMD5|G7VMD5_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VMV7|G7VMV7_LEUME	53	secreted	extracellular region GO:0005576;
+tr|G7VNK2|G7VNK2_LEUME	51	secreted	extracellular region GO:0005576;
+tr|G7VJY3|G7VJY3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN53|G7VN53_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJE3|G7VJE3_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VK45|G7VK45_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJR4|G7VJR4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNE2|G7VNE2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM55|G7VM55_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKG9|G7VKG9_LEUME	74	secreted	extracellular region GO:0005576;
+tr|G7VMY5|G7VMY5_LEUME	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJM4|G7VJM4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIP5|G7VIP5_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ92|G7VJ92_LEUME	52	cytoplasm	cytoplasm GO:0005737
+tr|G7VJV3|G7VJV3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMF5|G7VMF5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJV2|G7VJV2_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIP1|G7VIP1_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX2|G7VMX2_LEUME	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJG7|G7VJG7_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VIU2|G7VIU2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ8|G7VIZ8_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VLG2|G7VLG2_LEUME	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKM2|G7VKM2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ10|G7VJ10_LEUME	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJZ1|G7VJZ1_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VK32|G7VK32_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIP9|G7VIP9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMN7|G7VMN7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN93|G7VN93_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VL07|G7VL07_LEUME	52	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM2|G7VIM2_LEUME	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJC3|G7VJC3_LEUME	51	secreted	extracellular region GO:0005576;
+tr|G7VLT8|G7VLT8_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VIR8|G7VIR8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN50|G7VN50_LEUME	69	cytoplasm	cytoplasm GO:0005737
+tr|G7VND2|G7VND2_LEUME	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKF8|G7VKF8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK6|G7VJK6_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN90|G7VN90_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK54|G7VK54_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIT9|G7VIT9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLU3|G7VLU3_LEUME	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMA5|G7VMA5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN82|G7VN82_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VKF4|G7VKF4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJT2|G7VJT2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLS9|G7VLS9_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VL70|G7VL70_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ3|G7VLJ3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKH1|G7VKH1_LEUME	60	secreted	extracellular region GO:0005576;
+tr|G7VJL5|G7VJL5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN23|G7VN23_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM57|G7VM57_LEUME	67	secreted	extracellular region GO:0005576;
+tr|G7VKG3|G7VKG3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNN8|G7VNN8_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLJ2|G7VLJ2_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMP7|G7VMP7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKV2|G7VKV2_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VLA3|G7VLA3_LEUME	65	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ74|G7VJ74_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VK60|G7VK60_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG1|G7VLG1_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNH0|G7VNH0_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VNC1|G7VNC1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW6|G7VMW6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLH0|G7VLH0_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ90|G7VJ90_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ43|G7VJ43_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VLK4|G7VLK4_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ6|G7VLZ6_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH8|G7VMH8_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR7|G7VLR7_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIR9|G7VIR9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLW2|G7VLW2_LEUME	69	secreted	extracellular region GO:0005576;
+tr|G7VLJ8|G7VLJ8_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VKL0|G7VKL0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN00|G7VN00_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKU3|G7VKU3_LEUME	39	secreted	extracellular region GO:0005576;
+tr|G7VL93|G7VL93_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNG5|G7VNG5_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VM06|G7VM06_LEUME	58	periplasm	periplasmic space GO:0042597;
+tr|G7VKN3|G7VKN3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMR6|G7VMR6_LEUME	58	secreted	extracellular region GO:0005576;
+tr|G7VIX6|G7VIX6_LEUME	70	secreted	extracellular region GO:0005576;
+tr|G7VJR0|G7VJR0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLP0|G7VLP0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJH7|G7VJH7_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VMK3|G7VMK3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ8|G7VMZ8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ61|G7VJ61_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR1|G7VLR1_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI9|G7VNI9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKY0|G7VKY0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKC8|G7VKC8_LEUME	53	cytoplasm	cytoplasm GO:0005737
+tr|G7VLP4|G7VLP4_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VL46|G7VL46_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLP2|G7VLP2_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VLC3|G7VLC3_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ89|G7VJ89_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM09|G7VM09_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VJA2|G7VJA2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNJ2|G7VNJ2_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VJC0|G7VJC0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKZ3|G7VKZ3_LEUME	44	secreted	extracellular region GO:0005576;
+tr|G7VLL4|G7VLL4_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU1|G7VJU1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIZ9|G7VIZ9_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKW2|G7VKW2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIU0|G7VIU0_LEUME	22	periplasm	periplasmic space GO:0042597;
+tr|G7VN02|G7VN02_LEUME	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKZ2|G7VKZ2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLD4|G7VLD4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM68|G7VM68_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN52|G7VN52_LEUME	70	secreted	extracellular region GO:0005576;
+tr|G7VK12|G7VK12_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VLI9|G7VLI9_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLS1|G7VLS1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VML4|G7VML4_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLE6|G7VLE6_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI1|G7VNI1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJW0|G7VJW0_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VME4|G7VME4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJL3|G7VJL3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ5|G7VKQ5_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM4|G7VIM4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKU0|G7VKU0_LEUME	31	fimbrium	pilus GO:0009289;
+tr|G7VMJ2|G7VMJ2_LEUME	88	cytoplasm	cytoplasm GO:0005737
+tr|G7VLQ6|G7VLQ6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJS1|G7VJS1_LEUME	63	cytoplasm	cytoplasm GO:0005737
+tr|G7VM42|G7VM42_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VIS0|G7VIS0_LEUME	45	cytoplasm	cytoplasm GO:0005737
+tr|G7VM60|G7VM60_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLE0|G7VLE0_LEUME	37	cytoplasm	cytoplasm GO:0005737
+tr|G7VLV9|G7VLV9_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VN24|G7VN24_LEUME	48	cytoplasm	cytoplasm GO:0005737
+tr|G7VKK8|G7VKK8_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLW7|G7VLW7_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VJS0|G7VJS0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL2|G7VIL2_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VMD4|G7VMD4_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLK1|G7VLK1_LEUME	82	secreted	extracellular region GO:0005576;
+tr|G7VKH2|G7VKH2_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ1|G7VKQ1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIQ9|G7VIQ9_LEUME	68	secreted	extracellular region GO:0005576;
+tr|G7VJV9|G7VJV9_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLI4|G7VLI4_LEUME	62	fimbrium	pilus GO:0009289;
+tr|G7VL51|G7VL51_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJM5|G7VJM5_LEUME	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMF6|G7VMF6_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH1|G7VNH1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJH0|G7VJH0_LEUME	69	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG6|G7VJG6_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ3|G7VKJ3_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VMT0|G7VMT0_LEUME	68	secreted	extracellular region GO:0005576;
+tr|G7VM39|G7VM39_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ50|G7VJ50_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKY6|G7VKY6_LEUME	31	secreted	extracellular region GO:0005576;
+tr|G7VL44|G7VL44_LEUME	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN07|G7VN07_LEUME	75	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ29|G7VJ29_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VJM2|G7VJM2_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VMI0|G7VMI0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKX2|G7VKX2_LEUME	74	cytoplasm	cytoplasm GO:0005737
+tr|G7VJT5|G7VJT5_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VJC2|G7VJC2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKB2|G7VKB2_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLC8|G7VLC8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIV5|G7VIV5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM24|G7VM24_LEUME	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNM8|G7VNM8_LEUME	41	secreted	extracellular region GO:0005576;
+tr|G7VMP2|G7VMP2_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VKL6|G7VKL6_LEUME	70	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM5|G7VIM5_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJP1|G7VJP1_LEUME	57	secreted	extracellular region GO:0005576;
+tr|G7VK95|G7VK95_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK85|G7VK85_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMN5|G7VMN5_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI8|G7VNI8_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ5|G7VMZ5_LEUME	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIU6|G7VIU6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VIV3|G7VIV3_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VL85|G7VL85_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMV3|G7VMV3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMJ1|G7VMJ1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKN8|G7VKN8_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VM72|G7VM72_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMC3|G7VMC3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VL53|G7VL53_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VND1|G7VND1_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VJP9|G7VJP9_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN91|G7VN91_LEUME	53	secreted	extracellular region GO:0005576;
+tr|G7VJ81|G7VJ81_LEUME	34	cytoplasm	cytoplasm GO:0005737
+tr|G7VMS3|G7VMS3_LEUME	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKH3|G7VKH3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLE8|G7VLE8_LEUME	72	secreted	extracellular region GO:0005576;
+tr|G7VL82|G7VL82_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJM8|G7VJM8_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VN68|G7VN68_LEUME	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM82|G7VM82_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT1|G7VLT1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJL2|G7VJL2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJI3|G7VJI3_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ49|G7VJ49_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VL25|G7VL25_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ77|G7VJ77_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ7|G7VJJ7_LEUME	22	secreted	extracellular region GO:0005576;
+tr|G7VLQ8|G7VLQ8_LEUME	41	secreted	extracellular region GO:0005576;
+tr|G7VM51|G7VM51_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM41|G7VM41_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ2|G7VJJ2_LEUME	48	secreted	extracellular region GO:0005576;
+tr|G7VK82|G7VK82_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMI6|G7VMI6_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VKR3|G7VKR3_LEUME	71	periplasm	periplasmic space GO:0042597;
+tr|G7VLQ3|G7VLQ3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLN8|G7VLN8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB0|G7VJB0_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKC6|G7VKC6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK35|G7VK35_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKB8|G7VKB8_LEUME	64	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR3|G7VLR3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLX9|G7VLX9_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VNA2|G7VNA2_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VN97|G7VN97_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJR8|G7VJR8_LEUME	66	periplasm	periplasmic space GO:0042597;
+tr|G7VJT9|G7VJT9_LEUME	39	cytoplasm	cytoplasm GO:0005737
+tr|G7VIW2|G7VIW2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN98|G7VN98_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN75|G7VN75_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLK2|G7VLK2_LEUME	86	secreted	extracellular region GO:0005576;
+tr|G7VIV6|G7VIV6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJP2|G7VJP2_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJA1|G7VJA1_LEUME	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJT8|G7VJT8_LEUME	57	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW1|G7VKW1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ6|G7VIZ6_LEUME	76	secreted	extracellular region GO:0005576;
+tr|G7VLE1|G7VLE1_LEUME	60	secreted	extracellular region GO:0005576;
+tr|G7VL87|G7VL87_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VNE3|G7VNE3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNC9|G7VNC9_LEUME	69	secreted	extracellular region GO:0005576;
+tr|G7VLH9|G7VLH9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNA5|G7VNA5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ1|G7VKJ1_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJA9|G7VJA9_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIT6|G7VIT6_LEUME	56	cytoplasm	cytoplasm GO:0005737
+tr|G7VNJ4|G7VNJ4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLU2|G7VLU2_LEUME	44	periplasm	periplasmic space GO:0042597;
+tr|G7VN33|G7VN33_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLV0|G7VLV0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW5|G7VKW5_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VNN4|G7VNN4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKI5|G7VKI5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIW8|G7VIW8_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN41|G7VN41_LEUME	40	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ95|G7VJ95_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VNC3|G7VNC3_LEUME	34	periplasm	periplasmic space GO:0042597;
+tr|G7VMD3|G7VMD3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJR9|G7VJR9_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB7|G7VJB7_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VM12|G7VM12_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM31|G7VM31_LEUME	30	secreted	extracellular region GO:0005576;
+tr|G7VKG5|G7VKG5_LEUME	60	cytoplasm	cytoplasm GO:0005737
+tr|G7VJY8|G7VJY8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF8|G7VLF8_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX8|G7VIX8_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VN56|G7VN56_LEUME	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMU3|G7VMU3_LEUME	43	cytoplasm	cytoplasm GO:0005737
+tr|G7VJW4|G7VJW4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ51|G7VJ51_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VJW8|G7VJW8_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ08|G7VJ08_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLY8|G7VLY8_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLA2|G7VLA2_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK2|G7VJK2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL65|G7VL65_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VLN9|G7VLN9_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VLM7|G7VLM7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKC9|G7VKC9_LEUME	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJS7|G7VJS7_LEUME	73	secreted	extracellular region GO:0005576;
+tr|G7VJT3|G7VJT3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG9|G7VLG9_LEUME	67	secreted	extracellular region GO:0005576;
+tr|G7VK21|G7VK21_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK37|G7VK37_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VL68|G7VL68_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKG4|G7VKG4_LEUME	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN11|G7VN11_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VKS0|G7VKS0_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF7|G7VLF7_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ25|G7VJ25_LEUME	52	periplasm	periplasmic space GO:0042597;
+tr|G7VK79|G7VK79_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ2|G7VIZ2_LEUME	66	secreted	extracellular region GO:0005576;
+tr|G7VM69|G7VM69_LEUME	64	cytoplasm	cytoplasm GO:0005737
+tr|G7VNE6|G7VNE6_LEUME	47	cytoplasm	cytoplasm GO:0005737
+tr|G7VJN2|G7VJN2_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VK64|G7VK64_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNM0|G7VNM0_LEUME	73	secreted	extracellular region GO:0005576;
+tr|G7VK72|G7VK72_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VLE7|G7VLE7_LEUME	26	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM28|G7VM28_LEUME	70	cytoplasm	cytoplasm GO:0005737
+tr|G7VMC0|G7VMC0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJV4|G7VJV4_LEUME	74	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG1|G7VJG1_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK28|G7VK28_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN34|G7VN34_LEUME	36	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX9|G7VMX9_LEUME	37	secreted	extracellular region GO:0005576;
+tr|G7VNL2|G7VNL2_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VMJ3|G7VMJ3_LEUME	42	cytoplasm	cytoplasm GO:0005737
+tr|G7VMI7|G7VMI7_LEUME	30	secreted	extracellular region GO:0005576;
+tr|G7VKC0|G7VKC0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJP8|G7VJP8_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VKK2|G7VKK2_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLC0|G7VLC0_LEUME	45	secreted	extracellular region GO:0005576;
+tr|G7VN85|G7VN85_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJR1|G7VJR1_LEUME	74	cytoplasm	cytoplasm GO:0005737
+tr|G7VKU8|G7VKU8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMI1|G7VMI1_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VJL8|G7VJL8_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VLH7|G7VLH7_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VIN6|G7VIN6_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH6|G7VNH6_LEUME	78	secreted	extracellular region GO:0005576;
+tr|G7VNJ3|G7VNJ3_LEUME	55	cytoplasm	cytoplasm GO:0005737
+tr|G7VJI4|G7VJI4_LEUME	61	cytoplasm	cytoplasm GO:0005737
+tr|G7VK36|G7VK36_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VKN9|G7VKN9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJW2|G7VJW2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI6|G7VNI6_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VMY8|G7VMY8_LEUME	53	secreted	extracellular region GO:0005576;
+tr|G7VMK5|G7VMK5_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VIR1|G7VIR1_LEUME	53	fimbrium	pilus GO:0009289;
+tr|G7VJX0|G7VJX0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW9|G7VKW9_LEUME	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLI6|G7VLI6_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM32|G7VM32_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMA4|G7VMA4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ82|G7VJ82_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM73|G7VM73_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VLB8|G7VLB8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM26|G7VM26_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW2|G7VMW2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJH2|G7VJH2_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW4|G7VMW4_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ0|G7VLZ0_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VJE5|G7VJE5_LEUME	53	secreted	extracellular region GO:0005576;
+tr|G7VIX1|G7VIX1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMQ9|G7VMQ9_LEUME	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLV8|G7VLV8_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ86|G7VJ86_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VK75|G7VK75_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VL52|G7VL52_LEUME	36	secreted	extracellular region GO:0005576;
+tr|G7VLN3|G7VLN3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNP7|G7VNP7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ44|G7VJ44_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJT4|G7VJT4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJD1|G7VJD1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH3|G7VNH3_LEUME	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ14|G7VJ14_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VJY6|G7VJY6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNJ7|G7VNJ7_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VJC4|G7VJC4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL01|G7VL01_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ5|G7VLJ5_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL5|G7VIL5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VNA1|G7VNA1_LEUME	51	secreted	extracellular region GO:0005576;
+tr|G7VMN2|G7VMN2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKF0|G7VKF0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL23|G7VL23_LEUME	43	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR6|G7VLR6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM18|G7VM18_LEUME	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMH4|G7VMH4_LEUME	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKI4|G7VKI4_LEUME	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJR5|G7VJR5_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VLW3|G7VLW3_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ57|G7VJ57_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VM33|G7VM33_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNC4|G7VNC4_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKC3|G7VKC3_LEUME	73	secreted	extracellular region GO:0005576;
+tr|G7VJ97|G7VJ97_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VLF2|G7VLF2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIK8|G7VIK8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ4|G7VLZ4_LEUME	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLV3|G7VLV3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIW3|G7VIW3_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMX3|G7VMX3_LEUME	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIR0|G7VIR0_LEUME	66	secreted	extracellular region GO:0005576;
+tr|G7VM54|G7VM54_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VNG6|G7VNG6_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VK13|G7VK13_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VJS9|G7VJS9_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VM76|G7VM76_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB3|G7VJB3_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMU6|G7VMU6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM70|G7VM70_LEUME	50	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ16|G7VJ16_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB1|G7VJB1_LEUME	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKY3|G7VKY3_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ3|G7VLZ3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNL1|G7VNL1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ7|G7VIZ7_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VN54|G7VN54_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VNM4|G7VNM4_LEUME	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN77|G7VN77_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VIP0|G7VIP0_LEUME	83	secreted	extracellular region GO:0005576;
+tr|G7VJV7|G7VJV7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL1|G7VIL1_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VLY2|G7VLY2_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH0|G7VMH0_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK4|G7VJK4_LEUME	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKA9|G7VKA9_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VK48|G7VK48_LEUME	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIK1|G7VIK1_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VLV4|G7VLV4_LEUME	67	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ4|G7VLJ4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKV1|G7VKV1_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU2|G7VJU2_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ34|G7VJ34_LEUME	39	secreted	extracellular region GO:0005576;
+tr|G7VKI1|G7VKI1_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VLN7|G7VLN7_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VIP6|G7VIP6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VLL2|G7VLL2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR8|G7VLR8_LEUME	56	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX9|G7VIX9_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VMU8|G7VMU8_LEUME	69	cytoplasm	cytoplasm GO:0005737
+tr|G7VMK2|G7VMK2_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKS2|G7VKS2_LEUME	64	cytoplasm	cytoplasm GO:0005737
+tr|G7VL64|G7VL64_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKV0|G7VKV0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJB9|G7VJB9_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VN37|G7VN37_LEUME	65	periplasm	periplasmic space GO:0042597;
+tr|G7VKU9|G7VKU9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJA4|G7VJA4_LEUME	21	cytoplasm	cytoplasm GO:0005737
+tr|G7VL49|G7VL49_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VN96|G7VN96_LEUME	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLT6|G7VLT6_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VMB0|G7VMB0_LEUME	42	periplasm	periplasmic space GO:0042597;
+tr|G7VK24|G7VK24_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL47|G7VL47_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKK5|G7VKK5_LEUME	40	cytoplasm	cytoplasm GO:0005737
+tr|G7VKP5|G7VKP5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ63|G7VJ63_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VN09|G7VN09_LEUME	79	secreted	extracellular region GO:0005576;
+tr|G7VNF4|G7VNF4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJK3|G7VJK3_LEUME	13	fimbrium	pilus GO:0009289;
+tr|G7VJU0|G7VJU0_LEUME	66	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ54|G7VJ54_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNH4|G7VNH4_LEUME	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLE4|G7VLE4_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG2|G7VJG2_LEUME	79	cytoplasm	cytoplasm GO:0005737
+tr|G7VLQ0|G7VLQ0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ36|G7VJ36_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN13|G7VN13_LEUME	75	secreted	extracellular region GO:0005576;
+tr|G7VL63|G7VL63_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKK1|G7VKK1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ9|G7VMZ9_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ5|G7VIZ5_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VLB9|G7VLB9_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK25|G7VK25_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VL91|G7VL91_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VK73|G7VK73_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMY7|G7VMY7_LEUME	74	secreted	extracellular region GO:0005576;
+tr|G7VL28|G7VL28_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ7|G7VLJ7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIM3|G7VIM3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMN6|G7VMN6_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VKL7|G7VKL7_LEUME	53	secreted	extracellular region GO:0005576;
+tr|G7VIR3|G7VIR3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM81|G7VM81_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLF4|G7VLF4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ93|G7VJ93_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKZ8|G7VKZ8_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW6|G7VKW6_LEUME	59	secreted	extracellular region GO:0005576;
+tr|G7VJL0|G7VJL0_LEUME	76	secreted	extracellular region GO:0005576;
+tr|G7VNF0|G7VNF0_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKS7|G7VKS7_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLR0|G7VLR0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMG8|G7VMG8_LEUME	69	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI2|G7VNI2_LEUME	41	secreted	extracellular region GO:0005576;
+tr|G7VM83|G7VM83_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJF2|G7VJF2_LEUME	77	cytoplasm	cytoplasm GO:0005737
+tr|G7VN62|G7VN62_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIT0|G7VIT0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX5|G7VIX5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN95|G7VN95_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VMK0|G7VMK0_LEUME	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VL97|G7VL97_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMY1|G7VMY1_LEUME	35	cytoplasm	cytoplasm GO:0005737
+tr|G7VMS0|G7VMS0_LEUME	55	cytoplasm	cytoplasm GO:0005737
+tr|G7VKT1|G7VKT1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKK7|G7VKK7_LEUME	46	secreted	extracellular region GO:0005576;
+tr|G7VM74|G7VM74_LEUME	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKX1|G7VKX1_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VL58|G7VL58_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VM52|G7VM52_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT7|G7VLT7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNK0|G7VNK0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VML7|G7VML7_LEUME	47	cytoplasm	cytoplasm GO:0005737
+tr|G7VNI4|G7VNI4_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VMY0|G7VMY0_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VL76|G7VL76_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ15|G7VJ15_LEUME	72	periplasm	periplasmic space GO:0042597;
+tr|G7VN32|G7VN32_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK00|G7VK00_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLX8|G7VLX8_LEUME	42	cytoplasm	cytoplasm GO:0005737
+tr|G7VN30|G7VN30_LEUME	60	cytoplasm	cytoplasm GO:0005737
+tr|G7VK51|G7VK51_LEUME	45	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ5|G7VJJ5_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VMN3|G7VMN3_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VNJ8|G7VNJ8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKU4|G7VKU4_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIY2|G7VIY2_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VN89|G7VN89_LEUME	67	cytoplasm	cytoplasm GO:0005737
+tr|G7VND4|G7VND4_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ68|G7VJ68_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMD2|G7VMD2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMI8|G7VMI8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIS6|G7VIS6_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH6|G7VMH6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJU8|G7VJU8_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VKR9|G7VKR9_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VN48|G7VN48_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VNG8|G7VNG8_LEUME	65	secreted	extracellular region GO:0005576;
+tr|G7VKP6|G7VKP6_LEUME	68	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL8|G7VIL8_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VN42|G7VN42_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK08|G7VK08_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VMJ7|G7VMJ7_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ75|G7VJ75_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJM9|G7VJM9_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VN38|G7VN38_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLK5|G7VLK5_LEUME	60	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG0|G7VLG0_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMT7|G7VMT7_LEUME	59	cytoplasm	cytoplasm GO:0005737
+tr|G7VMP5|G7VMP5_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VJN1|G7VJN1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM17|G7VM17_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VLA9|G7VLA9_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ0|G7VKQ0_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VKY1|G7VKY1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK78|G7VK78_LEUME	88	cytoplasm	cytoplasm GO:0005737
+tr|G7VLY6|G7VLY6_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ01|G7VJ01_LEUME	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJD6|G7VJD6_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VLZ5|G7VLZ5_LEUME	32	secreted	extracellular region GO:0005576;
+tr|G7VM85|G7VM85_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLE9|G7VLE9_LEUME	78	secreted	extracellular region GO:0005576;
+tr|G7VIU9|G7VIU9_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VNP1|G7VNP1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLC9|G7VLC9_LEUME	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNF2|G7VNF2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNB6|G7VNB6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK40|G7VK40_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VKD0|G7VKD0_LEUME	43	cytoplasm	cytoplasm GO:0005737
+tr|G7VN81|G7VN81_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VKR7|G7VKR7_LEUME	77	cytoplasm	cytoplasm GO:0005737
+tr|G7VLC7|G7VLC7_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VK55|G7VK55_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VIZ3|G7VIZ3_LEUME	47	secreted	extracellular region GO:0005576;
+tr|G7VIR2|G7VIR2_LEUME	35	secreted	extracellular region GO:0005576;
+tr|G7VLB0|G7VLB0_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VIV9|G7VIV9_LEUME	81	cytoplasm	cytoplasm GO:0005737
+tr|G7VIR6|G7VIR6_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM08|G7VM08_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VIT5|G7VIT5_LEUME	65	cytoplasm	cytoplasm GO:0005737
+tr|G7VKX7|G7VKX7_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJR2|G7VJR2_LEUME	55	secreted	extracellular region GO:0005576;
+tr|G7VLC4|G7VLC4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLD9|G7VLD9_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLQ4|G7VLQ4_LEUME	42	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ4|G7VKJ4_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VL22|G7VL22_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMM9|G7VMM9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM58|G7VM58_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK87|G7VK87_LEUME	67	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX4|G7VMX4_LEUME	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMW5|G7VMW5_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VIU1|G7VIU1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJN7|G7VJN7_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJY0|G7VJY0_LEUME	41	periplasm	periplasmic space GO:0042597;
+tr|G7VL09|G7VL09_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMS5|G7VMS5_LEUME	25	periplasm	periplasmic space GO:0042597;
+tr|G7VJG0|G7VJG0_LEUME	75	cytoplasm	cytoplasm GO:0005737
+tr|G7VM29|G7VM29_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJH3|G7VJH3_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VKU2|G7VKU2_LEUME	31	secreted	extracellular region GO:0005576;
+tr|G7VIY9|G7VIY9_LEUME	45	secreted	extracellular region GO:0005576;
+tr|G7VIQ6|G7VIQ6_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VJV8|G7VJV8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJM1|G7VJM1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLX0|G7VLX0_LEUME	55	secreted	extracellular region GO:0005576;
+tr|G7VM05|G7VM05_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VJQ2|G7VJQ2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN05|G7VN05_LEUME	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMM1|G7VMM1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMV8|G7VMV8_LEUME	45	secreted	extracellular region GO:0005576;
+tr|G7VJ72|G7VJ72_LEUME	63	secreted	extracellular region GO:0005576;
+tr|G7VLY0|G7VLY0_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKA2|G7VKA2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKQ6|G7VKQ6_LEUME	50	periplasm	periplasmic space GO:0042597;
+tr|G7VKC4|G7VKC4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJI6|G7VJI6_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL9|G7VIL9_LEUME	67	secreted	extracellular region GO:0005576;
+tr|G7VIP8|G7VIP8_LEUME	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ13|G7VJ13_LEUME	49	secreted	extracellular region GO:0005576;
+tr|G7VKW0|G7VKW0_LEUME	22	secreted	extracellular region GO:0005576;
+tr|G7VIW5|G7VIW5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLS2|G7VLS2_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VN04|G7VN04_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VL31|G7VL31_LEUME	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM77|G7VM77_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VMM6|G7VMM6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKT9|G7VKT9_LEUME	62	fimbrium	pilus GO:0009289;
+tr|G7VMX1|G7VMX1_LEUME	74	secreted	extracellular region GO:0005576;
+tr|G7VJ58|G7VJ58_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VIN1|G7VIN1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMN1|G7VMN1_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ20|G7VJ20_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VN74|G7VN74_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VLT9|G7VLT9_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VMW3|G7VMW3_LEUME	79	cytoplasm	cytoplasm GO:0005737
+tr|G7VJW3|G7VJW3_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VMU4|G7VMU4_LEUME	61	cytoplasm	cytoplasm GO:0005737
+tr|G7VLD7|G7VLD7_LEUME	26	secreted	extracellular region GO:0005576;
+tr|G7VN73|G7VN73_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VIQ7|G7VIQ7_LEUME	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VL03|G7VL03_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJA0|G7VJA0_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VLC6|G7VLC6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMK9|G7VMK9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMJ4|G7VMJ4_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNB4|G7VNB4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLA4|G7VLA4_LEUME	36	cytoplasm	cytoplasm GO:0005737
+tr|G7VNJ5|G7VNJ5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VIP7|G7VIP7_LEUME	78	secreted	extracellular region GO:0005576;
+tr|G7VLP1|G7VLP1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ79|G7VJ79_LEUME	32	secreted	extracellular region GO:0005576;
+tr|G7VMY2|G7VMY2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM87|G7VM87_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL08|G7VL08_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJV5|G7VJV5_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKP8|G7VKP8_LEUME	36	cytoplasm	cytoplasm GO:0005737
+tr|G7VMD6|G7VMD6_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLU5|G7VLU5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKT3|G7VKT3_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VL40|G7VL40_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJS8|G7VJS8_LEUME	42	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX8|G7VMX8_LEUME	77	secreted	extracellular region GO:0005576;
+tr|G7VKQ8|G7VKQ8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VK59|G7VK59_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VJY2|G7VJY2_LEUME	58	secreted	extracellular region GO:0005576;
+tr|G7VKX5|G7VKX5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ04|G7VJ04_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLX2|G7VLX2_LEUME	30	secreted	extracellular region GO:0005576;
+tr|G7VMU7|G7VMU7_LEUME	37	secreted	extracellular region GO:0005576;
+tr|G7VMU1|G7VMU1_LEUME	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ76|G7VJ76_LEUME	67	secreted	extracellular region GO:0005576;
+tr|G7VLI5|G7VLI5_LEUME	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VME3|G7VME3_LEUME	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNH7|G7VNH7_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VL96|G7VL96_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX4|G7VIX4_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLV7|G7VLV7_LEUME	65	secreted	extracellular region GO:0005576;
+tr|G7VJK9|G7VJK9_LEUME	84	cytoplasm	cytoplasm GO:0005737
+tr|G7VLW5|G7VLW5_LEUME	63	cytoplasm	cytoplasm GO:0005737
+tr|G7VK71|G7VK71_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLJ9|G7VLJ9_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VL48|G7VL48_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM13|G7VM13_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU4|G7VJU4_LEUME	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIW7|G7VIW7_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG5|G7VLG5_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VJR7|G7VJR7_LEUME	50	secreted	extracellular region GO:0005576;
+tr|G7VNE8|G7VNE8_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJF1|G7VJF1_LEUME	76	cytoplasm	cytoplasm GO:0005737
+tr|G7VIK3|G7VIK3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMM3|G7VMM3_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ9|G7VJJ9_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VIY6|G7VIY6_LEUME	47	periplasm	periplasmic space GO:0042597;
+tr|G7VM65|G7VM65_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VKM6|G7VKM6_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ7|G7VMZ7_LEUME	91	secreted	extracellular region GO:0005576;
+tr|G7VIV0|G7VIV0_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VK29|G7VK29_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VKR2|G7VKR2_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLS7|G7VLS7_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKE2|G7VKE2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIM0|G7VIM0_LEUME	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNP5|G7VNP5_LEUME	72	cytoplasm	cytoplasm GO:0005737
+tr|G7VJW6|G7VJW6_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMT9|G7VMT9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLZ1|G7VLZ1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VN01|G7VN01_LEUME	76	cytoplasm	cytoplasm GO:0005737
+tr|G7VM78|G7VM78_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIW1|G7VIW1_LEUME	64	secreted	extracellular region GO:0005576;
+tr|G7VIK4|G7VIK4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VM96|G7VM96_LEUME	80	cytoplasm	cytoplasm GO:0005737
+tr|G7VMA1|G7VMA1_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VIX0|G7VIX0_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VMG4|G7VMG4_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJV6|G7VJV6_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VLD3|G7VLD3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ6|G7VKJ6_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VL36|G7VL36_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU3|G7VJU3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMW0|G7VMW0_LEUME	70	secreted	extracellular region GO:0005576;
+tr|G7VJX2|G7VJX2_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKS5|G7VKS5_LEUME	43	periplasm	periplasmic space GO:0042597;
+tr|G7VKW8|G7VKW8_LEUME	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKZ1|G7VKZ1_LEUME	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLC5|G7VLC5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VM63|G7VM63_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VMR1|G7VMR1_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VK10|G7VK10_LEUME	86	cytoplasm	cytoplasm GO:0005737
+tr|G7VMS6|G7VMS6_LEUME	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMK7|G7VMK7_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG8|G7VLG8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ02|G7VJ02_LEUME	54	secreted	extracellular region GO:0005576;
+tr|G7VME2|G7VME2_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKM8|G7VKM8_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VIK9|G7VIK9_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJQ3|G7VJQ3_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ37|G7VJ37_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VJT0|G7VJT0_LEUME	94	cytoplasm	cytoplasm GO:0005737
+tr|G7VL83|G7VL83_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VIZ4|G7VIZ4_LEUME	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJ98|G7VJ98_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VLG3|G7VLG3_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VJK0|G7VJK0_LEUME	65	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX6|G7VMX6_LEUME	42	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ3|G7VJJ3_LEUME	77	secreted	extracellular region GO:0005576;
+tr|G7VKZ4|G7VKZ4_LEUME	87	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG3|G7VJG3_LEUME	49	cytoplasm	cytoplasm GO:0005737
+tr|G7VML1|G7VML1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VK16|G7VK16_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VMH7|G7VMH7_LEUME	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNL5|G7VNL5_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMC2|G7VMC2_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VL26|G7VL26_LEUME	95	cytoplasm	cytoplasm GO:0005737
+tr|G7VN63|G7VN63_LEUME	78	secreted	extracellular region GO:0005576;
+tr|G7VJW5|G7VJW5_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VIN8|G7VIN8_LEUME	62	cytoplasm	cytoplasm GO:0005737
+tr|G7VLW0|G7VLW0_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJG9|G7VJG9_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VJ78|G7VJ78_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VKI8|G7VKI8_LEUME	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VMJ8|G7VMJ8_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VKM7|G7VKM7_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VN06|G7VN06_LEUME	39	secreted	extracellular region GO:0005576;
+tr|G7VKJ0|G7VKJ0_LEUME	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM50|G7VM50_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKP7|G7VKP7_LEUME	53	cytoplasm	cytoplasm GO:0005737
+tr|G7VMD0|G7VMD0_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VK61|G7VK61_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKQ9|G7VKQ9_LEUME	81	secreted	extracellular region GO:0005576;
+tr|G7VKG0|G7VKG0_LEUME	85	cytoplasm	cytoplasm GO:0005737
+tr|G7VMJ5|G7VMJ5_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VMG9|G7VMG9_LEUME	88	cytoplasm	cytoplasm GO:0005737
+tr|G7VJL1|G7VJL1_LEUME	98	cytoplasm	cytoplasm GO:0005737
+tr|G7VKJ5|G7VKJ5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VJJ1|G7VJJ1_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJH4|G7VJH4_LEUME	92	cytoplasm	cytoplasm GO:0005737
+tr|G7VKA8|G7VKA8_LEUME	25	periplasm	periplasmic space GO:0042597;
+tr|G7VKV3|G7VKV3_LEUME	57	cytoplasm	cytoplasm GO:0005737
+tr|G7VMC8|G7VMC8_LEUME	30	secreted	extracellular region GO:0005576;
+tr|G7VMZ0|G7VMZ0_LEUME	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VLD0|G7VLD0_LEUME	73	cytoplasm	cytoplasm GO:0005737
+tr|G7VKI3|G7VKI3_LEUME	96	cytoplasm	cytoplasm GO:0005737
+tr|G7VIL0|G7VIL0_LEUME	90	cytoplasm	cytoplasm GO:0005737
+tr|G7VKT5|G7VKT5_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VME1|G7VME1_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VNC2|G7VNC2_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VJQ7|G7VJQ7_LEUME	89	cytoplasm	cytoplasm GO:0005737
+tr|G7VJU5|G7VJU5_LEUME	78	cytoplasm	cytoplasm GO:0005737
+tr|G7VKW3|G7VKW3_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VJB2|G7VJB2_LEUME	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VNK1|G7VNK1_LEUME	82	cytoplasm	cytoplasm GO:0005737
+tr|G7VN12|G7VN12_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKM0|G7VKM0_LEUME	65	cytoplasm	cytoplasm GO:0005737
+tr|G7VIQ8|G7VIQ8_LEUME	32	fimbrium	pilus GO:0009289;
+tr|G7VMV4|G7VMV4_LEUME	57	secreted	extracellular region GO:0005576;
+tr|G7VNK7|G7VNK7_LEUME	61	cytoplasm	cytoplasm GO:0005737
+tr|G7VM59|G7VM59_LEUME	91	cytoplasm	cytoplasm GO:0005737
+tr|G7VK62|G7VK62_LEUME	93	cytoplasm	cytoplasm GO:0005737
+tr|G7VK99|G7VK99_LEUME	99	cytoplasm	cytoplasm GO:0005737
+tr|G7VMX7|G7VMX7_LEUME	47	cytoplasm	cytoplasm GO:0005737
+tr|G7VMZ6|G7VMZ6_LEUME	83	secreted	extracellular region GO:0005576;
+tr|G7VNJ0|G7VNJ0_LEUME	97	cytoplasm	cytoplasm GO:0005737
+tr|G7VKE4|G7VKE4_LEUME	100	cytoplasm	cytoplasm GO:0005737
+tr|G7VKN1|G7VKN1_LEUME	83	cytoplasm	cytoplasm GO:0005737
+tr|G7VIS9|G7VIS9_LEUME	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VM75|G7VM75_LEUME	68	secreted	extracellular region GO:0005576;
+tr|G7VK97|G7VK97_LEUME	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7VKZ7|G7VKZ7_LEUME	97	cytoplasm	cytoplasm GO:0005737

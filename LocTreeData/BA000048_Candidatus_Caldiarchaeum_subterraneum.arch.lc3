@@ -1,0 +1,1743 @@
+# Localization Prediction using LocTree3
+# Domain: arch
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|E6N637|E6N637_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4C2|E6N4C2_9ARCH	20	plasma membrane	voltage-gated potassium channel complex GO:0008076(IEA);
+tr|E6N516|E6N516_9ARCH	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P8H2|E6P8H2_9ARCH	4	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N5L4|E6N5L4_9ARCH	18	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|E6N743|E6N743_9ARCH	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8N2|E6N8N2_9ARCH	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6D4|E6N6D4_9ARCH	13	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N4Y7|E6N4Y7_9ARCH	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8N4|E6N8N4_9ARCH	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N2W9|E6N2W9_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7Y3|E6N7Y3_9ARCH	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N585|E6N585_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N482|E6N482_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4B4|E6N4B4_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4Y6|E6N4Y6_9ARCH	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4L1|E6N4L1_9ARCH	23	secreted	extracellular region GO:0005576(IEA);
+tr|E6N770|E6N770_9ARCH	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6I8|E6N6I8_9ARCH	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N486|E6N486_9ARCH	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5N0|E6N5N0_9ARCH	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4Y1|E6N4Y1_9ARCH	17	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N554|E6N554_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N2W2|E6N2W2_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|E6PAM5|E6PAM5_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N481|E6N481_9ARCH	11	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N4C6|E6N4C6_9ARCH	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7B5|E6N7B5_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|E6PAL8|E6PAL8_9ARCH	20	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N751|E6N751_9ARCH	17	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8D1|E6N8D1_9ARCH	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8Y0|E6N8Y0_9ARCH	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5D1|E6N5D1_9ARCH	8	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N498|E6N498_9ARCH	45	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|E6N4V9|E6N4V9_9ARCH	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P8H7|E6P8H7_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N9C7|E6N9C7_9ARCH	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8S3|E6N8S3_9ARCH	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4P9|E6N4P9_9ARCH	22	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|E6N6I6|E6N6I6_9ARCH	8	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N940|E6N940_9ARCH	37	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|E6N8N6|E6N8N6_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|Q4LEC8|Q4LEC8_9ARCH	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N981|E6N981_9ARCH	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N712|E6N712_9ARCH	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N357|E6N357_9ARCH	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4J1|E6N4J1_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P6Z9|E6P6Z9_9ARCH	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7P4|E6N7P4_9ARCH	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6X1|E6N6X1_9ARCH	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7D1|E6N7D1_9ARCH	48	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|E6N645|E6N645_9ARCH	22	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8L3|E6N8L3_9ARCH	34	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N340|E6N340_9ARCH	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N851|E6N851_9ARCH	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N9I0|E6N9I0_9ARCH	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N762|E6N762_9ARCH	9	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N969|E6N969_9ARCH	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8N0|E6N8N0_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|E6N7E7|E6N7E7_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|E6N5V0|E6N5V0_9ARCH	23	secreted	extracellular region GO:0005576(IEA);
+tr|E6N478|E6N478_9ARCH	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4G8|E6N4G8_9ARCH	18	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N552|E6N552_9ARCH	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|Q4LEC3|Q4LEC3_9ARCH	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6B5|E6N6B5_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5L3|E6N5L3_9ARCH	6	cytoplasm	prefoldin complex GO:0016272(IEA);
+tr|E6N899|E6N899_9ARCH	13	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6P7U5|E6P7U5_9ARCH	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N495|E6N495_9ARCH	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5Z9|E6N5Z9_9ARCH	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N714|E6N714_9ARCH	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N960|E6N960_9ARCH	8	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8L4|E6N8L4_9ARCH	19	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N700|E6N700_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N841|E6N841_9ARCH	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7I8|E6N7I8_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8Q2|E6N8Q2_9ARCH	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P931|E6P931_9ARCH	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N472|E6N472_9ARCH	39	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8E9|E6N8E9_9ARCH	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4Z4|E6N4Z4_9ARCH	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5Z7|E6N5Z7_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7W0|E6N7W0_9ARCH	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N621|E6N621_9ARCH	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4J2|E6N4J2_9ARCH	10	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N450|E6N450_9ARCH	25	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|E6N3I5|E6N3I5_9ARCH	15	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N761|E6N761_9ARCH	10	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N7L8|E6N7L8_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7E6|E6N7E6_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|E6N946|E6N946_9ARCH	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N3S1|E6N3S1_9ARCH	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N964|E6N964_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4E2|E6N4E2_9ARCH	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7U1|E6N7U1_9ARCH	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N830|E6N830_9ARCH	16	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N5D7|E6N5D7_9ARCH	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7W2|E6N7W2_9ARCH	13	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|E6N5Y9|E6N5Y9_9ARCH	11	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N7N5|E6N7N5_9ARCH	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N670|E6N670_9ARCH	40	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|E6N4Z1|E6N4Z1_9ARCH	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P8V4|E6P8V4_9ARCH	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N3Q6|E6N3Q6_9ARCH	18	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8T9|E6N8T9_9ARCH	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N891|E6N891_9ARCH	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4H0|E6N4H0_9ARCH	5	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N650|E6N650_9ARCH	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N716|E6N716_9ARCH	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8Q4|E6N8Q4_9ARCH	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N627|E6N627_9ARCH	14	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|E6N880|E6N880_9ARCH	26	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|E6N7Q3|E6N7Q3_9ARCH	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8D2|E6N8D2_9ARCH	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4L7|E6N4L7_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4Z3|E6N4Z3_9ARCH	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8Z1|E6N8Z1_9ARCH	19	cytoplasm	prefoldin complex GO:0016272(IEA);
+tr|E6N5Q4|E6N5Q4_9ARCH	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N860|E6N860_9ARCH	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8K2|E6N8K2_9ARCH	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N502|E6N502_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N3Z5|E6N3Z5_9ARCH	23	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|E6N8C7|E6N8C7_9ARCH	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7D3|E6N7D3_9ARCH	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N737|E6N737_9ARCH	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4H1|E6N4H1_9ARCH	9	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N8L7|E6N8L7_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N593|E6N593_9ARCH	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7J5|E6N7J5_9ARCH	18	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N3J0|E6N3J0_9ARCH	33	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IEA); protein complex GO:0043234(IEA);
+tr|E6N5R8|E6N5R8_9ARCH	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N584|E6N584_9ARCH	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N715|E6N715_9ARCH	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N651|E6N651_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4J7|E6N4J7_9ARCH	34	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|E6P7R5|E6P7R5_9ARCH	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N8Y4|E6N8Y4_9ARCH	34	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|E6N546|E6N546_9ARCH	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6PAU6|E6PAU6_9ARCH	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N9H3|E6N9H3_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6W6|E6N6W6_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5R7|E6N5R7_9ARCH	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N6Z7|E6N6Z7_9ARCH	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4T2|E6N4T2_9ARCH	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N2V1|E6N2V1_9ARCH	11	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N4G1|E6N4G1_9ARCH	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N4E7|E6N4E7_9ARCH	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N6R8|E6N6R8_9ARCH	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N534|E6N534_9ARCH	34	plasma membrane	integral to plasma membrane GO:0005887(IEA);
+tr|E6N8B1|E6N8B1_9ARCH	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4H8|E6N4H8_9ARCH	10	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N5F7|E6N5F7_9ARCH	28	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N898|E6N898_9ARCH	6	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N4T5|E6N4T5_9ARCH	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4V8|E6N4V8_9ARCH	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6PAQ4|E6PAQ4_9ARCH	22	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|E6N3Q9|E6N3Q9_9ARCH	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N890|E6N890_9ARCH	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N5Y7|E6N5Y7_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7C3|E6N7C3_9ARCH	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7R6|E6N7R6_9ARCH	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P920|E6P920_9ARCH	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4B8|E6N4B8_9ARCH	38	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|E6N4I9|E6N4I9_9ARCH	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N3S0|E6N3S0_9ARCH	21	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|E6N3R1|E6N3R1_9ARCH	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6P8G3|E6P8G3_9ARCH	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N4I5|E6N4I5_9ARCH	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N966|E6N966_9ARCH	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N7M8|E6N7M8_9ARCH	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|E6N861|E6N861_9ARCH	15	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|E6N538|E6N538_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I1|E6N5I1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N871|E6N871_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N3M0|E6N3M0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N618|E6N618_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N888|E6N888_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Y5|E6N4Y5_9ARCH	56	secreted	extracellular region GO:0005576;
+tr|E6N7T8|E6N7T8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4Q5|E6N4Q5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N733|E6N733_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N484|E6N484_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B7|E6N4B7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4V2|E6N4V2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N868|E6N868_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4B0|E6N4B0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H3|E6N6H3_9ARCH	89	cytoplasm	cytoplasm GO:0005737
+tr|E6N784|E6N784_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N957|E6N957_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F2|E6N5F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N506|E6N506_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3M1|E6N3M1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V1|E6N5V1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4L8|E6N4L8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8T0|E6N8T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Q0|E6N8Q0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5K9|E6N5K9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N935|E6N935_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I2|E6N4I2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N418|E6N418_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4G0|E6N4G0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N306|E6N306_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7R1|E6N7R1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3Q1|E6N3Q1_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D3|E6N6D3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N961|E6N961_9ARCH	54	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9E1|E6N9E1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D6|E6N8D6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F4|E6N7F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9C3|E6P9C3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5A1|E6N5A1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9F4|E6P9F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F9|E6N5F9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7X7|E6N7X7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6I9|E6N6I9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B6|E6N4B6_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N686|E6N686_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5R9|E6N5R9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N897|E6N897_9ARCH	93	secreted	extracellular region GO:0005576;
+tr|E6N878|E6N878_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R0|E6N6R0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N547|E6N547_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAU3|E6PAU3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAM7|E6PAM7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6NAL4|E6NAL4_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L5|E6N5L5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N705|E6N705_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F5|E6N9F5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z9|E6N7Z9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N756|E6N756_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N970|E6N970_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E8|E6N5E8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A5|E6N6A5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9H2|E6N9H2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5K4|E6N5K4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7J4|E6N7J4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Z6|E6N4Z6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P1|E6N8P1_9ARCH	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N823|E6N823_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R7|E6N6R7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N383|E6N383_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9C4|E6N9C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4E9|E6N4E9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K0|E6N7K0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7J0|E6N7J0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A0|E6N8A0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N440|E6N440_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9E9|E6P9E9_9ARCH	74	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N435|E6N435_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N843|E6N843_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M5|E6N4M5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3D9|E6N3D9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L0|E6N5L0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U3|E6N8U3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N852|E6N852_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N610|E6N610_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3D3|E6N3D3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y4|E6N5Y4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N976|E6N976_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N588|E6N588_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N938|E6N938_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P2|E6N8P2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N926|E6N926_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S9|E6N8S9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W1|E6N4W1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7C9|E6N7C9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N675|E6N675_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K9|E6N4K9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3B2|E6N3B2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N717|E6N717_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y9|E6N7Y9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D1|E6N9D1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S2|E6N4S2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P937|E6P937_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D5|E6N6D5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Y9|E6N6Y9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V4|E6N5V4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q9|E6N4Q9_9ARCH	81	secreted	extracellular region GO:0005576;
+tr|Q4LEE3|Q4LEE3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N642|E6N642_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6S7|E6N6S7_9ARCH	96	secreted	extracellular region GO:0005576;
+tr|E6N4M3|E6N4M3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K2|E6N7K2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V6|E6N6V6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAL7|E6PAL7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S9|E6N4S9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8B4|E6N8B4_9ARCH	95	cytoplasm	cytoplasm GO:0005737
+tr|E6N636|E6N636_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6M4|E6N6M4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3P0|E6N3P0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N750|E6N750_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N380|E6N380_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S4|E6N5S4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E4|E6N9E4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4G6|E6N4G6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N402|E6N402_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N826|E6N826_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3P3|E6N3P3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6NBB1|E6NBB1_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5J9|E6N5J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8N7|E6N8N7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Z2|E6N8Z2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N711|E6N711_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3I6|E6N3I6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E7|E6N9E7_9ARCH	68	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6A7|E6N6A7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4G2|E6N4G2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9G9|E6N9G9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N769|E6N769_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N825|E6N825_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N330|E6N330_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N697|E6N697_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R0|E6N4R0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6V1|E6N6V1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9F2|E6P9F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5J5|E6N5J5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8K3|E6N8K3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N789|E6N789_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J5|E6N6J5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3P1|E6N3P1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7J3|E6P7J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEF3|Q4LEF3_9ARCH	92	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q0|E6N7Q0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V4|E6N7V4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9H6|E6N9H6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N646|E6N646_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N377|E6N377_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N791|E6N791_9ARCH	93	cytoplasm	cytoplasm GO:0005737
+tr|E6N3D7|E6N3D7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Z4|E6N6Z4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N736|E6N736_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N713|E6N713_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N949|E6N949_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N782|E6N782_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N4|E6N5N4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N511|E6N511_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7Y5|E6N7Y5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5D2|E6N5D2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N959|E6N959_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N508|E6N508_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N693|E6N693_9ARCH	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P936|E6P936_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5X8|E6N5X8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W8|E6N6W8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P2|E6N5P2_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G7|E6N5G7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2P4|E6N2P4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N800|E6N800_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N669|E6N669_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C1|E6N9C1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Q4|E6N6Q4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAM1|E6PAM1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Z6|E6N8Z6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D2|E6N6D2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6I3|E6N6I3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8N3|E6N8N3_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N755|E6N755_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N937|E6N937_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE5|Q4LEE5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7N6|E6N7N6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N682|E6N682_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N557|E6N557_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9H0|E6N9H0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N541|E6N541_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N641|E6N641_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N606|E6N606_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Y8|E6N4Y8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3R2|E6N3R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U4|E6N6U4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N555|E6N555_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7C8|E6N7C8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N892|E6N892_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6X2|E6N6X2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7N0|E6N7N0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7B6|E6N7B6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED3|Q4LED3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N967|E6N967_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A9|E6N7A9_9ARCH	42	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7D0|E6N7D0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S0|E6N4S0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N609|E6N609_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N875|E6N875_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T4|E6N4T4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N468|E6N468_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N931|E6N931_9ARCH	97	cytoplasm	cytoplasm GO:0005737
+tr|E6N503|E6N503_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A9|E6N8A9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K4|E6N4K4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S0|E6N5S0_9ARCH	59	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3B6|E6N3B6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6P7T5|E6P7T5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N930|E6N930_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6L6|E6N6L6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P4|E6N8P4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2U2|E6N2U2_9ARCH	57	cytoplasm	cytoplasm GO:0005737
+tr|E6N662|E6N662_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A3|E6N7A3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8T6|E6N8T6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N412|E6N412_9ARCH	77	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P7T4|E6P7T4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9C7|E6P9C7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q8|E6N7Q8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2V7|E6N2V7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8G0|E6P8G0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEC1|Q4LEC1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E9|E6N9E9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N485|E6N485_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8F1|E6N8F1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9E0|E6N9E0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I7|E6N5I7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P8|E6N5P8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S5|E6N4S5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N575|E6N575_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5R1|E6N5R1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E5|E6N9E5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3F4|E6N3F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8G8|E6P8G8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N820|E6N820_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N5|E6N5N5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Z2|E6N4Z2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6D9|E6N6D9_9ARCH	46	secreted	extracellular region GO:0005576;
+tr|E6N5Y2|E6N5Y2_9ARCH	78	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N678|E6N678_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6P9F8|E6P9F8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N821|E6N821_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N387|E6N387_9ARCH	90	secreted	extracellular region GO:0005576;
+tr|E6N6Y7|E6N6Y7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G8|E6N5G8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N539|E6N539_9ARCH	76	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N684|E6N684_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4I3|E6N4I3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N866|E6N866_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N885|E6N885_9ARCH	94	secreted	extracellular region GO:0005576;
+tr|E6N611|E6N611_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N944|E6N944_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D7|E6N8D7_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9F4|E6N9F4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7C7|E6N7C7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N448|E6N448_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3J9|E6N3J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6M2|E6N6M2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N2V5|E6N2V5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N749|E6N749_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J0|E6N6J0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I7|E6P7I7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5K6|E6N5K6_9ARCH	96	secreted	extracellular region GO:0005576;
+tr|E6N4V1|E6N4V1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9C6|E6P9C6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PB86|E6PB86_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3X8|E6N3X8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N327|E6N327_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6D0|E6N6D0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P3|E6N8P3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R2|E6N6R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N848|E6N848_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q0|E6N4Q0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N804|E6N804_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y6|E6N7Y6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N413|E6N413_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9B9|E6N9B9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y0|E6N5Y0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N499|E6N499_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N702|E6N702_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N919|E6N919_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4Z7|E6N4Z7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N767|E6N767_9ARCH	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6A6|E6N6A6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7T3|E6P7T3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A7|E6N4A7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9H3|E6P9H3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F6|E6N9F6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G2|E6N5G2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C6|E6N6C6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I2|E6P7I2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5T5|E6N5T5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8B9|E6N8B9_9ARCH	91	cytoplasm	cytoplasm GO:0005737
+tr|E6N5U5|E6N5U5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M0|E6N8M0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N513|E6N513_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U5|E6N8U5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8F5|E6P8F5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6M5|E6N6M5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R5|E6N6R5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F1|E6N5F1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y7|E6N8Y7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W4|E6N4W4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V3|E6N5V3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T3|E6N5T3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9J9|E6N9J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N314|E6N314_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5A0|E6N5A0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N505|E6N505_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V0|E6N6V0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N465|E6N465_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3E3|E6N3E3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S6|E6N8S6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Q9|E6N6Q9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N657|E6N657_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7Z3|E6N7Z3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7B2|E6N7B2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5M9|E6N5M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P954|E6P954_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6E6|E6N6E6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U0|E6N8U0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N652|E6N652_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N929|E6N929_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6NB75|E6NB75_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y4|E6N7Y4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7J9|E6N7J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PB20|E6PB20_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N2Q7|E6N2Q7_9ARCH	93	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Z0|E6N6Z0_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W4|E6N6W4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N622|E6N622_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N943|E6N943_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N396|E6N396_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D4|E6N8D4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S5|E6N8S5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5U7|E6N5U7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6I5|E6N6I5_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6P9C5|E6P9C5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P3|E6N5P3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEC5|Q4LEC5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9G1|E6P9G1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M4|E6N4M4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N3|E6N5N3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5K3|E6N5K3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N0|E6N4N0_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N7Y7|E6N7Y7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8B3|E6N8B3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7D2|E6N7D2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE0|Q4LEE0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6L9|E6N6L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5A4|E6N5A4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U6|E6N8U6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W7|E6N4W7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N939|E6N939_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N790|E6N790_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5H8|E6N5H8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6K0|E6N6K0_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6P942|E6P942_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAT2|E6PAT2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N501|E6N501_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N747|E6N747_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P955|E6P955_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5D8|E6N5D8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N573|E6N573_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE1|Q4LEE1_9ARCH	57	secreted	extracellular region GO:0005576;
+tr|E6N7V9|E6N7V9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U6|E6N6U6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J7|E6N6J7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V5|E6N5V5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N690|E6N690_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R2|E6N4R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R4|E6N4R4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9E5|E6P9E5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N512|E6N512_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3T0|E6N3T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C7|E6N4C7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N419|E6N419_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N647|E6N647_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3F5|E6N3F5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F8|E6N5F8_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6N4L3|E6N4L3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3S5|E6N3S5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEC9|Q4LEC9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6C2|E6N6C2_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6N856|E6N856_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7U6|E6N7U6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E4|E6N5E4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N572|E6N572_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D2|E6N9D2_9ARCH	89	cytoplasm	cytoplasm GO:0005737
+tr|E6NBG8|E6NBG8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE6|Q4LEE6_9ARCH	63	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N603|E6N603_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6Z2|E6N6Z2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7S2|E6P7S2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N558|E6N558_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S7|E6N8S7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I2|E6N5I2_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6PAT0|E6PAT0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N7|E6N5N7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S1|E6N4S1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5U1|E6N5U1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9D6|E6N9D6_9ARCH	96	secreted	extracellular region GO:0005576;
+tr|E6N4F2|E6N4F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N922|E6N922_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2U7|E6N2U7_9ARCH	85	secreted	extracellular region GO:0005576;
+tr|E6N3Q0|E6N3Q0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7U8|E6N7U8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9D3|E6N9D3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5Z2|E6N5Z2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D5|E6N9D5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N895|E6N895_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y6|E6N8Y6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I9|E6P7I9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F8|E6N9F8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8Z4|E6N8Z4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C3|E6N6C3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y8|E6N5Y8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S4|E6N8S4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N390|E6N390_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N441|E6N441_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2R7|E6N2R7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P6|E6N7P6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7X9|E6N7X9_9ARCH	97	secreted	extracellular region GO:0005576;
+tr|E6N4E5|E6N4E5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C3|E6N4C3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P956|E6P956_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N936|E6N936_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A5|E6N4A5_9ARCH	67	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N324|E6N324_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P925|E6P925_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4E8|E6N4E8_9ARCH	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9B7|E6N9B7_9ARCH	93	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8Y8|E6N8Y8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H7|E6N4H7_9ARCH	93	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G2|E6N9G2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H8|E6N6H8_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N4X0|E6N4X0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2R3|E6N2R3_9ARCH	75	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D0|E6N8D0_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N886|E6N886_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P6|E6N8P6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N591|E6N591_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M2|E6N4M2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4T7|E6N4T7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N803|E6N803_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q6|E6N4Q6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S8|E6N8S8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N556|E6N556_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7I5|E6N7I5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5J8|E6N5J8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Z1|E6N6Z1_9ARCH	92	cytoplasm	cytoplasm GO:0005737
+tr|E6N6L8|E6N6L8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2W8|E6N2W8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6E1|E6N6E1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S7|E6N4S7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED1|Q4LED1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8Y3|E6N8Y3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B2|E6N4B2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Y4|E6N4Y4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N590|E6N590_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N752|E6N752_9ARCH	92	secreted	extracellular region GO:0005576;
+tr|E6N6Q5|E6N6Q5_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T7|E6N5T7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4E4|E6N4E4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S1|E6N6S1_9ARCH	83	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S8|E6N4S8_9ARCH	55	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N514|E6N514_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5U8|E6N5U8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C9|E6N9C9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N602|E6N602_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7C1|E6N7C1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N398|E6N398_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4L9|E6N4L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAQ0|E6PAQ0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2R5|E6N2R5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE2|Q4LEE2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z8|E6N7Z8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7M2|E6N7M2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N480|E6N480_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8N8|E6N8N8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F2|E6N7F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N778|E6N778_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6I2|E6N6I2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P951|E6P951_9ARCH	55	cytoplasm	cytoplasm GO:0005737
+tr|E6N798|E6N798_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L8|E6N5L8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N533|E6N533_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7E1|E6N7E1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4F1|E6N4F1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I6|E6N4I6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3G3|E6N3G3_9ARCH	80	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Y8|E6N6Y8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PBD6|E6PBD6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H2|E6N6H2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8K6|E6N8K6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T3|E6N4T3_9ARCH	66	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N477|E6N477_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9H1|E6N9H1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAR3|E6PAR3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E8|E6N8E8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6P9E8|E6P9E8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N695|E6N695_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6V9|E6N6V9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N921|E6N921_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N525|E6N525_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5R0|E6N5R0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6X0|E6N6X0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N877|E6N877_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8L6|E6N8L6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3H2|E6N3H2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8N9|E6N8N9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N973|E6N973_9ARCH	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7I1|E6N7I1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N322|E6N322_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N673|E6N673_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N9|E6N5N9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7M0|E6N7M0_9ARCH	97	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J1|E6N6J1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED7|Q4LED7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7R3|E6N7R3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N446|E6N446_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2Z7|E6N2Z7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I4|E6N5I4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8C6|E6N8C6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N980|E6N980_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8T3|E6N8T3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N948|E6N948_9ARCH	68	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6I7|E6N6I7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED5|Q4LED5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5U2|E6N5U2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7Q9|E6N7Q9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9I2|E6N9I2_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N509|E6N509_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F0|E6N5F0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5A2|E6N5A2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N667|E6N667_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N494|E6N494_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3S4|E6N3S4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H3|E6N4H3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T1|E6N4T1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3Z7|E6N3Z7_9ARCH	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4A4|E6N4A4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N564|E6N564_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2Q0|E6N2Q0_9ARCH	69	secreted	extracellular region GO:0005576;
+tr|E6N656|E6N656_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N614|E6N614_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S2|E6N5S2_9ARCH	82	cytoplasm	cytoplasm GO:0005737
+tr|E6N599|E6N599_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C4|E6N8C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I8|E6P7I8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7I4|E6N7I4_9ARCH	39	cytoplasm	cytoplasm GO:0005737
+tr|E6N336|E6N336_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N403|E6N403_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4Q7|E6N4Q7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N746|E6N746_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7L4|E6N7L4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P9D7|E6P9D7_9ARCH	84	secreted	extracellular region GO:0005576;
+tr|E6N4E6|E6N4E6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G8|E6N9G8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5Q9|E6N5Q9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Z3|E6N8Z3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N545|E6N545_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S9|E6N5S9_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I5|E6N5I5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K1|E6N7K1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7E3|E6N7E3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7U4|E6P7U4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7U1|E6P7U1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N487|E6N487_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R3|E6N4R3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N730|E6N730_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N616|E6N616_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N515|E6N515_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N763|E6N763_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9D6|E6P9D6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N801|E6N801_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6H7|E6N6H7_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V6|E6N7V6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V2|E6N6V2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T0|E6N4T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N634|E6N634_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Z5|E6N4Z5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7W1|E6N7W1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5J3|E6N5J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z2|E6N7Z2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5S7|E6N5S7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4U2|E6N4U2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N739|E6N739_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K6|E6N4K6_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5P9|E6N5P9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5U0|E6N5U0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T9|E6N4T9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N679|E6N679_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N785|E6N785_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6P9C4|E6P9C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N771|E6N771_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N617|E6N617_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5G4|E6N5G4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5N8|E6N5N8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N615|E6N615_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N648|E6N648_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H5|E6N4H5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N531|E6N531_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q6|E6N7Q6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N846|E6N846_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q1|E6N4Q1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3J7|E6N3J7_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N735|E6N735_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C9|E6N4C9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C8|E6N6C8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V2|E6N7V2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5J7|E6N5J7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R3|E6N8R3_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6N740|E6N740_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAQ8|E6PAQ8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L7|E6N5L7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2Z8|E6N2Z8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N430|E6N430_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8F2|E6P8F2_9ARCH	60	cytoplasm	cytoplasm GO:0005737
+tr|E6N8J9|E6N8J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N589|E6N589_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V7|E6N6V7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D8|E6N9D8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2U4|E6N2U4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3C4|E6N3C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Q6|E6N5Q6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B0|E6N6B0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A0|E6N7A0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N597|E6N597_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C4|E6N6C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9C1|E6P9C1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N607|E6N607_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N729|E6N729_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N699|E6N699_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R7|E6N8R7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I0|E6N5I0_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6PAS9|E6PAS9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3D0|E6N3D0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N726|E6N726_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K4|E6N7K4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D9|E6N9D9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N786|E6N786_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2R8|E6N2R8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K3|E6N7K3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N643|E6N643_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6Z9|E6N6Z9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N889|E6N889_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3K5|E6N3K5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEC2|Q4LEC2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N598|E6N598_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7K1|E6P7K1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Q8|E6N6Q8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5Y6|E6N5Y6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED2|Q4LED2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3E6|E6N3E6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6PAT8|E6PAT8_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N492|E6N492_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEB9|Q4LEB9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N663|E6N663_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2T2|E6N2T2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N542|E6N542_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I5|E6P7I5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N445|E6N445_9ARCH	61	secreted	extracellular region GO:0005576;
+tr|E6N467|E6N467_9ARCH	69	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8T8|E6N8T8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q1|E6N7Q1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4F6|E6N4F6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4V7|E6N4V7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R4|E6N6R4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8A1|E6N8A1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N691|E6N691_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4U1|E6N4U1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8L8|E6N8L8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7T9|E6N7T9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C2|E6N9C2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Z6|E6N6Z6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y1|E6N8Y1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7L6|E6N7L6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED8|Q4LED8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N526|E6N526_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6NAL6|E6NAL6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R3|E6N6R3_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N6N5|E6N6N5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9B6|E6N9B6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4N5|E6N4N5_9ARCH	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7L1|E6N7L1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M5|E6N8M5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V6|E6N5V6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G1|E6N9G1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3X3|E6N3X3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z0|E6N7Z0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Q8|E6N5Q8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N433|E6N433_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4I7|E6N4I7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8C9|E6N8C9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4C8|E6N4C8_9ARCH	90	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K6|E6N7K6_9ARCH	94	cytoplasm	cytoplasm GO:0005737
+tr|E6N881|E6N881_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6P7V4|E6P7V4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N677|E6N677_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3E7|E6N3E7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N537|E6N537_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N8T5|E6N8T5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2W0|E6N2W0_9ARCH	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8R4|E6N8R4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W0|E6N6W0_9ARCH	83	cytoplasm	cytoplasm GO:0005737
+tr|E6N7B1|E6N7B1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N2P5|E6N2P5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7J3|E6N7J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7L5|E6N7L5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6M8|E6N6M8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N628|E6N628_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A1|E6N6A1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y3|E6N5Y3_9ARCH	96	secreted	extracellular region GO:0005576;
+tr|E6P7J1|E6P7J1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8T1|E6N8T1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3I7|E6N3I7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4G3|E6N4G3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4U0|E6N4U0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N952|E6N952_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F4|E6N5F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P926|E6P926_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Y0|E6N4Y0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S3|E6N5S3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N850|E6N850_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W7|E6N6W7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3S2|E6N3S2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEF2|Q4LEF2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M0|E6N4M0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N764|E6N764_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7M9|E6N7M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N447|E6N447_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K5|E6N7K5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N507|E6N507_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Y9|E6N4Y9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T9|E6N5T9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N692|E6N692_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N760|E6N760_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T2|E6N5T2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N2|E6N4N2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7M4|E6N7M4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7K0|E6P7K0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3G2|E6N3G2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N934|E6N934_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5E0|E6N5E0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N710|E6N710_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2Q2|E6N2Q2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9G4|E6N9G4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3L4|E6N3L4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3F2|E6N3F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9G6|E6P9G6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N698|E6N698_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G5|E6N9G5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6E4|E6N6E4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3M8|E6N3M8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N579|E6N579_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S9|E6N6S9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7B4|E6N7B4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I4|E6N4I4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N394|E6N394_9ARCH	90	secreted	extracellular region GO:0005576;
+tr|E6N6X5|E6N6X5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7J8|E6N7J8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C8|E6N8C8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U8|E6N8U8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C0|E6N4C0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8H9|E6P8H9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N927|E6N927_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V3|E6N6V3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N870|E6N870_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N819|E6N819_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N8U1|E6N8U1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5K7|E6N5K7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5G5|E6N5G5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9C6|E6N9C6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9D4|E6P9D4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T4|E6N5T4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7U5|E6N7U5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9R3|E6N9R3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7I6|E6P7I6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8R6|E6N8R6_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5X9|E6N5X9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M4|E6N8M4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N844|E6N844_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S1|E6N5S1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAL9|E6PAL9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L6|E6N5L6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N548|E6N548_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6PAP6|E6PAP6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8P9|E6N8P9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6E2|E6N6E2_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N7N3|E6N7N3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N965|E6N965_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P8|E6N8P8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N601|E6N601_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N586|E6N586_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4V6|E6N4V6_9ARCH	82	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4R7|E6N4R7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N304|E6N304_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2U8|E6N2U8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N862|E6N862_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N741|E6N741_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5D3|E6N5D3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H6|E6N6H6_9ARCH	90	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6D1|E6N6D1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N707|E6N707_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6E0|E6N6E0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M7|E6N8M7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N827|E6N827_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Z9|E6N4Z9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9M9|E6N9M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9G8|E6P9G8_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B6|E6N6B6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4G7|E6N4G7_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N7U7|E6N7U7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3D6|E6N3D6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K1|E6N4K1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E5|E6N8E5_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N6L7|E6N6L7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q8|E6N4Q8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5R4|E6N5R4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3N1|E6N3N1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N854|E6N854_9ARCH	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N2U9|E6N2U9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6E5|E6N6E5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A9|E6N4A9_9ARCH	60	cytoplasm	cytoplasm GO:0005737
+tr|E6N7R4|E6N7R4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C7|E6N6C7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Q1|E6N8Q1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K2|E6N4K2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9E7|E6P9E7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4J3|E6N4J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N577|E6N577_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3N6|E6N3N6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P9G3|E6P9G3_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N6M0|E6N6M0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H2|E6N4H2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y8|E6N7Y8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4V4|E6N4V4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4L6|E6N4L6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N824|E6N824_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7T0|E6P7T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Z5|E6N6Z5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P7|E6N8P7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7L9|E6N7L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3H4|E6N3H4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N587|E6N587_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N928|E6N928_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N6|E6N4N6_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N600|E6N600_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N392|E6N392_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R5|E6N8R5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F5|E6N7F5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N954|E6N954_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N5D4|E6N5D4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R1|E6N8R1_9ARCH	69	secreted	extracellular region GO:0005576;
+tr|E6N6C5|E6N6C5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6R6|E6N6R6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2S4|E6N2S4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C2|E6N8C2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N738|E6N738_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4F4|E6N4F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE4|Q4LEE4_9ARCH	62	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N2P8|E6N2P8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N431|E6N431_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N7R5|E6N7R5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2Q5|E6N2Q5_9ARCH	94	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K3|E6N4K3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A2|E6N6A2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A8|E6N6A8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N896|E6N896_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G3|E6N9G3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7W4|E6N7W4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N845|E6N845_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N337|E6N337_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N1|E6N4N1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4Z8|E6N4Z8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N945|E6N945_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A6|E6N4A6_9ARCH	91	cytoplasm	cytoplasm GO:0005737
+tr|E6N962|E6N962_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N604|E6N604_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P1|E6N7P1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6I0|E6N6I0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E1|E6N8E1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N3H7|E6N3H7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3D8|E6N3D8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N471|E6N471_9ARCH	89	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N491|E6N491_9ARCH	97	secreted	extracellular region GO:0005576;
+tr|E6N2Z6|E6N2Z6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P928|E6P928_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5H2|E6N5H2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5X7|E6N5X7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5K1|E6N5K1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAP5|E6PAP5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K7|E6N7K7_9ARCH	79	secreted	extracellular region GO:0005576;
+tr|E6N439|E6N439_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U9|E6N6U9_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N753|E6N753_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N688|E6N688_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6M6|E6N6M6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N953|E6N953_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7U3|E6P7U3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S6|E6N6S6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V7|E6N5V7_9ARCH	90	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8B0|E6N8B0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N619|E6N619_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F2|E6N9F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H9|E6N4H9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N975|E6N975_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N576|E6N576_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PBD4|E6PBD4_9ARCH	97	secreted	extracellular region GO:0005576;
+tr|E6N863|E6N863_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S0|E6N6S0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6C0|E6N6C0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8B2|E6N8B2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N649|E6N649_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M8|E6N8M8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N578|E6N578_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7T8|E6P7T8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N704|E6N704_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N631|E6N631_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6N4|E6N6N4_9ARCH	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8M6|E6N8M6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N865|E6N865_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N855|E6N855_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N644|E6N644_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6V4|E6N6V4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEF1|Q4LEF1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N828|E6N828_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N842|E6N842_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N444|E6N444_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I0|E6N4I0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M7|E6N4M7_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N8F0|E6N8F0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7R2|E6N7R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAM4|E6PAM4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P9|E6N7P9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T8|E6N5T8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3Q2|E6N3Q2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9G6|E6N9G6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8F4|E6N8F4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V7|E6N7V7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2V9|E6N2V9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6M1|E6N6M1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N742|E6N742_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6N2|E6N6N2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8J8|E6N8J8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N822|E6N822_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z1|E6N7Z1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W3|E6N6W3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N474|E6N474_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N373|E6N373_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N466|E6N466_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P0|E6N8P0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Q9|E6N8Q9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8F7|E6P8F7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H9|E6N6H9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T6|E6N5T6_9ARCH	97	cytoplasm	cytoplasm GO:0005737
+tr|E6N8K4|E6N8K4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8B7|E6N8B7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7I7|E6N7I7_9ARCH	61	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6Z3|E6N6Z3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Z4|E6N5Z4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8C5|E6N8C5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N864|E6N864_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3Y9|E6N3Y9_9ARCH	82	secreted	extracellular region GO:0005576;
+tr|E6N348|E6N348_9ARCH	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7R0|E6N7R0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8S1|E6N8S1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N799|E6N799_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W2|E6N6W2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y2|E6N7Y2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N332|E6N332_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q3|E6N4Q3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I1|E6N4I1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8N5|E6N8N5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8E0|E6N8E0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N581|E6N581_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F7|E6N9F7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED6|Q4LED6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N9F3|E6N9F3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R9|E6N6R9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N894|E6N894_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9B8|E6N9B8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N703|E6N703_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N530|E6N530_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N659|E6N659_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N676|E6N676_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N654|E6N654_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N620|E6N620_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3E8|E6N3E8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N3N0|E6N3N0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N829|E6N829_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N311|E6N311_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8Z7|E6N8Z7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7R9|E6P7R9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U4|E6N8U4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N924|E6N924_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D7|E6N9D7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G1|E6N5G1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7W6|E6N7W6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A7|E6N8A7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S5|E6N6S5_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N3L5|E6N3L5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C8|E6N9C8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7J7|E6N7J7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAT7|E6PAT7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W6|E6N4W6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G6|E6N5G6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N706|E6N706_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2S6|E6N2S6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8F3|E6N8F3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N665|E6N665_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6NBE3|E6NBE3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C3|E6N8C3_9ARCH	97	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D4|E6N9D4_9ARCH	59	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8S0|E6N8S0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N757|E6N757_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5K2|E6N5K2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Q7|E6N6Q7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P5|E6N5P5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N510|E6N510_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D7|E6N6D7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6M3|E6N6M3_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6N608|E6N608_9ARCH	93	cytoplasm	cytoplasm GO:0005737
+tr|E6N469|E6N469_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N442|E6N442_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7V0|E6P7V0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A3|E6N8A3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3M6|E6N3M6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Z0|E6N8Z0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C9|E6N6C9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5D6|E6N5D6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5R2|E6N5R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8H8|E6P8H8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8P5|E6N8P5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F1|E6N9F1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3B3|E6N3B3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S8|E6N6S8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4F9|E6N4F9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E6|E6N5E6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5S5|E6N5S5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H4|E6N6H4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7C6|E6N7C6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAQ6|E6PAQ6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A3|E6N4A3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K0|E6N4K0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V1|E6N7V1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N594|E6N594_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N9H4|E6N9H4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4I8|E6N4I8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N685|E6N685_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N655|E6N655_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W9|E6N4W9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N574|E6N574_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N424|E6N424_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y5|E6N8Y5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N613|E6N613_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8H4|E6P8H4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q5|E6N7Q5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N550|E6N550_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N694|E6N694_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7L0|E6N7L0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4X1|E6N4X1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3N7|E6N3N7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7M3|E6N7M3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N920|E6N920_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N696|E6N696_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N754|E6N754_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3P8|E6N3P8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7C5|E6N7C5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N701|E6N701_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P948|E6P948_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7T4|E6N7T4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4B5|E6N4B5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C5|E6N4C5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3T1|E6N3T1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N4|E6N4N4_9ARCH	91	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4G9|E6N4G9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C3|E6N9C3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B3|E6N4B3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED4|Q4LED4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W5|E6N4W5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8I1|E6P8I1_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6S4|E6N6S4_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6N355|E6N355_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P921|E6P921_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V8|E6N7V8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W0|E6N4W0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N731|E6N731_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7K9|E6N7K9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7L2|E6N7L2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M8|E6N4M8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N540|E6N540_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F1|E6N7F1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5G3|E6N5G3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N580|E6N580_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8L5|E6N8L5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5Q1|E6N5Q1_9ARCH	94	cytoplasm	cytoplasm GO:0005737
+tr|E6N4F8|E6N4F8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P950|E6P950_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4C1|E6N4C1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8Q5|E6N8Q5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T6|E6N4T6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8T4|E6N8T4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4R6|E6N4R6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P6|E6N5P6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N3B0|E6N3B0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V0|E6N7V0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B7|E6N6B7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N504|E6N504_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R9|E6N8R9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4J6|E6N4J6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6N1|E6N6N1_9ARCH	61	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6V8|E6N6V8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S4|E6N4S4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7S9|E6P7S9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2T6|E6N2T6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3E9|E6N3E9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8M3|E6N8M3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E7|E6N8E7_9ARCH	67	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V9|E6N5V9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A4|E6N8A4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A4|E6N6A4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B1|E6N6B1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE8|Q4LEE8_9ARCH	54	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N783|E6N783_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N488|E6N488_9ARCH	65	secreted	extracellular region GO:0005576;
+tr|E6PAZ1|E6PAZ1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N947|E6N947_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N932|E6N932_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N535|E6N535_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9H0|E6P9H0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N2Q9|E6N2Q9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8F0|E6P8F0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7E9|E6N7E9_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7A8|E6N7A8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N765|E6N765_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A9|E6N6A9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N639|E6N639_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8B5|E6N8B5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N635|E6N635_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5P7|E6N5P7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6T1|E6N6T1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N748|E6N748_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R9|E6N4R9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E7|E6N5E7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P2|E6N7P2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5I8|E6N5I8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U9|E6N8U9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6M9|E6N6M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5T1|E6N5T1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2T8|E6N2T8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4J0|E6N4J0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N951|E6N951_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3B5|E6N3B5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8E2|E6N8E2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N867|E6N867_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4N3|E6N4N3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4J5|E6N4J5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N732|E6N732_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3K0|E6N3K0_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H1|E6N6H1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4E3|E6N4E3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8M2|E6N8M2_9ARCH	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5J1|E6N5J1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7M7|E6N7M7_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N805|E6N805_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W9|E6N6W9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R1|E6N4R1_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N2U3|E6N2U3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8T7|E6N8T7_9ARCH	53	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N933|E6N933_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5U9|E6N5U9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6J6|E6N6J6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N543|E6N543_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M9|E6N8M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N664|E6N664_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6H5|E6N6H5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N781|E6N781_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Q0|E6N5Q0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5H9|E6N5H9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D9|E6N8D9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B3|E6N6B3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A8|E6N8A8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5E3|E6N5E3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S2|E6N6S2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M1|E6N4M1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P9H6|E6P9H6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8B8|E6N8B8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N923|E6N923_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N917|E6N917_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3A1|E6N3A1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N592|E6N592_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N8R2|E6N8R2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Q7|E6N5Q7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3J3|E6N3J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y9|E6N8Y9_9ARCH	94	secreted	extracellular region GO:0005576;
+tr|E6N7X8|E6N7X8_9ARCH	94	secreted	extracellular region GO:0005576;
+tr|E6N971|E6N971_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4J4|E6N4J4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N473|E6N473_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B9|E6N4B9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7L3|E6N7L3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N972|E6N972_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5U6|E6N5U6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5S6|E6N5S6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE7|Q4LEE7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6N0|E6N6N0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N527|E6N527_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N5H1|E6N5H1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4X9|E6N4X9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N8E3|E6N8E3_9ARCH	77	secreted	extracellular region GO:0005576;
+tr|E6N968|E6N968_9ARCH	77	cytoplasm	cytoplasm GO:0005737
+tr|E6N5J4|E6N5J4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4L0|E6N4L0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F0|E6N9F0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N470|E6N470_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5K8|E6N5K8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H4|E6N4H4_9ARCH	83	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4Z0|E6N4Z0_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5Q2|E6N5Q2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B4|E6N6B4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4A2|E6N4A2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q7|E6N7Q7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7C4|E6N7C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Q3|E6N5Q3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8L9|E6N8L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A0|E6N4A0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z5|E6N7Z5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Q6|E6N6Q6_9ARCH	85	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N596|E6N596_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N708|E6N708_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8G1|E6P8G1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5D5|E6N5D5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9G5|E6P9G5_9ARCH	69	cytoplasm	cytoplasm GO:0005737
+tr|E6N4K5|E6N4K5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V3|E6N7V3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N553|E6N553_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6P6T9|E6P6T9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y0|E6N7Y0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7U6|E6P7U6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W1|E6N6W1_9ARCH	96	secreted	extracellular region GO:0005576;
+tr|E6N7P3|E6N7P3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q2|E6N4Q2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N744|E6N744_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A6|E6N8A6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3P5|E6N3P5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N974|E6N974_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7E4|E6N7E4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEE9|Q4LEE9_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7Q4|E6N7Q4_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N328|E6N328_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N918|E6N918_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4V5|E6N4V5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N766|E6N766_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4L5|E6N4L5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8Q4|E6P8Q4_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7N2|E6N7N2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N941|E6N941_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6I4|E6N6I4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N978|E6N978_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEC7|Q4LEC7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N475|E6N475_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4A1|E6N4A1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7W5|E6N7W5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J8|E6N6J8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7B7|E6N7B7_9ARCH	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5A5|E6N5A5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N893|E6N893_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N6E3|E6N6E3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F3|E6N5F3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7K8|E6N7K8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P953|E6P953_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N524|E6N524_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7H8|E6N7H8_9ARCH	63	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7U9|E6N7U9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N551|E6N551_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N666|E6N666_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N958|E6N958_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6A3|E6N6A3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N437|E6N437_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7A4|E6N7A4_9ARCH	91	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N2S8|E6N2S8_9ARCH	97	secreted	extracellular region GO:0005576;
+tr|E6N977|E6N977_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E2|E6N9E2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E9|E6N5E9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4J9|E6N4J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9D0|E6N9D0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A2|E6N8A2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D8|E6N6D8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N955|E6N955_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9E3|E6P9E3_9ARCH	92	secreted	extracellular region GO:0005576;
+tr|E6N7X5|E6N7X5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z7|E6N7Z7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6W5|E6N6W5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6N3|E6N6N3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Y1|E6N7Y1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N629|E6N629_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5X6|E6N5X6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N653|E6N653_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J9|E6N6J9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4B1|E6N4B1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5D9|E6N5D9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N942|E6N942_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N674|E6N674_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9F9|E6N9F9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P4|E6N5P4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N416|E6N416_9ARCH	88	secreted	extracellular region GO:0005576;
+tr|E6N5L2|E6N5L2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N490|E6N490_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N709|E6N709_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N626|E6N626_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F0|E6N7F0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G0|E6N9G0_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N374|E6N374_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C0|E6N8C0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LEF0|Q4LEF0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P8|E6N7P8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R0|E6N8R0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6R1|E6N6R1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAM3|E6PAM3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P7J9|E6P7J9_9ARCH	86	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N802|E6N802_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7X6|E6N7X6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U2|E6N8U2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P939|E6P939_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7V5|E6N7V5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J4|E6N6J4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Z5|E6N8Z5_9ARCH	96	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5I3|E6N5I3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N476|E6N476_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3Z1|E6N3Z1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N668|E6N668_9ARCH	79	secreted	extracellular region GO:0005576;
+tr|E6N7I6|E6N7I6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7C0|E6N7C0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4H6|E6N4H6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E6|E6N9E6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7P0|E6N7P0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N869|E6N869_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N672|E6N672_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6T0|E6N6T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M6|E6N4M6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N625|E6N625_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P0|E6N5P0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N500|E6N500_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L1|E6N5L1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6I1|E6N6I1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8K5|E6N8K5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4J8|E6N4J8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N323|E6N323_9ARCH	89	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E5|E6N5E5_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N356|E6N356_9ARCH	54	secreted	extracellular region GO:0005576;
+tr|E6N5U4|E6N5U4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7C2|E6N7C2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7I3|E6N7I3_9ARCH	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5S8|E6N5S8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N544|E6N544_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N847|E6N847_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4C4|E6N4C4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F6|E6N5F6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6X3|E6N6X3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9F5|E6P9F5_9ARCH	90	secreted	extracellular region GO:0005576;
+tr|E6N640|E6N640_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N680|E6N680_9ARCH	80	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5T0|E6N5T0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N2T0|E6N2T0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8M1|E6N8M1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3L6|E6N3L6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7L7|E6N7L7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P9F7|E6P9F7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6PAU7|E6PAU7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N638|E6N638_9ARCH	90	secreted	extracellular region GO:0005576;
+tr|E6P8F9|E6P8F9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4S6|E6N4S6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N671|E6N671_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N916|E6N916_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E8|E6N9E8_9ARCH	55	cytoplasm	cytoplasm GO:0005737
+tr|E6P929|E6P929_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N661|E6N661_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5A6|E6N5A6_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N401|E6N401_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3L9|E6N3L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6S3|E6N6S3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J3|E6N6J3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N423|E6N423_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N605|E6N605_9ARCH	98	secreted	extracellular region GO:0005576;
+tr|E6P890|E6P890_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8K0|E6N8K0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D8|E6N8D8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6A0|E6N6A0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z6|E6N7Z6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N658|E6N658_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9N2|E6N9N2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAL6|E6PAL6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y1|E6N5Y1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Z4|E6N7Z4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N493|E6N493_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3A8|E6N3A8_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P5|E6N7P5_9ARCH	99	cytoplasm	cytoplasm GO:0005737
+tr|E6N9G7|E6N9G7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3H3|E6N3H3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4A8|E6N4A8_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N7W3|E6N7W3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3F3|E6N3F3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5Q5|E6N5Q5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N963|E6N963_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5L9|E6N5L9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7Q2|E6N7Q2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N853|E6N853_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D3|E6N8D3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4F0|E6N4F0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8N1|E6N8N1_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6N7H7|E6N7H7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5E1|E6N5E1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8D5|E6N8D5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7U0|E6N7U0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N883|E6N883_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N689|E6N689_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N536|E6N536_9ARCH	63	cytoplasm	cytoplasm GO:0005737
+tr|E6N8T2|E6N8T2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8S2|E6N8S2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P8H3|E6P8H3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|Q4LED0|Q4LED0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E6|E6N8E6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N925|E6N925_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N523|E6N523_9ARCH	98	cytoplasm	cytoplasm GO:0005737
+tr|E6N8F2|E6N8F2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N872|E6N872_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U3|E6N6U3_9ARCH	95	secreted	extracellular region GO:0005576;
+tr|E6N5A3|E6N5A3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2S9|E6N2S9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6P949|E6P949_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P9Q0|E6P9Q0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N768|E6N768_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R8|E6N4R8_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4L2|E6N4L2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8A5|E6N8A5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N479|E6N479_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U5|E6N6U5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N728|E6N728_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N758|E6N758_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N745|E6N745_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C5|E6N9C5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3J2|E6N3J2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAT1|E6PAT1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4L4|E6N4L4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6P945|E6P945_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5J2|E6N5J2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5R3|E6N5R3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4Q4|E6N4Q4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5P1|E6N5P1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4T8|E6N4T8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U8|E6N6U8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N794|E6N794_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N549|E6N549_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7P7|E6N7P7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6V5|E6N6V5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6U7|E6N6U7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N623|E6N623_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V8|E6N5V8_9ARCH	81	secreted	extracellular region GO:0005576;
+tr|E6N451|E6N451_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N612|E6N612_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A2|E6N7A2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4W8|E6N4W8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7F3|E6N7F3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8K1|E6N8K1_9ARCH	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P8G7|E6P8G7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4M9|E6N4M9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4F7|E6N4F7_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5E2|E6N5E2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5G0|E6N5G0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N489|E6N489_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N583|E6N583_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N681|E6N681_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3S3|E6N3S3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7I9|E6N7I9_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A5|E6N7A5_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N6Z8|E6N6Z8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N571|E6N571_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7A1|E6N7A1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N725|E6N725_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6J2|E6N6J2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2P7|E6N2P7_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N9S6|E6N9S6_9ARCH	38	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N8Q3|E6N8Q3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N660|E6N660_9ARCH	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N4S3|E6N4S3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8R8|E6N8R8_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N305|E6N305_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N7E2|E6N7E2_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3Q7|E6N3Q7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N956|E6N956_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6X4|E6N6X4_9ARCH	96	cytoplasm	cytoplasm GO:0005737
+tr|E6P8U6|E6P8U6_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5J6|E6N5J6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N3Y8|E6N3Y8_9ARCH	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6P7X6|E6P7X6_9ARCH	92	cytoplasm	cytoplasm GO:0005737
+tr|E6N8E4|E6N8E4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N979|E6N979_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3R4|E6N3R4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5Y5|E6N5Y5_9ARCH	99	secreted	extracellular region GO:0005576;
+tr|E6N582|E6N582_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3J6|E6N3J6_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N788|E6N788_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6PAQ1|E6PAQ1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4R5|E6N4R5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8C1|E6N8C1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8U7|E6N8U7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N727|E6N727_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N595|E6N595_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5K0|E6N5K0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N483|E6N483_9ARCH	89	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N759|E6N759_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2R0|E6N2R0_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N5K5|E6N5K5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3A0|E6N3A0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N624|E6N624_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N4V3|E6N4V3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N517|E6N517_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N884|E6N884_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N528|E6N528_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N532|E6N532_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N734|E6N734_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5F5|E6N5F5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9C0|E6N9C0_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6B2|E6N6B2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N630|E6N630_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N7M1|E6N7M1_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N787|E6N787_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N8Y2|E6N8Y2_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5V2|E6N5V2_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N5U3|E6N5U3_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N4F3|E6N4F3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3C5|E6N3C5_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6P9D5|E6P9D5_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N9E3|E6N9E3_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6D6|E6N6D6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6C1|E6N6C1_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N2Z3|E6N2Z3_9ARCH	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|E6N683|E6N683_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N2W4|E6N2W4_9ARCH	100	secreted	extracellular region GO:0005576;
+tr|E6N6M7|E6N6M7_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N3B4|E6N3B4_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N6Y6|E6N6Y6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N5N6|E6N5N6_9ARCH	100	cytoplasm	cytoplasm GO:0005737
+tr|E6N687|E6N687_9ARCH	95	secreted	extracellular region GO:0005576;

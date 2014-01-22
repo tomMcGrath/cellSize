@@ -1,0 +1,1511 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|K7Z5X6|K7Z5X6_9PROT	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLZ5|K7YLZ5_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDA3|K7ZDA3_9PROT	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z355|K7Z355_9PROT	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD64|K7ZD64_9PROT	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YL78|K7YL78_9PROT	48	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZCW4|K7ZCW4_9PROT	7	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YPP9|K7YPP9_9PROT	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPA4|K7YPA4_9PROT	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZD74|K7ZD74_9PROT	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSL3|K7YSL3_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3L2|K7Z3L2_9PROT	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD32|K7ZD32_9PROT	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YQ79|K7YQ79_9PROT	24	inner membrane	integral to membrane GO:0016021(IEA); outer membrane-bounded periplasmic space GO:0030288(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YNV5|K7YNV5_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YHL5|K7YHL5_9PROT	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z445|K7Z445_9PROT	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPU7|K7YPU7_9PROT	15	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|K7YGD6|K7YGD6_9PROT	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDK6|K7ZDK6_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z673|K7Z673_9PROT	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNQ7|K7YNQ7_9PROT	26	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7ZCK0|K7ZCK0_9PROT	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDN1|K7ZDN1_9PROT	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPC1|K7YPC1_9PROT	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7Z640|K7Z640_9PROT	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMK5|K7YMK5_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z368|K7Z368_9PROT	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMQ2|K7YMQ2_9PROT	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDK4|K7ZDK4_9PROT	33	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K7YGI1|K7YGI1_9PROT	48	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7ZCL8|K7ZCL8_9PROT	16	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|K7YRT9|K7YRT9_9PROT	41	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K7Z2N2|K7Z2N2_9PROT	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YQS9|K7YQS9_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSU8|K7YSU8_9PROT	27	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z551|K7Z551_9PROT	21	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7ZD10|K7ZD10_9PROT	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YRD8|K7YRD8_9PROT	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|K7Z4R3|K7Z4R3_9PROT	36	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YQ52|K7YQ52_9PROT	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z5U6|K7Z5U6_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNX4|K7YNX4_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z4P7|K7Z4P7_9PROT	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCX9|K7ZCX9_9PROT	11	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YNW6|K7YNW6_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YN07|K7YN07_9PROT	46	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K7Z613|K7Z613_9PROT	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZDF2|K7ZDF2_9PROT	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLI1|K7YLI1_9PROT	36	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7ZCZ4|K7ZCZ4_9PROT	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD42|K7ZD42_9PROT	24	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|K7YSU6|K7YSU6_9PROT	42	cytoplasm	cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|K7ZD17|K7ZD17_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFB8|K7YFB8_9PROT	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFU6|K7YFU6_9PROT	52	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YNH5|K7YNH5_9PROT	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YSH5|K7YSH5_9PROT	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YG23|K7YG23_9PROT	16	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|K7YHJ5|K7YHJ5_9PROT	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRY4|K7YRY4_9PROT	31	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7ZC68|K7ZC68_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCI6|K7ZCI6_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQX1|K7YQX1_9PROT	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YNZ5|K7YNZ5_9PROT	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZC38|K7ZC38_9PROT	20	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K7Z2P6|K7Z2P6_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD65|K7ZD65_9PROT	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMM2|K7YMM2_9PROT	37	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|K7YF68|K7YF68_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z384|K7Z384_9PROT	44	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K7ZCW7|K7ZCW7_9PROT	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YFH6|K7YFH6_9PROT	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YJ74|K7YJ74_9PROT	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YHZ1|K7YHZ1_9PROT	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDG9|K7ZDG9_9PROT	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YGB4|K7YGB4_9PROT	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); peptidoglycan-based cell wall GO:0009274(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMU9|K7YMU9_9PROT	30	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YH05|K7YH05_9PROT	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7Z687|K7Z687_9PROT	31	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7Z574|K7Z574_9PROT	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z540|K7Z540_9PROT	27	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|K7YQ58|K7YQ58_9PROT	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFG4|K7YFG4_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDP4|K7ZDP4_9PROT	12	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K7Z4Y2|K7Z4Y2_9PROT	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YIY3|K7YIY3_9PROT	36	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K7YLS5|K7YLS5_9PROT	36	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|K7YH00|K7YH00_9PROT	40	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YLK2|K7YLK2_9PROT	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPL1|K7YPL1_9PROT	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMX8|K7YMX8_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K7ZCI7|K7ZCI7_9PROT	3	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZC64|K7ZC64_9PROT	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YNI6|K7YNI6_9PROT	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z5Y1|K7Z5Y1_9PROT	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPZ2|K7YPZ2_9PROT	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSJ4|K7YSJ4_9PROT	17	periplasm	periplasmic space GO:0042597(IDA);
+tr|K7ZD69|K7ZD69_9PROT	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPB4|K7YPB4_9PROT	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YM60|K7YM60_9PROT	12	cytoplasm	ribosome GO:0005840(IEA);
+tr|K7YNN6|K7YNN6_9PROT	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDB2|K7ZDB2_9PROT	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z660|K7Z660_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMW5|K7YMW5_9PROT	49	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPS3|K7YPS3_9PROT	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YG07|K7YG07_9PROT	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMB1|K7YMB1_9PROT	67	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YN94|K7YN94_9PROT	17	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|K7YLM6|K7YLM6_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z637|K7Z637_9PROT	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZC21|K7ZC21_9PROT	12	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YPZ5|K7YPZ5_9PROT	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YH11|K7YH11_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRE2|K7YRE2_9PROT	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YGK1|K7YGK1_9PROT	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YQF2|K7YQF2_9PROT	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YR51|K7YR51_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD79|K7ZD79_9PROT	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLN2|K7YLN2_9PROT	34	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YF72|K7YF72_9PROT	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD05|K7ZD05_9PROT	25	secreted	extracellular region GO:0005576(IEA);
+tr|K7YMG8|K7YMG8_9PROT	23	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|K7Z316|K7Z316_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLX1|K7YLX1_9PROT	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDE8|K7ZDE8_9PROT	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z4Y8|K7Z4Y8_9PROT	15	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|K7YNB4|K7YNB4_9PROT	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZC30|K7ZC30_9PROT	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZC99|K7ZC99_9PROT	18	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|K7YIZ1|K7YIZ1_9PROT	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCX4|K7ZCX4_9PROT	24	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|K7YH98|K7YH98_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YJ06|K7YJ06_9PROT	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K7YQC3|K7YQC3_9PROT	40	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|K7ZDJ7|K7ZDJ7_9PROT	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQE0|K7YQE0_9PROT	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z658|K7Z658_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNT4|K7YNT4_9PROT	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YFX9|K7YFX9_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCX5|K7ZCX5_9PROT	35	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YMM9|K7YMM9_9PROT	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YNP6|K7YNP6_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YI94|K7YI94_9PROT	17	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K7YG78|K7YG78_9PROT	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCM3|K7ZCM3_9PROT	26	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IMP); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZD00|K7ZD00_9PROT	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCR5|K7ZCR5_9PROT	50	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7ZCU6|K7ZCU6_9PROT	42	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YF97|K7YF97_9PROT	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YMD0|K7YMD0_9PROT	22	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|K7YP48|K7YP48_9PROT	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YID9|K7YID9_9PROT	10	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|K7YNK5|K7YNK5_9PROT	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z4R6|K7Z4R6_9PROT	29	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|K7YQF8|K7YQF8_9PROT	57	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YGU1|K7YGU1_9PROT	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z653|K7Z653_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCN2|K7ZCN2_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z2X3|K7Z2X3_9PROT	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDP0|K7ZDP0_9PROT	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPT5|K7YPT5_9PROT	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPD2|K7YPD2_9PROT	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNC2|K7YNC2_9PROT	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YR83|K7YR83_9PROT	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLB9|K7YLB9_9PROT	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRN4|K7YRN4_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3Z4|K7Z3Z4_9PROT	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z459|K7Z459_9PROT	22	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|K7YQL9|K7YQL9_9PROT	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMN8|K7YMN8_9PROT	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z2W8|K7Z2W8_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3C3|K7Z3C3_9PROT	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YRG2|K7YRG2_9PROT	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YNP0|K7YNP0_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPU4|K7YPU4_9PROT	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZC71|K7ZC71_9PROT	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7Z3D0|K7Z3D0_9PROT	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YJ43|K7YJ43_9PROT	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7Z449|K7Z449_9PROT	21	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K7ZCY6|K7ZCY6_9PROT	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YPQ6|K7YPQ6_9PROT	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YJ49|K7YJ49_9PROT	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YF94|K7YF94_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|K7YI19|K7YI19_9PROT	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YP13|K7YP13_9PROT	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNM4|K7YNM4_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSR5|K7YSR5_9PROT	24	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K7YLN9|K7YLN9_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSS3|K7YSS3_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRM5|K7YRM5_9PROT	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3S6|K7Z3S6_9PROT	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YGK7|K7YGK7_9PROT	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YG67|K7YG67_9PROT	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z5X1|K7Z5X1_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPC6|K7YPC6_9PROT	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNW0|K7YNW0_9PROT	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YJ38|K7YJ38_9PROT	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YI13|K7YI13_9PROT	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YIU6|K7YIU6_9PROT	22	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YR38|K7YR38_9PROT	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YLB5|K7YLB5_9PROT	30	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7Z3G4|K7Z3G4_9PROT	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCN4|K7ZCN4_9PROT	51	cytoplasm	cytosol GO:0005829(IEA);
+tr|K7YQB0|K7YQB0_9PROT	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|K7YMB9|K7YMB9_9PROT	13	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|K7YGW8|K7YGW8_9PROT	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|K7YFJ0|K7YFJ0_9PROT	40	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K7ZD97|K7ZD97_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YND2|K7YND2_9PROT	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFC2|K7YFC2_9PROT	42	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YS47|K7YS47_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YLY4|K7YLY4_9PROT	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|K7ZCU8|K7ZCU8_9PROT	5	periplasm	periplasmic space GO:0042597(IDA);
+tr|K7Z3T8|K7Z3T8_9PROT	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K7YFJ4|K7YFJ4_9PROT	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YM03|K7YM03_9PROT	64	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3F9|K7Z3F9_9PROT	6	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YQ01|K7YQ01_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|K7YP47|K7YP47_9PROT	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YG25|K7YG25_9PROT	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQ14|K7YQ14_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQN6|K7YQN6_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K7ZCC8|K7ZCC8_9PROT	78	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMQ9|K7YMQ9_9PROT	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDD5|K7ZDD5_9PROT	44	cytoplasm	cytosol GO:0005829(ISS);
+tr|K7ZCM7|K7ZCM7_9PROT	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YQE5|K7YQE5_9PROT	72	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YIB7|K7YIB7_9PROT	8	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YHJ9|K7YHJ9_9PROT	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCS8|K7ZCS8_9PROT	52	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YL97|K7YL97_9PROT	38	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7ZD59|K7ZD59_9PROT	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YHX4|K7YHX4_9PROT	8	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|K7Z4Q2|K7Z4Q2_9PROT	13	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K7Z494|K7Z494_9PROT	24	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|K7YJ16|K7YJ16_9PROT	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YSK0|K7YSK0_9PROT	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQB6|K7YQB6_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YS31|K7YS31_9PROT	7	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YIQ0|K7YIQ0_9PROT	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRC2|K7YRC2_9PROT	8	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YH84|K7YH84_9PROT	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YML6|K7YML6_9PROT	27	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|K7YQ47|K7YQ47_9PROT	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7ZC92|K7ZC92_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQJ8|K7YQJ8_9PROT	10	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|K7YNP3|K7YNP3_9PROT	17	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|K7YNQ0|K7YNQ0_9PROT	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPY9|K7YPY9_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPX0|K7YPX0_9PROT	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YHA3|K7YHA3_9PROT	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|K7YQL4|K7YQL4_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDA5|K7ZDA5_9PROT	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YGN0|K7YGN0_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD07|K7ZD07_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z2P1|K7Z2P1_9PROT	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YL88|K7YL88_9PROT	22	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7YLE0|K7YLE0_9PROT	33	cytoplasm	cytosol GO:0005829(IBA);
+tr|K7Z5Y5|K7Z5Y5_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFJ9|K7YFJ9_9PROT	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z2S3|K7Z2S3_9PROT	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRF1|K7YRF1_9PROT	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPV8|K7YPV8_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YM80|K7YM80_9PROT	29	cytoplasm	cytosol GO:0005829(IDA);
+tr|K7ZD70|K7ZD70_9PROT	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YH23|K7YH23_9PROT	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YG19|K7YG19_9PROT	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YM93|K7YM93_9PROT	35	cytoplasm	cell outer membrane GO:0009279(IDA); cytoplasm GO:0005737(IEA);
+tr|K7YN02|K7YN02_9PROT	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDG2|K7ZDG2_9PROT	11	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YHF9|K7YHF9_9PROT	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZCD4|K7ZCD4_9PROT	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7Z623|K7Z623_9PROT	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YID4|K7YID4_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YS62|K7YS62_9PROT	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YGX5|K7YGX5_9PROT	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YPT2|K7YPT2_9PROT	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YR67|K7YR67_9PROT	13	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YNY0|K7YNY0_9PROT	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z4S1|K7Z4S1_9PROT	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMP2|K7YMP2_9PROT	43	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YGX9|K7YGX9_9PROT	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YR18|K7YR18_9PROT	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YIY6|K7YIY6_9PROT	16	inner membrane	integral to plasma membrane GO:0005887(TAS);
+tr|K7YLK7|K7YLK7_9PROT	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z5W0|K7Z5W0_9PROT	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCL1|K7ZCL1_9PROT	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZC34|K7ZC34_9PROT	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z2N7|K7Z2N7_9PROT	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YRJ1|K7YRJ1_9PROT	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7YQS1|K7YQS1_9PROT	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YGZ2|K7YGZ2_9PROT	24	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7YPU3|K7YPU3_9PROT	36	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|K7Z4N3|K7Z4N3_9PROT	16	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|K7YNS7|K7YNS7_9PROT	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCP6|K7ZCP6_9PROT	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YI34|K7YI34_9PROT	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQ18|K7YQ18_9PROT	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YM77|K7YM77_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YHT0|K7YHT0_9PROT	24	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K7YNL8|K7YNL8_9PROT	37	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K7YNK9|K7YNK9_9PROT	27	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YLQ6|K7YLQ6_9PROT	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YRH4|K7YRH4_9PROT	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K7ZCP7|K7ZCP7_9PROT	28	periplasm	periplasmic space GO:0042597(IEA);
+tr|K7ZC45|K7ZC45_9PROT	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z644|K7Z644_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z4U5|K7Z4U5_9PROT	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z4J3|K7Z4J3_9PROT	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YR62|K7YR62_9PROT	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZD52|K7ZD52_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z466|K7Z466_9PROT	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|K7Z652|K7Z652_9PROT	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7ZCE7|K7ZCE7_9PROT	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K7YNC5|K7YNC5_9PROT	27	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K7Z616|K7Z616_9PROT	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7Z634|K7Z634_9PROT	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K7YL81|K7YL81_9PROT	19	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|K7YPU9|K7YPU9_9PROT	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YFZ1|K7YFZ1_9PROT	21	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YG73|K7YG73_9PROT	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YJ52|K7YJ52_9PROT	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z3T3|K7Z3T3_9PROT	21	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|K7ZCV8|K7ZCV8_9PROT	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YMZ3|K7YMZ3_9PROT	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YQG3|K7YQG3_9PROT	53	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K7ZDE3|K7ZDE3_9PROT	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZC28|K7ZC28_9PROT	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YS02|K7YS02_9PROT	40	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K7YLD4|K7YLD4_9PROT	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZCY2|K7ZCY2_9PROT	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YHU1|K7YHU1_9PROT	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z521|K7Z521_9PROT	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YR58|K7YR58_9PROT	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZDM8|K7ZDM8_9PROT	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSF2|K7YSF2_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YNY6|K7YNY6_9PROT	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K7YPX5|K7YPX5_9PROT	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YH43|K7YH43_9PROT	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7ZCE0|K7ZCE0_9PROT	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|K7ZD67|K7ZD67_9PROT	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YHT8|K7YHT8_9PROT	49	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|K7Z607|K7Z607_9PROT	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YSZ3|K7YSZ3_9PROT	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z647|K7Z647_9PROT	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YST0|K7YST0_9PROT	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7Z624|K7Z624_9PROT	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K7YNX3|K7YNX3_9PROT	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YHI9|K7YHI9_9PROT	10	cytoplasm	cytoplasm GO:0005737(IEA); riboflavin synthase complex GO:0009349(IEA);
+tr|K7YGV5|K7YGV5_9PROT	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YIG2|K7YIG2_9PROT	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7ZC67|K7ZC67_9PROT	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K7YGT5|K7YGT5_9PROT	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K7YP76|K7YP76_9PROT	11	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|K7ZCC6|K7ZCC6_9PROT	76	cytoplasm	cytoplasm GO:0005737
+tr|K7YSL8|K7YSL8_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZCD5|K7ZCD5_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YPP0|K7YPP0_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7YS92|K7YS92_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7ZDH5|K7ZDH5_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YNS0|K7YNS0_9PROT	35	secreted	extracellular region GO:0005576;
+tr|K7Z618|K7Z618_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLC4|K7YLC4_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7Z5Z8|K7Z5Z8_9PROT	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD25|K7ZD25_9PROT	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIB2|K7YIB2_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YFK4|K7YFK4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YNA0|K7YNA0_9PROT	75	secreted	extracellular region GO:0005576;
+tr|K7YNM9|K7YNM9_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YNZ7|K7YNZ7_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YHP5|K7YHP5_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7Z4Q9|K7Z4Q9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5V8|K7Z5V8_9PROT	35	periplasm	periplasmic space GO:0042597;
+tr|K7YLW0|K7YLW0_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7YPL9|K7YPL9_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YIV3|K7YIV3_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPM9|K7YPM9_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YM27|K7YM27_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YL60|K7YL60_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YN98|K7YN98_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7YG01|K7YG01_9PROT	58	cytoplasm	cytoplasm GO:0005737
+tr|K7YPW6|K7YPW6_9PROT	26	secreted	extracellular region GO:0005576;
+tr|K7YSV5|K7YSV5_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YSQ2|K7YSQ2_9PROT	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNY9|K7YNY9_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7Z3K0|K7Z3K0_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7ZDC9|K7ZDC9_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YPN7|K7YPN7_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7YHS4|K7YHS4_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ92|K7YQ92_9PROT	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z682|K7Z682_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7Z2U4|K7Z2U4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPV9|K7YPV9_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDG5|K7ZDG5_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2Y4|K7Z2Y4_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7YLA6|K7YLA6_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7ZDA1|K7ZDA1_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YNS8|K7YNS8_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7ZD61|K7ZD61_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7Z5L9|K7Z5L9_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YRN9|K7YRN9_9PROT	23	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5Q3|K7Z5Q3_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z5T7|K7Z5T7_9PROT	83	cytoplasm	cytoplasm GO:0005737
+tr|K7YPV1|K7YPV1_9PROT	36	secreted	extracellular region GO:0005576;
+tr|K7Z363|K7Z363_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDF6|K7ZDF6_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YMC7|K7YMC7_9PROT	81	secreted	extracellular region GO:0005576;
+tr|K7ZD77|K7ZD77_9PROT	52	secreted	extracellular region GO:0005576;
+tr|K7YN56|K7YN56_9PROT	39	cytoplasm	cytoplasm GO:0005737
+tr|K7YI80|K7YI80_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z595|K7Z595_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YSY0|K7YSY0_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDC2|K7ZDC2_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YRN0|K7YRN0_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YS99|K7YS99_9PROT	65	periplasm	periplasmic space GO:0042597;
+tr|K7Z5V6|K7Z5V6_9PROT	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4F8|K7Z4F8_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7Z5W3|K7Z5W3_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YME1|K7YME1_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YQ25|K7YQ25_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7YHQ6|K7YHQ6_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z560|K7Z560_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YGN7|K7YGN7_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7YSW0|K7YSW0_9PROT	43	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCZ3|K7ZCZ3_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YM06|K7YM06_9PROT	39	secreted	extracellular region GO:0005576;
+tr|K7YQL0|K7YQL0_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7YLP4|K7YLP4_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YGQ5|K7YGQ5_9PROT	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YG63|K7YG63_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YH66|K7YH66_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YIP2|K7YIP2_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z545|K7Z545_9PROT	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YR92|K7YR92_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YPL5|K7YPL5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YLH0|K7YLH0_9PROT	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3I6|K7Z3I6_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YHG5|K7YHG5_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7ZCB3|K7ZCB3_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5R0|K7Z5R0_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7ZC50|K7ZC50_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7ZC23|K7ZC23_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7Z418|K7Z418_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7Z4F1|K7Z4F1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YLL1|K7YLL1_9PROT	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z632|K7Z632_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7YSM6|K7YSM6_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7YS34|K7YS34_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YSP3|K7YSP3_9PROT	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIQ4|K7YIQ4_9PROT	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSL0|K7YSL0_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3Z7|K7Z3Z7_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YMI5|K7YMI5_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YSG6|K7YSG6_9PROT	33	secreted	extracellular region GO:0005576;
+tr|K7YNG4|K7YNG4_9PROT	43	secreted	extracellular region GO:0005576;
+tr|K7YS17|K7YS17_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7ZCG0|K7ZCG0_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD86|K7ZD86_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7ZD33|K7ZD33_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPM4|K7YPM4_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7Z663|K7Z663_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YNE2|K7YNE2_9PROT	72	cytoplasm	cytoplasm GO:0005737
+tr|K7YIR4|K7YIR4_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLQ0|K7YLQ0_9PROT	53	cytoplasm	cytoplasm GO:0005737
+tr|K7YPY7|K7YPY7_9PROT	80	secreted	extracellular region GO:0005576;
+tr|K7Z584|K7Z584_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7Z332|K7Z332_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGE3|K7YGE3_9PROT	48	cytoplasm	cytoplasm GO:0005737
+tr|K7YFD8|K7YFD8_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YIX5|K7YIX5_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YIS2|K7YIS2_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YIN1|K7YIN1_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YG51|K7YG51_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7Z611|K7Z611_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z629|K7Z629_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCP0|K7ZCP0_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7Z4V7|K7Z4V7_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7ZCZ8|K7ZCZ8_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7Z3L9|K7Z3L9_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7ZCH2|K7ZCH2_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7YL85|K7YL85_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7ZC52|K7ZC52_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YGL4|K7YGL4_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YNP2|K7YNP2_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7ZDN3|K7ZDN3_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YPQ3|K7YPQ3_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRX9|K7YRX9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3X7|K7Z3X7_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7Z3T9|K7Z3T9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCV3|K7ZCV3_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YIC7|K7YIC7_9PROT	43	periplasm	periplasmic space GO:0042597;
+tr|K7ZDG7|K7ZDG7_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z656|K7Z656_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YFW9|K7YFW9_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7Z2M2|K7Z2M2_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YSN9|K7YSN9_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YQT3|K7YQT3_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7YPF0|K7YPF0_9PROT	90	cytoplasm	cytoplasm GO:0005737
+tr|K7YPV3|K7YPV3_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNA5|K7YNA5_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCZ6|K7ZCZ6_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4P4|K7Z4P4_9PROT	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z462|K7Z462_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7Z4W2|K7Z4W2_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7ZD94|K7ZD94_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7ZDH7|K7ZDH7_9PROT	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YJ34|K7YJ34_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7ZD02|K7ZD02_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD47|K7ZD47_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YP84|K7YP84_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7Z2T9|K7Z2T9_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7ZDI6|K7ZDI6_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7YJ26|K7YJ26_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7ZDE2|K7ZDE2_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z604|K7Z604_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YFV8|K7YFV8_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD15|K7ZD15_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2S9|K7Z2S9_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YHN6|K7YHN6_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YMT8|K7YMT8_9PROT	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPR7|K7YPR7_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNZ9|K7YNZ9_9PROT	50	periplasm	periplasmic space GO:0042597;
+tr|K7YN91|K7YN91_9PROT	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCM5|K7ZCM5_9PROT	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCN6|K7ZCN6_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YSJ1|K7YSJ1_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5J1|K7Z5J1_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZC41|K7ZC41_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7YR42|K7YR42_9PROT	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ34|K7YQ34_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC80|K7ZC80_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YRA2|K7YRA2_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7Z4P0|K7Z4P0_9PROT	32	cytoplasm	cytoplasm GO:0005737
+tr|K7YP57|K7YP57_9PROT	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLH5|K7YLH5_9PROT	51	cytoplasm	cytoplasm GO:0005737
+tr|K7YNT8|K7YNT8_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7YQP1|K7YQP1_9PROT	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCY7|K7ZCY7_9PROT	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z554|K7Z554_9PROT	52	secreted	extracellular region GO:0005576;
+tr|K7Z5C3|K7Z5C3_9PROT	51	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCH5|K7ZCH5_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPX7|K7YPX7_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7ZCQ4|K7ZCQ4_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YLW7|K7YLW7_9PROT	67	cytoplasm	cytoplasm GO:0005737
+tr|K7YM85|K7YM85_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YSK3|K7YSK3_9PROT	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPT1|K7YPT1_9PROT	91	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3F5|K7Z3F5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD56|K7ZD56_9PROT	52	cytoplasm	cytoplasm GO:0005737
+tr|K7Z391|K7Z391_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YPW2|K7YPW2_9PROT	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4U6|K7Z4U6_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7Z3I3|K7Z3I3_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YP67|K7YP67_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YR99|K7YR99_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YLX9|K7YLX9_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7Z4Y5|K7Z4Y5_9PROT	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS38|K7YS38_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YJ62|K7YJ62_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YLE6|K7YLE6_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YI39|K7YI39_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z379|K7Z379_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPY3|K7YPY3_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YPF3|K7YPF3_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7ZCD7|K7ZCD7_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z590|K7Z590_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YP27|K7YP27_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7YP36|K7YP36_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7Z5A2|K7Z5A2_9PROT	83	secreted	extracellular region GO:0005576;
+tr|K7Z3H0|K7Z3H0_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YR21|K7YR21_9PROT	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3H3|K7Z3H3_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7YMF3|K7YMF3_9PROT	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNH1|K7YNH1_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDB1|K7ZDB1_9PROT	33	secreted	extracellular region GO:0005576;
+tr|K7Z434|K7Z434_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7ZCI0|K7ZCI0_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLR1|K7YLR1_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YP21|K7YP21_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YH54|K7YH54_9PROT	34	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4U1|K7Z4U1_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YPG9|K7YPG9_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YFV5|K7YFV5_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YPA9|K7YPA9_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YPA2|K7YPA2_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPB8|K7YPB8_9PROT	72	cytoplasm	cytoplasm GO:0005737
+tr|K7YPM8|K7YPM8_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YIL4|K7YIL4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YSF5|K7YSF5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z669|K7Z669_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YNF1|K7YNF1_9PROT	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5J9|K7Z5J9_9PROT	75	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5X4|K7Z5X4_9PROT	80	secreted	extracellular region GO:0005576;
+tr|K7ZC19|K7ZC19_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YFR1|K7YFR1_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZCG6|K7ZCG6_9PROT	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPH2|K7YPH2_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ03|K7YQ03_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7YGU7|K7YGU7_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YFQ0|K7YFQ0_9PROT	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQU8|K7YQU8_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7YNY1|K7YNY1_9PROT	75	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCU3|K7ZCU3_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YPR6|K7YPR6_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YLJ3|K7YLJ3_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7Z568|K7Z568_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YG16|K7YG16_9PROT	56	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCX0|K7ZCX0_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ06|K7YQ06_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YHD9|K7YHD9_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7YFY4|K7YFY4_9PROT	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRJ6|K7YRJ6_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZDN6|K7ZDN6_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7Z2Z8|K7Z2Z8_9PROT	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4C3|K7Z4C3_9PROT	78	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4M5|K7Z4M5_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z563|K7Z563_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7Z5G0|K7Z5G0_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ64|K7YQ64_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3N7|K7Z3N7_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YRI6|K7YRI6_9PROT	75	secreted	extracellular region GO:0005576;
+tr|K7YHK3|K7YHK3_9PROT	55	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YJ08|K7YJ08_9PROT	87	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5D3|K7Z5D3_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPP5|K7YPP5_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z410|K7Z410_9PROT	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2R3|K7Z2R3_9PROT	86	periplasm	periplasmic space GO:0042597;
+tr|K7YLV6|K7YLV6_9PROT	36	cytoplasm	cytoplasm GO:0005737
+tr|K7YIU2|K7YIU2_9PROT	36	secreted	extracellular region GO:0005576;
+tr|K7YPR2|K7YPR2_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YMN2|K7YMN2_9PROT	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCN8|K7ZCN8_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7ZD91|K7ZD91_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7ZCG5|K7ZCG5_9PROT	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQM4|K7YQM4_9PROT	63	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5E5|K7Z5E5_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7ZCP4|K7ZCP4_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z3W4|K7Z3W4_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YP98|K7YP98_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YPS9|K7YPS9_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7Z5R6|K7Z5R6_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7Z4K7|K7Z4K7_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YSC4|K7YSC4_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ88|K7YQ88_9PROT	30	secreted	extracellular region GO:0005576;
+tr|K7Z3E2|K7Z3E2_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YNJ4|K7YNJ4_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7ZCR6|K7ZCR6_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4X0|K7Z4X0_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YMA7|K7YMA7_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7Z2V3|K7Z2V3_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7ZCQ1|K7ZCQ1_9PROT	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC58|K7ZC58_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7ZCR7|K7ZCR7_9PROT	43	secreted	extracellular region GO:0005576;
+tr|K7YPK7|K7YPK7_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YNJ0|K7YNJ0_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YNQ9|K7YNQ9_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7ZC24|K7ZC24_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YR71|K7YR71_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YPM6|K7YPM6_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7Z2V9|K7Z2V9_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7Z3C0|K7Z3C0_9PROT	37	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDA9|K7ZDA9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YP61|K7YP61_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YIX1|K7YIX1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YIL9|K7YIL9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YSD9|K7YSD9_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7Z4W1|K7Z4W1_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7Z3X0|K7Z3X0_9PROT	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YH34|K7YH34_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YI04|K7YI04_9PROT	80	secreted	extracellular region GO:0005576;
+tr|K7YQW5|K7YQW5_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YL73|K7YL73_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YRB5|K7YRB5_9PROT	91	cytoplasm	cytoplasm GO:0005737
+tr|K7YRF6|K7YRF6_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YFU1|K7YFU1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3Y8|K7Z3Y8_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7Z5W4|K7Z5W4_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YIN7|K7YIN7_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YG42|K7YG42_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YI98|K7YI98_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YSS1|K7YSS1_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YNR0|K7YNR0_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YG11|K7YG11_9PROT	35	secreted	extracellular region GO:0005576;
+tr|K7ZCY9|K7ZCY9_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YMD8|K7YMD8_9PROT	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPI0|K7YPI0_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YFM0|K7YFM0_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7YSP9|K7YSP9_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YP78|K7YP78_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YST5|K7YST5_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5I2|K7Z5I2_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIT4|K7YIT4_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YJ58|K7YJ58_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZDG0|K7ZDG0_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YQ40|K7YQ40_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7ZCL6|K7ZCL6_9PROT	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YG91|K7YG91_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YPN3|K7YPN3_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7ZCP3|K7ZCP3_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCT8|K7ZCT8_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDA7|K7ZDA7_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCK4|K7ZCK4_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YRL5|K7YRL5_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7YMC3|K7YMC3_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YSM3|K7YSM3_9PROT	43	secreted	extracellular region GO:0005576;
+tr|K7YPS6|K7YPS6_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7Z3V2|K7Z3V2_9PROT	59	cytoplasm	cytoplasm GO:0005737
+tr|K7YNU8|K7YNU8_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YLB1|K7YLB1_9PROT	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIJ2|K7YIJ2_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YRB7|K7YRB7_9PROT	75	secreted	extracellular region GO:0005576;
+tr|K7Z4V2|K7Z4V2_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLZ9|K7YLZ9_9PROT	24	periplasm	periplasmic space GO:0042597;
+tr|K7YFF3|K7YFF3_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7Z511|K7Z511_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7Z4Q1|K7Z4Q1_9PROT	74	cytoplasm	cytoplasm GO:0005737
+tr|K7YRX4|K7YRX4_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z627|K7Z627_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YPH4|K7YPH4_9PROT	58	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5I6|K7Z5I6_9PROT	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z619|K7Z619_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD54|K7ZD54_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7YSP5|K7YSP5_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7YGG0|K7YGG0_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZC32|K7ZC32_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YSH0|K7YSH0_9PROT	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YII5|K7YII5_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YG31|K7YG31_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YMB6|K7YMB6_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD27|K7ZD27_9PROT	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHH9|K7YHH9_9PROT	69	cytoplasm	cytoplasm GO:0005737
+tr|K7Z676|K7Z676_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7ZCA4|K7ZCA4_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YHD4|K7YHD4_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQR5|K7YQR5_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YFW0|K7YFW0_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YIR9|K7YIR9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YSW8|K7YSW8_9PROT	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCJ1|K7ZCJ1_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z639|K7Z639_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3B1|K7Z3B1_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YLG5|K7YLG5_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YPK9|K7YPK9_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ36|K7YQ36_9PROT	64	periplasm	periplasmic space GO:0042597;
+tr|K7Z3M8|K7Z3M8_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YFZ3|K7YFZ3_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7ZCI9|K7ZCI9_9PROT	33	cytoplasm	cytoplasm GO:0005737
+tr|K7YM49|K7YM49_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7Z4T8|K7Z4T8_9PROT	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD83|K7ZD83_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YFL4|K7YFL4_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2U8|K7Z2U8_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC49|K7ZC49_9PROT	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3D5|K7Z3D5_9PROT	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFW3|K7YFW3_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YMV5|K7YMV5_9PROT	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD20|K7ZD20_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YR13|K7YR13_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIW3|K7YIW3_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7YMW0|K7YMW0_9PROT	69	cytoplasm	cytoplasm GO:0005737
+tr|K7YIA4|K7YIA4_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7Z3S3|K7Z3S3_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSM9|K7YSM9_9PROT	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIC2|K7YIC2_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YSI7|K7YSI7_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YNM0|K7YNM0_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4T1|K7Z4T1_9PROT	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ66|K7YQ66_9PROT	85	secreted	extracellular region GO:0005576;
+tr|K7ZDI0|K7ZDI0_9PROT	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3J6|K7Z3J6_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7Z3E5|K7Z3E5_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YQU3|K7YQU3_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7ZDP2|K7ZDP2_9PROT	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPP3|K7YPP3_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YR54|K7YR54_9PROT	79	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K7YH48|K7YH48_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7Z5U2|K7Z5U2_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YP58|K7YP58_9PROT	91	periplasm	periplasmic space GO:0042597;
+tr|K7YHF6|K7YHF6_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7YI59|K7YI59_9PROT	52	secreted	extracellular region GO:0005576;
+tr|K7ZD99|K7ZD99_9PROT	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGS6|K7YGS6_9PROT	27	cytoplasm	cytoplasm GO:0005737
+tr|K7YRE6|K7YRE6_9PROT	68	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCF1|K7ZCF1_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YPQ9|K7YPQ9_9PROT	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YIF7|K7YIF7_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YP43|K7YP43_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YPX2|K7YPX2_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YP90|K7YP90_9PROT	38	cytoplasm	cytoplasm GO:0005737
+tr|K7YIE3|K7YIE3_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YPI7|K7YPI7_9PROT	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YH72|K7YH72_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7Z339|K7Z339_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7ZD12|K7ZD12_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7YH38|K7YH38_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7ZCK7|K7ZCK7_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZCM0|K7ZCM0_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YQ24|K7YQ24_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YPQ5|K7YPQ5_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ10|K7YQ10_9PROT	24	secreted	extracellular region GO:0005576;
+tr|K7ZC74|K7ZC74_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7YPG6|K7YPG6_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YM52|K7YM52_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCH7|K7ZCH7_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YSR6|K7YSR6_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDL1|K7ZDL1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YPY0|K7YPY0_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7Z3Q0|K7Z3Q0_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7ZCK9|K7ZCK9_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YN83|K7YN83_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YNM3|K7YNM3_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YLX6|K7YLX6_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3U6|K7Z3U6_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7ZD93|K7ZD93_9PROT	67	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDH3|K7ZDH3_9PROT	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFD2|K7YFD2_9PROT	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDL8|K7ZDL8_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YNN7|K7YNN7_9PROT	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z517|K7Z517_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YIK6|K7YIK6_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7Z4G7|K7Z4G7_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7Z690|K7Z690_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD14|K7ZD14_9PROT	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YML0|K7YML0_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7Z5W7|K7Z5W7_9PROT	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YP89|K7YP89_9PROT	52	secreted	extracellular region GO:0005576;
+tr|K7YP34|K7YP34_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YLC9|K7YLC9_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7Z4S2|K7Z4S2_9PROT	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHK9|K7YHK9_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YHF0|K7YHF0_9PROT	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4E4|K7Z4E4_9PROT	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5J5|K7Z5J5_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YNG1|K7YNG1_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z2X7|K7Z2X7_9PROT	48	cytoplasm	cytoplasm GO:0005737
+tr|K7YLF5|K7YLF5_9PROT	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDC0|K7ZDC0_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YPC7|K7YPC7_9PROT	93	cytoplasm	cytoplasm GO:0005737
+tr|K7YGJ4|K7YGJ4_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YN40|K7YN40_9PROT	54	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3E8|K7Z3E8_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7ZDL3|K7ZDL3_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z5H5|K7Z5H5_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YRF9|K7YRF9_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YFU3|K7YFU3_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7ZCQ2|K7ZCQ2_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z3V1|K7Z3V1_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7ZDN4|K7ZDN4_9PROT	30	secreted	extracellular region GO:0005576;
+tr|K7Z4Z8|K7Z4Z8_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YL67|K7YL67_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YHN0|K7YHN0_9PROT	76	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K7YFZ7|K7YFZ7_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YNR5|K7YNR5_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7Z530|K7Z530_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YIP7|K7YIP7_9PROT	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3L4|K7Z3L4_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YH29|K7YH29_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YPU1|K7YPU1_9PROT	48	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCW2|K7ZCW2_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YLI7|K7YLI7_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YIE7|K7YIE7_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7Z4I6|K7Z4I6_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ32|K7YQ32_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4L7|K7Z4L7_9PROT	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCL4|K7ZCL4_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHI6|K7YHI6_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YHF3|K7YHF3_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YG34|K7YG34_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7ZC47|K7ZC47_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDE6|K7ZDE6_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7YP70|K7YP70_9PROT	58	cytoplasm	cytoplasm GO:0005737
+tr|K7YH18|K7YH18_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPV4|K7YPV4_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3F2|K7Z3F2_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7YND8|K7YND8_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7ZD88|K7ZD88_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7Z5Z2|K7Z5Z2_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCK2|K7ZCK2_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDH8|K7ZDH8_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z4S7|K7Z4S7_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YPZ7|K7YPZ7_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7Z666|K7Z666_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YM16|K7YM16_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPS5|K7YPS5_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDB8|K7ZDB8_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7Z5M5|K7Z5M5_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7YJ30|K7YJ30_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YM37|K7YM37_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YPR9|K7YPR9_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YLT3|K7YLT3_9PROT	84	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDB6|K7ZDB6_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCJ8|K7ZCJ8_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YI49|K7YI49_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4W7|K7Z4W7_9PROT	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCG3|K7ZCG3_9PROT	38	cytoplasm	cytoplasm GO:0005737
+tr|K7YFS3|K7YFS3_9PROT	53	cytoplasm	cytoplasm GO:0005737
+tr|K7Z2L8|K7Z2L8_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YSU2|K7YSU2_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZD84|K7ZD84_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7ZDG4|K7ZDG4_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC83|K7ZC83_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YH77|K7YH77_9PROT	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCH0|K7ZCH0_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7YQ51|K7YQ51_9PROT	53	cytoplasm	cytoplasm GO:0005737
+tr|K7YRP9|K7YRP9_9PROT	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YI73|K7YI73_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YPB1|K7YPB1_9PROT	84	cytoplasm	cytoplasm GO:0005737
+tr|K7YI64|K7YI64_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YIT9|K7YIT9_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZD57|K7ZD57_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YNB2|K7YNB2_9PROT	53	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCQ8|K7ZCQ8_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7ZCG1|K7ZCG1_9PROT	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFL0|K7YFL0_9PROT	79	cytoplasm	cytoplasm GO:0005737
+tr|K7YS83|K7YS83_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YMJ4|K7YMJ4_9PROT	67	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3H7|K7Z3H7_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z5Q7|K7Z5Q7_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7ZDD3|K7ZDD3_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YPF9|K7YPF9_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPZ9|K7YPZ9_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7Z2M7|K7Z2M7_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YNS4|K7YNS4_9PROT	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ44|K7YQ44_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPJ3|K7YPJ3_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7ZCW6|K7ZCW6_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7Z3C6|K7Z3C6_9PROT	51	periplasm	periplasmic space GO:0042597;
+tr|K7YNQ5|K7YNQ5_9PROT	84	periplasm	periplasmic space GO:0042597;
+tr|K7YP26|K7YP26_9PROT	29	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSS7|K7YSS7_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7Z5P4|K7Z5P4_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YHV4|K7YHV4_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YQ11|K7YQ11_9PROT	48	periplasm	periplasmic space GO:0042597;
+tr|K7Z648|K7Z648_9PROT	48	cytoplasm	cytoplasm GO:0005737
+tr|K7YPX9|K7YPX9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZDJ2|K7ZDJ2_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YMJ9|K7YMJ9_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YNT1|K7YNT1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDF8|K7ZDF8_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YNJ8|K7YNJ8_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YNV0|K7YNV0_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCR2|K7ZCR2_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7Z478|K7Z478_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC77|K7ZC77_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7YJ81|K7YJ81_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YFH0|K7YFH0_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YSN3|K7YSN3_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7ZCG8|K7ZCG8_9PROT	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YME9|K7YME9_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7Z5F1|K7Z5F1_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YRK1|K7YRK1_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ29|K7YQ29_9PROT	84	secreted	extracellular region GO:0005576;
+tr|K7YP52|K7YP52_9PROT	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNH9|K7YNH9_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC36|K7ZC36_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7ZCR9|K7ZCR9_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCE6|K7ZCE6_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YP31|K7YP31_9PROT	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC55|K7ZC55_9PROT	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCV1|K7ZCV1_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7Z5C8|K7Z5C8_9PROT	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHP0|K7YHP0_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7YIX8|K7YIX8_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7YPS1|K7YPS1_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YND6|K7YND6_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7YLA2|K7YLA2_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7Z3T1|K7Z3T1_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRZ6|K7YRZ6_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YPP1|K7YPP1_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YIM7|K7YIM7_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7YNF5|K7YNF5_9PROT	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGG5|K7YGG5_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD19|K7ZD19_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YN70|K7YN70_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4B2|K7Z4B2_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZDC7|K7ZDC7_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YNE9|K7YNE9_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4W5|K7Z4W5_9PROT	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z3P0|K7Z3P0_9PROT	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z501|K7Z501_9PROT	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YMX2|K7YMX2_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YHU9|K7YHU9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZCS1|K7ZCS1_9PROT	78	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCE4|K7ZCE4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YLF0|K7YLF0_9PROT	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFX7|K7YFX7_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YMF7|K7YMF7_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YFC8|K7YFC8_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z305|K7Z305_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7ZDC5|K7ZDC5_9PROT	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ28|K7YQ28_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFM9|K7YFM9_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7ZDI4|K7ZDI4_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YRD4|K7YRD4_9PROT	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHG9|K7YHG9_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4N7|K7Z4N7_9PROT	90	cytoplasm	cytoplasm GO:0005737
+tr|K7YHM6|K7YHM6_9PROT	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2T4|K7Z2T4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YG98|K7YG98_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7ZC39|K7ZC39_9PROT	86	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCT5|K7ZCT5_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7YHM1|K7YHM1_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YN15|K7YN15_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7Z454|K7Z454_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7YRT5|K7YRT5_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRT0|K7YRT0_9PROT	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHY2|K7YHY2_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7ZCL3|K7ZCL3_9PROT	90	cytoplasm	cytoplasm GO:0005737
+tr|K7YHQ4|K7YHQ4_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7ZDM9|K7ZDM9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YNG9|K7YNG9_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC86|K7ZC86_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCP9|K7ZCP9_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YRP4|K7YRP4_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YPM0|K7YPM0_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YQD5|K7YQD5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YR01|K7YR01_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YN27|K7YN27_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7ZDE0|K7ZDE0_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YHH5|K7YHH5_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YRK7|K7YRK7_9PROT	49	cytoplasm	cytoplasm GO:0005737
+tr|K7YG94|K7YG94_9PROT	89	cytoplasm	cytoplasm GO:0005737
+tr|K7Z485|K7Z485_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YID0|K7YID0_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YSV1|K7YSV1_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YPN6|K7YPN6_9PROT	81	cytoplasm	cytoplasm GO:0005737
+tr|K7YPN4|K7YPN4_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7ZCF4|K7ZCF4_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YIT0|K7YIT0_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7Z5E1|K7Z5E1_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YFI5|K7YFI5_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7YIN4|K7YIN4_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7Z4H3|K7Z4H3_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YSN5|K7YSN5_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7ZCY0|K7ZCY0_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YPG2|K7YPG2_9PROT	66	cytoplasm	cytoplasm GO:0005737
+tr|K7YSF9|K7YSF9_9PROT	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGR3|K7YGR3_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YP73|K7YP73_9PROT	36	cytoplasm	cytoplasm GO:0005737
+tr|K7YFF8|K7YFF8_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YNU1|K7YNU1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z414|K7Z414_9PROT	67	cytoplasm	cytoplasm GO:0005737
+tr|K7YN80|K7YN80_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7YR27|K7YR27_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YHW8|K7YHW8_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YRG7|K7YRG7_9PROT	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCB0|K7ZCB0_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YRM0|K7YRM0_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDL7|K7ZDL7_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCU1|K7ZCU1_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7YPJ8|K7YPJ8_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCY4|K7ZCY4_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YM42|K7YM42_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCK5|K7ZCK5_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7YHP9|K7YHP9_9PROT	86	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3K3|K7Z3K3_9PROT	90	cytoplasm	cytoplasm GO:0005737
+tr|K7YRI0|K7YRI0_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YHR4|K7YHR4_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z321|K7Z321_9PROT	35	secreted	extracellular region GO:0005576;
+tr|K7YNN4|K7YNN4_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQV8|K7YQV8_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5K9|K7Z5K9_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7Z5M1|K7Z5M1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YP96|K7YP96_9PROT	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD89|K7ZD89_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCH9|K7ZCH9_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7YQP9|K7YQP9_9PROT	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD03|K7ZD03_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YR08|K7YR08_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7ZC26|K7ZC26_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YRH0|K7YRH0_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YN22|K7YN22_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7Z5V1|K7Z5V1_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5P9|K7Z5P9_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YGW1|K7YGW1_9PROT	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCH4|K7ZCH4_9PROT	29	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLM1|K7YLM1_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDM4|K7ZDM4_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7Z4B6|K7Z4B6_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YHC9|K7YHC9_9PROT	72	periplasm	periplasmic space GO:0042597;
+tr|K7YQN4|K7YQN4_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7Z4H9|K7Z4H9_9PROT	83	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3J1|K7Z3J1_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YFR7|K7YFR7_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5B7|K7Z5B7_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YQ72|K7YQ72_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7ZDJ0|K7ZDJ0_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YM33|K7YM33_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YP41|K7YP41_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7Z4N0|K7Z4N0_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YMP7|K7YMP7_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YQD0|K7YQD0_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YMD4|K7YMD4_9PROT	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPY5|K7YPY5_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCJ6|K7ZCJ6_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YSK8|K7YSK8_9PROT	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS06|K7YS06_9PROT	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD38|K7ZD38_9PROT	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRD0|K7YRD0_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7Z5G4|K7Z5G4_9PROT	39	secreted	extracellular region GO:0005576;
+tr|K7ZC62|K7ZC62_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7Z311|K7Z311_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7ZD45|K7ZD45_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS67|K7YS67_9PROT	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD43|K7ZD43_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7Z3A2|K7Z3A2_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7YRR6|K7YRR6_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7Z5P1|K7Z5P1_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YM90|K7YM90_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YI77|K7YI77_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7YNL3|K7YNL3_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YP03|K7YP03_9PROT	70	cytoplasm	cytoplasm GO:0005737
+tr|K7YM65|K7YM65_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YHL1|K7YHL1_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7Z2Q1|K7Z2Q1_9PROT	74	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD50|K7ZD50_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7Z4C9|K7Z4C9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YHX8|K7YHX8_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7ZD75|K7ZD75_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YGP2|K7YGP2_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7YLL6|K7YLL6_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPW7|K7YPW7_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7ZCE2|K7ZCE2_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7Z5D6|K7Z5D6_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7Z5V2|K7Z5V2_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7ZCS3|K7ZCS3_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z5F7|K7Z5F7_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7ZCQ6|K7ZCQ6_9PROT	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YP83|K7YP83_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD23|K7ZD23_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHL8|K7YHL8_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YHE3|K7YHE3_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YGI6|K7YGI6_9PROT	43	secreted	extracellular region GO:0005576;
+tr|K7YNK1|K7YNK1_9PROT	44	periplasm	periplasmic space GO:0042597;
+tr|K7YRQ4|K7YRQ4_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7Z3M4|K7Z3M4_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7ZCC3|K7ZCC3_9PROT	67	cytoplasm	cytoplasm GO:0005737
+tr|K7YIF1|K7YIF1_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7Z3Y3|K7Z3Y3_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7Z3W6|K7Z3W6_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YL64|K7YL64_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7ZCB9|K7ZCB9_9PROT	92	cytoplasm	cytoplasm GO:0005737
+tr|K7Z506|K7Z506_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YR46|K7YR46_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YIU9|K7YIU9_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7ZCZ1|K7ZCZ1_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YPJ4|K7YPJ4_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YI00|K7YI00_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7ZDK0|K7ZDK0_9PROT	59	cytoplasm	cytoplasm GO:0005737
+tr|K7YQH4|K7YQH4_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS11|K7YS11_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YHJ3|K7YHJ3_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YR74|K7YR74_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YQK5|K7YQK5_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7ZCD2|K7ZCD2_9PROT	71	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDJ5|K7ZDJ5_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7YMR5|K7YMR5_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YI08|K7YI08_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLY8|K7YLY8_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YPD5|K7YPD5_9PROT	66	cytoplasm	cytoplasm GO:0005737
+tr|K7YLZ0|K7YLZ0_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDN8|K7ZDN8_9PROT	58	secreted	extracellular region GO:0005576;
+tr|K7YR35|K7YR35_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7YP14|K7YP14_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YM69|K7YM69_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7YNE4|K7YNE4_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YNI4|K7YNI4_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7Z403|K7Z403_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZDF0|K7ZDF0_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YPI3|K7YPI3_9PROT	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YR05|K7YR05_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YRV3|K7YRV3_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC60|K7ZC60_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7YMU4|K7YMU4_9PROT	76	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCS6|K7ZCS6_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YST9|K7YST9_9PROT	24	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCN0|K7ZCN0_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7YG58|K7YG58_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YJ20|K7YJ20_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7Z490|K7Z490_9PROT	91	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD81|K7ZD81_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YSI3|K7YSI3_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7Z346|K7Z346_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YFI0|K7YFI0_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3V9|K7Z3V9_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7YGC8|K7YGC8_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YHE2|K7YHE2_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7YF76|K7YF76_9PROT	32	secreted	extracellular region GO:0005576;
+tr|K7Z4X8|K7Z4X8_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z4T3|K7Z4T3_9PROT	91	cytoplasm	cytoplasm GO:0005737
+tr|K7YL93|K7YL93_9PROT	86	cytoplasm	cytoplasm GO:0005737
+tr|K7YNZ2|K7YNZ2_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7YPQ0|K7YPQ0_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDI2|K7ZDI2_9PROT	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHV9|K7YHV9_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRW3|K7YRW3_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7YQQ6|K7YQQ6_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7Z3B7|K7Z3B7_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YSQ5|K7YSQ5_9PROT	76	secreted	extracellular region GO:0005576;
+tr|K7Z2Q7|K7Z2Q7_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YIG9|K7YIG9_9PROT	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z2Z2|K7Z2Z2_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7Z602|K7Z602_9PROT	46	cytoplasm	cytoplasm GO:0005737
+tr|K7YIH4|K7YIH4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCA1|K7ZCA1_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7YGC3|K7YGC3_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YHY6|K7YHY6_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7Z3B3|K7Z3B3_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YFQ5|K7YFQ5_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z5U8|K7Z5U8_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YM20|K7YM20_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGE7|K7YGE7_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YST3|K7YST3_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YNV4|K7YNV4_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YNU5|K7YNU5_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7Z481|K7Z481_9PROT	26	secreted	extracellular region GO:0005576;
+tr|K7YP64|K7YP64_9PROT	39	secreted	extracellular region GO:0005576;
+tr|K7YQ20|K7YQ20_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7YS55|K7YS55_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YSW3|K7YSW3_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YHS7|K7YHS7_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7YI29|K7YI29_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YRU8|K7YRU8_9PROT	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPM1|K7YPM1_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7YMS7|K7YMS7_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YIH7|K7YIH7_9PROT	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCF3|K7ZCF3_9PROT	28	secreted	extracellular region GO:0005576;
+tr|K7YF89|K7YF89_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YIR1|K7YIR1_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHD2|K7YHD2_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YPT6|K7YPT6_9PROT	77	cytoplasm	cytoplasm GO:0005737
+tr|K7YMA4|K7YMA4_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7Z4V0|K7Z4V0_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7ZDK9|K7ZDK9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3D8|K7Z3D8_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YRU3|K7YRU3_9PROT	80	secreted	extracellular region GO:0005576;
+tr|K7YIW1|K7YIW1_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YQG9|K7YQG9_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YRY8|K7YRY8_9PROT	60	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5A8|K7Z5A8_9PROT	45	secreted	extracellular region GO:0005576;
+tr|K7Z527|K7Z527_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7Z327|K7Z327_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z3P5|K7Z3P5_9PROT	51	secreted	extracellular region GO:0005576;
+tr|K7Z5L3|K7Z5L3_9PROT	78	secreted	extracellular region GO:0005576;
+tr|K7YJ71|K7YJ71_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YI90|K7YI90_9PROT	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YN47|K7YN47_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YHE9|K7YHE9_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7ZDH1|K7ZDH1_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSX1|K7YSX1_9PROT	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDM2|K7ZDM2_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YIW8|K7YIW8_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YMT3|K7YMT3_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YFA1|K7YFA1_9PROT	53	secreted	extracellular region GO:0005576;
+tr|K7YSL6|K7YSL6_9PROT	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCX7|K7ZCX7_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZCJ5|K7ZCJ5_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7YGH1|K7YGH1_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YFE3|K7YFE3_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YM45|K7YM45_9PROT	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCS0|K7ZCS0_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4A5|K7Z4A5_9PROT	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YN86|K7YN86_9PROT	51	periplasm	periplasmic space GO:0042597;
+tr|K7Z2W4|K7Z2W4_9PROT	27	secreted	extracellular region GO:0005576;
+tr|K7Z3R7|K7Z3R7_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7ZCT3|K7ZCT3_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7ZDM0|K7ZDM0_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YHT3|K7YHT3_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7ZDB4|K7ZDB4_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YS24|K7YS24_9PROT	91	cytoplasm	cytoplasm GO:0005737
+tr|K7ZDJ3|K7ZDJ3_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YHH1|K7YHH1_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z351|K7Z351_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YFX3|K7YFX3_9PROT	40	periplasm	periplasmic space GO:0042597;
+tr|K7YS74|K7YS74_9PROT	77	cytoplasm	cytoplasm GO:0005737
+tr|K7YPE8|K7YPE8_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7YN33|K7YN33_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7YRL0|K7YRL0_9PROT	35	cytoplasm	cytoplasm GO:0005737
+tr|K7YRC6|K7YRC6_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7YFV2|K7YFV2_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRV8|K7YRV8_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YGP9|K7YGP9_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7ZCX2|K7ZCX2_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7Z472|K7Z472_9PROT	33	secreted	extracellular region GO:0005576;
+tr|K7ZDK8|K7ZDK8_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YPE4|K7YPE4_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7ZDF4|K7ZDF4_9PROT	74	cytoplasm	cytoplasm GO:0005737
+tr|K7Z535|K7Z535_9PROT	36	secreted	extracellular region GO:0005576;
+tr|K7YME5|K7YME5_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YQI4|K7YQI4_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7Z3N3|K7Z3N3_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPH7|K7YPH7_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZCF6|K7ZCF6_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7YH58|K7YH58_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD22|K7ZD22_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YMJ0|K7YMJ0_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YHE6|K7YHE6_9PROT	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD30|K7ZD30_9PROT	71	cytoplasm	cytoplasm GO:0005737
+tr|K7ZC56|K7ZC56_9PROT	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLW4|K7YLW4_9PROT	52	secreted	extracellular region GO:0005576;
+tr|K7YSX4|K7YSX4_9PROT	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHW4|K7YHW4_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7Z4X4|K7Z4X4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPP7|K7YPP7_9PROT	80	secreted	extracellular region GO:0005576;
+tr|K7YF85|K7YF85_9PROT	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGA2|K7YGA2_9PROT	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGB9|K7YGB9_9PROT	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNF8|K7YNF8_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YFS7|K7YFS7_9PROT	85	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4Q6|K7Z4Q6_9PROT	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YP06|K7YP06_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNC0|K7YNC0_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDL5|K7ZDL5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YJ66|K7YJ66_9PROT	14	secreted	extracellular region GO:0005576;
+tr|K7YNR3|K7YNR3_9PROT	48	secreted	extracellular region GO:0005576;
+tr|K7Z4D6|K7Z4D6_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YG45|K7YG45_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7YJ12|K7YJ12_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YGY8|K7YGY8_9PROT	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC89|K7ZC89_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7YJ78|K7YJ78_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ16|K7YQ16_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7Z5Y7|K7Z5Y7_9PROT	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YMG3|K7YMG3_9PROT	88	cytoplasm	cytoplasm GO:0005737
+tr|K7YIV6|K7YIV6_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7YSQ8|K7YSQ8_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YIQ6|K7YIQ6_9PROT	79	secreted	extracellular region GO:0005576;
+tr|K7YRR1|K7YRR1_9PROT	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPJ1|K7YPJ1_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7Z440|K7Z440_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7ZCD9|K7ZCD9_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5X9|K7Z5X9_9PROT	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZC43|K7ZC43_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YJ22|K7YJ22_9PROT	43	secreted	extracellular region GO:0005576;
+tr|K7YQ41|K7YQ41_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YFW7|K7YFW7_9PROT	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YFM4|K7YFM4_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS51|K7YS51_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5N8|K7Z5N8_9PROT	74	secreted	extracellular region GO:0005576;
+tr|K7YGB1|K7YGB1_9PROT	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCI2|K7ZCI2_9PROT	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YHQ9|K7YHQ9_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4G0|K7Z4G0_9PROT	59	secreted	extracellular region GO:0005576;
+tr|K7YR87|K7YR87_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7Z4A0|K7Z4A0_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YPK3|K7YPK3_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7ZCA8|K7ZCA8_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YGR8|K7YGR8_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YI85|K7YI85_9PROT	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPG5|K7YPG5_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YIS6|K7YIS6_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7YQJ0|K7YQJ0_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YIA9|K7YIA9_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLG0|K7YLG0_9PROT	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCM1|K7ZCM1_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7Z406|K7Z406_9PROT	54	secreted	extracellular region GO:0005576;
+tr|K7YQY4|K7YQY4_9PROT	56	cytoplasm	cytoplasm GO:0005737
+tr|K7Z2R8|K7Z2R8_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7ZCR0|K7ZCR0_9PROT	77	secreted	extracellular region GO:0005576;
+tr|K7YGF5|K7YGF5_9PROT	82	secreted	extracellular region GO:0005576;
+tr|K7Z3R2|K7Z3R2_9PROT	26	secreted	extracellular region GO:0005576;
+tr|K7ZCC5|K7ZCC5_9PROT	64	cytoplasm	cytoplasm GO:0005737
+tr|K7YPW3|K7YPW3_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7Z428|K7Z428_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7ZD49|K7ZD49_9PROT	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRA6|K7YRA6_9PROT	91	periplasm	periplasmic space GO:0042597;
+tr|K7ZD37|K7ZD37_9PROT	33	secreted	extracellular region GO:0005576;
+tr|K7YHZ6|K7YHZ6_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YM57|K7YM57_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD96|K7ZD96_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YSA7|K7YSA7_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YR78|K7YR78_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZD72|K7ZD72_9PROT	84	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD62|K7ZD62_9PROT	73	secreted	extracellular region GO:0005576;
+tr|K7YG03|K7YG03_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7Z424|K7Z424_9PROT	96	cytoplasm	cytoplasm GO:0005737
+tr|K7YSK5|K7YSK5_9PROT	61	secreted	extracellular region GO:0005576;
+tr|K7YNR9|K7YNR9_9PROT	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5Z4|K7Z5Z4_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YIZ4|K7YIZ4_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7YQA3|K7YQA3_9PROT	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z4M1|K7Z4M1_9PROT	41	secreted	extracellular region GO:0005576;
+tr|K7YFA6|K7YFA6_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YLV2|K7YLV2_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YG38|K7YG38_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YR28|K7YR28_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YNM6|K7YNM6_9PROT	82	cytoplasm	cytoplasm GO:0005737
+tr|K7Z678|K7Z678_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7YNC8|K7YNC8_9PROT	94	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCE9|K7ZCE9_9PROT	36	secreted	extracellular region GO:0005576;
+tr|K7ZCF8|K7ZCF8_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7Z5B2|K7Z5B2_9PROT	75	secreted	extracellular region GO:0005576;
+tr|K7ZDM6|K7ZDM6_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRB1|K7YRB1_9PROT	34	secreted	extracellular region GO:0005576;
+tr|K7ZCD0|K7ZCD0_9PROT	90	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5Z0|K7Z5Z0_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YNQ3|K7YNQ3_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YM31|K7YM31_9PROT	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YI55|K7YI55_9PROT	64	secreted	extracellular region GO:0005576;
+tr|K7YQ07|K7YQ07_9PROT	97	periplasm	periplasmic space GO:0042597;
+tr|K7Z5K3|K7Z5K3_9PROT	37	secreted	extracellular region GO:0005576;
+tr|K7YF82|K7YF82_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YPI1|K7YPI1_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7ZDK2|K7ZDK2_9PROT	66	periplasm	periplasmic space GO:0042597;
+tr|K7YNN1|K7YNN1_9PROT	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YJ02|K7YJ02_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5S1|K7Z5S1_9PROT	74	cytoplasm	cytoplasm GO:0005737
+tr|K7YHS0|K7YHS0_9PROT	42	secreted	extracellular region GO:0005576;
+tr|K7YG84|K7YG84_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YH91|K7YH91_9PROT	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSY5|K7YSY5_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4Z4|K7Z4Z4_9PROT	40	secreted	extracellular region GO:0005576;
+tr|K7YFE8|K7YFE8_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YI44|K7YI44_9PROT	39	secreted	extracellular region GO:0005576;
+tr|K7Z373|K7Z373_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YMH3|K7YMH3_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YNA7|K7YNA7_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7Z3Y1|K7Z3Y1_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD40|K7ZD40_9PROT	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YR95|K7YR95_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YMS1|K7YMS1_9PROT	26	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YMH9|K7YMH9_9PROT	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YM10|K7YM10_9PROT	68	secreted	extracellular region GO:0005576;
+tr|K7ZCT1|K7ZCT1_9PROT	75	secreted	extracellular region GO:0005576;
+tr|K7YSR0|K7YSR0_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7YNW2|K7YNW2_9PROT	95	cytoplasm	cytoplasm GO:0005737
+tr|K7YPT8|K7YPT8_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YFA9|K7YFA9_9PROT	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YS43|K7YS43_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ46|K7YQ46_9PROT	35	secreted	extracellular region GO:0005576;
+tr|K7YFN2|K7YFN2_9PROT	44	secreted	extracellular region GO:0005576;
+tr|K7YMY2|K7YMY2_9PROT	39	secreted	extracellular region GO:0005576;
+tr|K7ZC96|K7ZC96_9PROT	36	cytoplasm	cytoplasm GO:0005737
+tr|K7YQ98|K7YQ98_9PROT	46	secreted	extracellular region GO:0005576;
+tr|K7YM13|K7YM13_9PROT	79	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YGH8|K7YGH8_9PROT	29	secreted	extracellular region GO:0005576;
+tr|K7ZCI4|K7ZCI4_9PROT	47	secreted	extracellular region GO:0005576;
+tr|K7ZD35|K7ZD35_9PROT	63	secreted	extracellular region GO:0005576;
+tr|K7YFU9|K7YFU9_9PROT	100	cytoplasm	cytoplasm GO:0005737
+tr|K7YPR1|K7YPR1_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YNW8|K7YNW8_9PROT	81	secreted	extracellular region GO:0005576;
+tr|K7YIZ8|K7YIZ8_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YI69|K7YI69_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSG1|K7YSG1_9PROT	84	cytoplasm	cytoplasm GO:0005737
+tr|K7YSH9|K7YSH9_9PROT	55	secreted	extracellular region GO:0005576;
+tr|K7ZD08|K7ZD08_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQM9|K7YQM9_9PROT	60	secreted	extracellular region GO:0005576;
+tr|K7YSB4|K7YSB4_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7Z3I0|K7Z3I0_9PROT	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZCJ3|K7ZCJ3_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5S6|K7Z5S6_9PROT	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5N4|K7Z5N4_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7YQ21|K7YQ21_9PROT	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YSY7|K7YSY7_9PROT	43	periplasm	periplasmic space GO:0042597;
+tr|K7YHI2|K7YHI2_9PROT	31	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCR4|K7ZCR4_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7YI25|K7YI25_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YGM3|K7YGM3_9PROT	69	secreted	extracellular region GO:0005576;
+tr|K7YM23|K7YM23_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3G7|K7Z3G7_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZD28|K7ZD28_9PROT	27	secreted	extracellular region GO:0005576;
+tr|K7YQZ7|K7YQZ7_9PROT	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5M8|K7Z5M8_9PROT	56	secreted	extracellular region GO:0005576;
+tr|K7YHB9|K7YHB9_9PROT	66	secreted	extracellular region GO:0005576;
+tr|K7YMY6|K7YMY6_9PROT	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDI8|K7ZDI8_9PROT	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YRW7|K7YRW7_9PROT	71	secreted	extracellular region GO:0005576;
+tr|K7ZC66|K7ZC66_9PROT	67	secreted	extracellular region GO:0005576;
+tr|K7Z5L6|K7Z5L6_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YLJ8|K7YLJ8_9PROT	72	secreted	extracellular region GO:0005576;
+tr|K7ZDC4|K7ZDC4_9PROT	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPZ1|K7YPZ1_9PROT	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YLU9|K7YLU9_9PROT	35	cytoplasm	cytoplasm GO:0005737
+tr|K7Z4D9|K7Z4D9_9PROT	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7Z5W8|K7Z5W8_9PROT	80	cytoplasm	cytoplasm GO:0005737
+tr|K7YGA5|K7YGA5_9PROT	31	secreted	extracellular region GO:0005576;
+tr|K7YNM8|K7YNM8_9PROT	86	cytoplasm	cytoplasm GO:0005737
+tr|K7Z5H1|K7Z5H1_9PROT	65	secreted	extracellular region GO:0005576;
+tr|K7YPE0|K7YPE0_9PROT	97	cytoplasm	cytoplasm GO:0005737
+tr|K7YHK6|K7YHK6_9PROT	62	secreted	extracellular region GO:0005576;
+tr|K7YRS2|K7YRS2_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7Z3R1|K7Z3R1_9PROT	57	secreted	extracellular region GO:0005576;
+tr|K7YPK2|K7YPK2_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7YPL4|K7YPL4_9PROT	38	secreted	extracellular region GO:0005576;
+tr|K7YLU5|K7YLU5_9PROT	98	cytoplasm	cytoplasm GO:0005737
+tr|K7ZCM8|K7ZCM8_9PROT	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YP08|K7YP08_9PROT	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YPK1|K7YPK1_9PROT	81	secreted	extracellular region GO:0005576;
+tr|K7YFB4|K7YFB4_9PROT	50	secreted	extracellular region GO:0005576;
+tr|K7YP19|K7YP19_9PROT	49	secreted	extracellular region GO:0005576;
+tr|K7Z3Q4|K7Z3Q4_9PROT	32	cytoplasm	cytoplasm GO:0005737
+tr|K7Z579|K7Z579_9PROT	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7ZDD1|K7ZDD1_9PROT	99	cytoplasm	cytoplasm GO:0005737
+tr|K7Z3K7|K7Z3K7_9PROT	70	secreted	extracellular region GO:0005576;
+tr|K7YQ57|K7YQ57_9PROT	64	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YQ69|K7YQ69_9PROT	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K7YM75|K7YM75_9PROT	64	secreted	extracellular region GO:0005576;

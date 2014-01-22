@@ -1,0 +1,2353 @@
+# Localization Prediction using LocTree3
+# Domain: arch
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G7WMA0|G7WMA0_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK75|G7WK75_METH6	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK70|G7WK70_METH6	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPG3|G7WPG3_METH6	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNG7|G7WNG7_METH6	20	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WLQ6|G7WLQ6_METH6	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNH5|G7WNH5_METH6	20	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WN45|G7WN45_METH6	54	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IEA); protein complex GO:0043234(IEA);
+tr|G7WQJ5|G7WQJ5_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WN78|G7WN78_METH6	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM61|G7WM61_METH6	65	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLC6|G7WLC6_METH6	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQA3|G7WQA3_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPQ8|G7WPQ8_METH6	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJX1|G7WJX1_METH6	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRA5|G7WRA5_METH6	58	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQG4|G7WQG4_METH6	71	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|G7WMG2|G7WMG2_METH6	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNC2|G7WNC2_METH6	32	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WR83|G7WR83_METH6	23	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNK8|G7WNK8_METH6	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ82|G7WQ82_METH6	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM76|G7WM76_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WP06|G7WP06_METH6	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQH3|G7WQH3_METH6	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMW4|G7WMW4_METH6	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRI5|G7WRI5_METH6	20	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WLS2|G7WLS2_METH6	63	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMJ5|G7WMJ5_METH6	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WLW0|G7WLW0_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLH2|G7WLH2_METH6	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WQ69|G7WQ69_METH6	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WNT2|G7WNT2_METH6	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJY9|G7WJY9_METH6	11	secreted	extracellular region GO:0005576(IEA);
+tr|G7WLA1|G7WLA1_METH6	54	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WQW8|G7WQW8_METH6	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL34|G7WL34_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLT1|G7WLT1_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WP43|G7WP43_METH6	20	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WNQ8|G7WNQ8_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL36|G7WL36_METH6	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPR8|G7WPR8_METH6	11	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNH6|G7WNH6_METH6	17	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WQS3|G7WQS3_METH6	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPX9|G7WPX9_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM88|G7WM88_METH6	37	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G7WQ89|G7WQ89_METH6	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR86|G7WR86_METH6	30	secreted	extracellular region GO:0005576(IEA);
+tr|G7WRF5|G7WRF5_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRC0|G7WRC0_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA); proteasome core complex, alpha-subunit complex GO:0019773(IEA);
+tr|G7WLJ6|G7WLJ6_METH6	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM09|G7WM09_METH6	17	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WR47|G7WR47_METH6	51	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WJX4|G7WJX4_METH6	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WQ40|G7WQ40_METH6	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQC1|G7WQC1_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKN3|G7WKN3_METH6	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLS4|G7WLS4_METH6	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQA2|G7WQA2_METH6	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLP1|G7WLP1_METH6	14	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WMP5|G7WMP5_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK82|G7WK82_METH6	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPH8|G7WPH8_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMW2|G7WMW2_METH6	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLK0|G7WLK0_METH6	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLH6|G7WLH6_METH6	37	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WP37|G7WP37_METH6	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK30|G7WK30_METH6	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLB8|G7WLB8_METH6	17	secreted	extracellular region GO:0005576(IEA);
+tr|G7WL25|G7WL25_METH6	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR74|G7WR74_METH6	47	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WL64|G7WL64_METH6	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLE1|G7WLE1_METH6	26	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WP21|G7WP21_METH6	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR05|G7WR05_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKZ9|G7WKZ9_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMV8|G7WMV8_METH6	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR04|G7WR04_METH6	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKL5|G7WKL5_METH6	25	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNW8|G7WNW8_METH6	7	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNK6|G7WNK6_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ97|G7WQ97_METH6	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WK73|G7WK73_METH6	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJY5|G7WJY5_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR68|G7WR68_METH6	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKN6|G7WKN6_METH6	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNV6|G7WNV6_METH6	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ33|G7WQ33_METH6	29	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WQS4|G7WQS4_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQR1|G7WQR1_METH6	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPV6|G7WPV6_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMP1|G7WMP1_METH6	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLC5|G7WLC5_METH6	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRA9|G7WRA9_METH6	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WR24|G7WR24_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK21|G7WK21_METH6	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKR5|G7WKR5_METH6	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNY0|G7WNY0_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPM6|G7WPM6_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQZ5|G7WQZ5_METH6	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WQV5|G7WQV5_METH6	20	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WQR6|G7WQR6_METH6	46	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WQS7|G7WQS7_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKH9|G7WKH9_METH6	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQH6|G7WQH6_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNE2|G7WNE2_METH6	44	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WMF1|G7WMF1_METH6	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPZ8|G7WPZ8_METH6	20	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WKF1|G7WKF1_METH6	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM25|G7WM25_METH6	24	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WL66|G7WL66_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRK1|G7WRK1_METH6	26	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNB4|G7WNB4_METH6	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WM46|G7WM46_METH6	10	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WPR9|G7WPR9_METH6	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WR45|G7WR45_METH6	48	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WMP9|G7WMP9_METH6	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNK9|G7WNK9_METH6	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPP3|G7WPP3_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQQ9|G7WQQ9_METH6	24	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WML8|G7WML8_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQV4|G7WQV4_METH6	20	cytoplasm	prefoldin complex GO:0016272(IEA);
+tr|G7WP19|G7WP19_METH6	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMU3|G7WMU3_METH6	12	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WMJ8|G7WMJ8_METH6	33	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WP22|G7WP22_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLM9|G7WLM9_METH6	29	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WNX4|G7WNX4_METH6	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNS8|G7WNS8_METH6	8	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WR46|G7WR46_METH6	40	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WMF0|G7WMF0_METH6	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPQ9|G7WPQ9_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQS8|G7WQS8_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPE2|G7WPE2_METH6	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQB9|G7WQB9_METH6	44	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNK3|G7WNK3_METH6	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQM4|G7WQM4_METH6	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WN32|G7WN32_METH6	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLU5|G7WLU5_METH6	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNP3|G7WNP3_METH6	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WLZ5|G7WLZ5_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPE5|G7WPE5_METH6	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WLM6|G7WLM6_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPP2|G7WPP2_METH6	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ42|G7WQ42_METH6	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJV5|G7WJV5_METH6	11	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IEA); protein complex GO:0043234(IEA);
+tr|G7WPV8|G7WPV8_METH6	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQD5|G7WQD5_METH6	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKB8|G7WKB8_METH6	14	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WL45|G7WL45_METH6	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQS5|G7WQS5_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNS6|G7WNS6_METH6	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WPT7|G7WPT7_METH6	42	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WKH3|G7WKH3_METH6	36	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WQF5|G7WQF5_METH6	32	cytoplasm	prefoldin complex GO:0016272(IEA);
+tr|G7WRJ3|G7WRJ3_METH6	13	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WPS0|G7WPS0_METH6	44	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WNE6|G7WNE6_METH6	9	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WM62|G7WM62_METH6	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMB0|G7WMB0_METH6	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WK94|G7WK94_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQA4|G7WQA4_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJV9|G7WJV9_METH6	10	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WNB3|G7WNB3_METH6	12	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WL40|G7WL40_METH6	26	cytoplasm	cytosol GO:0005829(ISS);
+tr|G7WJY7|G7WJY7_METH6	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WKQ9|G7WKQ9_METH6	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLZ0|G7WLZ0_METH6	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNG0|G7WNG0_METH6	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMD0|G7WMD0_METH6	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL62|G7WL62_METH6	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNC9|G7WNC9_METH6	9	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G7WPZ7|G7WPZ7_METH6	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNK7|G7WNK7_METH6	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL35|G7WL35_METH6	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WN67|G7WN67_METH6	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WJX6|G7WJX6_METH6	20	secreted	extracellular region GO:0005576(IEA);
+tr|G7WN68|G7WN68_METH6	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ73|G7WQ73_METH6	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQ32|G7WQ32_METH6	25	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WNQ9|G7WNQ9_METH6	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQY4|G7WQY4_METH6	12	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WMQ4|G7WMQ4_METH6	28	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WP18|G7WP18_METH6	15	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WM04|G7WM04_METH6	16	plasma membrane	voltage-gated potassium channel complex GO:0008076(IEA);
+tr|G7WR06|G7WR06_METH6	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WLU6|G7WLU6_METH6	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL29|G7WL29_METH6	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMI9|G7WMI9_METH6	28	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G7WPW6|G7WPW6_METH6	14	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G7WR21|G7WR21_METH6	7	plasma membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G7WLA6|G7WLA6_METH6	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WP94|G7WP94_METH6	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WN01|G7WN01_METH6	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WQM7|G7WQM7_METH6	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WMZ0|G7WMZ0_METH6	23	cytoplasm	cytoplasm GO:0005737(IEA); proteasome-activating nucleotidase complex GO:0022623(IDA);
+tr|G7WK04|G7WK04_METH6	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WL90|G7WL90_METH6	27	secreted	extracellular region GO:0005576(IEA);
+tr|G7WRK3|G7WRK3_METH6	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WRI8|G7WRI8_METH6	17	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IEA); protein complex GO:0043234(IEA);
+tr|G7WQD6|G7WQD6_METH6	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNY8|G7WNY8_METH6	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G7WNR0|G7WNR0_METH6	20	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WJZ0|G7WJZ0_METH6	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G7WRD7|G7WRD7_METH6	16	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G7WM72|G7WM72_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP8|G7WQP8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM2|G7WNM2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM27|G7WM27_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMJ7|G7WMJ7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK07|G7WK07_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL54|G7WL54_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLU1|G7WLU1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU7|G7WQU7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR1|G7WNR1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRK0|G7WRK0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM2|G7WMM2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMI7|G7WMI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN37|G7WN37_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQL9|G7WQL9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC1|G7WNC1_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRG0|G7WRG0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM7|G7WPM7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT1|G7WKT1_METH6	91	secreted	extracellular region GO:0005576;
+tr|G7WQX7|G7WQX7_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ3|G7WJZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF6|G7WMF6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY9|G7WKY9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD5|G7WKD5_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WL33|G7WL33_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK2|G7WMK2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMU5|G7WMU5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL84|G7WL84_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQD3|G7WQD3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI0|G7WLI0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF3|G7WMF3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM18|G7WM18_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKP6|G7WKP6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN16|G7WN16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR4|G7WQR4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR75|G7WR75_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN0|G7WQN0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRD2|G7WRD2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLJ8|G7WLJ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMV7|G7WMV7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX5|G7WJX5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD6|G7WMD6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMV9|G7WMV9_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WR32|G7WR32_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK12|G7WK12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG0|G7WQG0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF1|G7WRF1_METH6	78	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM29|G7WM29_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX9|G7WQX9_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WR08|G7WR08_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR52|G7WR52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA5|G7WMA5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR55|G7WR55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT2|G7WKT2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY2|G7WKY2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKF0|G7WKF0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP16|G7WP16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB8|G7WNB8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ8|G7WMZ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ5|G7WKZ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC5|G7WRC5_METH6	95	secreted	extracellular region GO:0005576;
+tr|G7WQS6|G7WQS6_METH6	74	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB8|G7WPB8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK34|G7WK34_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY5|G7WQY5_METH6	64	secreted	extracellular region GO:0005576;
+tr|G7WL72|G7WL72_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ9|G7WPZ9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPX1|G7WPX1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLG5|G7WLG5_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY7|G7WQY7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRI9|G7WRI9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPQ0|G7WPQ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC6|G7WRC6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKM1|G7WKM1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNT8|G7WNT8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM53|G7WM53_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP20|G7WP20_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRH8|G7WRH8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP6|G7WPP6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WL73|G7WL73_METH6	72	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMX8|G7WMX8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI5|G7WPI5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ6|G7WNQ6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP60|G7WP60_METH6	38	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKQ0|G7WKQ0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKX8|G7WKX8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN90|G7WN90_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WJY1|G7WJY1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK39|G7WK39_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB5|G7WRB5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV8|G7WNV8_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WQX5|G7WQX5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQK5|G7WQK5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKY5|G7WKY5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK67|G7WK67_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH1|G7WPH1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH8|G7WMH8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ7|G7WNJ7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMW3|G7WMW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME5|G7WME5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK46|G7WK46_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU2|G7WQU2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM83|G7WM83_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ66|G7WQ66_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP4|G7WMP4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMI3|G7WMI3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI9|G7WNI9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKR2|G7WKR2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP8|G7WNP8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE7|G7WLE7_METH6	83	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLF3|G7WLF3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKS9|G7WKS9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WL46|G7WL46_METH6	64	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI9|G7WQI9_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW2|G7WPW2_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR5|G7WMR5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS3|G7WMS3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR12|G7WR12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB9|G7WNB9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ6|G7WPZ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK16|G7WK16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLC4|G7WLC4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR7|G7WLR7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD0|G7WPD0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR6|G7WNR6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ00|G7WQ00_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN15|G7WN15_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ36|G7WQ36_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLJ3|G7WLJ3_METH6	77	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD9|G7WLD9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP13|G7WP13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE3|G7WLE3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP93|G7WP93_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY6|G7WPY6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WND6|G7WND6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE6|G7WQE6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP27|G7WP27_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL4|G7WKL4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR36|G7WR36_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WN70|G7WN70_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQH1|G7WQH1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WR09|G7WR09_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL09|G7WL09_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLL6|G7WLL6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM40|G7WM40_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD2|G7WMD2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN63|G7WN63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR28|G7WR28_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR7|G7WQR7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX1|G7WQX1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL7|G7WNL7_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKI7|G7WKI7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR54|G7WR54_METH6	85	secreted	extracellular region GO:0005576;
+tr|G7WNY6|G7WNY6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLE5|G7WLE5_METH6	96	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKV9|G7WKV9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS5|G7WMS5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD4|G7WMD4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK24|G7WK24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW1|G7WPW1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR35|G7WR35_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR0|G7WQR0_METH6	90	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW1|G7WQW1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR6|G7WMR6_METH6	79	secreted	extracellular region GO:0005576;
+tr|G7WJZ8|G7WJZ8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WP38|G7WP38_METH6	47	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP4|G7WPP4_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY8|G7WLY8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE4|G7WLE4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN50|G7WN50_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLJ7|G7WLJ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH5|G7WRH5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG8|G7WQG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM75|G7WM75_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF8|G7WNF8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW3|G7WNW3_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WNC4|G7WNC4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP3|G7WMP3_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WP57|G7WP57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH3|G7WNH3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPH7|G7WPH7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ3|G7WPJ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG9|G7WLG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMI2|G7WMI2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQI4|G7WQI4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX1|G7WMX1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP89|G7WP89_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQD8|G7WQD8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB3|G7WQB3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK18|G7WK18_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM57|G7WM57_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WMT9|G7WMT9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA9|G7WKA9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP5|G7WQP5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR27|G7WR27_METH6	95	secreted	extracellular region GO:0005576;
+tr|G7WPC1|G7WPC1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK3|G7WMK3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMH6|G7WMH6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK26|G7WK26_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMQ8|G7WMQ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA3|G7WPA3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF5|G7WMF5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQP0|G7WQP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS7|G7WLS7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJV8|G7WJV8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW4|G7WPW4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ3|G7WPZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMU2|G7WMU2_METH6	83	secreted	extracellular region GO:0005576;
+tr|G7WL00|G7WL00_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR90|G7WR90_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM36|G7WM36_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT0|G7WMT0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP85|G7WP85_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQE2|G7WQE2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN82|G7WN82_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY2|G7WQY2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN79|G7WN79_METH6	94	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ52|G7WQ52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW1|G7WJW1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK02|G7WK02_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ8|G7WKZ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS9|G7WNS9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR4|G7WPR4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPA8|G7WPA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ7|G7WNZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJY0|G7WJY0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP42|G7WP42_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WML1|G7WML1_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WR43|G7WR43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT7|G7WLT7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD2|G7WPD2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ3|G7WQZ3_METH6	68	secreted	extracellular region GO:0005576;
+tr|G7WNQ5|G7WNQ5_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WM55|G7WM55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN03|G7WN03_METH6	72	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLZ1|G7WLZ1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPA4|G7WPA4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE9|G7WLE9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPK4|G7WPK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNK5|G7WNK5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLJ4|G7WLJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP9|G7WNP9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL7|G7WQL7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX3|G7WNX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQH7|G7WQH7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ98|G7WQ98_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLN3|G7WLN3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB6|G7WQB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV2|G7WKV2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ03|G7WQ03_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB1|G7WNB1_METH6	87	secreted	extracellular region GO:0005576;
+tr|G7WN02|G7WN02_METH6	85	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR6|G7WPR6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP03|G7WP03_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS7|G7WNS7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR95|G7WR95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB4|G7WLB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV0|G7WNV0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNM5|G7WNM5_METH6	77	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMC6|G7WMC6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMK6|G7WMK6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM4|G7WMM4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKB3|G7WKB3_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQZ0|G7WQZ0_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WP97|G7WP97_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK11|G7WK11_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH0|G7WNH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR80|G7WR80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX3|G7WJX3_METH6	50	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM12|G7WM12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA4|G7WLA4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMY4|G7WMY4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW7|G7WQW7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW9|G7WLW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP3|G7WLP3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM30|G7WM30_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WK17|G7WK17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE1|G7WPE1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKH0|G7WKH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS5|G7WPS5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD6|G7WKD6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMG7|G7WMG7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK62|G7WK62_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ85|G7WQ85_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT3|G7WLT3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN44|G7WN44_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLC0|G7WLC0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK19|G7WK19_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL75|G7WL75_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS8|G7WPS8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ6|G7WMJ6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNF7|G7WNF7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC8|G7WPC8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE6|G7WPE6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG6|G7WLG6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA0|G7WRA0_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH0|G7WPH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR64|G7WR64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP75|G7WP75_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP95|G7WP95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY6|G7WQY6_METH6	85	cytoplasm	cytoplasm GO:0005737
+tr|G7WM28|G7WM28_METH6	85	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE9|G7WPE9_METH6	92	secreted	extracellular region GO:0005576;
+tr|G7WNA6|G7WNA6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA4|G7WRA4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR56|G7WR56_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQN2|G7WQN2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLF5|G7WLF5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL27|G7WL27_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL79|G7WL79_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG4|G7WMG4_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNI2|G7WNI2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE9|G7WKE9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS8|G7WMS8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP0|G7WMP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP87|G7WP87_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLW4|G7WLW4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA6|G7WKA6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLC1|G7WLC1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT4|G7WKT4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN74|G7WN74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP4|G7WNP4_METH6	96	secreted	extracellular region GO:0005576;
+tr|G7WKI9|G7WKI9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNK1|G7WNK1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ6|G7WQZ6_METH6	69	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK27|G7WK27_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL14|G7WL14_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRI3|G7WRI3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR19|G7WR19_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WML4|G7WML4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMW6|G7WMW6_METH6	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPV0|G7WPV0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX4|G7WLX4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH4|G7WMH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK56|G7WK56_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT3|G7WKT3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP72|G7WP72_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ49|G7WQ49_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT4|G7WLT4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM07|G7WM07_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKS6|G7WKS6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK03|G7WK03_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKQ3|G7WKQ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN0|G7WPN0_METH6	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRK2|G7WRK2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WND0|G7WND0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL6|G7WNL6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT6|G7WPT6_METH6	79	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL53|G7WL53_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV3|G7WLV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP4|G7WLP4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA1|G7WNA1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNW6|G7WNW6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS7|G7WPS7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR87|G7WR87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM9|G7WQM9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRB9|G7WRB9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKK2|G7WKK2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND7|G7WND7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ2|G7WNJ2_METH6	70	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL52|G7WL52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH9|G7WRH9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM6|G7WQM6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA2|G7WMA2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA5|G7WKA5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE1|G7WNE1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX9|G7WJX9_METH6	75	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMX4|G7WMX4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP2|G7WLP2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP5|G7WPP5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ25|G7WQ25_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF9|G7WPF9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB2|G7WMB2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR5|G7WPR5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQW3|G7WQW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM15|G7WM15_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WL96|G7WL96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM1|G7WLM1_METH6	39	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL60|G7WL60_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK93|G7WK93_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPW8|G7WPW8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE0|G7WQE0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH2|G7WNH2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK87|G7WK87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA8|G7WKA8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ04|G7WQ04_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA8|G7WLA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW7|G7WKW7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRG3|G7WRG3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP70|G7WP70_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ0|G7WLQ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL5|G7WNL5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ90|G7WQ90_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKQ6|G7WKQ6_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN1|G7WLN1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW0|G7WNW0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ72|G7WQ72_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV9|G7WLV9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK42|G7WK42_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR8|G7WQR8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN9|G7WPN9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN0|G7WKN0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR15|G7WR15_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ53|G7WQ53_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF5|G7WPF5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ8|G7WLZ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ1|G7WQQ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP62|G7WP62_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL8|G7WPL8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR71|G7WR71_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKB1|G7WKB1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKK9|G7WKK9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS1|G7WKS1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WL98|G7WL98_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV2|G7WNV2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK45|G7WK45_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WK57|G7WK57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI5|G7WLI5_METH6	48	cytoplasm	cytoplasm GO:0005737
+tr|G7WP28|G7WP28_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU2|G7WKU2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL78|G7WL78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ46|G7WQ46_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WND3|G7WND3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN21|G7WN21_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK86|G7WK86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP26|G7WP26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB5|G7WMB5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC9|G7WRC9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKH6|G7WKH6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKI3|G7WKI3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNS0|G7WNS0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP15|G7WP15_METH6	96	cytoplasm	cytoplasm GO:0005737
+tr|G7WL06|G7WL06_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX8|G7WJX8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRI6|G7WRI6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ5|G7WPJ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF7|G7WLF7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN25|G7WN25_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKC7|G7WKC7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN12|G7WN12_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX7|G7WPX7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRG9|G7WRG9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNP5|G7WNP5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKM5|G7WKM5_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WP48|G7WP48_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE3|G7WRE3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF6|G7WLF6_METH6	47	cytoplasm	cytoplasm GO:0005737
+tr|G7WML5|G7WML5_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE6|G7WRE6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG8|G7WLG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WML2|G7WML2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK32|G7WK32_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLK1|G7WLK1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WK09|G7WK09_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ8|G7WQJ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG6|G7WNG6_METH6	100	cytoplasm	cytoplasm GO:0005737
+sp|G7WMS7|RL3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA3|G7WKA3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN06|G7WN06_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ3|G7WLQ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF2|G7WPF2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|E5KK10|E5KK10_METH6	92	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK9|G7WQK9_METH6	88	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS2|G7WPS2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNX2|G7WNX2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG4|G7WNG4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL42|G7WL42_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM06|G7WM06_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM31|G7WM31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK38|G7WK38_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC5|G7WNC5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF4|G7WKF4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ63|G7WQ63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK77|G7WK77_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM44|G7WM44_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ4|G7WNQ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL02|G7WL02_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW5|G7WKW5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW9|G7WNW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK54|G7WK54_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQQ5|G7WQQ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB1|G7WQB1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQD0|G7WQD0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ83|G7WQ83_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WP80|G7WP80_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM39|G7WM39_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ06|G7WQ06_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ9|G7WMJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ38|G7WQ38_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH9|G7WPH9_METH6	71	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX6|G7WQX6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE8|G7WPE8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC2|G7WMC2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMW7|G7WMW7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX3|G7WQX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK15|G7WK15_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK48|G7WK48_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW9|G7WJW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY7|G7WKY7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR34|G7WR34_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ47|G7WQ47_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLU7|G7WLU7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR59|G7WR59_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS5|G7WNS5_METH6	62	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRG1|G7WRG1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF9|G7WLF9_METH6	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP65|G7WP65_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLU0|G7WLU0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG4|G7WLG4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR5|G7WNR5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC8|G7WNC8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ20|G7WQ20_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP50|G7WP50_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WN41|G7WN41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPQ3|G7WPQ3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPT3|G7WPT3_METH6	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMA4|G7WMA4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB1|G7WLB1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKH8|G7WKH8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM7|G7WMM7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ4|G7WNZ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRI7|G7WRI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN35|G7WN35_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ4|G7WPJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ3|G7WLZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ2|G7WQZ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN4|G7WMN4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPB7|G7WPB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ3|G7WNJ3_METH6	58	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM9|G7WMM9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF4|G7WLF4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQY9|G7WQY9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMI1|G7WMI1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA7|G7WLA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR9|G7WNR9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY0|G7WKY0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK95|G7WK95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ0|G7WPZ0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLT8|G7WLT8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG5|G7WNG5_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ1|G7WQJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK36|G7WK36_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN89|G7WN89_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN40|G7WN40_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WNL4|G7WNL4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV2|G7WQV2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLV2|G7WLV2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL6|G7WKL6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR38|G7WR38_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMU1|G7WMU1_METH6	92	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB9|G7WMB9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN4|G7WPN4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQC3|G7WQC3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPQ2|G7WPQ2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMU4|G7WMU4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMV1|G7WMV1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI3|G7WQI3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA9|G7WNA9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ22|G7WQ22_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE3|G7WKE3_METH6	80	secreted	extracellular region GO:0005576;
+tr|G7WMN3|G7WMN3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ6|G7WJZ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX7|G7WNX7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM9|G7WPM9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM6|G7WKM6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ65|G7WQ65_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR65|G7WR65_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM78|G7WM78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT1|G7WPT1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE7|G7WNE7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT0|G7WKT0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN33|G7WN33_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR33|G7WR33_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN55|G7WN55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND8|G7WND8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP76|G7WP76_METH6	82	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV3|G7WQV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL86|G7WL86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL4|G7WPL4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ87|G7WQ87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS0|G7WMS0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF9|G7WRF9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT3|G7WMT3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX6|G7WLX6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH4|G7WPH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI8|G7WLI8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK22|G7WK22_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKL8|G7WKL8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKK4|G7WKK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK14|G7WK14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB4|G7WPB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME4|G7WME4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM50|G7WM50_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH2|G7WMH2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC9|G7WMC9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLP8|G7WLP8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK43|G7WK43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD1|G7WMD1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW5|G7WLW5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI3|G7WPI3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK44|G7WK44_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMQ9|G7WMQ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP1|G7WQP1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN18|G7WN18_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR77|G7WR77_METH6	81	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMI0|G7WMI0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM38|G7WM38_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPM1|G7WPM1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG4|G7WKG4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKR8|G7WKR8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKQ7|G7WKQ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN39|G7WN39_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQA5|G7WQA5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE9|G7WQE9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK0|G7WQK0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN23|G7WN23_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF4|G7WNF4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS4|G7WMS4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR9|G7WQR9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC7|G7WQC7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD6|G7WPD6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNW7|G7WNW7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMW0|G7WMW0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB2|G7WQB2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WJV3|G7WJV3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRG2|G7WRG2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ50|G7WQ50_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM58|G7WM58_METH6	79	cytoplasm	cytoplasm GO:0005737
+tr|G7WQS9|G7WQS9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ12|G7WQ12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW2|G7WLW2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN30|G7WN30_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK84|G7WK84_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WRG5|G7WRG5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR99|G7WR99_METH6	65	secreted	extracellular region GO:0005576;
+tr|G7WQD2|G7WQD2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF5|G7WNF5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ1|G7WNZ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ57|G7WQ57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN2|G7WLN2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL59|G7WL59_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMW8|G7WMW8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRK5|G7WRK5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME6|G7WME6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL89|G7WL89_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH0|G7WRH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR7|G7WNR7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK85|G7WK85_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WLB9|G7WLB9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI5|G7WQI5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ3|G7WNQ3_METH6	93	secreted	extracellular region GO:0005576;
+tr|G7WLC3|G7WLC3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN66|G7WN66_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN88|G7WN88_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMU8|G7WMU8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW6|G7WJW6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ9|G7WKJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI1|G7WLI1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ5|G7WMZ5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP33|G7WP33_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLN0|G7WLN0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ3|G7WMJ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ5|G7WLQ5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRB6|G7WRB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ92|G7WQ92_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME7|G7WME7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH6|G7WPH6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ7|G7WMZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJY8|G7WJY8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN51|G7WN51_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD7|G7WKD7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR00|G7WR00_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW0|G7WPW0_METH6	94	secreted	extracellular region GO:0005576;
+tr|G7WLX1|G7WLX1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP46|G7WP46_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP29|G7WP29_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY4|G7WPY4_METH6	96	cytoplasm	cytoplasm GO:0005737
+tr|G7WLH3|G7WLH3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ15|G7WQ15_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY8|G7WKY8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM3|G7WNM3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP52|G7WP52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL2|G7WKL2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS4|G7WKS4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT9|G7WLT9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ2|G7WNZ2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNF3|G7WNF3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPG6|G7WPG6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM37|G7WM37_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX5|G7WNX5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ05|G7WQ05_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR49|G7WR49_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW4|G7WKW4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY3|G7WKY3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY6|G7WMY6_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM7|G7WNM7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLM5|G7WLM5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL77|G7WL77_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF9|G7WKF9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMA9|G7WMA9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN7|G7WLN7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB0|G7WRB0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP31|G7WP31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS3|G7WPS3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT7|G7WNT7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK41|G7WK41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT4|G7WNT4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG2|G7WKG2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL19|G7WL19_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM71|G7WM71_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ9|G7WRJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK29|G7WK29_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE2|G7WLE2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL49|G7WL49_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA4|G7WKA4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKH4|G7WKH4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQQ8|G7WQQ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB0|G7WLB0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL28|G7WL28_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNE0|G7WNE0_METH6	96	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA3|G7WMA3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ4|G7WKJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC2|G7WRC2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY5|G7WMY5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL2|G7WQL2_METH6	49	cytoplasm	cytoplasm GO:0005737
+tr|G7WKC8|G7WKC8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP17|G7WP17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR3|G7WNR3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKQ8|G7WKQ8_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WL12|G7WL12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA6|G7WPA6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ84|G7WQ84_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPG4|G7WPG4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP9|G7WQP9_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRI4|G7WRI4_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WP51|G7WP51_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK76|G7WK76_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WJY2|G7WJY2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ1|G7WPZ1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ28|G7WQ28_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF9|G7WQF9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG8|G7WMG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI1|G7WQI1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN11|G7WN11_METH6	49	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMY1|G7WMY1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX3|G7WPX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL94|G7WL94_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF2|G7WQF2_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WPP9|G7WPP9_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA8|G7WMA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG6|G7WKG6_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WJW4|G7WJW4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK50|G7WK50_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK47|G7WK47_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR1|G7WMR1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLL2|G7WLL2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQG2|G7WQG2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLJ5|G7WLJ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM6|G7WNM6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKC0|G7WKC0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNK4|G7WNK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND2|G7WND2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU1|G7WPU1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI5|G7WNI5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK08|G7WK08_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB7|G7WRB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK3|G7WQK3_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT8|G7WQT8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM23|G7WM23_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF4|G7WRF4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ61|G7WQ61_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL74|G7WL74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA7|G7WPA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB8|G7WMB8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKI2|G7WKI2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF2|G7WLF2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ09|G7WQ09_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMQ0|G7WMQ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX9|G7WNX9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR01|G7WR01_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WQC9|G7WQC9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR42|G7WR42_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN92|G7WN92_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMX2|G7WMX2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKR6|G7WKR6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC2|G7WQC2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA1|G7WKA1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP8|G7WPP8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX2|G7WQX2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP8|G7WKP8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR69|G7WR69_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNZ0|G7WNZ0_METH6	96	secreted	extracellular region GO:0005576;
+tr|G7WR94|G7WR94_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ9|G7WQJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG9|G7WKG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK35|G7WK35_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMV3|G7WMV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNK0|G7WNK0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM4|G7WLM4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC6|G7WQC6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM95|G7WM95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR31|G7WR31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP39|G7WP39_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC8|G7WMC8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKX4|G7WKX4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC6|G7WPC6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKK1|G7WKK1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA2|G7WRA2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK74|G7WK74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX7|G7WJX7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV6|G7WKV6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPD7|G7WPD7_METH6	42	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNF1|G7WNF1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJY6|G7WJY6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT0|G7WPT0_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU0|G7WQU0_METH6	51	cytoplasm	cytoplasm GO:0005737
+tr|G7WL76|G7WL76_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD5|G7WMD5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN07|G7WN07_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP77|G7WP77_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WRD0|G7WRD0_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WMF4|G7WMF4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT6|G7WMT6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKA7|G7WKA7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKV8|G7WKV8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW8|G7WLW8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ1|G7WMZ1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLI4|G7WLI4_METH6	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKL3|G7WKL3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT0|G7WNT0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRA3|G7WRA3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM13|G7WM13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ5|G7WKJ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI1|G7WNI1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM2|G7WKM2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE8|G7WQE8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU8|G7WQU8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ94|G7WQ94_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQF3|G7WQF3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPV3|G7WPV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQA8|G7WQA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR8|G7WNR8_METH6	65	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ2|G7WPJ2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLR2|G7WLR2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN9|G7WMN9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK83|G7WK83_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD7|G7WMD7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLU4|G7WLU4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK4|G7WQK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE1|G7WQE1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI4|G7WPI4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM22|G7WM22_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH5|G7WMH5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC0|G7WMC0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG3|G7WQG3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ9|G7WNJ9_METH6	47	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ81|G7WQ81_METH6	94	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMQ5|G7WMQ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA8|G7WRA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN94|G7WN94_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ8|G7WRJ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR81|G7WR81_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKK7|G7WKK7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP9|G7WKP9_METH6	75	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPK0|G7WPK0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM19|G7WM19_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN75|G7WN75_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR29|G7WR29_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL16|G7WL16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ2|G7WRJ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMI4|G7WMI4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKX0|G7WKX0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU1|G7WNU1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLD6|G7WLD6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLD1|G7WLD1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM3|G7WMM3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ74|G7WQ74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC7|G7WNC7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA0|G7WNA0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL7|G7WKL7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK80|G7WK80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN97|G7WN97_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLJ2|G7WLJ2_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ4|G7WQJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX0|G7WQX0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK78|G7WK78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS2|G7WMS2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW1|G7WLW1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL1|G7WNL1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW0|G7WQW0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU9|G7WKU9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX2|G7WPX2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP3|G7WQP3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM52|G7WM52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP12|G7WP12_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV0|G7WQV0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ6|G7WQQ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR62|G7WR62_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKC5|G7WKC5_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT2|G7WLT2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ95|G7WQ95_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKJ2|G7WKJ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN9|G7WQN9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS8|G7WKS8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRD9|G7WRD9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM80|G7WM80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP2|G7WKP2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM73|G7WM73_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ6|G7WKJ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT4|G7WPT4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP07|G7WP07_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR03|G7WR03_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPX5|G7WPX5_METH6	91	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL6|G7WQL6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMQ1|G7WMQ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ13|G7WQ13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN8|G7WKN8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP84|G7WP84_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPV9|G7WPV9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ9|G7WNZ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPG9|G7WPG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRD3|G7WRD3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNY7|G7WNY7_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WR51|G7WR51_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL9|G7WKL9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKZ6|G7WKZ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM11|G7WM11_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC1|G7WRC1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ80|G7WQ80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQH4|G7WQH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL81|G7WL81_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR7|G7WPR7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRG6|G7WRG6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG3|G7WMG3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR9|G7WLR9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL80|G7WL80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU9|G7WNU9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ0|G7WKZ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR78|G7WR78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA2|G7WPA2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRJ5|G7WRJ5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQM1|G7WQM1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE1|G7WRE1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT1|G7WMT1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM98|G7WM98_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP64|G7WP64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRI2|G7WRI2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ3|G7WMZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP73|G7WP73_METH6	68	secreted	extracellular region GO:0005576;
+tr|G7WLY2|G7WLY2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK2|G7WLK2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPQ4|G7WPQ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK53|G7WK53_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP14|G7WP14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM54|G7WM54_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLR4|G7WLR4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNY2|G7WNY2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP67|G7WP67_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL24|G7WL24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKI4|G7WKI4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQV9|G7WQV9_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WPM4|G7WPM4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ79|G7WQ79_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP00|G7WP00_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV4|G7WLV4_METH6	83	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR67|G7WR67_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WP63|G7WP63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV6|G7WQV6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC2|G7WPC2_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WP11|G7WP11_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRG7|G7WRG7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK92|G7WK92_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN0|G7WNN0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLH0|G7WLH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN7|G7WMN7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ18|G7WQ18_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA7|G7WMA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP1|G7WNP1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ0|G7WNJ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN48|G7WN48_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF7|G7WQF7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM59|G7WM59_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN26|G7WN26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE1|G7WKE1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI0|G7WPI0_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WQI8|G7WQI8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN27|G7WN27_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ56|G7WQ56_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN84|G7WN84_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKC6|G7WKC6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR85|G7WR85_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLP6|G7WLP6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM0|G7WPM0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKI6|G7WKI6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKZ3|G7WKZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR60|G7WR60_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ14|G7WQ14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM9|G7WNM9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP08|G7WP08_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WL23|G7WL23_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT2|G7WMT2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKA0|G7WKA0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW9|G7WQW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLL7|G7WLL7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ0|G7WQQ0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMY8|G7WMY8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQA9|G7WQA9_METH6	65	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPI8|G7WPI8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN7|G7WQN7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK9|G7WLK9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS9|G7WLS9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE9|G7WRE9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN09|G7WN09_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK96|G7WK96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN05|G7WN05_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU1|G7WKU1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC3|G7WMC3_METH6	71	secreted	extracellular region GO:0005576;
+tr|G7WR66|G7WR66_METH6	96	secreted	extracellular region GO:0005576;
+tr|G7WKP3|G7WKP3_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WML3|G7WML3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPJ7|G7WPJ7_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WP90|G7WP90_METH6	51	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKY6|G7WKY6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPU4|G7WPU4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ41|G7WQ41_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKR7|G7WKR7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE7|G7WPE7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP2|G7WMP2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ2|G7WLZ2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRH4|G7WRH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM64|G7WM64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA2|G7WLA2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU3|G7WKU3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI7|G7WPI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR2|G7WMR2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK71|G7WK71_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB7|G7WMB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ01|G7WQ01_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM3|G7WQM3_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX0|G7WPX0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM21|G7WM21_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE5|G7WNE5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKK3|G7WKK3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB0|G7WQB0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY3|G7WPY3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKJ0|G7WKJ0_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WR50|G7WR50_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM02|G7WM02_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH0|G7WMH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN8|G7WMN8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK2|G7WQK2_METH6	82	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS9|G7WMS9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNY9|G7WNY9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS1|G7WNS1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP25|G7WP25_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL1|G7WPL1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM5|G7WQM5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT5|G7WMT5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPK1|G7WPK1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF8|G7WQF8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ70|G7WQ70_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ62|G7WQ62_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM03|G7WM03_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ4|G7WMZ4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ86|G7WQ86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT8|G7WPT8_METH6	78	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLH7|G7WLH7_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY4|G7WKY4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ7|G7WNQ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT0|G7WQT0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC9|G7WPC9_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY1|G7WLY1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ5|G7WNZ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ24|G7WQ24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK69|G7WK69_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM24|G7WM24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR53|G7WR53_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMI8|G7WMI8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKR3|G7WKR3_METH6	65	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPQ1|G7WPQ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS6|G7WLS6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ1|G7WJZ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL97|G7WL97_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK81|G7WK81_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF9|G7WMF9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP8|G7WMP8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF8|G7WPF8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR37|G7WR37_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT6|G7WKT6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF4|G7WPF4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRE0|G7WRE0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM20|G7WM20_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK33|G7WK33_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQF1|G7WQF1_METH6	59	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ9|G7WJZ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH9|G7WMH9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG1|G7WNG1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC5|G7WPC5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ4|G7WQZ4_METH6	90	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM47|G7WM47_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF3|G7WKF3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNY5|G7WNY5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP96|G7WP96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT7|G7WQT7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI2|G7WLI2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLU9|G7WLU9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ08|G7WQ08_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW3|G7WJW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR89|G7WR89_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK1|G7WQK1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM2|G7WPM2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE7|G7WKE7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKR9|G7WKR9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN65|G7WN65_METH6	85	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLU2|G7WLU2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR84|G7WR84_METH6	51	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW2|G7WNW2_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WPH3|G7WPH3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT5|G7WQT5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP5|G7WKP5_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WPG7|G7WPG7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKE6|G7WKE6_METH6	87	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX0|G7WJX0_METH6	93	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLJ0|G7WLJ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI0|G7WQI0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ43|G7WQ43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME3|G7WME3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH1|G7WMH1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM0|G7WMM0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR26|G7WR26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR44|G7WR44_METH6	95	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQT1|G7WQT1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP66|G7WP66_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ93|G7WQ93_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV1|G7WKV1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKX5|G7WKX5_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WR18|G7WR18_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW5|G7WPW5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK55|G7WK55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQH8|G7WQH8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ44|G7WQ44_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU9|G7WPU9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK58|G7WK58_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM0|G7WKM0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM01|G7WM01_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB1|G7WMB1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQS0|G7WQS0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR96|G7WR96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN3|G7WNN3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKR0|G7WKR0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP2|G7WNP2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLV6|G7WLV6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLN5|G7WLN5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ4|G7WRJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ35|G7WQ35_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG3|G7WLG3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL93|G7WL93_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX9|G7WLX9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKX2|G7WKX2_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB1|G7WPB1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ7|G7WRJ7_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WMN0|G7WMN0_METH6	92	secreted	extracellular region GO:0005576;
+tr|G7WQA7|G7WQA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS5|G7WKS5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR9|G7WMR9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS4|G7WPS4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLC7|G7WLC7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA9|G7WLA9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRB8|G7WRB8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK63|G7WK63_METH6	94	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQU1|G7WQU1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL43|G7WL43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL87|G7WL87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN46|G7WN46_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQA6|G7WQA6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR73|G7WR73_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKX9|G7WKX9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS2|G7WKS2_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG7|G7WLG7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK8|G7WMK8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLQ4|G7WLQ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM05|G7WM05_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ45|G7WQ45_METH6	96	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKG7|G7WKG7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNR2|G7WNR2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMJ2|G7WMJ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH1|G7WNH1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ54|G7WQ54_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD8|G7WPD8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLJ9|G7WLJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP58|G7WP58_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV7|G7WNV7_METH6	65	cytoplasm	cytoplasm GO:0005737
+tr|G7WMI5|G7WMI5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WL18|G7WL18_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV1|G7WQV1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP1|G7WPP1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL13|G7WL13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA9|G7WPA9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPF1|G7WPF1_METH6	55	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW3|G7WKW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU5|G7WPU5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE0|G7WKE0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM65|G7WM65_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD7|G7WLD7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW2|G7WKW2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP36|G7WP36_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN6|G7WNN6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK9|G7WMK9_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WM56|G7WM56_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN10|G7WN10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC4|G7WPC4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPG5|G7WPG5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR40|G7WR40_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WM93|G7WM93_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK97|G7WK97_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR70|G7WR70_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY2|G7WPY2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLU8|G7WLU8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE3|G7WPE3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG1|G7WLG1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WRC8|G7WRC8_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WL58|G7WL58_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKM8|G7WKM8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK06|G7WK06_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH1|G7WRH1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN69|G7WN69_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKC3|G7WKC3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI2|G7WQI2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ48|G7WQ48_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKK8|G7WKK8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE7|G7WRE7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK65|G7WK65_METH6	83	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKB2|G7WKB2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN19|G7WN19_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPV7|G7WPV7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM4|G7WKM4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL8|G7WNL8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKG5|G7WKG5_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WPL9|G7WPL9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF0|G7WRF0_METH6	93	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN38|G7WN38_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM97|G7WM97_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR0|G7WPR0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG3|G7WNG3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM60|G7WM60_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPI9|G7WPI9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM96|G7WM96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE5|G7WRE5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ4|G7WNJ4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNS2|G7WNS2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQY3|G7WQY3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ27|G7WQ27_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP91|G7WP91_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP6|G7WQP6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM43|G7WM43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR8|G7WLR8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT9|G7WQT9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW1|G7WKW1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY9|G7WPY9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL22|G7WL22_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU5|G7WNU5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKX6|G7WKX6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMV0|G7WMV0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB3|G7WRB3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK5|G7WMK5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW8|G7WKW8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN49|G7WN49_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP79|G7WP79_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WMH3|G7WMH3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR91|G7WR91_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN6|G7WLN6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG9|G7WMG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP40|G7WP40_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ58|G7WQ58_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WME1|G7WME1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY7|G7WMY7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN81|G7WN81_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB5|G7WLB5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB7|G7WLB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJY4|G7WJY4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP88|G7WP88_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX5|G7WMX5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL2|G7WNL2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX7|G7WLX7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM42|G7WM42_METH6	79	secreted	extracellular region GO:0005576;
+tr|G7WMM1|G7WMM1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT6|G7WLT6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN53|G7WN53_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WPV1|G7WPV1_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WKC2|G7WKC2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WJZ5|G7WJZ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM74|G7WM74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI3|G7WNI3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB3|G7WLB3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK60|G7WK60_METH6	78	cytoplasm	cytoplasm GO:0005737
+tr|G7WN43|G7WN43_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND1|G7WND1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPU7|G7WPU7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJV6|G7WJV6_METH6	74	secreted	extracellular region GO:0005576;
+tr|G7WQL8|G7WQL8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN29|G7WN29_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF3|G7WPF3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNX0|G7WNX0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL10|G7WL10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLB2|G7WLB2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU4|G7WNU4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK51|G7WK51_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF8|G7WKF8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM77|G7WM77_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ78|G7WQ78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ88|G7WQ88_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU5|G7WKU5_METH6	96	cytoplasm	cytoplasm GO:0005737
+tr|G7WPH2|G7WPH2_METH6	71	secreted	extracellular region GO:0005576;
+tr|G7WPY0|G7WPY0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPK3|G7WPK3_METH6	95	secreted	extracellular region GO:0005576;
+tr|G7WLL5|G7WLL5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT2|G7WPT2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN64|G7WN64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF6|G7WNF6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ64|G7WQ64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY6|G7WLY6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME8|G7WME8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL92|G7WL92_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WQZ9|G7WQZ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR97|G7WR97_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WPV2|G7WPV2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMQ6|G7WMQ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WML0|G7WML0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK8|G7WQK8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK91|G7WK91_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKR4|G7WKR4_METH6	82	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLF1|G7WLF1_METH6	50	secreted	extracellular region GO:0005576;
+tr|G7WLB6|G7WLB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP9|G7WLP9_METH6	71	cytoplasm	cytoplasm GO:0005737
+tr|G7WM10|G7WM10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPQ5|G7WPQ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU3|G7WNU3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT5|G7WKT5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF3|G7WRF3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF2|G7WNF2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT9|G7WKT9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ6|G7WNZ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ1|G7WMJ1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKG1|G7WKG1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNN5|G7WNN5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLC2|G7WLC2_METH6	91	secreted	extracellular region GO:0005576;
+tr|G7WNH4|G7WNH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP6|G7WNP6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNU7|G7WNU7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL47|G7WL47_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WL17|G7WL17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK10|G7WK10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ99|G7WQ99_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH6|G7WRH6_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WML6|G7WML6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX0|G7WLX0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN99|G7WN99_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMC1|G7WMC1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM16|G7WM16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF7|G7WRF7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK20|G7WK20_METH6	87	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLI6|G7WLI6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKI1|G7WKI1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKC9|G7WKC9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKP4|G7WKP4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLL1|G7WLL1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK28|G7WK28_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC5|G7WMC5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE6|G7WLE6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ29|G7WQ29_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL50|G7WL50_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLH1|G7WLH1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WME0|G7WME0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN24|G7WN24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN98|G7WN98_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL95|G7WL95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR79|G7WR79_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ0|G7WRJ0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKX3|G7WKX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS0|G7WKS0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT7|G7WMT7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ1|G7WRJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL7|G7WPL7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW7|G7WPW7_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKL0|G7WKL0_METH6	88	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB0|G7WPB0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN57|G7WN57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ7|G7WLQ7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQL0|G7WQL0_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WL03|G7WL03_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNG8|G7WNG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY8|G7WQY8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK37|G7WK37_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL85|G7WL85_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP02|G7WP02_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM70|G7WM70_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR13|G7WR13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS6|G7WMS6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM33|G7WM33_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPL0|G7WPL0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS3|G7WKS3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN4|G7WQN4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN1|G7WPN1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQH2|G7WQH2_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WMW9|G7WMW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME9|G7WME9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS0|G7WLS0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR3|G7WQR3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE5|G7WKE5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK0|G7WMK0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQ75|G7WQ75_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLH5|G7WLH5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR07|G7WR07_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU8|G7WNU8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK40|G7WK40_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ34|G7WQ34_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY1|G7WQY1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ77|G7WQ77_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL71|G7WL71_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMV4|G7WMV4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB7|G7WNB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRD4|G7WRD4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNA8|G7WNA8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ16|G7WQ16_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS4|G7WNS4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA1|G7WRA1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM68|G7WM68_METH6	87	cytoplasm	cytoplasm GO:0005737
+tr|G7WML7|G7WML7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPW9|G7WPW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP0|G7WLP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV1|G7WLV1_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WL61|G7WL61_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM87|G7WM87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ3|G7WQJ3_METH6	93	cytoplasm	cytoplasm GO:0005737
+tr|G7WN96|G7WN96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRD5|G7WRD5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMC4|G7WMC4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL30|G7WL30_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB4|G7WQB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL21|G7WL21_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK52|G7WK52_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WL99|G7WL99_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM94|G7WM94_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP7|G7WQP7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ7|G7WKJ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ4|G7WMJ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK79|G7WK79_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKN4|G7WKN4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT8|G7WKT8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRK4|G7WRK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR14|G7WR14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ07|G7WQ07_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR88|G7WR88_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKV5|G7WKV5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRI0|G7WRI0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS9|G7WPS9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL41|G7WL41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX6|G7WMX6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL63|G7WL63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP35|G7WP35_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT3|G7WNT3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT1|G7WNT1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL0|G7WNL0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM32|G7WM32_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN28|G7WN28_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRG4|G7WRG4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK05|G7WK05_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN61|G7WN61_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB3|G7WPB3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK59|G7WK59_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG6|G7WQG6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR93|G7WR93_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WR39|G7WR39_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKL1|G7WKL1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE8|G7WRE8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM8|G7WNM8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ6|G7WQJ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN7|G7WKN7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRF8|G7WRF8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN62|G7WN62_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT5|G7WLT5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN34|G7WN34_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY5|G7WLY5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLW6|G7WLW6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN2|G7WPN2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG5|G7WQG5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK31|G7WK31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT2|G7WQT2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN42|G7WN42_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPK8|G7WPK8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR57|G7WR57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR23|G7WR23_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMS1|G7WMS1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU0|G7WPU0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL48|G7WL48_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR98|G7WR98_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WP83|G7WP83_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ4|G7WQQ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR3|G7WLR3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNP7|G7WNP7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY2|G7WMY2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKP0|G7WKP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ2|G7WJZ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL15|G7WL15_METH6	90	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQK6|G7WQK6_METH6	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMF8|G7WMF8_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE7|G7WQE7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLD0|G7WLD0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ59|G7WQ59_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB8|G7WQB8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ4|G7WLZ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC4|G7WQC4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF7|G7WKF7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKQ4|G7WKQ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLW3|G7WLW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI7|G7WLI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK4|G7WLK4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPH5|G7WPH5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMB6|G7WMB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ3|G7WNZ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKB6|G7WKB6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLM8|G7WLM8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN4|G7WLN4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN56|G7WN56_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG0|G7WKG0_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX3|G7WMX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ51|G7WQ51_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU8|G7WKU8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ3|G7WQQ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ9|G7WLZ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF7|G7WMF7_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WL65|G7WL65_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLR0|G7WLR0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKA2|G7WKA2_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WQD4|G7WQD4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB2|G7WRB2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP4|G7WQP4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD4|G7WLD4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLG2|G7WLG2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP54|G7WP54_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMH7|G7WMH7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD5|G7WLD5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLP7|G7WLP7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE0|G7WPE0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE4|G7WNE4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKK6|G7WKK6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM81|G7WM81_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ5|G7WNJ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN47|G7WN47_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF0|G7WQF0_METH6	93	secreted	extracellular region GO:0005576;
+tr|G7WNQ0|G7WNQ0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKI8|G7WKI8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKX7|G7WKX7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV4|G7WNV4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQF4|G7WQF4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM91|G7WM91_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WK88|G7WK88_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WMQ2|G7WMQ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL39|G7WL39_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMA1|G7WMA1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPT5|G7WPT5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMV6|G7WMV6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL3|G7WQL3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP56|G7WP56_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WLL3|G7WLL3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNS3|G7WNS3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ2|G7WNQ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW2|G7WQW2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKB0|G7WKB0_METH6	88	cytoplasm	cytoplasm GO:0005737
+tr|G7WN60|G7WN60_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQE5|G7WQE5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKB4|G7WKB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMU9|G7WMU9_METH6	90	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN7|G7WPN7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG5|G7WMG5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE8|G7WKE8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRG8|G7WRG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV7|G7WKV7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRB4|G7WRB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR3|G7WPR3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNL9|G7WNL9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMA6|G7WMA6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ1|G7WQZ1_METH6	97	secreted	extracellular region GO:0005576;
+tr|G7WM69|G7WM69_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMM6|G7WMM6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQG9|G7WQG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM00|G7WM00_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR58|G7WR58_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX4|G7WQX4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL32|G7WL32_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ91|G7WQ91_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD9|G7WMD9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK23|G7WK23_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WML9|G7WML9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKQ1|G7WKQ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN8|G7WNN8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLU3|G7WLU3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP92|G7WP92_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ1|G7WLQ1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WJW7|G7WJW7_METH6	98	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNA5|G7WNA5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ6|G7WMZ6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRH2|G7WRH2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM1|G7WNM1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNA2|G7WNA2_METH6	89	cytoplasm	cytoplasm GO:0005737
+tr|G7WN52|G7WN52_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQZ8|G7WQZ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN9|G7WNN9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQV8|G7WQV8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG1|G7WMG1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPX4|G7WPX4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR4|G7WMR4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQP2|G7WQP2_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WP81|G7WP81_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WNB0|G7WNB0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI2|G7WPI2_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WQL5|G7WQL5_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WLA3|G7WLA3_METH6	73	secreted	extracellular region GO:0005576;
+tr|G7WQ60|G7WQ60_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNY3|G7WNY3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ26|G7WQ26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ6|G7WLZ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN87|G7WN87_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY9|G7WLY9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJX2|G7WJX2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLD3|G7WLD3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP71|G7WP71_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNL3|G7WNL3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPD5|G7WPD5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU6|G7WKU6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKT7|G7WKT7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA4|G7WNA4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN83|G7WN83_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN9|G7WKN9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKD2|G7WKD2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ10|G7WQ10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP7|G7WPP7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLE0|G7WLE0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQN3|G7WQN3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD1|G7WPD1_METH6	60	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG7|G7WQG7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR82|G7WR82_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL57|G7WL57_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP34|G7WP34_METH6	74	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD8|G7WMD8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD4|G7WKD4_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WQD9|G7WQD9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF2|G7WRF2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN1|G7WMN1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR5|G7WLR5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQS2|G7WQS2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND5|G7WND5_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA7|G7WRA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN13|G7WN13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU3|G7WQU3_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WLG0|G7WLG0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP61|G7WP61_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPJ6|G7WPJ6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPM8|G7WPM8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC5|G7WQC5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMM5|G7WMM5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN7|G7WNN7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND9|G7WND9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN20|G7WN20_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL55|G7WL55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ6|G7WNJ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL44|G7WL44_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF0|G7WPF0_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WRI1|G7WRI1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP99|G7WP99_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM92|G7WM92_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL1|G7WQL1_METH6	93	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR5|G7WQR5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP53|G7WP53_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ55|G7WQ55_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP05|G7WP05_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR7|G7WMR7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRD6|G7WRD6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ11|G7WQ11_METH6	58	cytoplasm	cytoplasm GO:0005737
+tr|G7WN86|G7WN86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR02|G7WR02_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMW5|G7WMW5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPK6|G7WPK6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE4|G7WRE4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQY0|G7WQY0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM3|G7WKM3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF2|G7WKF2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLY0|G7WLY0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ31|G7WQ31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ9|G7WMZ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ3|G7WKJ3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJY3|G7WJY3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ96|G7WQ96_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD8|G7WKD8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK8|G7WLK8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP47|G7WP47_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQR2|G7WQR2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN58|G7WN58_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV3|G7WNV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF6|G7WPF6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKN5|G7WKN5_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA0|G7WLA0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT4|G7WQT4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX7|G7WMX7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP32|G7WP32_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNU2|G7WNU2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLL8|G7WLL8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP68|G7WP68_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW4|G7WQW4_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ68|G7WQ68_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQQ2|G7WQQ2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQT3|G7WQT3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ21|G7WQ21_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR10|G7WR10_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNE3|G7WNE3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP55|G7WP55_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKE2|G7WKE2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPZ4|G7WPZ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB5|G7WPB5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR30|G7WR30_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPW3|G7WPW3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQS1|G7WQS1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN54|G7WN54_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK7|G7WMK7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD9|G7WPD9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKM9|G7WKM9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR25|G7WR25_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WKU4|G7WKU4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQZ7|G7WQZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX3|G7WLX3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ17|G7WQ17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR76|G7WR76_METH6	42	cytoplasm	cytoplasm GO:0005737
+tr|G7WM90|G7WM90_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPK2|G7WPK2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLL4|G7WLL4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU6|G7WNU6_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WLT0|G7WLT0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQV7|G7WQV7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNG9|G7WNG9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP7|G7WKP7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ2|G7WQJ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV0|G7WKV0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM14|G7WM14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP44|G7WP44_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD9|G7WKD9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW1|G7WNW1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLR1|G7WLR1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMW1|G7WMW1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI8|G7WNI8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPQ6|G7WPQ6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN5|G7WQN5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ02|G7WQ02_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM41|G7WM41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLZ7|G7WLZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL82|G7WL82_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPG2|G7WPG2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG6|G7WMG6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WJV7|G7WJV7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB3|G7WMB3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKW6|G7WKW6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQH5|G7WQH5_METH6	83	cytoplasm	cytoplasm GO:0005737
+tr|G7WQA1|G7WQA1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM7|G7WLM7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB5|G7WQB5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW2|G7WJW2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR16|G7WR16_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WP30|G7WP30_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ7|G7WKZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL04|G7WL04_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH7|G7WNH7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQD1|G7WQD1_METH6	89	secreted	extracellular region GO:0005576;
+tr|G7WLL9|G7WLL9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQX8|G7WQX8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR92|G7WR92_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY0|G7WMY0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPG1|G7WPG1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK99|G7WK99_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLC8|G7WLC8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK66|G7WK66_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WMK4|G7WMK4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY9|G7WMY9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW9|G7WKW9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR22|G7WR22_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPR2|G7WPR2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLR6|G7WLR6_METH6	40	secreted	extracellular region GO:0005576;
+tr|G7WKQ2|G7WKQ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM2|G7WQM2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKD1|G7WKD1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLC9|G7WLC9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI9|G7WLI9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL6|G7WPL6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN71|G7WN71_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPI6|G7WPI6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY8|G7WPY8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU6|G7WQU6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJZ7|G7WJZ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX9|G7WMX9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR0|G7WMR0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPK7|G7WPK7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM35|G7WM35_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK01|G7WK01_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU3|G7WPU3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLH4|G7WLH4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPU2|G7WPU2_METH6	95	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW8|G7WJW8_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WL88|G7WL88_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN22|G7WN22_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMJ0|G7WMJ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD3|G7WKD3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRC3|G7WRC3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPF7|G7WPF7_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD2|G7WLD2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM0|G7WLM0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM8|G7WQM8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPR1|G7WPR1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLJ1|G7WLJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK49|G7WK49_METH6	59	cytoplasm	cytoplasm GO:0005737
+tr|G7WKQ5|G7WKQ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMU0|G7WMU0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH3|G7WRH3_METH6	70	secreted	extracellular region GO:0005576;
+tr|G7WM49|G7WM49_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA7|G7WNA7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG3|G7WKG3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM99|G7WM99_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQW6|G7WQW6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLH9|G7WLH9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN00|G7WN00_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF9|G7WNF9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY4|G7WLY4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK7|G7WLK7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMQ7|G7WMQ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL5|G7WPL5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMZ2|G7WMZ2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPI1|G7WPI1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR63|G7WR63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPG8|G7WPG8_METH6	91	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKI0|G7WKI0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP78|G7WP78_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMB4|G7WMB4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA5|G7WPA5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR17|G7WR17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL26|G7WL26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW5|G7WNW5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQD7|G7WQD7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJW0|G7WJW0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKS7|G7WKS7_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV1|G7WNV1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKY1|G7WKY1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ23|G7WQ23_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN6|G7WPN6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR41|G7WR41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNU0|G7WNU0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN4|G7WNN4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM82|G7WM82_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP45|G7WP45_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP86|G7WP86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMC7|G7WMC7_METH6	77	secreted	extracellular region GO:0005576;
+tr|G7WPG0|G7WPG0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLN8|G7WLN8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNA3|G7WNA3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQT6|G7WQT6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WND4|G7WND4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH9|G7WNH9_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLH8|G7WLH8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WM17|G7WM17_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF6|G7WKF6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQI6|G7WQI6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKH1|G7WKH1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI7|G7WNI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL51|G7WL51_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP74|G7WP74_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR11|G7WR11_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP04|G7WP04_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL05|G7WL05_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKZ1|G7WKZ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQL4|G7WQL4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNX8|G7WNX8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLF0|G7WLF0_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLV5|G7WLV5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPN8|G7WPN8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP10|G7WP10_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLE8|G7WLE8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI6|G7WNI6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU4|G7WQU4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPD4|G7WPD4_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM3|G7WPM3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKD0|G7WKD0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC7|G7WRC7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMV5|G7WMV5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU0|G7WKU0_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WJW5|G7WJW5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMT8|G7WMT8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKC4|G7WKC4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNG2|G7WNG2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQG1|G7WQG1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN2|G7WKN2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL2|G7WPL2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNY1|G7WNY1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WK00|G7WK00_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRB1|G7WRB1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLD8|G7WLD8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN08|G7WN08_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE9|G7WNE9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPK5|G7WPK5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN77|G7WN77_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPQ7|G7WPQ7_METH6	76	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLV0|G7WLV0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK68|G7WK68_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN76|G7WN76_METH6	78	cytoplasm	cytoplasm GO:0005737
+tr|G7WP24|G7WP24_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKN1|G7WKN1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKI5|G7WKI5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKJ8|G7WKJ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK64|G7WK64_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ39|G7WQ39_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPZ5|G7WPZ5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMK1|G7WMK1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKG8|G7WKG8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRJ6|G7WRJ6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNC3|G7WNC3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL07|G7WL07_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRH7|G7WRH7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK5|G7WLK5_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNK2|G7WNK2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR3|G7WMR3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP09|G7WP09_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRE2|G7WRE2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN73|G7WN73_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WL08|G7WL08_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL20|G7WL20_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC0|G7WPC0_METH6	49	secreted	extracellular region GO:0005576;
+tr|G7WN95|G7WN95_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ7|G7WQJ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK90|G7WK90_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY3|G7WLY3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKW0|G7WKW0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNR4|G7WNR4_METH6	98	secreted	extracellular region GO:0005576;
+tr|G7WKC1|G7WKC1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP41|G7WP41_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV5|G7WNV5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS1|G7WPS1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNH8|G7WNH8_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKH7|G7WKH7_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WK13|G7WK13_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNQ1|G7WNQ1_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPJ9|G7WPJ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP49|G7WP49_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM86|G7WM86_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC0|G7WNC0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC8|G7WQC8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNW4|G7WNW4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP23|G7WP23_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WMQ3|G7WMQ3_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQF6|G7WQF6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WR72|G7WR72_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKP1|G7WKP1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKU7|G7WKU7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN91|G7WN91_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMF2|G7WMF2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ9|G7WLQ9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNF0|G7WNF0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL11|G7WL11_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQE3|G7WQE3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WME2|G7WME2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX1|G7WNX1_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WJZ4|G7WJZ4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRD1|G7WRD1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPV5|G7WPV5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ76|G7WQ76_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB2|G7WPB2_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN59|G7WN59_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV8|G7WLV8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMR8|G7WMR8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQC0|G7WQC0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK72|G7WK72_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN1|G7WNN1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WJV4|G7WJV4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM79|G7WM79_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU5|G7WQU5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WR61|G7WR61_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKF5|G7WKF5_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPU8|G7WPU8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WR20|G7WR20_METH6	80	secreted	extracellular region GO:0005576;
+tr|G7WLX5|G7WLX5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLI3|G7WLI3_METH6	97	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLN9|G7WLN9_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNP0|G7WNP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK6|G7WLK6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ1|G7WPJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB2|G7WNB2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS1|G7WLS1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPZ2|G7WPZ2_METH6	50	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN04|G7WN04_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLP5|G7WLP5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNX6|G7WNX6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNC6|G7WNC6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPA0|G7WPA0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ37|G7WQ37_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM66|G7WM66_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM51|G7WM51_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQE4|G7WQE4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL31|G7WL31_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM85|G7WM85_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPP0|G7WPP0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN80|G7WN80_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQI7|G7WQI7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLK3|G7WLK3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ8|G7WLQ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN5|G7WMN5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI4|G7WNI4_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WKB5|G7WKB5_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKH2|G7WKH2_METH6	42	secreted	extracellular region GO:0005576;
+tr|G7WMT4|G7WMT4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN8|G7WQN8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ67|G7WQ67_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX2|G7WLX2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPB6|G7WPB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK98|G7WK98_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX6|G7WPX6_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WL83|G7WL83_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPL3|G7WPL3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRF6|G7WRF6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ71|G7WQ71_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV4|G7WKV4_METH6	96	secreted	extracellular region GO:0005576;
+tr|G7WNT9|G7WNT9_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WKV3|G7WKV3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKM7|G7WKM7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLQ2|G7WLQ2_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL67|G7WL67_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLW7|G7WLW7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLV7|G7WLV7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WN36|G7WN36_METH6	93	cytoplasm	cytoplasm GO:0005737
+tr|G7WLY7|G7WLY7_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKX1|G7WKX1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS8|G7WLS8_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WQN6|G7WQN6_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WN14|G7WN14_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMP6|G7WMP6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQB7|G7WQB7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPJ0|G7WPJ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQM0|G7WQM0_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQ30|G7WQ30_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WRD8|G7WRD8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN3|G7WPN3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPC3|G7WPC3_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WKE4|G7WKE4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ4|G7WKZ4_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WLF8|G7WLF8_METH6	63	cytoplasm	cytoplasm GO:0005737
+tr|G7WM26|G7WM26_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQH0|G7WQH0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN17|G7WN17_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WMD3|G7WMD3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM89|G7WM89_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN72|G7WN72_METH6	99	secreted	extracellular region GO:0005576;
+tr|G7WMM8|G7WMM8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB6|G7WNB6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM3|G7WLM3_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKZ2|G7WKZ2_METH6	93	cytoplasm	cytoplasm GO:0005737
+tr|G7WLX8|G7WLX8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNI0|G7WNI0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK89|G7WK89_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPX8|G7WPX8_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WNY4|G7WNY4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRA6|G7WRA6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMN2|G7WMN2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPE4|G7WPE4_METH6	83	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY7|G7WPY7_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPV4|G7WPV4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL01|G7WL01_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN31|G7WN31_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WPU6|G7WPU6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNE8|G7WNE8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLA5|G7WLA5_METH6	94	secreted	extracellular region GO:0005576;
+tr|G7WN85|G7WN85_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPS6|G7WPS6_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQH9|G7WQH9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPN5|G7WPN5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM08|G7WM08_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQJ0|G7WQJ0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMY3|G7WMY3_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WLL0|G7WLL0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQQ7|G7WQQ7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNV9|G7WNV9_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WM34|G7WM34_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WP59|G7WP59_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WL37|G7WL37_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP01|G7WP01_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPM5|G7WPM5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP82|G7WP82_METH6	99	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WQA0|G7WQA0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WN93|G7WN93_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL56|G7WL56_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQU9|G7WQU9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM63|G7WM63_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WRC4|G7WRC4_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQK7|G7WQK7_METH6	93	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMN6|G7WMN6_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WKB9|G7WKB9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMG0|G7WMG0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WQ19|G7WQ19_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM84|G7WM84_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK25|G7WK25_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNB5|G7WNB5_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WM67|G7WM67_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS5|G7WLS5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNJ1|G7WNJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLS3|G7WLS3_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKH5|G7WKH5_METH6	94	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT5|G7WNT5_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WKK0|G7WKK0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM0|G7WNM0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPY1|G7WPY1_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WNJ8|G7WNJ8_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM45|G7WM45_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPT9|G7WPT9_METH6	44	cytoplasm	cytoplasm GO:0005737
+tr|G7WQN1|G7WQN1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WLM2|G7WLM2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL38|G7WL38_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMX0|G7WMX0_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNT6|G7WNT6_METH6	48	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WKR1|G7WKR1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WK61|G7WK61_METH6	100	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMI6|G7WMI6_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WP98|G7WP98_METH6	97	cytoplasm	cytoplasm GO:0005737
+tr|G7WKJ1|G7WKJ1_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WPC7|G7WPC7_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WM48|G7WM48_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WNM4|G7WNM4_METH6	98	cytoplasm	cytoplasm GO:0005737
+tr|G7WNN2|G7WNN2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WL91|G7WL91_METH6	100	secreted	extracellular region GO:0005576;
+tr|G7WPB9|G7WPB9_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WMV2|G7WMV2_METH6	100	cytoplasm	cytoplasm GO:0005737
+tr|G7WP69|G7WP69_METH6	99	cytoplasm	cytoplasm GO:0005737
+tr|G7WNZ8|G7WNZ8_METH6	66	plasma membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G7WMU7|G7WMU7_METH6	100	cytoplasm	cytoplasm GO:0005737

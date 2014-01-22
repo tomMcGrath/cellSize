@@ -1,0 +1,829 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G0AMG7|G0AMG7_BORBD	22	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0ALV5|G0ALV5_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMS0|G0AMS0_BORBD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM19|G0AM19_BORBD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL00|G0AL00_BORBD	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMC2|G0AMC2_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKH9|G0AKH9_BORBD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALU5|G0ALU5_BORBD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM35|G0AM35_BORBD	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0ALR1|G0ALR1_BORBD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMB3|G0AMB3_BORBD	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKV8|G0AKV8_BORBD	99	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G0AKL9|G0AKL9_BORBD	98	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMK5|G0AMK5_BORBD	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AKQ6|G0AKQ6_BORBD	12	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G0AKM6|G0AKM6_BORBD	23	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|G0AKV5|G0AKV5_BORBD	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AM11|G0AM11_BORBD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALC5|G0ALC5_BORBD	13	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G0ALB0|G0ALB0_BORBD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKK5|G0AKK5_BORBD	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AL58|G0AL58_BORBD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALP5|G0ALP5_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKX4|G0AKX4_BORBD	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AKT0|G0AKT0_BORBD	17	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALN6|G0ALN6_BORBD	3	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|G0AM30|G0AM30_BORBD	14	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G0AKP6|G0AKP6_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKN8|G0AKN8_BORBD	17	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G0ALG7|G0ALG7_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALS3|G0ALS3_BORBD	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKR3|G0AKR3_BORBD	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL65|G0AL65_BORBD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMJ7|G0AMJ7_BORBD	23	secreted	extracellular region GO:0005576(IEA);
+tr|G0AMC5|G0AMC5_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMR7|G0AMR7_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM14|G0AM14_BORBD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKJ5|G0AKJ5_BORBD	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL40|G0AL40_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKU7|G0AKU7_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALB4|G0ALB4_BORBD	20	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AMG5|G0AMG5_BORBD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMM4|G0AMM4_BORBD	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMD7|G0AMD7_BORBD	8	cytoplasm	ribosome GO:0005840(IEA);
+tr|G0AMP2|G0AMP2_BORBD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKU8|G0AKU8_BORBD	11	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0ALV8|G0ALV8_BORBD	15	secreted	extracellular region GO:0005576(IEA);
+tr|G0AM52|G0AM52_BORBD	50	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G0AMS3|G0AMS3_BORBD	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AM61|G0AM61_BORBD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKG9|G0AKG9_BORBD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALX5|G0ALX5_BORBD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL60|G0AL60_BORBD	97	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALK9|G0ALK9_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G0AMD4|G0AMD4_BORBD	29	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G0AM38|G0AM38_BORBD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALZ9|G0ALZ9_BORBD	95	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMA9|G0AMA9_BORBD	98	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G0ALH1|G0ALH1_BORBD	17	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G0ALG5|G0ALG5_BORBD	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AMR6|G0AMR6_BORBD	8	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G0ALK3|G0ALK3_BORBD	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKY8|G0AKY8_BORBD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMK8|G0AMK8_BORBD	12	periplasm	bacterial-type flagellum GO:0009288(IEA); periplasmic space GO:0042597(IEA);
+tr|G0AKL6|G0AKL6_BORBD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G0AMJ0|G0AMJ0_BORBD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AKP8|G0AKP8_BORBD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALD6|G0ALD6_BORBD	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AM80|G0AM80_BORBD	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AL70|G0AL70_BORBD	26	secreted	extracellular region GO:0005576(IEA);
+tr|G0AM63|G0AM63_BORBD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM81|G0AM81_BORBD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM09|G0AM09_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALZ4|G0ALZ4_BORBD	0	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G0AKV2|G0AKV2_BORBD	15	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL71|G0AL71_BORBD	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G0AMI4|G0AMI4_BORBD	8	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKS9|G0AKS9_BORBD	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALT6|G0ALT6_BORBD	30	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|G0AKP1|G0AKP1_BORBD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AM64|G0AM64_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMM6|G0AMM6_BORBD	39	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AL43|G0AL43_BORBD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKI0|G0AKI0_BORBD	22	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G0ALR0|G0ALR0_BORBD	95	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|G0AKS8|G0AKS8_BORBD	22	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); organelle inner membrane GO:0019866(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALB9|G0ALB9_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKV6|G0AKV6_BORBD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM36|G0AM36_BORBD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM06|G0AM06_BORBD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMQ4|G0AMQ4_BORBD	8	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G0AL10|G0AL10_BORBD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKR7|G0AKR7_BORBD	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKW3|G0AKW3_BORBD	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL78|G0AL78_BORBD	16	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G0AKU0|G0AKU0_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMB9|G0AMB9_BORBD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMF5|G0AMF5_BORBD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL59|G0AL59_BORBD	5	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AMN7|G0AMN7_BORBD	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AMA1|G0AMA1_BORBD	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AM83|G0AM83_BORBD	15	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G0ALN2|G0ALN2_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G0AM90|G0AM90_BORBD	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKX0|G0AKX0_BORBD	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AKP2|G0AKP2_BORBD	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AMF7|G0AMF7_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMA0|G0AMA0_BORBD	97	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM96|G0AM96_BORBD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALR4|G0ALR4_BORBD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AM66|G0AM66_BORBD	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G0AMK0|G0AMK0_BORBD	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AL28|G0AL28_BORBD	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALA4|G0ALA4_BORBD	43	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|G0AL09|G0AL09_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AME1|G0AME1_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALE0|G0ALE0_BORBD	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G0ALC1|G0ALC1_BORBD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKY9|G0AKY9_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKI4|G0AKI4_BORBD	12	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|G0AL48|G0AL48_BORBD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G0AML4|G0AML4_BORBD	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AKQ5|G0AKQ5_BORBD	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G0AMG9|G0AMG9_BORBD	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); peptidoglycan-based cell wall GO:0009274(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM39|G0AM39_BORBD	4	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G0AKQ0|G0AKQ0_BORBD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMG4|G0AMG4_BORBD	16	cytoplasm	6-phosphofructokinase complex GO:0005945(IEA);
+tr|G0AMQ1|G0AMQ1_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM08|G0AM08_BORBD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKH0|G0AKH0_BORBD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMC3|G0AMC3_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALW3|G0ALW3_BORBD	28	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G0ALN0|G0ALN0_BORBD	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL25|G0AL25_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMF6|G0AMF6_BORBD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKN6|G0AKN6_BORBD	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALM0|G0ALM0_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALG6|G0ALG6_BORBD	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AL03|G0AL03_BORBD	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AL07|G0AL07_BORBD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALP6|G0ALP6_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AME4|G0AME4_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL64|G0AL64_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G0AL13|G0AL13_BORBD	14	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G0AKM9|G0AKM9_BORBD	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AM54|G0AM54_BORBD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMM1|G0AMM1_BORBD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM53|G0AM53_BORBD	27	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G0AKI7|G0AKI7_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|G0AM27|G0AM27_BORBD	13	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AMH8|G0AMH8_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL23|G0AL23_BORBD	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AKR0|G0AKR0_BORBD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM28|G0AM28_BORBD	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMC4|G0AMC4_BORBD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALI4|G0ALI4_BORBD	3	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G0AKT9|G0AKT9_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL79|G0AL79_BORBD	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL55|G0AL55_BORBD	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM67|G0AM67_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM97|G0AM97_BORBD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALS1|G0ALS1_BORBD	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM71|G0AM71_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALY5|G0ALY5_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMJ9|G0AMJ9_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKV1|G0AKV1_BORBD	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AML8|G0AML8_BORBD	29	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AL29|G0AL29_BORBD	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKZ2|G0AKZ2_BORBD	13	periplasm	bacterial-type flagellum filament GO:0009420(IEA); periplasmic flagellum GO:0055040(IEA);
+tr|G0AMI3|G0AMI3_BORBD	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALD4|G0ALD4_BORBD	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AL97|G0AL97_BORBD	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALL5|G0ALL5_BORBD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM70|G0AM70_BORBD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALW0|G0ALW0_BORBD	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMP7|G0AMP7_BORBD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMF1|G0AMF1_BORBD	10	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G0ALG4|G0ALG4_BORBD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKT1|G0AKT1_BORBD	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALH5|G0ALH5_BORBD	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALH9|G0ALH9_BORBD	37	cytoplasm	cytosol GO:0005829(IDA);
+tr|G0AL53|G0AL53_BORBD	26	secreted	extracellular region GO:0005576(IEA);
+tr|G0AM47|G0AM47_BORBD	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G0ALD5|G0ALD5_BORBD	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0ALD8|G0ALD8_BORBD	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM13|G0AM13_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AM44|G0AM44_BORBD	33	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G0AM46|G0AM46_BORBD	19	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G0ALA3|G0ALA3_BORBD	34	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G0AL80|G0AL80_BORBD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKS1|G0AKS1_BORBD	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMJ3|G0AMJ3_BORBD	26	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G0AMR3|G0AMR3_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|G0AL96|G0AL96_BORBD	30	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G0ALH3|G0ALH3_BORBD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMD3|G0AMD3_BORBD	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL16|G0AL16_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL45|G0AL45_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKP9|G0AKP9_BORBD	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKM1|G0AKM1_BORBD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMD2|G0AMD2_BORBD	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKU3|G0AKU3_BORBD	52	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G0AL50|G0AL50_BORBD	17	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G0AMB0|G0AMB0_BORBD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKU9|G0AKU9_BORBD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALB2|G0ALB2_BORBD	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKL5|G0AKL5_BORBD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALX0|G0ALX0_BORBD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM84|G0AM84_BORBD	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL88|G0AL88_BORBD	21	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G0AM29|G0AM29_BORBD	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKK8|G0AKK8_BORBD	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AM51|G0AM51_BORBD	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKT3|G0AKT3_BORBD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL34|G0AL34_BORBD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKX8|G0AKX8_BORBD	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AMG1|G0AMG1_BORBD	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKX9|G0AKX9_BORBD	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL26|G0AL26_BORBD	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AM20|G0AM20_BORBD	26	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AM43|G0AM43_BORBD	42	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G0AL05|G0AL05_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALH8|G0ALH8_BORBD	11	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G0AME3|G0AME3_BORBD	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G0AKX6|G0AKX6_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL66|G0AL66_BORBD	23	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G0AKM3|G0AKM3_BORBD	26	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G0AMG6|G0AMG6_BORBD	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G0AL89|G0AL89_BORBD	4	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G0ALQ5|G0ALQ5_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|G0AM93|G0AM93_BORBD	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL12|G0AL12_BORBD	12	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G0ALY1|G0ALY1_BORBD	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM82|G0AM82_BORBD	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL77|G0AL77_BORBD	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMD1|G0AMD1_BORBD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMI1|G0AMI1_BORBD	14	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G0ALV9|G0ALV9_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALZ2|G0ALZ2_BORBD	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALP4|G0ALP4_BORBD	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALN5|G0ALN5_BORBD	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AM92|G0AM92_BORBD	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G0AM94|G0AM94_BORBD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMR9|G0AMR9_BORBD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMN8|G0AMN8_BORBD	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALX7|G0ALX7_BORBD	7	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G0ALH4|G0ALH4_BORBD	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKT4|G0AKT4_BORBD	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMS2|G0AMS2_BORBD	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALY7|G0ALY7_BORBD	11	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G0ALR7|G0ALR7_BORBD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKL8|G0AKL8_BORBD	95	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL57|G0AL57_BORBD	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKV7|G0AKV7_BORBD	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0ALB1|G0ALB1_BORBD	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AL27|G0AL27_BORBD	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0ALW1|G0ALW1_BORBD	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALQ1|G0ALQ1_BORBD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0ALZ8|G0ALZ8_BORBD	41	cytoplasm	phosphoenolpyruvate-dependent sugar phosphotransferase complex GO:0019197(IDA);
+tr|G0AKP3|G0AKP3_BORBD	6	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|G0AM41|G0AM41_BORBD	20	cytoplasm	cytosol GO:0005829(ISS);
+tr|G0AKV9|G0AKV9_BORBD	95	periplasm	periplasmic flagellum GO:0055040(IEA);
+tr|G0AMC1|G0AMC1_BORBD	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALP0|G0ALP0_BORBD	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G0AMB1|G0AMB1_BORBD	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKZ6|G0AKZ6_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALD7|G0ALD7_BORBD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMH4|G0AMH4_BORBD	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKR6|G0AKR6_BORBD	20	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G0AKS0|G0AKS0_BORBD	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AMB8|G0AMB8_BORBD	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AKI6|G0AKI6_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G0AKS6|G0AKS6_BORBD	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKX1|G0AKX1_BORBD	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G0AMH9|G0AMH9_BORBD	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AKH8|G0AKH8_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALY0|G0ALY0_BORBD	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALL7|G0ALL7_BORBD	94	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AMA7|G0AMA7_BORBD	19	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G0AL11|G0AL11_BORBD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM86|G0AM86_BORBD	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0AM00|G0AM00_BORBD	48	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G0AMS9|G0AMS9_BORBD	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AL38|G0AL38_BORBD	15	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G0AMI9|G0AMI9_BORBD	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G0ALB8|G0ALB8_BORBD	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALA7|G0ALA7_BORBD	36	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|G0ALL1|G0ALL1_BORBD	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|G0AKZ5|G0AKZ5_BORBD	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALD9|G0ALD9_BORBD	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G0AL62|G0AL62_BORBD	25	secreted	extracellular region GO:0005576(IEA);
+tr|G0AKM2|G0AKM2_BORBD	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKL7|G0AKL7_BORBD	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALH2|G0ALH2_BORBD	26	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G0AKX7|G0AKX7_BORBD	15	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G0AKG6|G0AKG6_BORBD	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0ALL9|G0ALL9_BORBD	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G0AKY6|G0AKY6_BORBD	16	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G0ALG9|G0ALG9_BORBD	88	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY0|G0AKY0_BORBD	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMN4|G0AMN4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL41|G0AL41_BORBD	42	cytoplasm	cytoplasm GO:0005737
+tr|G0AL42|G0AL42_BORBD	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALQ4|G0ALQ4_BORBD	37	secreted	extracellular region GO:0005576;
+tr|G0AKJ6|G0AKJ6_BORBD	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM01|G0AM01_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM26|G0AM26_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALV6|G0ALV6_BORBD	59	cytoplasm	cytoplasm GO:0005737
+tr|G0AL76|G0AL76_BORBD	64	secreted	extracellular region GO:0005576;
+tr|G0AKZ1|G0AKZ1_BORBD	83	secreted	extracellular region GO:0005576;
+tr|G0ALT9|G0ALT9_BORBD	83	cytoplasm	cytoplasm GO:0005737
+tr|G0AMC6|G0AMC6_BORBD	31	secreted	extracellular region GO:0005576;
+tr|G0AKK7|G0AKK7_BORBD	49	secreted	extracellular region GO:0005576;
+tr|G0ALU3|G0ALU3_BORBD	43	cytoplasm	cytoplasm GO:0005737
+tr|G0AKM7|G0AKM7_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0AKJ1|G0AKJ1_BORBD	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMK7|G0AMK7_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL87|G0AL87_BORBD	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALY2|G0ALY2_BORBD	70	secreted	extracellular region GO:0005576;
+tr|G0AKQ9|G0AKQ9_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AM95|G0AM95_BORBD	61	secreted	extracellular region GO:0005576;
+tr|G0AMS5|G0AMS5_BORBD	86	secreted	extracellular region GO:0005576;
+tr|G0AM07|G0AM07_BORBD	89	cytoplasm	cytoplasm GO:0005737
+tr|G0AML0|G0AML0_BORBD	86	secreted	extracellular region GO:0005576;
+tr|G0AKH1|G0AKH1_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AMB2|G0AMB2_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0ALU8|G0ALU8_BORBD	58	cytoplasm	cytoplasm GO:0005737
+tr|G0ALX2|G0ALX2_BORBD	81	secreted	extracellular region GO:0005576;
+tr|G0AL84|G0AL84_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALW5|G0ALW5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMH0|G0AMH0_BORBD	81	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS0|G0ALS0_BORBD	41	periplasm	periplasmic space GO:0042597;
+tr|G0AKT5|G0AKT5_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALF7|G0ALF7_BORBD	66	secreted	extracellular region GO:0005576;
+tr|G0AME0|G0AME0_BORBD	58	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS7|G0ALS7_BORBD	81	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS8|G0ALS8_BORBD	39	cytoplasm	cytoplasm GO:0005737
+tr|G0AL86|G0AL86_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKM8|G0AKM8_BORBD	65	secreted	extracellular region GO:0005576;
+tr|G0ALZ1|G0ALZ1_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AMJ1|G0AMJ1_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALQ7|G0ALQ7_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKU5|G0AKU5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE4|G0ALE4_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0ALG8|G0ALG8_BORBD	59	secreted	extracellular region GO:0005576;
+tr|G0ALT7|G0ALT7_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0ALQ9|G0ALQ9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALN3|G0ALN3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKL4|G0AKL4_BORBD	61	cytoplasm	cytoplasm GO:0005737
+tr|G0AKJ7|G0AKJ7_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0ALN8|G0ALN8_BORBD	35	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN1|G0AKN1_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKP7|G0AKP7_BORBD	46	secreted	extracellular region GO:0005576;
+tr|G0ALF6|G0ALF6_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0ALL6|G0ALL6_BORBD	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMK9|G0AMK9_BORBD	36	secreted	extracellular region GO:0005576;
+tr|G0AL67|G0AL67_BORBD	38	cytoplasm	cytoplasm GO:0005737
+tr|G0AM37|G0AM37_BORBD	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKM4|G0AKM4_BORBD	83	cytoplasm	cytoplasm GO:0005737
+tr|G0AL06|G0AL06_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM78|G0AM78_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALR8|G0ALR8_BORBD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMQ6|G0AMQ6_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMH5|G0AMH5_BORBD	57	secreted	extracellular region GO:0005576;
+tr|G0AMS6|G0AMS6_BORBD	39	cytoplasm	cytoplasm GO:0005737
+tr|G0AKQ1|G0AKQ1_BORBD	18	cytoplasm	cytoplasm GO:0005737
+tr|G0AME2|G0AME2_BORBD	38	cytoplasm	cytoplasm GO:0005737
+tr|G0AKI1|G0AKI1_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKZ9|G0AKZ9_BORBD	61	cytoplasm	cytoplasm GO:0005737
+tr|G0AMC9|G0AMC9_BORBD	55	secreted	extracellular region GO:0005576;
+tr|G0AML3|G0AML3_BORBD	48	periplasm	periplasmic space GO:0042597;
+tr|G0AMH7|G0AMH7_BORBD	43	secreted	extracellular region GO:0005576;
+tr|G0ALG3|G0ALG3_BORBD	63	cytoplasm	cytoplasm GO:0005737
+tr|G0AMD6|G0AMD6_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AM45|G0AM45_BORBD	78	secreted	extracellular region GO:0005576;
+tr|G0AMI7|G0AMI7_BORBD	71	secreted	extracellular region GO:0005576;
+tr|G0AKW6|G0AKW6_BORBD	90	secreted	extracellular region GO:0005576;
+tr|G0ALY9|G0ALY9_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL72|G0AL72_BORBD	72	cytoplasm	cytoplasm GO:0005737
+tr|G0AM17|G0AM17_BORBD	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKZ4|G0AKZ4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALN9|G0ALN9_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AMN1|G0AMN1_BORBD	34	secreted	extracellular region GO:0005576;
+tr|G0AMQ7|G0AMQ7_BORBD	46	cytoplasm	cytoplasm GO:0005737
+tr|G0ALW6|G0ALW6_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0ALK7|G0ALK7_BORBD	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALF5|G0ALF5_BORBD	83	cytoplasm	cytoplasm GO:0005737
+tr|G0AMB6|G0AMB6_BORBD	35	secreted	extracellular region GO:0005576;
+tr|G0AM31|G0AM31_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0ALN7|G0ALN7_BORBD	42	secreted	extracellular region GO:0005576;
+tr|G0ALI5|G0ALI5_BORBD	61	periplasm	periplasmic space GO:0042597;
+tr|G0AKJ0|G0AKJ0_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AMC0|G0AMC0_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALA9|G0ALA9_BORBD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKW5|G0AKW5_BORBD	59	secreted	extracellular region GO:0005576;
+tr|G0AM21|G0AM21_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL22|G0AL22_BORBD	74	secreted	extracellular region GO:0005576;
+tr|G0AL81|G0AL81_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMB4|G0AMB4_BORBD	82	secreted	extracellular region GO:0005576;
+tr|G0AL98|G0AL98_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM16|G0AM16_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL18|G0AL18_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0ALL2|G0ALL2_BORBD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM68|G0AM68_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0ALR2|G0ALR2_BORBD	65	secreted	extracellular region GO:0005576;
+tr|G0ALA1|G0ALA1_BORBD	62	secreted	extracellular region GO:0005576;
+tr|G0AMF2|G0AMF2_BORBD	81	cytoplasm	cytoplasm GO:0005737
+tr|G0AMG2|G0AMG2_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKH3|G0AKH3_BORBD	37	cytoplasm	cytoplasm GO:0005737
+tr|G0AL08|G0AL08_BORBD	76	secreted	extracellular region GO:0005576;
+tr|G0AL39|G0AL39_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AKS5|G0AKS5_BORBD	66	cytoplasm	cytoplasm GO:0005737
+tr|G0AL21|G0AL21_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC2|G0ALC2_BORBD	63	secreted	extracellular region GO:0005576;
+tr|G0ALT8|G0ALT8_BORBD	53	cytoplasm	cytoplasm GO:0005737
+tr|G0ALP8|G0ALP8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMS7|G0AMS7_BORBD	86	secreted	extracellular region GO:0005576;
+tr|G0AKS7|G0AKS7_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKM5|G0AKM5_BORBD	23	periplasm	periplasmic space GO:0042597;
+tr|G0AM04|G0AM04_BORBD	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKS2|G0AKS2_BORBD	72	secreted	extracellular region GO:0005576;
+tr|G0AKP4|G0AKP4_BORBD	46	secreted	extracellular region GO:0005576;
+tr|G0AKI3|G0AKI3_BORBD	70	secreted	extracellular region GO:0005576;
+tr|G0AKY4|G0AKY4_BORBD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALF0|G0ALF0_BORBD	47	cytoplasm	cytoplasm GO:0005737
+tr|G0AM25|G0AM25_BORBD	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKJ4|G0AKJ4_BORBD	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMM7|G0AMM7_BORBD	73	secreted	extracellular region GO:0005576;
+tr|G0AL85|G0AL85_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALR6|G0ALR6_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC3|G0ALC3_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALF3|G0ALF3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMB5|G0AMB5_BORBD	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALT2|G0ALT2_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AL14|G0AL14_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALU9|G0ALU9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALL3|G0ALL3_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM22|G0AM22_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKL2|G0AKL2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALN4|G0ALN4_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AM58|G0AM58_BORBD	45	secreted	extracellular region GO:0005576;
+tr|G0AL20|G0AL20_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALI8|G0ALI8_BORBD	85	cytoplasm	cytoplasm GO:0005737
+tr|G0AMK2|G0AMK2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKQ2|G0AKQ2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALV3|G0ALV3_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALT1|G0ALT1_BORBD	87	cytoplasm	cytoplasm GO:0005737
+tr|G0AKR5|G0AKR5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL19|G0AL19_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0ALY6|G0ALY6_BORBD	34	secreted	extracellular region GO:0005576;
+tr|G0AMP1|G0AMP1_BORBD	67	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE3|G0ALE3_BORBD	90	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN0|G0AKN0_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0ALX3|G0ALX3_BORBD	39	secreted	extracellular region GO:0005576;
+tr|G0AMJ8|G0AMJ8_BORBD	70	secreted	extracellular region GO:0005576;
+tr|G0AMQ5|G0AMQ5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM57|G0AM57_BORBD	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKJ3|G0AKJ3_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMQ0|G0AMQ0_BORBD	62	secreted	extracellular region GO:0005576;
+tr|G0ALM2|G0ALM2_BORBD	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMN2|G0AMN2_BORBD	73	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G0ALK8|G0ALK8_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS5|G0ALS5_BORBD	82	cytoplasm	cytoplasm GO:0005737
+tr|G0AKV0|G0AKV0_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMF3|G0AMF3_BORBD	69	cytoplasm	cytoplasm GO:0005737
+tr|G0AMA2|G0AMA2_BORBD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALU2|G0ALU2_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALJ7|G0ALJ7_BORBD	39	secreted	extracellular region GO:0005576;
+tr|G0ALG2|G0ALG2_BORBD	89	cytoplasm	cytoplasm GO:0005737
+tr|G0AL44|G0AL44_BORBD	35	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC8|G0ALC8_BORBD	81	secreted	extracellular region GO:0005576;
+tr|G0ALQ3|G0ALQ3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKR2|G0AKR2_BORBD	89	cytoplasm	cytoplasm GO:0005737
+tr|G0AMR0|G0AMR0_BORBD	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL24|G0AL24_BORBD	38	periplasm	periplasmic space GO:0042597;
+tr|G0AKX5|G0AKX5_BORBD	72	cytoplasm	cytoplasm GO:0005737
+tr|G0AMS1|G0AMS1_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AM65|G0AM65_BORBD	46	secreted	extracellular region GO:0005576;
+tr|G0ALD1|G0ALD1_BORBD	32	secreted	extracellular region GO:0005576;
+tr|G0AKK9|G0AKK9_BORBD	58	cytoplasm	cytoplasm GO:0005737
+tr|G0ALP3|G0ALP3_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AKT6|G0AKT6_BORBD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKK3|G0AKK3_BORBD	35	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMF9|G0AMF9_BORBD	94	secreted	extracellular region GO:0005576;
+tr|G0AMM3|G0AMM3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKU4|G0AKU4_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMN5|G0AMN5_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN3|G0AKN3_BORBD	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALI6|G0ALI6_BORBD	79	periplasm	periplasmic space GO:0042597;
+tr|G0ALL8|G0ALL8_BORBD	45	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G0AL47|G0AL47_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL49|G0AL49_BORBD	53	secreted	extracellular region GO:0005576;
+tr|G0ALV7|G0ALV7_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALG1|G0ALG1_BORBD	52	secreted	extracellular region GO:0005576;
+tr|G0AM85|G0AM85_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALV2|G0ALV2_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKL0|G0AKL0_BORBD	55	cytoplasm	cytoplasm GO:0005737
+tr|G0AMM2|G0AMM2_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AM74|G0AM74_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALW8|G0ALW8_BORBD	58	secreted	extracellular region GO:0005576;
+tr|G0ALF8|G0ALF8_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL99|G0AL99_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALP7|G0ALP7_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKJ9|G0AKJ9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKI5|G0AKI5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALA0|G0ALA0_BORBD	56	secreted	extracellular region GO:0005576;
+tr|G0ALM9|G0ALM9_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0AKT7|G0AKT7_BORBD	74	secreted	extracellular region GO:0005576;
+tr|G0AM59|G0AM59_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0AM49|G0AM49_BORBD	88	cytoplasm	cytoplasm GO:0005737
+tr|G0AM98|G0AM98_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AML1|G0AML1_BORBD	77	secreted	extracellular region GO:0005576;
+tr|G0AM72|G0AM72_BORBD	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKK0|G0AKK0_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AKJ2|G0AKJ2_BORBD	92	secreted	extracellular region GO:0005576;
+tr|G0AMR1|G0AMR1_BORBD	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALL4|G0ALL4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL31|G0AL31_BORBD	72	cytoplasm	cytoplasm GO:0005737
+tr|G0ALM7|G0ALM7_BORBD	51	secreted	extracellular region GO:0005576;
+tr|G0ALM4|G0ALM4_BORBD	61	secreted	extracellular region GO:0005576;
+tr|G0AKR1|G0AKR1_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMM0|G0AMM0_BORBD	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMF8|G0AMF8_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM89|G0AM89_BORBD	82	secreted	extracellular region GO:0005576;
+tr|G0AM34|G0AM34_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL91|G0AL91_BORBD	74	secreted	extracellular region GO:0005576;
+tr|G0AL68|G0AL68_BORBD	66	secreted	extracellular region GO:0005576;
+tr|G0AM15|G0AM15_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM10|G0AM10_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN9|G0AKN9_BORBD	93	secreted	extracellular region GO:0005576;
+tr|G0ALX8|G0ALX8_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0ALZ7|G0ALZ7_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AMB7|G0AMB7_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS2|G0ALS2_BORBD	86	secreted	extracellular region GO:0005576;
+tr|G0ALT4|G0ALT4_BORBD	87	cytoplasm	cytoplasm GO:0005737
+tr|G0ALT3|G0ALT3_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMQ9|G0AMQ9_BORBD	80	secreted	extracellular region GO:0005576;
+tr|G0ALI7|G0ALI7_BORBD	63	periplasm	periplasmic space GO:0042597;
+tr|G0AM02|G0AM02_BORBD	74	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC7|G0ALC7_BORBD	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALF4|G0ALF4_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AKK4|G0AKK4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALV4|G0ALV4_BORBD	17	secreted	extracellular region GO:0005576;
+tr|G0AML5|G0AML5_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE5|G0ALE5_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AML2|G0AML2_BORBD	68	secreted	extracellular region GO:0005576;
+tr|G0ALS4|G0ALS4_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AM05|G0AM05_BORBD	68	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKW2|G0AKW2_BORBD	77	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY5|G0AKY5_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0AMC7|G0AMC7_BORBD	70	secreted	extracellular region GO:0005576;
+tr|G0ALM1|G0ALM1_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0ALK6|G0ALK6_BORBD	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMM8|G0AMM8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALJ9|G0ALJ9_BORBD	63	secreted	extracellular region GO:0005576;
+tr|G0ALK2|G0ALK2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALR5|G0ALR5_BORBD	61	cytoplasm	cytoplasm GO:0005737
+tr|G0ALQ6|G0ALQ6_BORBD	73	secreted	extracellular region GO:0005576;
+tr|G0AKR8|G0AKR8_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALJ8|G0ALJ8_BORBD	27	cytoplasm	cytoplasm GO:0005737
+tr|G0AMN3|G0AMN3_BORBD	70	periplasm	periplasmic space GO:0042597;
+tr|G0AM99|G0AM99_BORBD	68	cytoplasm	cytoplasm GO:0005737
+tr|G0ALR9|G0ALR9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKR4|G0AKR4_BORBD	93	secreted	extracellular region GO:0005576;
+tr|G0AMM9|G0AMM9_BORBD	86	cytoplasm	cytoplasm GO:0005737
+tr|G0AM24|G0AM24_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMG3|G0AMG3_BORBD	90	cytoplasm	cytoplasm GO:0005737
+tr|G0AM87|G0AM87_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKI2|G0AKI2_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMJ6|G0AMJ6_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALZ5|G0ALZ5_BORBD	68	secreted	extracellular region GO:0005576;
+tr|G0AL56|G0AL56_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALA6|G0ALA6_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AMR4|G0AMR4_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM55|G0AM55_BORBD	88	secreted	extracellular region GO:0005576;
+tr|G0AKU2|G0AKU2_BORBD	55	cytoplasm	cytoplasm GO:0005737
+tr|G0ALI2|G0ALI2_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AM40|G0AM40_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKX2|G0AKX2_BORBD	54	secreted	extracellular region GO:0005576;
+tr|G0AKS4|G0AKS4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKG7|G0AKG7_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AM48|G0AM48_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AMD0|G0AMD0_BORBD	44	secreted	extracellular region GO:0005576;
+tr|G0AML7|G0AML7_BORBD	40	secreted	extracellular region GO:0005576;
+tr|G0AL51|G0AL51_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS6|G0ALS6_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0ALP9|G0ALP9_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKJ8|G0AKJ8_BORBD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALJ4|G0ALJ4_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL36|G0AL36_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AM42|G0AM42_BORBD	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKM0|G0AKM0_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMK6|G0AMK6_BORBD	82	cytoplasm	cytoplasm GO:0005737
+tr|G0AMQ8|G0AMQ8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALF2|G0ALF2_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN7|G0AKN7_BORBD	53	cytoplasm	cytoplasm GO:0005737
+tr|G0ALI0|G0ALI0_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AL90|G0AL90_BORBD	89	cytoplasm	cytoplasm GO:0005737
+tr|G0ALJ5|G0ALJ5_BORBD	48	cytoplasm	cytoplasm GO:0005737
+tr|G0AMH3|G0AMH3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALU4|G0ALU4_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AM77|G0AM77_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AKL3|G0AKL3_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALE7|G0ALE7_BORBD	82	cytoplasm	cytoplasm GO:0005737
+tr|G0AKI9|G0AKI9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKQ7|G0AKQ7_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALI3|G0ALI3_BORBD	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMI6|G0AMI6_BORBD	62	cytoplasm	cytoplasm GO:0005737
+tr|G0AM33|G0AM33_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALM5|G0ALM5_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0AL01|G0AL01_BORBD	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL54|G0AL54_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALH6|G0ALH6_BORBD	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMR2|G0AMR2_BORBD	78	secreted	extracellular region GO:0005576;
+tr|G0AMA6|G0AMA6_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AL92|G0AL92_BORBD	83	secreted	extracellular region GO:0005576;
+tr|G0ALE9|G0ALE9_BORBD	45	cytoplasm	cytoplasm GO:0005737
+tr|G0ALF9|G0ALF9_BORBD	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKZ0|G0AKZ0_BORBD	47	cytoplasm	cytoplasm GO:0005737
+tr|G0AL69|G0AL69_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALW7|G0ALW7_BORBD	61	secreted	extracellular region GO:0005576;
+tr|G0AML9|G0AML9_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AMH1|G0AMH1_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0ALW2|G0ALW2_BORBD	74	cytoplasm	cytoplasm GO:0005737
+tr|G0AL32|G0AL32_BORBD	67	secreted	extracellular region GO:0005576;
+tr|G0AKT2|G0AKT2_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0AME7|G0AME7_BORBD	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALI1|G0ALI1_BORBD	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALT5|G0ALT5_BORBD	73	cytoplasm	cytoplasm GO:0005737
+tr|G0AL37|G0AL37_BORBD	36	secreted	extracellular region GO:0005576;
+tr|G0ALM6|G0ALM6_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL52|G0AL52_BORBD	82	cytoplasm	cytoplasm GO:0005737
+tr|G0AMQ3|G0AMQ3_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKT8|G0AKT8_BORBD	68	cytoplasm	cytoplasm GO:0005737
+tr|G0AM88|G0AM88_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMK3|G0AMK3_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AMD5|G0AMD5_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0AM03|G0AM03_BORBD	33	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G0AMG8|G0AMG8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AME5|G0AME5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP0|G0AMP0_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKH7|G0AKH7_BORBD	54	cytoplasm	cytoplasm GO:0005737
+tr|G0ALD3|G0ALD3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKZ7|G0AKZ7_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0AM50|G0AM50_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AME8|G0AME8_BORBD	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALV1|G0ALV1_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALJ6|G0ALJ6_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY2|G0AKY2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALQ2|G0ALQ2_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMA4|G0AMA4_BORBD	25	periplasm	periplasmic space GO:0042597;
+tr|G0ALT0|G0ALT0_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AKZ8|G0AKZ8_BORBD	79	cytoplasm	cytoplasm GO:0005737
+tr|G0ALS9|G0ALS9_BORBD	64	cytoplasm	cytoplasm GO:0005737
+tr|G0ALZ0|G0ALZ0_BORBD	73	cytoplasm	cytoplasm GO:0005737
+tr|G0AM32|G0AM32_BORBD	89	cytoplasm	cytoplasm GO:0005737
+tr|G0AM73|G0AM73_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AM56|G0AM56_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0ALI9|G0ALI9_BORBD	55	cytoplasm	cytoplasm GO:0005737
+tr|G0AL93|G0AL93_BORBD	63	cytoplasm	cytoplasm GO:0005737
+tr|G0AKH6|G0AKH6_BORBD	73	cytoplasm	cytoplasm GO:0005737
+tr|G0AMI5|G0AMI5_BORBD	61	secreted	extracellular region GO:0005576;
+tr|G0ALC6|G0ALC6_BORBD	33	periplasm	periplasmic space GO:0042597;
+tr|G0ALA8|G0ALA8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKG5|G0AKG5_BORBD	38	secreted	extracellular region GO:0005576;
+tr|G0ALP1|G0ALP1_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL82|G0AL82_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM91|G0AM91_BORBD	73	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE2|G0ALE2_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0ALQ8|G0ALQ8_BORBD	74	secreted	extracellular region GO:0005576;
+tr|G0ALD0|G0ALD0_BORBD	32	secreted	extracellular region GO:0005576;
+tr|G0AKZ3|G0AKZ3_BORBD	67	cytoplasm	cytoplasm GO:0005737
+tr|G0ALH0|G0ALH0_BORBD	85	cytoplasm	cytoplasm GO:0005737
+tr|G0AM60|G0AM60_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AKV3|G0AKV3_BORBD	74	periplasm	periplasmic space GO:0042597;
+tr|G0AM75|G0AM75_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALB7|G0ALB7_BORBD	87	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE6|G0ALE6_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL17|G0AL17_BORBD	63	secreted	extracellular region GO:0005576;
+tr|G0ALX4|G0ALX4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKH5|G0AKH5_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0AMF4|G0AMF4_BORBD	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKK6|G0AKK6_BORBD	42	cytoplasm	cytoplasm GO:0005737
+tr|G0AKV4|G0AKV4_BORBD	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALJ2|G0ALJ2_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALB5|G0ALB5_BORBD	50	secreted	extracellular region GO:0005576;
+tr|G0ALN1|G0ALN1_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AL02|G0AL02_BORBD	81	secreted	extracellular region GO:0005576;
+tr|G0AME9|G0AME9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW4|G0AKW4_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AL83|G0AL83_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMA5|G0AMA5_BORBD	74	secreted	extracellular region GO:0005576;
+tr|G0ALY3|G0ALY3_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0ALE1|G0ALE1_BORBD	69	secreted	extracellular region GO:0005576;
+tr|G0AMJ5|G0AMJ5_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALK4|G0ALK4_BORBD	77	secreted	extracellular region GO:0005576;
+tr|G0AME6|G0AME6_BORBD	84	cytoplasm	cytoplasm GO:0005737
+tr|G0AL74|G0AL74_BORBD	52	secreted	extracellular region GO:0005576;
+tr|G0AM23|G0AM23_BORBD	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL75|G0AL75_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKG8|G0AKG8_BORBD	90	cytoplasm	cytoplasm GO:0005737
+tr|G0AL15|G0AL15_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMI2|G0AMI2_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AKX3|G0AKX3_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALA5|G0ALA5_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AMR8|G0AMR8_BORBD	90	secreted	extracellular region GO:0005576;
+tr|G0ALU6|G0ALU6_BORBD	46	cytoplasm	cytoplasm GO:0005737
+tr|G0AMF0|G0AMF0_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMS8|G0AMS8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMK4|G0AMK4_BORBD	55	cytoplasm	cytoplasm GO:0005737
+tr|G0AM12|G0AM12_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW9|G0AKW9_BORBD	64	secreted	extracellular region GO:0005576;
+tr|G0AL35|G0AL35_BORBD	82	secreted	extracellular region GO:0005576;
+tr|G0AM79|G0AM79_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL63|G0AL63_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY1|G0AKY1_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0ALU1|G0ALU1_BORBD	97	cytoplasm	cytoplasm GO:0005737
+tr|G0AKQ8|G0AKQ8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMS4|G0AMS4_BORBD	65	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G0AMN0|G0AMN0_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALU0|G0ALU0_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP9|G0AMP9_BORBD	85	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP5|G0AMP5_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALQ0|G0ALQ0_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALW9|G0ALW9_BORBD	26	secreted	extracellular region GO:0005576;
+tr|G0ALE8|G0ALE8_BORBD	49	secreted	extracellular region GO:0005576;
+tr|G0AL94|G0AL94_BORBD	66	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL61|G0AL61_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN2|G0AKN2_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL04|G0AL04_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AMM5|G0AMM5_BORBD	87	cytoplasm	cytoplasm GO:0005737
+tr|G0ALR3|G0ALR3_BORBD	44	cytoplasm	cytoplasm GO:0005737
+tr|G0AKQ3|G0AKQ3_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALX6|G0ALX6_BORBD	43	secreted	extracellular region GO:0005576;
+tr|G0AKP0|G0AKP0_BORBD	40	secreted	extracellular region GO:0005576;
+tr|G0ALB6|G0ALB6_BORBD	78	secreted	extracellular region GO:0005576;
+tr|G0ALH7|G0ALH7_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL30|G0AL30_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKQ4|G0AKQ4_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMT0|G0AMT0_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMQ2|G0AMQ2_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AMH2|G0AMH2_BORBD	71	cytoplasm	cytoplasm GO:0005737
+tr|G0ALK1|G0ALK1_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP4|G0AMP4_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AL46|G0AL46_BORBD	75	secreted	extracellular region GO:0005576;
+tr|G0ALX9|G0ALX9_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0ALV0|G0ALV0_BORBD	87	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN4|G0AKN4_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALP2|G0ALP2_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKK2|G0AKK2_BORBD	52	secreted	extracellular region GO:0005576;
+tr|G0AMN9|G0AMN9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP6|G0AMP6_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AM69|G0AM69_BORBD	44	secreted	extracellular region GO:0005576;
+tr|G0AKU6|G0AKU6_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0ALG0|G0ALG0_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AML6|G0AML6_BORBD	36	cytoplasm	cytoplasm GO:0005737
+tr|G0ALY8|G0ALY8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALB3|G0ALB3_BORBD	50	secreted	extracellular region GO:0005576;
+tr|G0ALY4|G0ALY4_BORBD	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMI0|G0AMI0_BORBD	61	secreted	extracellular region GO:0005576;
+tr|G0AKL1|G0AKL1_BORBD	75	secreted	extracellular region GO:0005576;
+tr|G0ALL0|G0ALL0_BORBD	75	secreted	extracellular region GO:0005576;
+tr|G0ALU7|G0ALU7_BORBD	86	cytoplasm	cytoplasm GO:0005737
+tr|G0ALK0|G0ALK0_BORBD	70	cytoplasm	cytoplasm GO:0005737
+tr|G0AKU1|G0AKU1_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMJ4|G0AMJ4_BORBD	68	secreted	extracellular region GO:0005576;
+tr|G0AL73|G0AL73_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC9|G0ALC9_BORBD	78	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP3|G0AMP3_BORBD	71	secreted	extracellular region GO:0005576;
+tr|G0ALJ1|G0ALJ1_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMK1|G0AMK1_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AMJ2|G0AMJ2_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKH4|G0AKH4_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0AKK1|G0AKK1_BORBD	91	cytoplasm	cytoplasm GO:0005737
+tr|G0ALZ6|G0ALZ6_BORBD	66	cytoplasm	cytoplasm GO:0005737
+tr|G0AMC8|G0AMC8_BORBD	50	secreted	extracellular region GO:0005576;
+tr|G0AMD9|G0AMD9_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALC0|G0ALC0_BORBD	80	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW1|G0AKW1_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AKI8|G0AKI8_BORBD	32	periplasm	periplasmic space GO:0042597;
+tr|G0AMN6|G0AMN6_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY3|G0AKY3_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALA2|G0ALA2_BORBD	47	secreted	extracellular region GO:0005576;
+tr|G0AMA8|G0AMA8_BORBD	35	secreted	extracellular region GO:0005576;
+tr|G0ALJ0|G0ALJ0_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0ALK5|G0ALK5_BORBD	81	secreted	extracellular region GO:0005576;
+tr|G0ALM3|G0ALM3_BORBD	96	cytoplasm	cytoplasm GO:0005737
+tr|G0ALF1|G0ALF1_BORBD	33	secreted	extracellular region GO:0005576;
+tr|G0AMI8|G0AMI8_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALC4|G0ALC4_BORBD	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AKH2|G0AKH2_BORBD	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0ALJ3|G0ALJ3_BORBD	94	cytoplasm	cytoplasm GO:0005737
+tr|G0AKY7|G0AKY7_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AKR9|G0AKR9_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AKS3|G0AKS3_BORBD	93	cytoplasm	cytoplasm GO:0005737
+tr|G0ALW4|G0ALW4_BORBD	92	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW7|G0AKW7_BORBD	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AM62|G0AM62_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW0|G0AKW0_BORBD	72	secreted	extracellular region GO:0005576;
+tr|G0ALD2|G0ALD2_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0ALM8|G0ALM8_BORBD	99	cytoplasm	cytoplasm GO:0005737
+tr|G0AM18|G0AM18_BORBD	88	cytoplasm	cytoplasm GO:0005737
+tr|G0ALZ3|G0ALZ3_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL33|G0AL33_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AM76|G0AM76_BORBD	98	cytoplasm	cytoplasm GO:0005737
+tr|G0AKP5|G0AKP5_BORBD	90	cytoplasm	cytoplasm GO:0005737
+tr|G0AMP8|G0AMP8_BORBD	90	cytoplasm	cytoplasm GO:0005737
+tr|G0AMR5|G0AMR5_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMG0|G0AMG0_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AL95|G0AL95_BORBD	38	cytoplasm	cytoplasm GO:0005737
+tr|G0ALX1|G0ALX1_BORBD	84	cytoplasm	cytoplasm GO:0005737
+tr|G0AMD8|G0AMD8_BORBD	100	cytoplasm	cytoplasm GO:0005737
+tr|G0AMA3|G0AMA3_BORBD	46	cytoplasm	cytoplasm GO:0005737
+tr|G0AKN5|G0AKN5_BORBD	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G0AMH6|G0AMH6_BORBD	95	cytoplasm	cytoplasm GO:0005737
+tr|G0AKW8|G0AKW8_BORBD	70	secreted	extracellular region GO:0005576;

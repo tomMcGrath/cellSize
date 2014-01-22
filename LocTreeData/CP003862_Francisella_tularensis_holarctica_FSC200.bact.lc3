@@ -1,0 +1,1433 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|K0E5M1|K0E5M1_FRATU	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E816|K0E816_FRATU	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E573|K0E573_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E797|K0E797_FRATU	27	fimbrium	pilus GO:0009289(IEA);
+tr|K0E5H8|K0E5H8_FRATU	12	cytoplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0ECK4|K0ECK4_FRATU	19	cytoplasm	ribosome GO:0005840(IEA);
+tr|K0E8M2|K0E8M2_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EC96|K0EC96_FRATU	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECB4|K0ECB4_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E850|K0E850_FRATU	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6K7|K0E6K7_FRATU	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E6T6|K0E6T6_FRATU	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5J6|K0E5J6_FRATU	42	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E5Z4|K0E5Z4_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA); riboflavin synthase complex GO:0009349(IEA);
+tr|K0E2U5|K0E2U5_FRATU	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E1G6|K0E1G6_FRATU	6	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|K0E9F6|K0E9F6_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5I3|K0E5I3_FRATU	46	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E7D1|K0E7D1_FRATU	19	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|K0E9I2|K0E9I2_FRATU	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E763|K0E763_FRATU	11	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|K0E9C6|K0E9C6_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E449|K0E449_FRATU	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBB0|K0EBB0_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E800|K0E800_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E3Y6|K0E3Y6_FRATU	46	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E8H1|K0E8H1_FRATU	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7S6|K0E7S6_FRATU	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAR6|K0EAR6_FRATU	41	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|K0E712|K0E712_FRATU	35	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|K0E6E9|K0E6E9_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8G2|K0E8G2_FRATU	30	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E3D8|K0E3D8_FRATU	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E3L0|K0E3L0_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EB64|K0EB64_FRATU	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E269|K0E269_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4T3|K0E4T3_FRATU	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5T3|K0E5T3_FRATU	10	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E332|K0E332_FRATU	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8H0|K0E8H0_FRATU	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E532|K0E532_FRATU	28	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E9F9|K0E9F9_FRATU	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAE8|K0EAE8_FRATU	9	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E7R2|K0E7R2_FRATU	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type II protein secretion system complex GO:0015627(IEA);
+tr|K0E7T8|K0E7T8_FRATU	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E3W8|K0E3W8_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECG7|K0ECG7_FRATU	12	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E879|K0E879_FRATU	12	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E966|K0E966_FRATU	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E796|K0E796_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E1H8|K0E1H8_FRATU	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E4N2|K0E4N2_FRATU	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E502|K0E502_FRATU	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5W5|K0E5W5_FRATU	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E6Q6|K0E6Q6_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5E8|K0E5E8_FRATU	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4H8|K0E4H8_FRATU	12	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0E916|K0E916_FRATU	51	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0EAF7|K0EAF7_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7C6|K0E7C6_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E815|K0E815_FRATU	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0ECA1|K0ECA1_FRATU	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EC27|K0EC27_FRATU	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8H6|K0E8H6_FRATU	30	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|K0E9C8|K0E9C8_FRATU	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6A9|K0E6A9_FRATU	58	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|K0E726|K0E726_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8T5|K0E8T5_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7I0|K0E7I0_FRATU	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E581|K0E581_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E811|K0E811_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|K0EC38|K0EC38_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9T9|K0E9T9_FRATU	8	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K0E8L0|K0E8L0_FRATU	42	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|K0E7R0|K0E7R0_FRATU	23	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|K0E974|K0E974_FRATU	21	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0E5K3|K0E5K3_FRATU	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5B9|K0E5B9_FRATU	48	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|K0E8Q4|K0E8Q4_FRATU	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECB7|K0ECB7_FRATU	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E524|K0E524_FRATU	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5Z8|K0E5Z8_FRATU	36	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E4B0|K0E4B0_FRATU	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E276|K0E276_FRATU	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAE4|K0EAE4_FRATU	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8Q1|K0E8Q1_FRATU	39	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E5D0|K0E5D0_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|K0E6P3|K0E6P3_FRATU	20	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA);
+tr|K0E4Y0|K0E4Y0_FRATU	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E7M5|K0E7M5_FRATU	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E4M3|K0E4M3_FRATU	51	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0E4V4|K0E4V4_FRATU	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9L7|K0E9L7_FRATU	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7Y4|K0E7Y4_FRATU	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E546|K0E546_FRATU	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E536|K0E536_FRATU	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0ECI6|K0ECI6_FRATU	67	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E4I4|K0E4I4_FRATU	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E6Q1|K0E6Q1_FRATU	38	inner membrane	cytochrome o ubiquinol oxidase complex GO:0009319(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E8S3|K0E8S3_FRATU	32	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E982|K0E982_FRATU	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K0E9E9|K0E9E9_FRATU	12	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E8R6|K0E8R6_FRATU	51	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E6Z3|K0E6Z3_FRATU	66	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|K0E6M0|K0E6M0_FRATU	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6W7|K0E6W7_FRATU	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E695|K0E695_FRATU	15	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|K0E9J5|K0E9J5_FRATU	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E9D3|K0E9D3_FRATU	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6R1|K0E6R1_FRATU	20	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|K0E3P2|K0E3P2_FRATU	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E2H5|K0E2H5_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7I4|K0E7I4_FRATU	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4L4|K0E4L4_FRATU	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E863|K0E863_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E2J9|K0E2J9_FRATU	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E6E2|K0E6E2_FRATU	34	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E1K5|K0E1K5_FRATU	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9W8|K0E9W8_FRATU	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7C0|K0E7C0_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|K0E1R9|K0E1R9_FRATU	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0EBB5|K0EBB5_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7K4|K0E7K4_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E346|K0E346_FRATU	23	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0E7D9|K0E7D9_FRATU	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5I6|K0E5I6_FRATU	18	secreted	extracellular region GO:0005576(IEA);
+tr|K0E9P3|K0E9P3_FRATU	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E528|K0E528_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E888|K0E888_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E6Y3|K0E6Y3_FRATU	33	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|K0E7J7|K0E7J7_FRATU	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6E7|K0E6E7_FRATU	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E7D8|K0E7D8_FRATU	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5U3|K0E5U3_FRATU	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E883|K0E883_FRATU	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E8G5|K0E8G5_FRATU	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9Z2|K0E9Z2_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E427|K0E427_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAS1|K0EAS1_FRATU	33	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0E8T6|K0E8T6_FRATU	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E723|K0E723_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7L3|K0E7L3_FRATU	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECC7|K0ECC7_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7I3|K0E7I3_FRATU	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E4I8|K0E4I8_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7S3|K0E7S3_FRATU	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E7Q3|K0E7Q3_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9Q5|K0E9Q5_FRATU	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3P9|K0E3P9_FRATU	30	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|K0E8P5|K0E8P5_FRATU	12	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5I7|K0E5I7_FRATU	8	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E5E3|K0E5E3_FRATU	17	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E9M3|K0E9M3_FRATU	52	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E8V1|K0E8V1_FRATU	9	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|K0E4T8|K0E4T8_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E335|K0E335_FRATU	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8U7|K0E8U7_FRATU	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E5E5|K0E5E5_FRATU	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8C7|K0E8C7_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E1V6|K0E1V6_FRATU	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E840|K0E840_FRATU	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECV5|K0ECV5_FRATU	44	inner membrane	integral to membrane GO:0016021(IEA);
+tr|K0ECX6|K0ECX6_FRATU	52	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|K0E5T8|K0E5T8_FRATU	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0ECJ0|K0ECJ0_FRATU	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E2J1|K0E2J1_FRATU	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E509|K0E509_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E755|K0E755_FRATU	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAD6|K0EAD6_FRATU	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9V0|K0E9V0_FRATU	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9J8|K0E9J8_FRATU	16	secreted	extracellular region GO:0005576(IEA);
+tr|K0E7W0|K0E7W0_FRATU	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E8F0|K0E8F0_FRATU	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8Z3|K0E8Z3_FRATU	4	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E408|K0E408_FRATU	54	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E8B4|K0E8B4_FRATU	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E959|K0E959_FRATU	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4J0|K0E4J0_FRATU	32	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E5G9|K0E5G9_FRATU	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E615|K0E615_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E977|K0E977_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAH1|K0EAH1_FRATU	35	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E7V4|K0E7V4_FRATU	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA);
+tr|K0EA14|K0EA14_FRATU	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E206|K0E206_FRATU	41	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K0E8B3|K0E8B3_FRATU	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5V7|K0E5V7_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8R7|K0E8R7_FRATU	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6P2|K0E6P2_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6D5|K0E6D5_FRATU	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4D4|K0E4D4_FRATU	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E8V2|K0E8V2_FRATU	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E985|K0E985_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E1Q5|K0E1Q5_FRATU	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8F9|K0E8F9_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECN7|K0ECN7_FRATU	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E775|K0E775_FRATU	26	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K0EAJ0|K0EAJ0_FRATU	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7F3|K0E7F3_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3U2|K0E3U2_FRATU	18	secreted	extracellular region GO:0005576(IEA);
+tr|K0E6Y5|K0E6Y5_FRATU	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E4P2|K0E4P2_FRATU	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E640|K0E640_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6M6|K0E6M6_FRATU	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8C1|K0E8C1_FRATU	18	periplasm	periplasmic space GO:0042597(IDA);
+tr|K0E6I4|K0E6I4_FRATU	50	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K0EAT2|K0EAT2_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAL0|K0EAL0_FRATU	22	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E9K7|K0E9K7_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECF8|K0ECF8_FRATU	36	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E8M0|K0E8M0_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|K0E1F9|K0E1F9_FRATU	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8I8|K0E8I8_FRATU	34	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E7N8|K0E7N8_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAE3|K0EAE3_FRATU	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0ECD5|K0ECD5_FRATU	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0ECY1|K0ECY1_FRATU	27	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0ECR1|K0ECR1_FRATU	28	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E8L3|K0E8L3_FRATU	8	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E6T1|K0E6T1_FRATU	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAU0|K0EAU0_FRATU	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4Q2|K0E4Q2_FRATU	10	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9A8|K0E9A8_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0ECP6|K0ECP6_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K0E4I2|K0E4I2_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EB69|K0EB69_FRATU	64	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0ECA9|K0ECA9_FRATU	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5W2|K0E5W2_FRATU	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9G3|K0E9G3_FRATU	25	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E8N6|K0E8N6_FRATU	53	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|K0E7Y0|K0E7Y0_FRATU	32	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|K0E5U7|K0E5U7_FRATU	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5Q9|K0E5Q9_FRATU	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECW1|K0ECW1_FRATU	36	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E9V5|K0E9V5_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E952|K0E952_FRATU	18	inner membrane	cell division site GO:0032153(IEA); cell septum GO:0030428(IDA); integral to plasma membrane GO:0005887(IEA);
+tr|K0E1E0|K0E1E0_FRATU	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E351|K0E351_FRATU	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E6A5|K0E6A5_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAM5|K0EAM5_FRATU	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5A5|K0E5A5_FRATU	59	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E9B3|K0E9B3_FRATU	54	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|K0E7K7|K0E7K7_FRATU	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E844|K0E844_FRATU	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7N0|K0E7N0_FRATU	32	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|K0E8F1|K0E8F1_FRATU	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5M3|K0E5M3_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAU8|K0EAU8_FRATU	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9L9|K0E9L9_FRATU	37	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0EC12|K0EC12_FRATU	43	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K0E4V9|K0E4V9_FRATU	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E8D6|K0E8D6_FRATU	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAN9|K0EAN9_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8E3|K0E8E3_FRATU	48	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K0E4T2|K0E4T2_FRATU	10	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E7C4|K0E7C4_FRATU	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E984|K0E984_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECH0|K0ECH0_FRATU	47	cytoplasm	cytosol GO:0005829(IBA);
+tr|K0E7B7|K0E7B7_FRATU	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E821|K0E821_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7E2|K0E7E2_FRATU	24	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|K0E8P6|K0E8P6_FRATU	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9Z3|K0E9Z3_FRATU	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8K9|K0E8K9_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBR3|K0EBR3_FRATU	32	cytoplasm	cytoplasm GO:0005737(IEA); preribosome GO:0030684(IDA);
+tr|K0E704|K0E704_FRATU	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5D6|K0E5D6_FRATU	58	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E639|K0E639_FRATU	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0EC19|K0EC19_FRATU	49	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E3V5|K0E3V5_FRATU	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E774|K0E774_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E777|K0E777_FRATU	14	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0EA66|K0EA66_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAS6|K0EAS6_FRATU	10	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0E5B7|K0E5B7_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E8X5|K0E8X5_FRATU	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EB18|K0EB18_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECZ3|K0ECZ3_FRATU	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E788|K0E788_FRATU	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7Y2|K0E7Y2_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9X4|K0E9X4_FRATU	13	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E6Y1|K0E6Y1_FRATU	17	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|K0EC45|K0EC45_FRATU	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E486|K0E486_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E906|K0E906_FRATU	5	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E8H2|K0E8H2_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6B3|K0E6B3_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7S7|K0E7S7_FRATU	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9R7|K0E9R7_FRATU	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E365|K0E365_FRATU	53	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAD3|K0EAD3_FRATU	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECL7|K0ECL7_FRATU	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E5A1|K0E5A1_FRATU	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7V8|K0E7V8_FRATU	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8T3|K0E8T3_FRATU	19	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0EA03|K0EA03_FRATU	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E549|K0E549_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAK2|K0EAK2_FRATU	43	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0E4F7|K0E4F7_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E679|K0E679_FRATU	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E3H6|K0E3H6_FRATU	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5M8|K0E5M8_FRATU	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3W1|K0E3W1_FRATU	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E701|K0E701_FRATU	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4L9|K0E4L9_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E945|K0E945_FRATU	24	periplasm	extracellular region GO:0005576(IEA); periplasmic space GO:0042597(IDA);
+tr|K0E9N3|K0E9N3_FRATU	53	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E8Q6|K0E8Q6_FRATU	28	inner membrane	cytochrome o ubiquinol oxidase complex GO:0009319(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E1X1|K0E1X1_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9E0|K0E9E0_FRATU	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECS8|K0ECS8_FRATU	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAW5|K0EAW5_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8R8|K0E8R8_FRATU	16	periplasm	membrane GO:0016020(ISS); periplasmic space GO:0042597(IEA);
+tr|K0ECR9|K0ECR9_FRATU	30	inner membrane	integral to plasma membrane GO:0005887(IDA); plasma membrane respiratory chain complex I GO:0045272(IDA);
+tr|K0E9J6|K0E9J6_FRATU	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9R3|K0E9R3_FRATU	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E995|K0E995_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EA48|K0EA48_FRATU	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E2J5|K0E2J5_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E732|K0E732_FRATU	10	periplasm	cytosol GO:0005829(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E7H7|K0E7H7_FRATU	38	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E8U2|K0E8U2_FRATU	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9G8|K0E9G8_FRATU	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E865|K0E865_FRATU	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5B5|K0E5B5_FRATU	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9K3|K0E9K3_FRATU	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8S9|K0E8S9_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E758|K0E758_FRATU	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E3G3|K0E3G3_FRATU	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8E0|K0E8E0_FRATU	22	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA);
+tr|K0E8B7|K0E8B7_FRATU	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E3M5|K0E3M5_FRATU	38	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E5D9|K0E5D9_FRATU	16	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K0E4Y6|K0E4Y6_FRATU	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9Q2|K0E9Q2_FRATU	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IMP);
+tr|K0E4X1|K0E4X1_FRATU	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAK6|K0EAK6_FRATU	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EBE0|K0EBE0_FRATU	53	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|K0E801|K0E801_FRATU	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E867|K0E867_FRATU	11	secreted	extracellular region GO:0005576(IEA);
+tr|K0E6H7|K0E6H7_FRATU	19	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E3A8|K0E3A8_FRATU	40	periplasm	periplasmic space GO:0042597(IDA);
+tr|K0ED03|K0ED03_FRATU	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0EAX7|K0EAX7_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E900|K0E900_FRATU	38	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0EA20|K0EA20_FRATU	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E6E8|K0E6E8_FRATU	41	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E6B5|K0E6B5_FRATU	49	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E2Q6|K0E2Q6_FRATU	66	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8H9|K0E8H9_FRATU	26	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0EBM8|K0EBM8_FRATU	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6A2|K0E6A2_FRATU	18	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|K0E9S2|K0E9S2_FRATU	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E927|K0E927_FRATU	24	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E4P4|K0E4P4_FRATU	54	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E7S1|K0E7S1_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECQ1|K0ECQ1_FRATU	32	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|K0E6R5|K0E6R5_FRATU	12	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E9G9|K0E9G9_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAG7|K0EAG7_FRATU	44	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E5U5|K0E5U5_FRATU	14	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|K0E754|K0E754_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7A6|K0E7A6_FRATU	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8L7|K0E8L7_FRATU	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9R2|K0E9R2_FRATU	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E825|K0E825_FRATU	6	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E2I7|K0E2I7_FRATU	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E1L9|K0E1L9_FRATU	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0EAI0|K0EAI0_FRATU	8	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E7U6|K0E7U6_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8J7|K0E8J7_FRATU	41	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E4V7|K0E4V7_FRATU	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E2W6|K0E2W6_FRATU	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAH4|K0EAH4_FRATU	76	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E715|K0E715_FRATU	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5J2|K0E5J2_FRATU	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3V2|K0E3V2_FRATU	7	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|K0E2I3|K0E2I3_FRATU	49	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E7Z7|K0E7Z7_FRATU	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E6H5|K0E6H5_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8L4|K0E8L4_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6L3|K0E6L3_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0EB14|K0EB14_FRATU	15	cytoplasm	imidazoleglycerol-phosphate synthase complex GO:0009382(IDA);
+tr|K0E8T0|K0E8T0_FRATU	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5P0|K0E5P0_FRATU	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3L9|K0E3L9_FRATU	43	cytoplasm	cytoplasm GO:0005737(IDA); nucleoid GO:0009295(IBA);
+tr|K0E830|K0E830_FRATU	58	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|K0E9S3|K0E9S3_FRATU	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBZ1|K0EBZ1_FRATU	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E8N8|K0E8N8_FRATU	11	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|K0E705|K0E705_FRATU	5	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E4L7|K0E4L7_FRATU	32	cytoplasm	cytoplasm GO:0005737(ISS);
+tr|K0E6A1|K0E6A1_FRATU	56	inner membrane	cytochrome o ubiquinol oxidase complex GO:0009319(IDA); integral to plasma membrane GO:0005887(IDA); respiratory chain GO:0070469(IEA);
+tr|K0E6U6|K0E6U6_FRATU	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8J8|K0E8J8_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAM9|K0EAM9_FRATU	59	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0EBG6|K0EBG6_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6F8|K0E6F8_FRATU	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8A0|K0E8A0_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8I2|K0E8I2_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E960|K0E960_FRATU	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9B5|K0E9B5_FRATU	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8W6|K0E8W6_FRATU	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E3J0|K0E3J0_FRATU	11	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E9X5|K0E9X5_FRATU	25	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E8P3|K0E8P3_FRATU	54	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E8A2|K0E8A2_FRATU	17	periplasm	extracellular region GO:0005576(IEA); periplasmic space GO:0042597(IDA);
+tr|K0EBY1|K0EBY1_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ED21|K0ED21_FRATU	34	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|K0E5F7|K0E5F7_FRATU	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E455|K0E455_FRATU	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7I9|K0E7I9_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBA7|K0EBA7_FRATU	32	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|K0E9N6|K0E9N6_FRATU	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8E5|K0E8E5_FRATU	19	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E4H2|K0E4H2_FRATU	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E891|K0E891_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9Y4|K0E9Y4_FRATU	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0EBU7|K0EBU7_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4C6|K0E4C6_FRATU	10	cytoplasm	cytoplasm GO:0005737(NAS);
+tr|K0E8D1|K0E8D1_FRATU	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E6I6|K0E6I6_FRATU	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E1E5|K0E1E5_FRATU	33	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0E9F1|K0E9F1_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7B3|K0E7B3_FRATU	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E2P3|K0E2P3_FRATU	22	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|K0E936|K0E936_FRATU	21	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|K0E6Y6|K0E6Y6_FRATU	8	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E517|K0E517_FRATU	12	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IDA); integral to plasma membrane GO:0005887(IDA);
+tr|K0EBL0|K0EBL0_FRATU	69	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EC34|K0EC34_FRATU	57	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E9T7|K0E9T7_FRATU	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7A8|K0E7A8_FRATU	44	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E7R3|K0E7R3_FRATU	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E9W0|K0E9W0_FRATU	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8K4|K0E8K4_FRATU	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EA57|K0EA57_FRATU	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3Y1|K0E3Y1_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7X4|K0E7X4_FRATU	18	secreted	cell wall GO:0005618(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E3I6|K0E3I6_FRATU	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8W9|K0E8W9_FRATU	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E791|K0E791_FRATU	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0ECC2|K0ECC2_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8A1|K0E8A1_FRATU	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E847|K0E847_FRATU	16	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E5R9|K0E5R9_FRATU	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7K6|K0E7K6_FRATU	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E785|K0E785_FRATU	26	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|K0E7W6|K0E7W6_FRATU	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E200|K0E200_FRATU	46	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|K0E794|K0E794_FRATU	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E920|K0E920_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7M0|K0E7M0_FRATU	10	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|K0E6K0|K0E6K0_FRATU	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8D0|K0E8D0_FRATU	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9F2|K0E9F2_FRATU	32	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E6J5|K0E6J5_FRATU	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0EC51|K0EC51_FRATU	5	inner membrane	cell division site GO:0032153(IEA); integral to plasma membrane GO:0005887(IDA);
+tr|K0E1W2|K0E1W2_FRATU	35	inner membrane	cytochrome o ubiquinol oxidase complex GO:0009319(IDA); integral to plasma membrane GO:0005887(IDA); respiratory chain GO:0070469(IEA);
+tr|K0E907|K0E907_FRATU	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0EBZ3|K0EBZ3_FRATU	8	secreted	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E9Z8|K0E9Z8_FRATU	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9M2|K0E9M2_FRATU	30	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|K0E2D6|K0E2D6_FRATU	16	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E6T2|K0E6T2_FRATU	25	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E5K8|K0E5K8_FRATU	10	inner membrane	cell division site GO:0032153(IEA); integral to plasma membrane GO:0005887(IDA);
+tr|K0E566|K0E566_FRATU	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E512|K0E512_FRATU	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7A5|K0E7A5_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7V1|K0E7V1_FRATU	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6C3|K0E6C3_FRATU	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E876|K0E876_FRATU	8	cytoplasm	cytoplasm GO:0005737(NAS);
+tr|K0E8G0|K0E8G0_FRATU	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E858|K0E858_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7Q0|K0E7Q0_FRATU	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E743|K0E743_FRATU	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0EAD7|K0EAD7_FRATU	9	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E5L6|K0E5L6_FRATU	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5R4|K0E5R4_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAJ1|K0EAJ1_FRATU	6	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|K0E8W3|K0E8W3_FRATU	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|K0E8J9|K0E8J9_FRATU	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8C6|K0E8C6_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBK1|K0EBK1_FRATU	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E4A5|K0E4A5_FRATU	81	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E499|K0E499_FRATU	48	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EB34|K0EB34_FRATU	46	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|K0E798|K0E798_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5C0|K0E5C0_FRATU	13	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E6Q3|K0E6Q3_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IBA);
+tr|K0E5A7|K0E5A7_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8Q2|K0E8Q2_FRATU	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAY1|K0EAY1_FRATU	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9Q0|K0E9Q0_FRATU	37	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0ECF5|K0ECF5_FRATU	19	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|K0E890|K0E890_FRATU	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E855|K0E855_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4Z0|K0E4Z0_FRATU	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|Q19TP7|Q19TP7_FRATU	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E397|K0E397_FRATU	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|K0E7G9|K0E7G9_FRATU	28	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E6D3|K0E6D3_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8J3|K0E8J3_FRATU	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E4J5|K0E4J5_FRATU	20	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0E6S3|K0E6S3_FRATU	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E964|K0E964_FRATU	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAL3|K0EAL3_FRATU	16	secreted	extracellular region GO:0005576(IEA);
+tr|K0E9K5|K0E9K5_FRATU	19	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|K0EAA2|K0EAA2_FRATU	14	secreted	extracellular region GO:0005576(IEA);
+tr|K0E765|K0E765_FRATU	51	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6K1|K0E6K1_FRATU	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E289|K0E289_FRATU	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EAC6|K0EAC6_FRATU	43	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0ECM1|K0ECM1_FRATU	9	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(NAS); plasma membrane GO:0005886(IEA);
+tr|K0E8M8|K0E8M8_FRATU	8	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|K0E6P4|K0E6P4_FRATU	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E7F0|K0E7F0_FRATU	22	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E6R8|K0E6R8_FRATU	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7G4|K0E7G4_FRATU	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|K0EAF2|K0EAF2_FRATU	24	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E7X7|K0E7X7_FRATU	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E9C5|K0E9C5_FRATU	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E6H3|K0E6H3_FRATU	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E6J3|K0E6J3_FRATU	38	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|K0E8Q0|K0E8Q0_FRATU	19	secreted	extracellular region GO:0005576(IEA);
+tr|K0E6N7|K0E6N7_FRATU	44	fimbrium	pilus GO:0009289(IEA); type II protein secretion system complex GO:0015627(IEA);
+tr|K0E7R6|K0E7R6_FRATU	14	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E8E8|K0E8E8_FRATU	30	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|K0ECR4|K0ECR4_FRATU	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E3C2|K0E3C2_FRATU	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E721|K0E721_FRATU	12	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|K0E9G1|K0E9G1_FRATU	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E8K0|K0E8K0_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5N0|K0E5N0_FRATU	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E7K1|K0E7K1_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E674|K0E674_FRATU	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ECY6|K0ECY6_FRATU	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E3F6|K0E3F6_FRATU	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E8N0|K0E8N0_FRATU	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E2Z5|K0E2Z5_FRATU	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E4Q5|K0E4Q5_FRATU	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E529|K0E529_FRATU	62	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|K0E4G8|K0E4G8_FRATU	14	outer membrane	cell outer membrane GO:0009279(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|K0E4F1|K0E4F1_FRATU	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E753|K0E753_FRATU	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E780|K0E780_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|K0E5K1|K0E5K1_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9P4|K0E9P4_FRATU	10	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|K0E5J7|K0E5J7_FRATU	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E892|K0E892_FRATU	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EBW7|K0EBW7_FRATU	12	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|K0EAM0|K0EAM0_FRATU	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E9Q6|K0E9Q6_FRATU	17	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|K0E5G6|K0E5G6_FRATU	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0EA30|K0EA30_FRATU	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E2F9|K0E2F9_FRATU	21	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|K0E575|K0E575_FRATU	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E8E4|K0E8E4_FRATU	23	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0EAI3|K0EAI3_FRATU	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0ED08|K0ED08_FRATU	13	cytoplasm	cell outer membrane GO:0009279(IDA); cytoplasm GO:0005737(IEA);
+tr|K0E933|K0E933_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E5F9|K0E5F9_FRATU	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0EAQ3|K0EAQ3_FRATU	38	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E4Y4|K0E4Y4_FRATU	40	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|K0EAV6|K0EAV6_FRATU	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|K0E5J1|K0E5J1_FRATU	46	cytoplasm	cytosol GO:0005829(IDA);
+tr|K0E6Z0|K0E6Z0_FRATU	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|K0E8K8|K0E8K8_FRATU	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|K0E819|K0E819_FRATU	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|K0E9I5|K0E9I5_FRATU	44	secreted	extracellular region GO:0005576;
+tr|K0EB75|K0EB75_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7L8|K0E7L8_FRATU	56	cytoplasm	cytoplasm GO:0005737
+tr|K0EB06|K0EB06_FRATU	57	cytoplasm	cytoplasm GO:0005737
+tr|K0E3A2|K0E3A2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E9Y5|K0E9Y5_FRATU	95	periplasm	periplasmic space GO:0042597;
+tr|K0E6X3|K0E6X3_FRATU	88	secreted	extracellular region GO:0005576;
+tr|K0EAY4|K0EAY4_FRATU	82	secreted	extracellular region GO:0005576;
+tr|K0E6H6|K0E6H6_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E3M9|K0E3M9_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0E8S2|K0E8S2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E1X6|K0E1X6_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Z6|K0E7Z6_FRATU	34	secreted	extracellular region GO:0005576;
+tr|K0E8Y4|K0E8Y4_FRATU	41	secreted	extracellular region GO:0005576;
+tr|K0E7H9|K0E7H9_FRATU	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8N7|K0E8N7_FRATU	77	cytoplasm	cytoplasm GO:0005737
+tr|K0E5X5|K0E5X5_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0ECU5|K0ECU5_FRATU	76	cytoplasm	cytoplasm GO:0005737
+tr|K0E6J7|K0E6J7_FRATU	75	secreted	extracellular region GO:0005576;
+tr|K0E7Q5|K0E7Q5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7F7|K0E7F7_FRATU	55	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Q9|K0E8Q9_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0EAN0|K0EAN0_FRATU	76	cytoplasm	cytoplasm GO:0005737
+tr|K0E8P1|K0E8P1_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E5H7|K0E5H7_FRATU	43	cytoplasm	cytoplasm GO:0005737
+tr|K0E766|K0E766_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EA75|K0EA75_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0E8R5|K0E8R5_FRATU	36	cytoplasm	cytoplasm GO:0005737
+tr|K0EAX4|K0EAX4_FRATU	23	secreted	extracellular region GO:0005576;
+tr|K0EAN4|K0EAN4_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E5F6|K0E5F6_FRATU	29	cytoplasm	cytoplasm GO:0005737
+tr|K0E1U4|K0E1U4_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E416|K0E416_FRATU	83	cytoplasm	cytoplasm GO:0005737
+tr|K0EC90|K0EC90_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E7V7|K0E7V7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8L8|K0E8L8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E914|K0E914_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7X2|K0E7X2_FRATU	35	secreted	extracellular region GO:0005576;
+tr|K0E781|K0E781_FRATU	43	secreted	extracellular region GO:0005576;
+tr|K0E533|K0E533_FRATU	35	secreted	extracellular region GO:0005576;
+tr|K0E7X8|K0E7X8_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8C0|K0E8C0_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E2P7|K0E2P7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECT3|K0ECT3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EBZ8|K0EBZ8_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8G1|K0E8G1_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EBY5|K0EBY5_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Q7|K0E8Q7_FRATU	88	fimbrium	pilus GO:0009289;
+tr|K0E7F2|K0E7F2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E6R9|K0E6R9_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E713|K0E713_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0E8A7|K0E8A7_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E2S6|K0E2S6_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E8M3|K0E8M3_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0EAQ7|K0EAQ7_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E1H3|K0E1H3_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E839|K0E839_FRATU	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E810|K0E810_FRATU	66	cytoplasm	cytoplasm GO:0005737
+tr|K0E423|K0E423_FRATU	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4J8|K0E4J8_FRATU	39	cytoplasm	cytoplasm GO:0005737
+tr|K0E355|K0E355_FRATU	67	secreted	extracellular region GO:0005576;
+tr|K0E9L1|K0E9L1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8M6|K0E8M6_FRATU	84	periplasm	periplasmic space GO:0042597;
+tr|K0E2T6|K0E2T6_FRATU	82	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E1F3|K0E1F3_FRATU	41	secreted	extracellular region GO:0005576;
+tr|K0E4X6|K0E4X6_FRATU	87	secreted	extracellular region GO:0005576;
+tr|K0E8S8|K0E8S8_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0E7E8|K0E7E8_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E680|K0E680_FRATU	64	cytoplasm	cytoplasm GO:0005737
+tr|K0E9D6|K0E9D6_FRATU	74	secreted	extracellular region GO:0005576;
+tr|K0E958|K0E958_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Q8|K0E7Q8_FRATU	76	secreted	extracellular region GO:0005576;
+tr|K0EA53|K0EA53_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8B8|K0E8B8_FRATU	50	cytoplasm	cytoplasm GO:0005737
+tr|K0E7B2|K0E7B2_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|Q19TP1|Q19TP1_FRATU	73	secreted	extracellular region GO:0005576;
+tr|K0E9W2|K0E9W2_FRATU	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8H7|K0E8H7_FRATU	83	cytoplasm	cytoplasm GO:0005737
+tr|K0E7C2|K0E7C2_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E5F2|K0E5F2_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EAX1|K0EAX1_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E7J1|K0E7J1_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E3K3|K0E3K3_FRATU	57	cytoplasm	cytoplasm GO:0005737
+tr|K0E8C4|K0E8C4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E1V1|K0E1V1_FRATU	55	cytoplasm	cytoplasm GO:0005737
+tr|K0E9D0|K0E9D0_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E8B1|K0E8B1_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E4P9|K0E4P9_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E6T5|K0E6T5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9N1|K0E9N1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2R4|K0E2R4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E459|K0E459_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E9W3|K0E9W3_FRATU	54	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E6J0|K0E6J0_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E9H1|K0E9H1_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E5B2|K0E5B2_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4T7|K0E4T7_FRATU	39	periplasm	periplasmic space GO:0042597;
+tr|K0EB10|K0EB10_FRATU	88	secreted	extracellular region GO:0005576;
+tr|K0E5V6|K0E5V6_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E9D7|K0E9D7_FRATU	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9B6|K0E9B6_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E9R1|K0E9R1_FRATU	58	cytoplasm	cytoplasm GO:0005737
+tr|K0E8I7|K0E8I7_FRATU	71	secreted	extracellular region GO:0005576;
+tr|K0E9U4|K0E9U4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECH5|K0ECH5_FRATU	89	secreted	extracellular region GO:0005576;
+tr|K0E886|K0E886_FRATU	58	cytoplasm	cytoplasm GO:0005737
+tr|K0EA11|K0EA11_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E1T8|K0E1T8_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E805|K0E805_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EBQ9|K0EBQ9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E994|K0E994_FRATU	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E521|K0E521_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E9J1|K0E9J1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8L5|K0E8L5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E5G2|K0E5G2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6E1|K0E6E1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E1S5|K0E1S5_FRATU	62	secreted	extracellular region GO:0005576;
+tr|K0E9U6|K0E9U6_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E878|K0E878_FRATU	85	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E5S9|K0E5S9_FRATU	53	secreted	extracellular region GO:0005576;
+tr|K0E716|K0E716_FRATU	80	periplasm	periplasmic space GO:0042597;
+tr|K0E932|K0E932_FRATU	71	secreted	extracellular region GO:0005576;
+tr|K0E5Z0|K0E5Z0_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E887|K0E887_FRATU	40	secreted	extracellular region GO:0005576;
+tr|K0E9H2|K0E9H2_FRATU	41	secreted	extracellular region GO:0005576;
+tr|K0E5W9|K0E5W9_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0EA36|K0EA36_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E5L8|K0E5L8_FRATU	74	cytoplasm	cytoplasm GO:0005737
+tr|K0E526|K0E526_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E2T2|K0E2T2_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0EBX4|K0EBX4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E896|K0E896_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7R8|K0E7R8_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7A1|K0E7A1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E871|K0E871_FRATU	77	cytoplasm	cytoplasm GO:0005737
+tr|K0ECJ5|K0ECJ5_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E6C6|K0E6C6_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E869|K0E869_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9D2|K0E9D2_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E3C8|K0E3C8_FRATU	53	cytoplasm	cytoplasm GO:0005737
+tr|K0E541|K0E541_FRATU	84	cytoplasm	cytoplasm GO:0005737
+tr|K0E7C8|K0E7C8_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0EBM3|K0EBM3_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4M5|K0E4M5_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8S4|K0E8S4_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E8A3|K0E8A3_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0E326|K0E326_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8B0|K0E8B0_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0E9M1|K0E9M1_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E955|K0E955_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0EA00|K0EA00_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8W2|K0E8W2_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E9X1|K0E9X1_FRATU	62	cytoplasm	cytoplasm GO:0005737
+tr|K0E8S1|K0E8S1_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0E8P7|K0E8P7_FRATU	72	cytoplasm	cytoplasm GO:0005737
+tr|K0E838|K0E838_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E2K6|K0E2K6_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E760|K0E760_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E898|K0E898_FRATU	85	cytoplasm	cytoplasm GO:0005737
+tr|K0E8I9|K0E8I9_FRATU	72	cytoplasm	cytoplasm GO:0005737
+tr|K0E6C9|K0E6C9_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E6N1|K0E6N1_FRATU	77	secreted	extracellular region GO:0005576;
+tr|K0E8D9|K0E8D9_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0EAH6|K0EAH6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7P7|K0E7P7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E5F0|K0E5F0_FRATU	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8J5|K0E8J5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2M8|K0E2M8_FRATU	71	cytoplasm	cytoplasm GO:0005737
+tr|K0E793|K0E793_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E370|K0E370_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7D2|K0E7D2_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9U3|K0E9U3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E860|K0E860_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0E8I6|K0E8I6_FRATU	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EA85|K0EA85_FRATU	86	secreted	extracellular region GO:0005576;
+tr|K0E647|K0E647_FRATU	64	cytoplasm	cytoplasm GO:0005737
+tr|K0EA65|K0EA65_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7H6|K0E7H6_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAH0|K0EAH0_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E725|K0E725_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6W6|K0E6W6_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0ECX1|K0ECX1_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6P9|K0E6P9_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0E6S0|K0E6S0_FRATU	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8P4|K0E8P4_FRATU	81	cytoplasm	cytoplasm GO:0005737
+tr|K0EAI4|K0EAI4_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E987|K0E987_FRATU	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EBF9|K0EBF9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E520|K0E520_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E8A6|K0E8A6_FRATU	83	cytoplasm	cytoplasm GO:0005737
+tr|K0E968|K0E968_FRATU	73	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Y7|K0E8Y7_FRATU	44	secreted	extracellular region GO:0005576;
+tr|K0E8P8|K0E8P8_FRATU	63	secreted	extracellular region GO:0005576;
+tr|K0E9T6|K0E9T6_FRATU	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8F5|K0E8F5_FRATU	39	fimbrium	pilus GO:0009289;
+tr|K0E9H8|K0E9H8_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E5S4|K0E5S4_FRATU	33	secreted	extracellular region GO:0005576;
+tr|K0EAH7|K0EAH7_FRATU	65	periplasm	periplasmic space GO:0042597;
+tr|K0E537|K0E537_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E851|K0E851_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0EAL7|K0EAL7_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0EA33|K0EA33_FRATU	51	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E6X5|K0E6X5_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E260|K0E260_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E440|K0E440_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0EAS8|K0EAS8_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0E884|K0E884_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E586|K0E586_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E720|K0E720_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E826|K0E826_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EAJ2|K0EAJ2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E761|K0E761_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E9V2|K0E9V2_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E771|K0E771_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E3Z0|K0E3Z0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EBP5|K0EBP5_FRATU	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E661|K0E661_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E311|K0E311_FRATU	76	secreted	extracellular region GO:0005576;
+tr|Q19TP3|Q19TP3_FRATU	25	secreted	extracellular region GO:0005576;
+tr|K0E8Q3|K0E8Q3_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E3Q5|K0E3Q5_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E853|K0E853_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E2L4|K0E2L4_FRATU	46	cytoplasm	cytoplasm GO:0005737
+tr|K0E6D8|K0E6D8_FRATU	68	cytoplasm	cytoplasm GO:0005737
+tr|K0E8J4|K0E8J4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T1|K0E8T1_FRATU	76	cytoplasm	cytoplasm GO:0005737
+tr|K0E8G6|K0E8G6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EB76|K0EB76_FRATU	69	secreted	extracellular region GO:0005576;
+tr|Q19TN8|Q19TN8_FRATU	65	secreted	extracellular region GO:0005576;
+tr|K0EBS6|K0EBS6_FRATU	75	cytoplasm	cytoplasm GO:0005737
+tr|K0E5I2|K0E5I2_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2V6|K0E2V6_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E375|K0E375_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T2|K0E8T2_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E2U9|K0E2U9_FRATU	68	periplasm	periplasmic space GO:0042597;
+tr|K0E5C6|K0E5C6_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0EAP4|K0EAP4_FRATU	65	secreted	extracellular region GO:0005576;
+tr|K0E4G3|K0E4G3_FRATU	42	secreted	extracellular region GO:0005576;
+tr|K0E954|K0E954_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0EBN5|K0EBN5_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E5Y3|K0E5Y3_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EB97|K0EB97_FRATU	37	cytoplasm	cytoplasm GO:0005737
+tr|K0E963|K0E963_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E9N2|K0E9N2_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0E8U6|K0E8U6_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0ECQ6|K0ECQ6_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8G4|K0E8G4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8R0|K0E8R0_FRATU	65	secreted	extracellular region GO:0005576;
+tr|K0E471|K0E471_FRATU	60	cytoplasm	cytoplasm GO:0005737
+tr|K0EA71|K0EA71_FRATU	72	cytoplasm	cytoplasm GO:0005737
+tr|K0E1J3|K0E1J3_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0E6J9|K0E6J9_FRATU	43	secreted	extracellular region GO:0005576;
+tr|K0E700|K0E700_FRATU	52	cytoplasm	cytoplasm GO:0005737
+tr|K0EA08|K0EA08_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E588|K0E588_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E872|K0E872_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7A3|K0E7A3_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E7J3|K0E7J3_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9H5|K0E9H5_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E7E7|K0E7E7_FRATU	66	cytoplasm	cytoplasm GO:0005737
+tr|K0E741|K0E741_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E1T1|K0E1T1_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E803|K0E803_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E7G0|K0E7G0_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0EBI2|K0EBI2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E652|K0E652_FRATU	77	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E685|K0E685_FRATU	63	cytoplasm	cytoplasm GO:0005737
+tr|K0E4H6|K0E4H6_FRATU	94	periplasm	periplasmic space GO:0042597;
+tr|K0E540|K0E540_FRATU	70	secreted	extracellular region GO:0005576;
+tr|K0E8I3|K0E8I3_FRATU	53	cytoplasm	cytoplasm GO:0005737
+tr|K0E7B6|K0E7B6_FRATU	87	cytoplasm	cytoplasm GO:0005737
+tr|K0E613|K0E613_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0E6P6|K0E6P6_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0EBR9|K0EBR9_FRATU	51	secreted	extracellular region GO:0005576;
+tr|K0E4U6|K0E4U6_FRATU	71	secreted	extracellular region GO:0005576;
+tr|K0E5E4|K0E5E4_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8S5|K0E8S5_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E3B2|K0E3B2_FRATU	81	cytoplasm	cytoplasm GO:0005737
+tr|K0E494|K0E494_FRATU	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6G2|K0E6G2_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0ECS4|K0ECS4_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E6Z8|K0E6Z8_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E628|K0E628_FRATU	64	periplasm	periplasmic space GO:0042597;
+tr|K0E6F5|K0E6F5_FRATU	84	cytoplasm	cytoplasm GO:0005737
+tr|K0E6V2|K0E6V2_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0E8U1|K0E8U1_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0ECW7|K0ECW7_FRATU	62	periplasm	periplasmic space GO:0042597;
+tr|K0E5W1|K0E5W1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E687|K0E687_FRATU	38	cytoplasm	cytoplasm GO:0005737
+tr|K0E976|K0E976_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EB86|K0EB86_FRATU	89	cytoplasm	cytoplasm GO:0005737
+tr|K0E6V4|K0E6V4_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0EAK0|K0EAK0_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E7A2|K0E7A2_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E8J0|K0E8J0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2R1|K0E2R1_FRATU	54	cytoplasm	cytoplasm GO:0005737
+tr|K0E4N6|K0E4N6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7N6|K0E7N6_FRATU	69	cytoplasm	cytoplasm GO:0005737
+tr|K0E1Z0|K0E1Z0_FRATU	71	cytoplasm	cytoplasm GO:0005737
+tr|K0E6I1|K0E6I1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9W9|K0E9W9_FRATU	60	secreted	extracellular region GO:0005576;
+tr|K0EAL4|K0EAL4_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E6S5|K0E6S5_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2E5|K0E2E5_FRATU	54	secreted	extracellular region GO:0005576;
+tr|K0E923|K0E923_FRATU	89	secreted	extracellular region GO:0005576;
+tr|K0E404|K0E404_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6J2|K0E6J2_FRATU	77	cytoplasm	cytoplasm GO:0005737
+tr|K0E607|K0E607_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8V6|K0E8V6_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E340|K0E340_FRATU	92	periplasm	periplasmic space GO:0042597;
+tr|K0E243|K0E243_FRATU	70	cytoplasm	cytoplasm GO:0005737
+tr|K0E419|K0E419_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0E6Z2|K0E6Z2_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7E6|K0E7E6_FRATU	57	secreted	extracellular region GO:0005576;
+tr|K0E5Y1|K0E5Y1_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0E8D7|K0E8D7_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E9A7|K0E9A7_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E5K5|K0E5K5_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E3B6|K0E3B6_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E5C8|K0E5C8_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0EAY7|K0EAY7_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8E2|K0E8E2_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0E6L5|K0E6L5_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6X0|K0E6X0_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8L9|K0E8L9_FRATU	75	secreted	extracellular region GO:0005576;
+tr|K0EA05|K0EA05_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E7J5|K0E7J5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4Z2|K0E4Z2_FRATU	67	cytoplasm	cytoplasm GO:0005737
+tr|K0E1N0|K0E1N0_FRATU	60	secreted	extracellular region GO:0005576;
+tr|K0E9S0|K0E9S0_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E600|K0E600_FRATU	32	cytoplasm	cytoplasm GO:0005737
+tr|K0E620|K0E620_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7P0|K0E7P0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EC73|K0EC73_FRATU	33	cytoplasm	cytoplasm GO:0005737
+tr|K0E4U1|K0E4U1_FRATU	88	cytoplasm	cytoplasm GO:0005737
+tr|K0EB42|K0EB42_FRATU	87	cytoplasm	cytoplasm GO:0005737
+tr|K0E6S9|K0E6S9_FRATU	88	cytoplasm	cytoplasm GO:0005737
+tr|K0E6N6|K0E6N6_FRATU	37	secreted	extracellular region GO:0005576;
+tr|K0EC80|K0EC80_FRATU	38	secreted	extracellular region GO:0005576;
+tr|K0E552|K0E552_FRATU	69	cytoplasm	cytoplasm GO:0005737
+tr|K0E412|K0E412_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E9B0|K0E9B0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E4W5|K0E4W5_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Y9|K0E7Y9_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAR5|K0EAR5_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7K9|K0E7K9_FRATU	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9E2|K0E9E2_FRATU	68	cytoplasm	cytoplasm GO:0005737
+tr|K0E6Y2|K0E6Y2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T4|K0E8T4_FRATU	80	secreted	extracellular region GO:0005576;
+tr|K0E6A7|K0E6A7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7V2|K0E7V2_FRATU	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2Y4|K0E2Y4_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E9T1|K0E9T1_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E729|K0E729_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Y5|K0E7Y5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E2Y9|K0E2Y9_FRATU	28	secreted	extracellular region GO:0005576;
+tr|K0E8H4|K0E8H4_FRATU	87	cytoplasm	cytoplasm GO:0005737
+tr|K0EA43|K0EA43_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E9A2|K0E9A2_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E717|K0E717_FRATU	82	secreted	extracellular region GO:0005576;
+tr|K0E5N4|K0E5N4_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E9Y0|K0E9Y0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E4W4|K0E4W4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8A5|K0E8A5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7U8|K0E7U8_FRATU	67	secreted	extracellular region GO:0005576;
+tr|K0E6M4|K0E6M4_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E301|K0E301_FRATU	32	cytoplasm	cytoplasm GO:0005737
+tr|K0E2N9|K0E2N9_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0E9I7|K0E9I7_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E8K5|K0E8K5_FRATU	77	cytoplasm	cytoplasm GO:0005737
+tr|K0E942|K0E942_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E8F3|K0E8F3_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E9A1|K0E9A1_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6W2|K0E6W2_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E6H0|K0E6H0_FRATU	64	cytoplasm	cytoplasm GO:0005737
+tr|K0EAG3|K0EAG3_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E669|K0E669_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E234|K0E234_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0E9U0|K0E9U0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E646|K0E646_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E4X0|K0E4X0_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E3N6|K0E3N6_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E9M6|K0E9M6_FRATU	88	cytoplasm	cytoplasm GO:0005737
+tr|K0E8V0|K0E8V0_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E3H9|K0E3H9_FRATU	34	cytoplasm	cytoplasm GO:0005737
+tr|K0E8N2|K0E8N2_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E8S6|K0E8S6_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0EAS4|K0EAS4_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0EAW0|K0EAW0_FRATU	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4U8|K0E4U8_FRATU	74	secreted	extracellular region GO:0005576;
+tr|K0E9T3|K0E9T3_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0E5J5|K0E5J5_FRATU	50	cytoplasm	cytoplasm GO:0005737
+tr|K0E2M5|K0E2M5_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E9T0|K0E9T0_FRATU	95	secreted	extracellular region GO:0005576;
+tr|K0EBF4|K0EBF4_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4R1|K0E4R1_FRATU	61	cytoplasm	cytoplasm GO:0005737
+tr|K0E8X2|K0E8X2_FRATU	73	cytoplasm	cytoplasm GO:0005737
+tr|K0E6X8|K0E6X8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E3W5|K0E3W5_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E2X3|K0E2X3_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9F8|K0E9F8_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0EA42|K0EA42_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E861|K0E861_FRATU	84	cytoplasm	cytoplasm GO:0005737
+tr|K0E7P6|K0E7P6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E475|K0E475_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0ECT8|K0ECT8_FRATU	92	secreted	extracellular region GO:0005576;
+tr|K0E5A9|K0E5A9_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0EAA7|K0EAA7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E845|K0E845_FRATU	85	cytoplasm	cytoplasm GO:0005737
+tr|K0E2S0|K0E2S0_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0EC83|K0EC83_FRATU	91	cytoplasm	cytoplasm GO:0005737
+tr|K0E7T6|K0E7T6_FRATU	89	secreted	extracellular region GO:0005576;
+tr|K0E2N4|K0E2N4_FRATU	82	cytoplasm	cytoplasm GO:0005737
+tr|K0E5I8|K0E5I8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E938|K0E938_FRATU	79	cytoplasm	cytoplasm GO:0005737
+tr|K0EAW8|K0EAW8_FRATU	40	secreted	extracellular region GO:0005576;
+tr|K0E8E9|K0E8E9_FRATU	56	cytoplasm	cytoplasm GO:0005737
+tr|K0E9P2|K0E9P2_FRATU	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8W0|K0E8W0_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E6B4|K0E6B4_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9N4|K0E9N4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2L1|K0E2L1_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0EAF4|K0EAF4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E4N5|K0E4N5_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0E6E4|K0E6E4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E894|K0E894_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9Z5|K0E9Z5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E786|K0E786_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9I1|K0E9I1_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2G6|K0E2G6_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0E4S5|K0E4S5_FRATU	95	fimbrium	pilus GO:0009289;
+tr|K0E8D5|K0E8D5_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0E7D4|K0E7D4_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E9N8|K0E9N8_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E6D1|K0E6D1_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E9P0|K0E9P0_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EAK7|K0EAK7_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E868|K0E868_FRATU	23	secreted	extracellular region GO:0005576;
+tr|K0EA86|K0EA86_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Z0|K0E7Z0_FRATU	74	cytoplasm	cytoplasm GO:0005737
+tr|K0EAI6|K0EAI6_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E7S8|K0E7S8_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7U3|K0E7U3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E5N9|K0E5N9_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E5U9|K0E5U9_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4D0|K0E4D0_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E1R2|K0E1R2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E769|K0E769_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0EA80|K0EA80_FRATU	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0ECI1|K0ECI1_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E8S7|K0E8S7_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E750|K0E750_FRATU	20	periplasm	periplasmic space GO:0042597;
+tr|K0E9E4|K0E9E4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E911|K0E911_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EA94|K0EA94_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0E707|K0E707_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E5X0|K0E5X0_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8D2|K0E8D2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E6G4|K0E6G4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6U8|K0E6U8_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E9Y1|K0E9Y1_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0E4V1|K0E4V1_FRATU	59	secreted	extracellular region GO:0005576;
+tr|K0E749|K0E749_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EB82|K0EB82_FRATU	34	fimbrium	pilus GO:0009289;
+tr|K0E5V2|K0E5V2_FRATU	66	cytoplasm	cytoplasm GO:0005737
+tr|K0EBF0|K0EBF0_FRATU	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6V1|K0E6V1_FRATU	80	secreted	extracellular region GO:0005576;
+tr|K0EC68|K0EC68_FRATU	50	secreted	extracellular region GO:0005576;
+tr|K0E897|K0E897_FRATU	76	secreted	extracellular region GO:0005576;
+tr|K0E901|K0E901_FRATU	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8N1|K0E8N1_FRATU	50	secreted	extracellular region GO:0005576;
+tr|K0E5G4|K0E5G4_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E604|K0E604_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7T3|K0E7T3_FRATU	43	secreted	extracellular region GO:0005576;
+tr|K0E5X8|K0E5X8_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E610|K0E610_FRATU	73	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Z5|K0E7Z5_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E5Z6|K0E5Z6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9M9|K0E9M9_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0EA92|K0EA92_FRATU	55	secreted	extracellular region GO:0005576;
+tr|K0E6L9|K0E6L9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6R4|K0E6R4_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E3X3|K0E3X3_FRATU	89	cytoplasm	cytoplasm GO:0005737
+tr|K0E8M7|K0E8M7_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E328|K0E328_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E5M6|K0E5M6_FRATU	87	secreted	extracellular region GO:0005576;
+tr|K0E7H0|K0E7H0_FRATU	82	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T8|K0E8T8_FRATU	47	secreted	extracellular region GO:0005576;
+tr|K0E7W4|K0E7W4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8F4|K0E8F4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E5H4|K0E5H4_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E2G9|K0E2G9_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9M8|K0E9M8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECG4|K0ECG4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E2X8|K0E2X8_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAF9|K0EAF9_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAD1|K0EAD1_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E1I5|K0E1I5_FRATU	57	periplasm	periplasmic space GO:0042597;
+tr|K0E4L3|K0E4L3_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E728|K0E728_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7J9|K0E7J9_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8L6|K0E8L6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2W1|K0E2W1_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0EC62|K0EC62_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2F5|K0E2F5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E947|K0E947_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E380|K0E380_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0E5P3|K0E5P3_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0E8L1|K0E8L1_FRATU	36	cytoplasm	cytoplasm GO:0005737
+tr|K0E832|K0E832_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E596|K0E596_FRATU	41	periplasm	periplasmic space GO:0042597;
+tr|K0E4B5|K0E4B5_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E4J4|K0E4J4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EBJ5|K0EBJ5_FRATU	77	secreted	extracellular region GO:0005576;
+tr|K0E768|K0E768_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EAZ5|K0EAZ5_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0EAC1|K0EAC1_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0E9V6|K0E9V6_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E9F3|K0E9F3_FRATU	87	cytoplasm	cytoplasm GO:0005737
+tr|K0E6N9|K0E6N9_FRATU	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAR1|K0EAR1_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0EBU0|K0EBU0_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EBN1|K0EBN1_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EB57|K0EB57_FRATU	68	secreted	extracellular region GO:0005576;
+tr|K0ECK8|K0ECK8_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EC02|K0EC02_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E9H7|K0E9H7_FRATU	56	secreted	extracellular region GO:0005576;
+tr|K0E699|K0E699_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E593|K0E593_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E5P5|K0E5P5_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E1P1|K0E1P1_FRATU	51	secreted	extracellular region GO:0005576;
+tr|K0E321|K0E321_FRATU	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4R8|K0E4R8_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E7A9|K0E7A9_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8B6|K0E8B6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E617|K0E617_FRATU	42	secreted	extracellular region GO:0005576;
+tr|K0E9Z9|K0E9Z9_FRATU	76	secreted	extracellular region GO:0005576;
+tr|K0ECP2|K0ECP2_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E746|K0E746_FRATU	79	secreted	extracellular region GO:0005576;
+tr|K0E8X8|K0E8X8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Z2|K0E8Z2_FRATU	88	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Z1|K0E8Z1_FRATU	79	secreted	extracellular region GO:0005576;
+tr|K0E6X7|K0E6X7_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E4E6|K0E4E6_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8X3|K0E8X3_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0E3E9|K0E3E9_FRATU	82	secreted	extracellular region GO:0005576;
+tr|K0E228|K0E228_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0E7C7|K0E7C7_FRATU	58	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E7F9|K0E7F9_FRATU	93	secreted	extracellular region GO:0005576;
+tr|K0E222|K0E222_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E2G2|K0E2G2_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E7P3|K0E7P3_FRATU	57	secreted	extracellular region GO:0005576;
+tr|K0EA19|K0EA19_FRATU	28	cytoplasm	cytoplasm GO:0005737
+tr|K0E6C1|K0E6C1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E733|K0E733_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E6K8|K0E6K8_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E577|K0E577_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7S0|K0E7S0_FRATU	55	secreted	extracellular region GO:0005576;
+tr|K0E7H2|K0E7H2_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EAB6|K0EAB6_FRATU	48	cytoplasm	cytoplasm GO:0005737
+tr|K0E5X3|K0E5X3_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E659|K0E659_FRATU	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4K3|K0E4K3_FRATU	55	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EA38|K0EA38_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7U4|K0E7U4_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E506|K0E506_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E5D8|K0E5D8_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2U2|K0E2U2_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E875|K0E875_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7M9|K0E7M9_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8S0|K0E8S0_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9G6|K0E9G6_FRATU	71	secreted	extracellular region GO:0005576;
+tr|K0E831|K0E831_FRATU	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6D7|K0E6D7_FRATU	75	secreted	extracellular region GO:0005576;
+tr|K0E6W9|K0E6W9_FRATU	96	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E783|K0E783_FRATU	46	periplasm	periplasmic space GO:0042597;
+tr|K0E5F4|K0E5F4_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E7E3|K0E7E3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9A0|K0E9A0_FRATU	87	secreted	extracellular region GO:0005576;
+tr|K0E6Z6|K0E6Z6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EAZ2|K0EAZ2_FRATU	80	secreted	extracellular region GO:0005576;
+tr|K0E3L3|K0E3L3_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E5N3|K0E5N3_FRATU	75	cytoplasm	cytoplasm GO:0005737
+tr|K0E5J4|K0E5J4_FRATU	69	cytoplasm	cytoplasm GO:0005737
+tr|K0EAB5|K0EAB5_FRATU	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8N9|K0E8N9_FRATU	63	secreted	extracellular region GO:0005576;
+tr|K0E3Z7|K0E3Z7_FRATU	79	secreted	extracellular region GO:0005576;
+tr|K0E7D6|K0E7D6_FRATU	23	cytoplasm	cytoplasm GO:0005737
+tr|K0E951|K0E951_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EB92|K0EB92_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E477|K0E477_FRATU	67	cytoplasm	cytoplasm GO:0005737
+tr|K0E634|K0E634_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2Q1|K0E2Q1_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E444|K0E444_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E568|K0E568_FRATU	84	cytoplasm	cytoplasm GO:0005737
+tr|K0E708|K0E708_FRATU	59	cytoplasm	cytoplasm GO:0005737
+tr|K0E5D1|K0E5D1_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EAJ5|K0EAJ5_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0EAQ5|K0EAQ5_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6U4|K0E6U4_FRATU	69	cytoplasm	cytoplasm GO:0005737
+tr|K0E1M3|K0E1M3_FRATU	60	cytoplasm	cytoplasm GO:0005737
+tr|K0E7D5|K0E7D5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E5K9|K0E5K9_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E5U1|K0E5U1_FRATU	73	cytoplasm	cytoplasm GO:0005737
+tr|K0E653|K0E653_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E7N5|K0E7N5_FRATU	41	cytoplasm	cytoplasm GO:0005737
+tr|K0E8K7|K0E8K7_FRATU	84	cytoplasm	cytoplasm GO:0005737
+tr|K0E772|K0E772_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8M4|K0E8M4_FRATU	82	secreted	extracellular region GO:0005576;
+tr|K0E8Z6|K0E8Z6_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4Z9|K0E4Z9_FRATU	18	secreted	extracellular region GO:0005576;
+tr|K0E834|K0E834_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EBV6|K0EBV6_FRATU	53	cytoplasm	cytoplasm GO:0005737
+tr|K0E6U3|K0E6U3_FRATU	61	cytoplasm	cytoplasm GO:0005737
+tr|K0E5G8|K0E5G8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECL2|K0ECL2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E4Z6|K0E4Z6_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E9Z1|K0E9Z1_FRATU	82	cytoplasm	cytoplasm GO:0005737
+tr|K0E3E6|K0E3E6_FRATU	60	secreted	extracellular region GO:0005576;
+tr|K0E421|K0E421_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E4S9|K0E4S9_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E360|K0E360_FRATU	45	secreted	extracellular region GO:0005576;
+tr|K0E6F2|K0E6F2_FRATU	69	cytoplasm	cytoplasm GO:0005737
+tr|K0EB24|K0EB24_FRATU	46	cytoplasm	cytoplasm GO:0005737
+tr|K0E9C4|K0E9C4_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0EBC6|K0EBC6_FRATU	65	secreted	extracellular region GO:0005576;
+tr|K0E9S8|K0E9S8_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9N7|K0E9N7_FRATU	39	secreted	extracellular region GO:0005576;
+tr|K0ECV0|K0ECV0_FRATU	85	cytoplasm	cytoplasm GO:0005737
+tr|K0E9L2|K0E9L2_FRATU	60	secreted	extracellular region GO:0005576;
+tr|K0E3H0|K0E3H0_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E7X1|K0E7X1_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E5D5|K0E5D5_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8N3|K0E8N3_FRATU	53	cytoplasm	cytoplasm GO:0005737
+tr|K0E6I5|K0E6I5_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0EBC1|K0EBC1_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9L6|K0E9L6_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EAJ7|K0EAJ7_FRATU	92	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0ECZ7|K0ECZ7_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T9|K0E8T9_FRATU	49	cytoplasm	cytoplasm GO:0005737
+tr|K0E7I6|K0E7I6_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E919|K0E919_FRATU	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8P2|K0E8P2_FRATU	54	cytoplasm	cytoplasm GO:0005737
+tr|K0E856|K0E856_FRATU	56	periplasm	periplasmic space GO:0042597;
+tr|K0E6I9|K0E6I9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E7T2|K0E7T2_FRATU	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6Q9|K0E6Q9_FRATU	57	cytoplasm	cytoplasm GO:0005737
+tr|K0E6W0|K0E6W0_FRATU	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E822|K0E822_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E632|K0E632_FRATU	42	secreted	extracellular region GO:0005576;
+tr|K0E489|K0E489_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0E748|K0E748_FRATU	54	secreted	extracellular region GO:0005576;
+tr|K0EA46|K0EA46_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E7G3|K0E7G3_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E757|K0E757_FRATU	93	secreted	extracellular region GO:0005576;
+tr|K0E7F6|K0E7F6_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EB71|K0EB71_FRATU	20	cytoplasm	cytoplasm GO:0005737
+tr|K0E948|K0E948_FRATU	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9X9|K0E9X9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E735|K0E735_FRATU	47	secreted	extracellular region GO:0005576;
+tr|K0E5C4|K0E5C4_FRATU	79	periplasm	periplasmic space GO:0042597;
+tr|K0E306|K0E306_FRATU	75	cytoplasm	cytoplasm GO:0005737
+tr|K0E2T8|K0E2T8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8I0|K0E8I0_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E2H8|K0E2H8_FRATU	45	secreted	extracellular region GO:0005576;
+tr|K0E8C9|K0E8C9_FRATU	89	secreted	extracellular region GO:0005576;
+tr|K0E992|K0E992_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E516|K0E516_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6W3|K0E6W3_FRATU	94	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|K0E4M2|K0E4M2_FRATU	85	secreted	extracellular region GO:0005576;
+tr|K0E8R1|K0E8R1_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E6V5|K0E6V5_FRATU	62	cytoplasm	cytoplasm GO:0005737
+tr|K0E666|K0E666_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E9E7|K0E9E7_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6F4|K0E6F4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6G9|K0E6G9_FRATU	85	cytoplasm	cytoplasm GO:0005737
+tr|K0EB28|K0EB28_FRATU	77	periplasm	periplasmic space GO:0042597;
+tr|K0E7Z2|K0E7Z2_FRATU	74	cytoplasm	cytoplasm GO:0005737
+tr|K0E4K2|K0E4K2_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6G3|K0E6G3_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E8G9|K0E8G9_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EA29|K0EA29_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E4U3|K0E4U3_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E6T9|K0E6T9_FRATU	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9C1|K0E9C1_FRATU	82	secreted	extracellular region GO:0005576;
+tr|K0E2N1|K0E2N1_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E709|K0E709_FRATU	66	cytoplasm	cytoplasm GO:0005737
+tr|K0EA16|K0EA16_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EAG4|K0EAG4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E4C1|K0E4C1_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E8V5|K0E8V5_FRATU	89	cytoplasm	cytoplasm GO:0005737
+tr|K0EBA2|K0EBA2_FRATU	28	periplasm	periplasmic space GO:0042597;
+tr|K0E9J2|K0E9J2_FRATU	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EBI8|K0EBI8_FRATU	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8A9|K0E8A9_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E836|K0E836_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E1Y3|K0E1Y3_FRATU	53	periplasm	periplasmic space GO:0042597;
+tr|K0E9K0|K0E9K0_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E465|K0E465_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E4S4|K0E4S4_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E7M4|K0E7M4_FRATU	70	cytoplasm	cytoplasm GO:0005737
+tr|K0E5H2|K0E5H2_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8I4|K0E8I4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EB48|K0EB48_FRATU	33	cytoplasm	cytoplasm GO:0005737
+tr|K0EA25|K0EA25_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E848|K0E848_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0ECN2|K0ECN2_FRATU	96	cytoplasm	cytoplasm GO:0005737
+tr|K0E384|K0E384_FRATU	19	secreted	extracellular region GO:0005576;
+tr|K0EAE1|K0EAE1_FRATU	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E7G6|K0E7G6_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0EBP1|K0EBP1_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E807|K0E807_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Y1|K0E8Y1_FRATU	72	cytoplasm	cytoplasm GO:0005737
+tr|K0E928|K0E928_FRATU	60	periplasm	periplasmic space GO:0042597;
+tr|K0EAZ9|K0EAZ9_FRATU	37	cytoplasm	cytoplasm GO:0005737
+tr|K0E7Q4|K0E7Q4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E599|K0E599_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EBT4|K0EBT4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E989|K0E989_FRATU	44	secreted	extracellular region GO:0005576;
+tr|K0E9K1|K0E9K1_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E591|K0E591_FRATU	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E2K3|K0E2K3_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E941|K0E941_FRATU	63	secreted	extracellular region GO:0005576;
+tr|K0E8C2|K0E8C2_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0E8G7|K0E8G7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E9M7|K0E9M7_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E4K7|K0E4K7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E6C7|K0E6C7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E7B1|K0E7B1_FRATU	58	secreted	extracellular region GO:0005576;
+tr|K0E434|K0E434_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E9G5|K0E9G5_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E2S9|K0E2S9_FRATU	83	secreted	extracellular region GO:0005576;
+tr|K0E7E0|K0E7E0_FRATU	64	secreted	extracellular region GO:0005576;
+tr|K0E740|K0E740_FRATU	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9W6|K0E9W6_FRATU	66	secreted	extracellular region GO:0005576;
+tr|K0E2C6|K0E2C6_FRATU	38	periplasm	periplasmic space GO:0042597;
+tr|K0E9A5|K0E9A5_FRATU	31	secreted	extracellular region GO:0005576;
+tr|K0E2E9|K0E2E9_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E391|K0E391_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6V6|K0E6V6_FRATU	63	cytoplasm	cytoplasm GO:0005737
+tr|K0E6X4|K0E6X4_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E7L2|K0E7L2_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E2M0|K0E2M0_FRATU	86	cytoplasm	cytoplasm GO:0005737
+tr|K0E4M8|K0E4M8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8U3|K0E8U3_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0EAQ1|K0EAQ1_FRATU	73	secreted	extracellular region GO:0005576;
+tr|K0EC07|K0EC07_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8D4|K0E8D4_FRATU	73	cytoplasm	cytoplasm GO:0005737
+tr|K0EAF1|K0EAF1_FRATU	63	cytoplasm	cytoplasm GO:0005737
+tr|K0EAR2|K0EAR2_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E5Q4|K0E5Q4_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7W8|K0E7W8_FRATU	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E542|K0E542_FRATU	80	secreted	extracellular region GO:0005576;
+tr|K0E7E4|K0E7E4_FRATU	93	secreted	extracellular region GO:0005576;
+tr|K0E5Y6|K0E5Y6_FRATU	92	secreted	extracellular region GO:0005576;
+tr|K0EB04|K0EB04_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E6T7|K0E6T7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8K3|K0E8K3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0EAS2|K0EAS2_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E7T9|K0E7T9_FRATU	54	secreted	extracellular region GO:0005576;
+tr|K0E545|K0E545_FRATU	42	cytoplasm	cytoplasm GO:0005737
+tr|K0E9K9|K0E9K9_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E9B9|K0E9B9_FRATU	71	secreted	extracellular region GO:0005576;
+tr|K0E7C1|K0E7C1_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E779|K0E779_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6N3|K0E6N3_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0E7N2|K0E7N2_FRATU	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0EC57|K0EC57_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E400|K0E400_FRATU	46	secreted	extracellular region GO:0005576;
+tr|K0E6M8|K0E6M8_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E997|K0E997_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E4E0|K0E4E0_FRATU	67	secreted	extracellular region GO:0005576;
+tr|K0E437|K0E437_FRATU	41	cytoplasm	cytoplasm GO:0005737
+tr|K0E910|K0E910_FRATU	38	secreted	extracellular region GO:0005576;
+tr|K0EAT7|K0EAT7_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E580|K0E580_FRATU	83	cytoplasm	cytoplasm GO:0005737
+tr|K0E6G7|K0E6G7_FRATU	54	cytoplasm	cytoplasm GO:0005737
+tr|K0EBH5|K0EBH5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8E7|K0E8E7_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E882|K0E882_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E9L4|K0E9L4_FRATU	34	secreted	extracellular region GO:0005576;
+tr|K0E8N5|K0E8N5_FRATU	36	secreted	extracellular region GO:0005576;
+tr|K0E251|K0E251_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0EA23|K0EA23_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8K1|K0E8K1_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E978|K0E978_FRATU	79	cytoplasm	cytoplasm GO:0005737
+tr|K0E828|K0E828_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E972|K0E972_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECM7|K0ECM7_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|Q19TM6|Q19TM6_FRATU	99	periplasm	periplasmic space GO:0042597;
+tr|K0EBD4|K0EBD4_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E6V9|K0E6V9_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E9P9|K0E9P9_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0EBQ2|K0EBQ2_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Q5|K0E8Q5_FRATU	92	cytoplasm	cytoplasm GO:0005737
+tr|K0E7L5|K0E7L5_FRATU	81	cytoplasm	cytoplasm GO:0005737
+tr|K0E9I8|K0E9I8_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E738|K0E738_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E3Z3|K0E3Z3_FRATU	66	secreted	extracellular region GO:0005576;
+tr|K0E789|K0E789_FRATU	83	cytoplasm	cytoplasm GO:0005737
+tr|K0E3R4|K0E3R4_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E5Y9|K0E5Y9_FRATU	25	periplasm	periplasmic space GO:0042597;
+tr|K0E9E1|K0E9E1_FRATU	84	secreted	extracellular region GO:0005576;
+tr|K0E6Z7|K0E6Z7_FRATU	55	cytoplasm	cytoplasm GO:0005737
+tr|K0E5L1|K0E5L1_FRATU	94	cytoplasm	cytoplasm GO:0005737
+tr|K0ECK1|K0ECK1_FRATU	52	secreted	extracellular region GO:0005576;
+tr|K0ED16|K0ED16_FRATU	48	cytoplasm	cytoplasm GO:0005737
+tr|K0E9S5|K0E9S5_FRATU	65	cytoplasm	cytoplasm GO:0005737
+tr|K0EAM1|K0EAM1_FRATU	57	cytoplasm	cytoplasm GO:0005737
+tr|K0E3J6|K0E3J6_FRATU	67	secreted	extracellular region GO:0005576;
+tr|K0E9P7|K0E9P7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0ECH8|K0ECH8_FRATU	93	cytoplasm	cytoplasm GO:0005737
+tr|K0E5L4|K0E5L4_FRATU	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8R2|K0E8R2_FRATU	55	cytoplasm	cytoplasm GO:0005737
+tr|K0EAC5|K0EAC5_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E603|K0E603_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E8F7|K0E8F7_FRATU	68	cytoplasm	cytoplasm GO:0005737
+tr|K0E9K6|K0E9K6_FRATU	39	cytoplasm	cytoplasm GO:0005737
+tr|K0E5H6|K0E5H6_FRATU	39	secreted	extracellular region GO:0005576;
+tr|K0E480|K0E480_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E5C5|K0E5C5_FRATU	78	secreted	extracellular region GO:0005576;
+tr|K0E559|K0E559_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E5P9|K0E5P9_FRATU	75	cytoplasm	cytoplasm GO:0005737
+tr|K0E6S8|K0E6S8_FRATU	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6Y9|K0E6Y9_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E4K9|K0E4K9_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8Y3|K0E8Y3_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E7H4|K0E7H4_FRATU	98	cytoplasm	cytoplasm GO:0005737
+tr|K0E2E0|K0E2E0_FRATU	51	secreted	extracellular region GO:0005576;
+tr|K0E315|K0E315_FRATU	69	secreted	extracellular region GO:0005576;
+tr|K0E7F4|K0E7F4_FRATU	68	cytoplasm	cytoplasm GO:0005737
+tr|K0E6U7|K0E6U7_FRATU	57	cytoplasm	cytoplasm GO:0005737
+tr|K0EAP5|K0EAP5_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E8R3|K0E8R3_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E8U4|K0E8U4_FRATU	61	secreted	extracellular region GO:0005576;
+tr|K0E9B4|K0E9B4_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0EBL6|K0EBL6_FRATU	77	cytoplasm	cytoplasm GO:0005737
+tr|K0E468|K0E468_FRATU	30	secreted	extracellular region GO:0005576;
+tr|K0E6F9|K0E6F9_FRATU	95	cytoplasm	cytoplasm GO:0005737
+tr|K0E970|K0E970_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E215|K0E215_FRATU	90	cytoplasm	cytoplasm GO:0005737
+tr|K0EAN7|K0EAN7_FRATU	99	cytoplasm	cytoplasm GO:0005737
+tr|K0E3X8|K0E3X8_FRATU	22	secreted	extracellular region GO:0005576;
+tr|K0E842|K0E842_FRATU	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|K0E6U0|K0E6U0_FRATU	80	cytoplasm	cytoplasm GO:0005737
+tr|K0E451|K0E451_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E673|K0E673_FRATU	83	secreted	extracellular region GO:0005576;
+tr|K0E7W5|K0E7W5_FRATU	97	cytoplasm	cytoplasm GO:0005737
+tr|K0E8T7|K0E8T7_FRATU	100	cytoplasm	cytoplasm GO:0005737
+tr|K0E2V1|K0E2V1_FRATU	18	secreted	extracellular region GO:0005576;
+tr|K0E8F6|K0E8F6_FRATU	44	secreted	extracellular region GO:0005576;

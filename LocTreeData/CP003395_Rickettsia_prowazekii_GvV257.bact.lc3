@@ -1,0 +1,842 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|H8ND58|H8ND58_RICPO	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDI7|H8NDI7_RICPO	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCN8|H8NCN8_RICPO	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCE6|H8NCE6_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDH7|H8NDH7_RICPO	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND66|H8ND66_RICPO	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE17|H8NE17_RICPO	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDQ2|H8NDQ2_RICPO	28	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H8NDK6|H8NDK6_RICPO	19	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|H8NDZ2|H8NDZ2_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDK7|H8NDK7_RICPO	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NEA3|H8NEA3_RICPO	18	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NDX2|H8NDX2_RICPO	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCZ9|H8NCZ9_RICPO	9	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H8NE00|H8NE00_RICPO	24	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|H8ND95|H8ND95_RICPO	41	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCQ7|H8NCQ7_RICPO	11	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H8NCV9|H8NCV9_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCY3|H8NCY3_RICPO	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDT2|H8NDT2_RICPO	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE37|H8NE37_RICPO	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NDJ1|H8NDJ1_RICPO	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCZ8|H8NCZ8_RICPO	30	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|H8NDE2|H8NDE2_RICPO	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEC1|H8NEC1_RICPO	20	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NE55|H8NE55_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); peptidoglycan-based cell wall GO:0009274(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCR9|H8NCR9_RICPO	18	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEF6|H8NEF6_RICPO	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H8NDI3|H8NDI3_RICPO	17	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|H8NDC2|H8NDC2_RICPO	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H8NDE1|H8NDE1_RICPO	24	secreted	extracellular region GO:0005576(IEA);
+tr|H8NE95|H8NE95_RICPO	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCN6|H8NCN6_RICPO	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDE9|H8NDE9_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDQ9|H8NDQ9_RICPO	20	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|H8NDW9|H8NDW9_RICPO	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE21|H8NE21_RICPO	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|H8NCR5|H8NCR5_RICPO	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NEH5|H8NEH5_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDD2|H8NDD2_RICPO	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NDB2|H8NDB2_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCV7|H8NCV7_RICPO	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCC2|H8NCC2_RICPO	6	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NEB6|H8NEB6_RICPO	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE75|H8NE75_RICPO	18	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NEG9|H8NEG9_RICPO	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCE2|H8NCE2_RICPO	33	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NCK5|H8NCK5_RICPO	11	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|H8NCH5|H8NCH5_RICPO	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCY0|H8NCY0_RICPO	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND27|H8ND27_RICPO	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NE18|H8NE18_RICPO	52	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEF8|H8NEF8_RICPO	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCH4|H8NCH4_RICPO	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NCD7|H8NCD7_RICPO	20	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|H8NCV0|H8NCV0_RICPO	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|H8NE38|H8NE38_RICPO	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND68|H8ND68_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDZ7|H8NDZ7_RICPO	12	periplasm	periplasmic space GO:0042597(IDA);
+tr|H8NED8|H8NED8_RICPO	20	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NEB0|H8NEB0_RICPO	17	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H8NDA1|H8NDA1_RICPO	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDT0|H8NDT0_RICPO	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCG7|H8NCG7_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCN1|H8NCN1_RICPO	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCL3|H8NCL3_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|H8NDF9|H8NDF9_RICPO	46	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|H8NE24|H8NE24_RICPO	26	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H8ND91|H8ND91_RICPO	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND38|H8ND38_RICPO	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NC54|H8NC54_RICPO	5	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|H8NDI4|H8NDI4_RICPO	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCB3|H8NCB3_RICPO	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEC3|H8NEC3_RICPO	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NCN0|H8NCN0_RICPO	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND26|H8ND26_RICPO	44	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H8NCW1|H8NCW1_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDB8|H8NDB8_RICPO	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE43|H8NE43_RICPO	14	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|H8NDW5|H8NDW5_RICPO	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCL6|H8NCL6_RICPO	8	secreted	extracellular region GO:0005576(IEA);
+tr|H8NCW0|H8NCW0_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDR8|H8NDR8_RICPO	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND77|H8ND77_RICPO	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDH8|H8NDH8_RICPO	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NED2|H8NED2_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDF0|H8NDF0_RICPO	38	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H8NC50|H8NC50_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEF3|H8NEF3_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCL9|H8NCL9_RICPO	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCR2|H8NCR2_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDQ8|H8NDQ8_RICPO	15	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|H8NCJ3|H8NCJ3_RICPO	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NCN7|H8NCN7_RICPO	7	inner membrane	integral to plasma membrane GO:0005887(ISS);
+tr|H8NDM1|H8NDM1_RICPO	33	cytoplasm	cytosol GO:0005829(IBA);
+tr|H8NDD6|H8NDD6_RICPO	19	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NCV3|H8NCV3_RICPO	4	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCK7|H8NCK7_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCF6|H8NCF6_RICPO	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEA8|H8NEA8_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCA7|H8NCA7_RICPO	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEG5|H8NEG5_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND42|H8ND42_RICPO	21	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NE45|H8NE45_RICPO	37	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H8NE07|H8NE07_RICPO	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE66|H8NE66_RICPO	21	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H8NCJ5|H8NCJ5_RICPO	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NEF1|H8NEF1_RICPO	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCV2|H8NCV2_RICPO	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND50|H8ND50_RICPO	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC73|H8NC73_RICPO	61	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H8NDL3|H8NDL3_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDZ1|H8NDZ1_RICPO	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC76|H8NC76_RICPO	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDT9|H8NDT9_RICPO	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCZ5|H8NCZ5_RICPO	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDH5|H8NDH5_RICPO	37	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|H8NCZ3|H8NCZ3_RICPO	31	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NE14|H8NE14_RICPO	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCJ1|H8NCJ1_RICPO	13	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|H8NDC0|H8NDC0_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|H8NDH4|H8NDH4_RICPO	50	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|H8NCD0|H8NCD0_RICPO	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H8ND64|H8ND64_RICPO	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCX5|H8NCX5_RICPO	15	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|H8NDQ5|H8NDQ5_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H8NDN1|H8NDN1_RICPO	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NDZ3|H8NDZ3_RICPO	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8ND88|H8ND88_RICPO	30	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|H8NCG8|H8NCG8_RICPO	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDN2|H8NDN2_RICPO	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDR9|H8NDR9_RICPO	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IMP);
+tr|H8NCV1|H8NCV1_RICPO	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDA6|H8NDA6_RICPO	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEH1|H8NEH1_RICPO	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NDQ1|H8NDQ1_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCR8|H8NCR8_RICPO	6	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDK9|H8NDK9_RICPO	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEE5|H8NEE5_RICPO	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NED7|H8NED7_RICPO	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCM1|H8NCM1_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEE4|H8NEE4_RICPO	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEH8|H8NEH8_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCF3|H8NCF3_RICPO	8	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NC69|H8NC69_RICPO	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDX8|H8NDX8_RICPO	30	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|H8NDT3|H8NDT3_RICPO	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8ND43|H8ND43_RICPO	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCL1|H8NCL1_RICPO	22	periplasm	periplasmic space GO:0042597(IDA);
+tr|H8NC98|H8NC98_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCC0|H8NCC0_RICPO	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NCP7|H8NCP7_RICPO	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC61|H8NC61_RICPO	3	secreted	cell wall GO:0005618(IDA); cytosol GO:0005829(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NDQ4|H8NDQ4_RICPO	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NCB0|H8NCB0_RICPO	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NCB4|H8NCB4_RICPO	12	secreted	host cell membrane GO:0033644(IEA); membrane GO:0016020(IEA);
+tr|H8NE31|H8NE31_RICPO	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NDX0|H8NDX0_RICPO	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEE2|H8NEE2_RICPO	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDR3|H8NDR3_RICPO	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCD2|H8NCD2_RICPO	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCF1|H8NCF1_RICPO	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEB3|H8NEB3_RICPO	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCX7|H8NCX7_RICPO	25	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NDN3|H8NDN3_RICPO	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|H8NDC3|H8NDC3_RICPO	17	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|H8NC64|H8NC64_RICPO	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDX1|H8NDX1_RICPO	38	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NCH7|H8NCH7_RICPO	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDS7|H8NDS7_RICPO	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDK0|H8NDK0_RICPO	26	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|H8NCT0|H8NCT0_RICPO	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCU1|H8NCU1_RICPO	32	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NCG2|H8NCG2_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCI8|H8NCI8_RICPO	27	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NDL0|H8NDL0_RICPO	8	secreted	extracellular region GO:0005576(IEA); outer membrane GO:0019867(IEA);
+tr|H8ND04|H8ND04_RICPO	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE11|H8NE11_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDK5|H8NDK5_RICPO	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND76|H8ND76_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDU5|H8NDU5_RICPO	15	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NC81|H8NC81_RICPO	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NEB9|H8NEB9_RICPO	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCK4|H8NCK4_RICPO	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8ND46|H8ND46_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCQ5|H8NCQ5_RICPO	17	secreted	extracellular region GO:0005576(IEA);
+tr|H8NDK3|H8NDK3_RICPO	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H8ND48|H8ND48_RICPO	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND98|H8ND98_RICPO	23	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H8NDA5|H8NDA5_RICPO	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCG0|H8NCG0_RICPO	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDJ0|H8NDJ0_RICPO	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NE64|H8NE64_RICPO	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDR2|H8NDR2_RICPO	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|H8NE70|H8NE70_RICPO	14	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|H8NC78|H8NC78_RICPO	18	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H8NCM6|H8NCM6_RICPO	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCU2|H8NCU2_RICPO	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDK1|H8NDK1_RICPO	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8ND36|H8ND36_RICPO	26	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NEB1|H8NEB1_RICPO	13	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|H8NE76|H8NE76_RICPO	15	inner membrane	cytochrome complex GO:0070069(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NE22|H8NE22_RICPO	28	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8ND03|H8ND03_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCE8|H8NCE8_RICPO	3	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDR0|H8NDR0_RICPO	27	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|H8NDM0|H8NDM0_RICPO	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NDX4|H8NDX4_RICPO	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND72|H8ND72_RICPO	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDY2|H8NDY2_RICPO	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDE0|H8NDE0_RICPO	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|H8NCC8|H8NCC8_RICPO	15	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|H8NE32|H8NE32_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCZ2|H8NCZ2_RICPO	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCN4|H8NCN4_RICPO	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCE3|H8NCE3_RICPO	14	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H8NEA9|H8NEA9_RICPO	36	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NCF5|H8NCF5_RICPO	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NE10|H8NE10_RICPO	20	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|H8NDX9|H8NDX9_RICPO	24	inner membrane	integral to plasma membrane GO:0005887(TAS);
+tr|H8NC75|H8NC75_RICPO	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE15|H8NE15_RICPO	18	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCD3|H8NCD3_RICPO	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE96|H8NE96_RICPO	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NDD4|H8NDD4_RICPO	19	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H8NE09|H8NE09_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE01|H8NE01_RICPO	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND59|H8ND59_RICPO	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8ND67|H8ND67_RICPO	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCI7|H8NCI7_RICPO	54	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NEA2|H8NEA2_RICPO	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|H8NE88|H8NE88_RICPO	27	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|H8NDJ5|H8NDJ5_RICPO	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND25|H8ND25_RICPO	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE04|H8NE04_RICPO	14	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|H8NCC3|H8NCC3_RICPO	22	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|H8ND62|H8ND62_RICPO	39	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NEB8|H8NEB8_RICPO	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H8NE19|H8NE19_RICPO	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND39|H8ND39_RICPO	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NCI1|H8NCI1_RICPO	37	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|H8ND05|H8ND05_RICPO	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND37|H8ND37_RICPO	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NCY2|H8NCY2_RICPO	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCR1|H8NCR1_RICPO	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCU7|H8NCU7_RICPO	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND07|H8ND07_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE56|H8NE56_RICPO	22	secreted	extracellular region GO:0005576(IEA);
+tr|H8NDD9|H8NDD9_RICPO	53	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|H8NE73|H8NE73_RICPO	19	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|H8NCS5|H8NCS5_RICPO	45	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|H8NCX0|H8NCX0_RICPO	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDV8|H8NDV8_RICPO	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|H8NDR4|H8NDR4_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC87|H8NC87_RICPO	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDC1|H8NDC1_RICPO	43	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|H8NCU6|H8NCU6_RICPO	50	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H8NCV4|H8NCV4_RICPO	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDW6|H8NDW6_RICPO	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCD4|H8NCD4_RICPO	12	secreted	extracellular region GO:0005576(IEA);
+tr|H8NCD5|H8NCD5_RICPO	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCF8|H8NCF8_RICPO	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NED4|H8NED4_RICPO	15	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|H8NE80|H8NE80_RICPO	100	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCB8|H8NCB8_RICPO	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND44|H8ND44_RICPO	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCE0|H8NCE0_RICPO	59	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCE9|H8NCE9_RICPO	42	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8ND33|H8ND33_RICPO	47	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NDC5|H8NDC5_RICPO	14	periplasm	periplasmic space GO:0042597(IDA);
+tr|H8NCD8|H8NCD8_RICPO	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND02|H8ND02_RICPO	89	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC77|H8NC77_RICPO	17	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NCF0|H8NCF0_RICPO	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCR3|H8NCR3_RICPO	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCB6|H8NCB6_RICPO	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|H8NDU0|H8NDU0_RICPO	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCA1|H8NCA1_RICPO	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDC7|H8NDC7_RICPO	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND47|H8ND47_RICPO	32	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|H8NDZ5|H8NDZ5_RICPO	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDT5|H8NDT5_RICPO	12	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|H8NDJ3|H8NDJ3_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE06|H8NE06_RICPO	58	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NCP8|H8NCP8_RICPO	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDK8|H8NDK8_RICPO	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND86|H8ND86_RICPO	7	cytoplasm	ribosome GO:0005840(IEA);
+tr|H8NC89|H8NC89_RICPO	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDA2|H8NDA2_RICPO	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCY7|H8NCY7_RICPO	5	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCG1|H8NCG1_RICPO	26	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|H8NEH0|H8NEH0_RICPO	26	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NDZ4|H8NDZ4_RICPO	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND08|H8ND08_RICPO	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NEH4|H8NEH4_RICPO	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCY1|H8NCY1_RICPO	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE78|H8NE78_RICPO	5	periplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|H8NCX9|H8NCX9_RICPO	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCN5|H8NCN5_RICPO	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NDU2|H8NDU2_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDY9|H8NDY9_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCG5|H8NCG5_RICPO	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDP6|H8NDP6_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND14|H8ND14_RICPO	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|H8NDN0|H8NDN0_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDH2|H8NDH2_RICPO	76	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC60|H8NC60_RICPO	37	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H8NCR7|H8NCR7_RICPO	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC74|H8NC74_RICPO	31	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|H8NE20|H8NE20_RICPO	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE83|H8NE83_RICPO	6	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND19|H8ND19_RICPO	13	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|H8NC83|H8NC83_RICPO	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND53|H8ND53_RICPO	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDB1|H8NDB1_RICPO	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCS4|H8NCS4_RICPO	38	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|H8NE54|H8NE54_RICPO	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8ND84|H8ND84_RICPO	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NDJ4|H8NDJ4_RICPO	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8ND65|H8ND65_RICPO	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCA3|H8NCA3_RICPO	42	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|H8NDL1|H8NDL1_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDY4|H8NDY4_RICPO	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NED3|H8NED3_RICPO	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDC6|H8NDC6_RICPO	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCX3|H8NCX3_RICPO	36	cytoplasm	cell wall GO:0005618(IDA); cytoplasm GO:0005737(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NCX8|H8NCX8_RICPO	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDQ3|H8NDQ3_RICPO	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE34|H8NE34_RICPO	38	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|H8NDI6|H8NDI6_RICPO	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|H8NCS0|H8NCS0_RICPO	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|H8NDA7|H8NDA7_RICPO	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE35|H8NE35_RICPO	23	periplasm	periplasmic space GO:0042597(IEA);
+tr|H8NE51|H8NE51_RICPO	41	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NEA7|H8NEA7_RICPO	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDR5|H8NDR5_RICPO	100	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NCA4|H8NCA4_RICPO	24	cytoplasm	cytosol GO:0005829(IDA);
+tr|H8NCT4|H8NCT4_RICPO	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NC53|H8NC53_RICPO	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCY4|H8NCY4_RICPO	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NE36|H8NE36_RICPO	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDW7|H8NDW7_RICPO	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NDW2|H8NDW2_RICPO	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|H8NCF4|H8NCF4_RICPO	6	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDM3|H8NDM3_RICPO	30	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|H8NDZ9|H8NDZ9_RICPO	9	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|H8NEA1|H8NEA1_RICPO	12	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|H8NCR4|H8NCR4_RICPO	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|H8NDQ0|H8NDQ0_RICPO	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NDU9|H8NDU9_RICPO	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|H8NE23|H8NE23_RICPO	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|H8NDL4|H8NDL4_RICPO	79	secreted	extracellular region GO:0005576;
+tr|H8NE49|H8NE49_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF7|H8NEF7_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ6|H8NCJ6_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE16|H8NE16_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDW0|H8NDW0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND70|H8ND70_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDY5|H8NDY5_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NE94|H8NE94_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ9|H8NCQ9_RICPO	46	secreted	extracellular region GO:0005576;
+tr|H8NDJ6|H8NDJ6_RICPO	54	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD0|H8NDD0_RICPO	24	secreted	extracellular region GO:0005576;
+tr|H8ND23|H8ND23_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDY8|H8NDY8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ0|H8NCJ0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDT7|H8NDT7_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8ND28|H8ND28_RICPO	84	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDS4|H8NDS4_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8ND11|H8ND11_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCL0|H8NCL0_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDE5|H8NDE5_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ7|H8NCJ7_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NE33|H8NE33_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS3|H8NCS3_RICPO	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCS8|H8NCS8_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NC95|H8NC95_RICPO	47	secreted	extracellular region GO:0005576;
+tr|H8NDG7|H8NDG7_RICPO	33	secreted	extracellular region GO:0005576;
+tr|H8NCT8|H8NCT8_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ8|H8NCJ8_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NC71|H8NC71_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG5|H8NDG5_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ2|H8NCQ2_RICPO	84	cytoplasm	cytoplasm GO:0005737
+tr|H8ND29|H8ND29_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU7|H8NDU7_RICPO	45	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG8|H8NDG8_RICPO	78	cytoplasm	cytoplasm GO:0005737
+tr|H8NEB4|H8NEB4_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEH6|H8NEH6_RICPO	61	cytoplasm	cytoplasm GO:0005737
+tr|H8ND45|H8ND45_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDM9|H8NDM9_RICPO	61	secreted	extracellular region GO:0005576;
+tr|H8NDL7|H8NDL7_RICPO	65	cytoplasm	cytoplasm GO:0005737
+tr|H8NE58|H8NE58_RICPO	88	periplasm	periplasmic space GO:0042597;
+tr|H8ND99|H8ND99_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NC72|H8NC72_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE7|H8NEE7_RICPO	40	secreted	extracellular region GO:0005576;
+tr|H8NDV4|H8NDV4_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NDP1|H8NDP1_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDW3|H8NDW3_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCE7|H8NCE7_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8ND16|H8ND16_RICPO	70	periplasm	periplasmic space GO:0042597;
+tr|H8NCC9|H8NCC9_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH1|H8NCH1_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDI2|H8NDI2_RICPO	57	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H8ND89|H8ND89_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NC82|H8NC82_RICPO	90	cytoplasm	cytoplasm GO:0005737
+tr|H8NE05|H8NE05_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD3|H8NDD3_RICPO	84	cytoplasm	cytoplasm GO:0005737
+tr|H8NCW4|H8NCW4_RICPO	62	cytoplasm	cytoplasm GO:0005737
+tr|H8NE67|H8NE67_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDX3|H8NDX3_RICPO	93	cytoplasm	cytoplasm GO:0005737
+tr|H8NDV9|H8NDV9_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCR6|H8NCR6_RICPO	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCX1|H8NCX1_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NCU8|H8NCU8_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDQ7|H8NDQ7_RICPO	82	cytoplasm	cytoplasm GO:0005737
+tr|H8NDA9|H8NDA9_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCP4|H8NCP4_RICPO	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND22|H8ND22_RICPO	53	cytoplasm	cytoplasm GO:0005737
+tr|H8NDN6|H8NDN6_RICPO	38	secreted	extracellular region GO:0005576;
+tr|H8ND24|H8ND24_RICPO	79	secreted	extracellular region GO:0005576;
+tr|H8NDH9|H8NDH9_RICPO	34	secreted	extracellular region GO:0005576;
+tr|H8ND40|H8ND40_RICPO	88	secreted	extracellular region GO:0005576;
+tr|H8NCP5|H8NCP5_RICPO	41	periplasm	periplasmic space GO:0042597;
+tr|H8NCI9|H8NCI9_RICPO	96	periplasm	periplasmic space GO:0042597;
+tr|H8NEC6|H8NEC6_RICPO	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEC4|H8NEC4_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8ND18|H8ND18_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEC9|H8NEC9_RICPO	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND54|H8ND54_RICPO	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEG2|H8NEG2_RICPO	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCY6|H8NCY6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDS3|H8NDS3_RICPO	88	cytoplasm	cytoplasm GO:0005737
+tr|H8NCB1|H8NCB1_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCR0|H8NCR0_RICPO	41	secreted	extracellular region GO:0005576;
+tr|H8NDB3|H8NDB3_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE82|H8NE82_RICPO	51	cytoplasm	cytoplasm GO:0005737
+tr|H8NE91|H8NE91_RICPO	57	secreted	extracellular region GO:0005576;
+tr|H8NDV5|H8NDV5_RICPO	44	cytoplasm	cytoplasm GO:0005737
+tr|H8NE89|H8NE89_RICPO	69	periplasm	periplasmic space GO:0042597;
+tr|H8NDP2|H8NDP2_RICPO	66	secreted	extracellular region GO:0005576;
+tr|H8NDM6|H8NDM6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ4|H8NCQ4_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NE42|H8NE42_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF9|H8NEF9_RICPO	75	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF0|H8NEF0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCW7|H8NCW7_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEG4|H8NEG4_RICPO	81	cytoplasm	cytoplasm GO:0005737
+tr|H8NDW4|H8NDW4_RICPO	84	cytoplasm	cytoplasm GO:0005737
+tr|H8ND51|H8ND51_RICPO	78	cytoplasm	cytoplasm GO:0005737
+tr|H8NED6|H8NED6_RICPO	83	cytoplasm	cytoplasm GO:0005737
+tr|H8NDZ8|H8NDZ8_RICPO	81	cytoplasm	cytoplasm GO:0005737
+tr|H8NDC9|H8NDC9_RICPO	61	cytoplasm	cytoplasm GO:0005737
+tr|H8NCC6|H8NCC6_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS7|H8NCS7_RICPO	27	secreted	extracellular region GO:0005576;
+tr|H8NC67|H8NC67_RICPO	57	cytoplasm	cytoplasm GO:0005737
+tr|H8NCL7|H8NCL7_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NC56|H8NC56_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDB4|H8NDB4_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDB0|H8NDB0_RICPO	66	cytoplasm	cytoplasm GO:0005737
+tr|H8NCL8|H8NCL8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEG7|H8NEG7_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDM8|H8NDM8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NE44|H8NE44_RICPO	60	periplasm	periplasmic space GO:0042597;
+tr|H8NCT6|H8NCT6_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDJ2|H8NDJ2_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDE7|H8NDE7_RICPO	61	cytoplasm	cytoplasm GO:0005737
+tr|H8NE52|H8NE52_RICPO	27	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDV0|H8NDV0_RICPO	63	secreted	extracellular region GO:0005576;
+tr|H8NCN2|H8NCN2_RICPO	60	secreted	extracellular region GO:0005576;
+tr|H8NCM8|H8NCM8_RICPO	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE81|H8NE81_RICPO	65	secreted	extracellular region GO:0005576;
+tr|H8ND81|H8ND81_RICPO	68	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG4|H8NDG4_RICPO	88	cytoplasm	cytoplasm GO:0005737
+tr|H8NCY5|H8NCY5_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG9|H8NDG9_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NE72|H8NE72_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NC99|H8NC99_RICPO	55	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE9|H8NEE9_RICPO	86	secreted	extracellular region GO:0005576;
+tr|H8NDS9|H8NDS9_RICPO	34	cytoplasm	cytoplasm GO:0005737
+tr|H8NDJ8|H8NDJ8_RICPO	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCW2|H8NCW2_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDA0|H8NDA0_RICPO	77	cytoplasm	cytoplasm GO:0005737
+tr|H8NCI0|H8NCI0_RICPO	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDB7|H8NDB7_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCD6|H8NCD6_RICPO	71	secreted	extracellular region GO:0005576;
+tr|H8NDB9|H8NDB9_RICPO	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCW3|H8NCW3_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ2|H8NCJ2_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDB5|H8NDB5_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND71|H8ND71_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDZ0|H8NDZ0_RICPO	77	secreted	extracellular region GO:0005576;
+tr|H8NCD9|H8NCD9_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCE1|H8NCE1_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NE30|H8NE30_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NC62|H8NC62_RICPO	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND82|H8ND82_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCT3|H8NCT3_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDH1|H8NDH1_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCA6|H8NCA6_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCN3|H8NCN3_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCK1|H8NCK1_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF4|H8NDF4_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NCU5|H8NCU5_RICPO	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCG3|H8NCG3_RICPO	22	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCP2|H8NCP2_RICPO	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEH3|H8NEH3_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD1|H8NDD1_RICPO	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDG2|H8NDG2_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NC86|H8NC86_RICPO	55	secreted	extracellular region GO:0005576;
+tr|H8NDK4|H8NDK4_RICPO	71	secreted	extracellular region GO:0005576;
+tr|H8ND15|H8ND15_RICPO	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCQ1|H8NCQ1_RICPO	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEG0|H8NEG0_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NC65|H8NC65_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF8|H8NDF8_RICPO	89	cytoplasm	cytoplasm GO:0005737
+tr|H8NCA9|H8NCA9_RICPO	21	periplasm	periplasmic space GO:0042597;
+tr|H8NDY6|H8NDY6_RICPO	37	secreted	extracellular region GO:0005576;
+tr|H8NCH0|H8NCH0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDL5|H8NDL5_RICPO	72	secreted	extracellular region GO:0005576;
+tr|H8NCI5|H8NCI5_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND74|H8ND74_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NED0|H8NED0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCB2|H8NCB2_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND73|H8ND73_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDZ6|H8NDZ6_RICPO	47	secreted	extracellular region GO:0005576;
+tr|H8NDB6|H8NDB6_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCE5|H8NCE5_RICPO	41	cytoplasm	cytoplasm GO:0005737
+tr|H8ND12|H8ND12_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCE4|H8NCE4_RICPO	69	cytoplasm	cytoplasm GO:0005737
+tr|H8NE25|H8NE25_RICPO	59	secreted	extracellular region GO:0005576;
+tr|H8ND56|H8ND56_RICPO	99	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H8NCB7|H8NCB7_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCB9|H8NCB9_RICPO	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDX6|H8NDX6_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCI2|H8NCI2_RICPO	75	cytoplasm	cytoplasm GO:0005737
+tr|H8NC68|H8NC68_RICPO	80	cytoplasm	cytoplasm GO:0005737
+tr|H8NDT1|H8NDT1_RICPO	49	cytoplasm	cytoplasm GO:0005737
+tr|H8NDI8|H8NDI8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCT2|H8NCT2_RICPO	72	secreted	extracellular region GO:0005576;
+tr|H8NCP9|H8NCP9_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NE13|H8NE13_RICPO	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCC7|H8NCC7_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDT8|H8NDT8_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDS6|H8NDS6_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCK2|H8NCK2_RICPO	54	secreted	extracellular region GO:0005576;
+tr|H8NDM5|H8NDM5_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8ND34|H8ND34_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NDJ7|H8NDJ7_RICPO	20	secreted	extracellular region GO:0005576;
+tr|H8NCM9|H8NCM9_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NE03|H8NE03_RICPO	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDH0|H8NDH0_RICPO	76	cytoplasm	cytoplasm GO:0005737
+tr|H8NE08|H8NE08_RICPO	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NC88|H8NC88_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH3|H8NCH3_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NCF2|H8NCF2_RICPO	90	cytoplasm	cytoplasm GO:0005737
+tr|H8ND35|H8ND35_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NCM0|H8NCM0_RICPO	41	cytoplasm	cytoplasm GO:0005737
+tr|H8NCZ7|H8NCZ7_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8ND06|H8ND06_RICPO	77	cytoplasm	cytoplasm GO:0005737
+tr|H8NDN8|H8NDN8_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND93|H8ND93_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NC84|H8NC84_RICPO	33	secreted	extracellular region GO:0005576;
+tr|H8NDP5|H8NDP5_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8ND94|H8ND94_RICPO	90	cytoplasm	cytoplasm GO:0005737
+tr|H8NE77|H8NE77_RICPO	49	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE6|H8NEE6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF3|H8NDF3_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NEC8|H8NEC8_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND01|H8ND01_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NC91|H8NC91_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDA3|H8NDA3_RICPO	58	periplasm	periplasmic space GO:0042597;
+tr|H8NEC0|H8NEC0_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NE60|H8NE60_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG6|H8NDG6_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NDN7|H8NDN7_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF4|H8NEF4_RICPO	89	cytoplasm	cytoplasm GO:0005737
+tr|H8NCG9|H8NCG9_RICPO	77	cytoplasm	cytoplasm GO:0005737
+tr|H8NC57|H8NC57_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND78|H8ND78_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDY3|H8NDY3_RICPO	53	cytoplasm	cytoplasm GO:0005737
+tr|H8NDL6|H8NDL6_RICPO	51	secreted	extracellular region GO:0005576;
+tr|H8ND75|H8ND75_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCP3|H8NCP3_RICPO	43	secreted	extracellular region GO:0005576;
+tr|H8NDF2|H8NDF2_RICPO	53	cytoplasm	cytoplasm GO:0005737
+tr|H8NE84|H8NE84_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCK8|H8NCK8_RICPO	67	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCI6|H8NCI6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NC59|H8NC59_RICPO	79	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE3|H8NEE3_RICPO	81	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H8ND17|H8ND17_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS2|H8NCS2_RICPO	57	cytoplasm	cytoplasm GO:0005737
+tr|H8NE65|H8NE65_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCW9|H8NCW9_RICPO	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDV2|H8NDV2_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NEA4|H8NEA4_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDG0|H8NDG0_RICPO	66	cytoplasm	cytoplasm GO:0005737
+tr|H8NE90|H8NE90_RICPO	64	periplasm	periplasmic space GO:0042597;
+tr|H8NE28|H8NE28_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NE79|H8NE79_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NE41|H8NE41_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NC85|H8NC85_RICPO	83	cytoplasm	cytoplasm GO:0005737
+tr|H8NDN4|H8NDN4_RICPO	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCX2|H8NCX2_RICPO	63	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF1|H8NDF1_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ3|H8NCQ3_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH8|H8NCH8_RICPO	80	secreted	extracellular region GO:0005576;
+tr|H8NDX5|H8NDX5_RICPO	80	cytoplasm	cytoplasm GO:0005737
+tr|H8ND97|H8ND97_RICPO	51	secreted	extracellular region GO:0005576;
+tr|H8NCZ4|H8NCZ4_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND00|H8ND00_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDH6|H8NDH6_RICPO	83	cytoplasm	cytoplasm GO:0005737
+tr|H8NED5|H8NED5_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE47|H8NE47_RICPO	82	secreted	extracellular region GO:0005576;
+tr|H8NCZ1|H8NCZ1_RICPO	43	cytoplasm	cytoplasm GO:0005737
+tr|H8NE12|H8NE12_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NDY1|H8NDY1_RICPO	37	secreted	extracellular region GO:0005576;
+tr|H8NED9|H8NED9_RICPO	80	cytoplasm	cytoplasm GO:0005737
+tr|H8NCL4|H8NCL4_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND49|H8ND49_RICPO	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE93|H8NE93_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NE29|H8NE29_RICPO	42	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ8|H8NCQ8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDP9|H8NDP9_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDE8|H8NDE8_RICPO	83	cytoplasm	cytoplasm GO:0005737
+tr|H8NC55|H8NC55_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEB2|H8NEB2_RICPO	57	secreted	extracellular region GO:0005576;
+tr|H8NEC5|H8NEC5_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCI4|H8NCI4_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDS8|H8NDS8_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU8|H8NDU8_RICPO	36	cytoplasm	cytoplasm GO:0005737
+tr|H8NDI0|H8NDI0_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDJ9|H8NDJ9_RICPO	89	secreted	extracellular region GO:0005576;
+tr|H8NE92|H8NE92_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NEH2|H8NEH2_RICPO	54	cytoplasm	cytoplasm GO:0005737
+tr|H8NE68|H8NE68_RICPO	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NE40|H8NE40_RICPO	86	cytoplasm	cytoplasm GO:0005737
+tr|H8NDY0|H8NDY0_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NE46|H8NE46_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCM5|H8NCM5_RICPO	51	secreted	extracellular region GO:0005576;
+tr|H8NDP3|H8NDP3_RICPO	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND09|H8ND09_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCM2|H8NCM2_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCT1|H8NCT1_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCV5|H8NCV5_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NDM7|H8NDM7_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND87|H8ND87_RICPO	57	secreted	extracellular region GO:0005576;
+tr|H8NDP4|H8NDP4_RICPO	40	cytoplasm	cytoplasm GO:0005737
+tr|H8NDQ6|H8NDQ6_RICPO	89	cytoplasm	cytoplasm GO:0005737
+tr|H8NEA6|H8NEA6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDI5|H8NDI5_RICPO	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDT6|H8NDT6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCT9|H8NCT9_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NCZ0|H8NCZ0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDW1|H8NDW1_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND32|H8ND32_RICPO	78	cytoplasm	cytoplasm GO:0005737
+tr|H8NCD1|H8NCD1_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8ND79|H8ND79_RICPO	46	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH9|H8NCH9_RICPO	31	secreted	extracellular region GO:0005576;
+tr|H8NEC2|H8NEC2_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF2|H8NEF2_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH2|H8NCH2_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCK0|H8NCK0_RICPO	90	cytoplasm	cytoplasm GO:0005737
+tr|H8NDS5|H8NDS5_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NC79|H8NC79_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE8|H8NEE8_RICPO	52	periplasm	periplasmic space GO:0042597;
+tr|H8NCA5|H8NCA5_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND55|H8ND55_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCX6|H8NCX6_RICPO	75	secreted	extracellular region GO:0005576;
+tr|H8NC96|H8NC96_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEA5|H8NEA5_RICPO	82	secreted	extracellular region GO:0005576;
+tr|H8ND21|H8ND21_RICPO	45	periplasm	periplasmic space GO:0042597;
+tr|H8NDS2|H8NDS2_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND80|H8ND80_RICPO	78	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS1|H8NCS1_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NC94|H8NC94_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NCI3|H8NCI3_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD8|H8NDD8_RICPO	87	cytoplasm	cytoplasm GO:0005737
+tr|H8NCG4|H8NCG4_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU4|H8NDU4_RICPO	84	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H8NCU4|H8NCU4_RICPO	58	secreted	extracellular region GO:0005576;
+tr|H8NE50|H8NE50_RICPO	41	cytoplasm	cytoplasm GO:0005737
+tr|H8NC70|H8NC70_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NEG6|H8NEG6_RICPO	71	cytoplasm	cytoplasm GO:0005737
+tr|H8NDW8|H8NDW8_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDY7|H8NDY7_RICPO	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDI1|H8NDI1_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NC90|H8NC90_RICPO	42	cytoplasm	cytoplasm GO:0005737
+tr|H8NDE4|H8NDE4_RICPO	28	cytoplasm	cytoplasm GO:0005737
+tr|H8NCU9|H8NCU9_RICPO	95	cytoplasm	cytoplasm GO:0005737
+tr|H8NE85|H8NE85_RICPO	92	secreted	extracellular region GO:0005576;
+tr|H8NE99|H8NE99_RICPO	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCK6|H8NCK6_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCW8|H8NCW8_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NDV7|H8NDV7_RICPO	80	secreted	extracellular region GO:0005576;
+tr|H8ND30|H8ND30_RICPO	63	cytoplasm	cytoplasm GO:0005737
+tr|H8NCP1|H8NCP1_RICPO	75	periplasm	periplasmic space GO:0042597;
+tr|H8NE48|H8NE48_RICPO	19	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCG6|H8NCG6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCK9|H8NCK9_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCW6|H8NCW6_RICPO	63	cytoplasm	cytoplasm GO:0005737
+tr|H8NCT5|H8NCT5_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NDL9|H8NDL9_RICPO	52	secreted	extracellular region GO:0005576;
+tr|H8NCW5|H8NCW5_RICPO	75	cytoplasm	cytoplasm GO:0005737
+tr|H8NCY9|H8NCY9_RICPO	45	secreted	extracellular region GO:0005576;
+tr|H8ND52|H8ND52_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCZ6|H8NCZ6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NEF5|H8NEF5_RICPO	93	cytoplasm	cytoplasm GO:0005737
+tr|H8NCC5|H8NCC5_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND60|H8ND60_RICPO	89	cytoplasm	cytoplasm GO:0005737
+tr|H8NDR7|H8NDR7_RICPO	80	cytoplasm	cytoplasm GO:0005737
+tr|H8NE53|H8NE53_RICPO	16	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDP0|H8NDP0_RICPO	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDN5|H8NDN5_RICPO	69	cytoplasm	cytoplasm GO:0005737
+tr|H8ND13|H8ND13_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDL2|H8NDL2_RICPO	68	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU1|H8NDU1_RICPO	59	cytoplasm	cytoplasm GO:0005737
+tr|H8NDE6|H8NDE6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCB5|H8NCB5_RICPO	43	secreted	extracellular region GO:0005576;
+tr|H8NCU3|H8NCU3_RICPO	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDI9|H8NDI9_RICPO	84	cytoplasm	cytoplasm GO:0005737
+tr|H8ND69|H8ND69_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NE57|H8NE57_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEG8|H8NEG8_RICPO	67	secreted	extracellular region GO:0005576;
+tr|H8ND83|H8ND83_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NE63|H8NE63_RICPO	56	cytoplasm	cytoplasm GO:0005737
+tr|H8NE86|H8NE86_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ9|H8NCJ9_RICPO	72	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDP7|H8NDP7_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCC4|H8NCC4_RICPO	88	periplasm	periplasmic space GO:0042597;
+tr|H8NCQ6|H8NCQ6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDL8|H8NDL8_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCU0|H8NCU0_RICPO	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND85|H8ND85_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEB5|H8NEB5_RICPO	70	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU3|H8NDU3_RICPO	34	secreted	extracellular region GO:0005576;
+tr|H8NE26|H8NE26_RICPO	78	secreted	extracellular region GO:0005576;
+tr|H8NDG1|H8NDG1_RICPO	74	cytoplasm	cytoplasm GO:0005737
+tr|H8NCF9|H8NCF9_RICPO	39	secreted	extracellular region GO:0005576;
+tr|H8NDS1|H8NDS1_RICPO	47	cytoplasm	cytoplasm GO:0005737
+tr|H8NDM4|H8NDM4_RICPO	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDV6|H8NDV6_RICPO	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCK3|H8NCK3_RICPO	88	cytoplasm	cytoplasm GO:0005737
+tr|H8NDT4|H8NDT4_RICPO	35	cytoplasm	cytoplasm GO:0005737
+tr|H8NC80|H8NC80_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCA0|H8NCA0_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NE69|H8NE69_RICPO	90	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF5|H8NDF5_RICPO	93	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS6|H8NCS6_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NC93|H8NC93_RICPO	93	cytoplasm	cytoplasm GO:0005737
+tr|H8NDV1|H8NDV1_RICPO	84	cytoplasm	cytoplasm GO:0005737
+tr|H8NE61|H8NE61_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NDU6|H8NDU6_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NEH7|H8NEH7_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDH3|H8NDH3_RICPO	65	cytoplasm	cytoplasm GO:0005737
+tr|H8NE27|H8NE27_RICPO	68	cytoplasm	cytoplasm GO:0005737
+tr|H8NC51|H8NC51_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NC66|H8NC66_RICPO	51	secreted	extracellular region GO:0005576;
+tr|H8NCA2|H8NCA2_RICPO	34	cytoplasm	cytoplasm GO:0005737
+tr|H8NDA4|H8NDA4_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCM4|H8NCM4_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEG1|H8NEG1_RICPO	72	cytoplasm	cytoplasm GO:0005737
+tr|H8NE59|H8NE59_RICPO	91	secreted	extracellular region GO:0005576;
+tr|H8NC52|H8NC52_RICPO	69	cytoplasm	cytoplasm GO:0005737
+tr|H8NC58|H8NC58_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8ND57|H8ND57_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NCH6|H8NCH6_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NEE1|H8NEE1_RICPO	34	secreted	extracellular region GO:0005576;
+tr|H8NE71|H8NE71_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NCV6|H8NCV6_RICPO	76	cytoplasm	cytoplasm GO:0005737
+tr|H8NEG3|H8NEG3_RICPO	76	secreted	extracellular region GO:0005576;
+tr|H8NCV8|H8NCV8_RICPO	88	cytoplasm	cytoplasm GO:0005737
+tr|H8NDC8|H8NDC8_RICPO	69	periplasm	periplasmic space GO:0042597;
+tr|H8ND90|H8ND90_RICPO	34	secreted	extracellular region GO:0005576;
+tr|H8NEB7|H8NEB7_RICPO	92	cytoplasm	cytoplasm GO:0005737
+tr|H8NCQ0|H8NCQ0_RICPO	36	secreted	extracellular region GO:0005576;
+tr|H8NDS0|H8NDS0_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NE74|H8NE74_RICPO	75	secreted	extracellular region GO:0005576;
+tr|H8NEE0|H8NEE0_RICPO	54	secreted	extracellular region GO:0005576;
+tr|H8NDV3|H8NDV3_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND92|H8ND92_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NCY8|H8NCY8_RICPO	97	cytoplasm	cytoplasm GO:0005737
+tr|H8NDP8|H8NDP8_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8ND20|H8ND20_RICPO	57	secreted	extracellular region GO:0005576;
+tr|H8NC92|H8NC92_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCM7|H8NCM7_RICPO	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCN9|H8NCN9_RICPO	49	secreted	extracellular region GO:0005576;
+tr|H8NDA8|H8NDA8_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND10|H8ND10_RICPO	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NC97|H8NC97_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NE02|H8NE02_RICPO	56	cytoplasm	cytoplasm GO:0005737
+tr|H8NCT7|H8NCT7_RICPO	54	periplasm	periplasmic space GO:0042597;
+tr|H8NCM3|H8NCM3_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NEA0|H8NEA0_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NCP0|H8NCP0_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDK2|H8NDK2_RICPO	75	cytoplasm	cytoplasm GO:0005737
+tr|H8NCX4|H8NCX4_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8ND63|H8ND63_RICPO	97	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|H8NDG3|H8NDG3_RICPO	94	cytoplasm	cytoplasm GO:0005737
+tr|H8NCA8|H8NCA8_RICPO	71	secreted	extracellular region GO:0005576;
+tr|H8ND96|H8ND96_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8ND31|H8ND31_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NE87|H8NE87_RICPO	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDX7|H8NDX7_RICPO	82	periplasm	periplasmic space GO:0042597;
+tr|H8NDR6|H8NDR6_RICPO	56	cytoplasm	cytoplasm GO:0005737
+tr|H8NDC4|H8NDC4_RICPO	53	secreted	extracellular region GO:0005576;
+tr|H8NE98|H8NE98_RICPO	39	secreted	extracellular region GO:0005576;
+tr|H8NCL2|H8NCL2_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD7|H8NDD7_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NCC1|H8NCC1_RICPO	100	cytoplasm	cytoplasm GO:0005737
+tr|H8NDM2|H8NDM2_RICPO	89	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF6|H8NDF6_RICPO	72	cytoplasm	cytoplasm GO:0005737
+tr|H8NDD5|H8NDD5_RICPO	63	secreted	extracellular region GO:0005576;
+tr|H8NED1|H8NED1_RICPO	73	secreted	extracellular region GO:0005576;
+tr|H8ND61|H8ND61_RICPO	58	cytoplasm	cytoplasm GO:0005737
+tr|H8NC63|H8NC63_RICPO	56	secreted	extracellular region GO:0005576;
+tr|H8NCF7|H8NCF7_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NE39|H8NE39_RICPO	91	cytoplasm	cytoplasm GO:0005737
+tr|H8NE62|H8NE62_RICPO	98	cytoplasm	cytoplasm GO:0005737
+tr|H8NDN9|H8NDN9_RICPO	96	cytoplasm	cytoplasm GO:0005737
+tr|H8NE97|H8NE97_RICPO	88	cytoplasm	cytoplasm GO:0005737
+tr|H8NCS9|H8NCS9_RICPO	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|H8NDR1|H8NDR1_RICPO	86	cytoplasm	cytoplasm GO:0005737
+tr|H8NCL5|H8NCL5_RICPO	93	cytoplasm	cytoplasm GO:0005737
+tr|H8NCJ4|H8NCJ4_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NDF7|H8NDF7_RICPO	83	cytoplasm	cytoplasm GO:0005737
+tr|H8NDE3|H8NDE3_RICPO	73	secreted	extracellular region GO:0005576;
+tr|H8ND41|H8ND41_RICPO	67	secreted	extracellular region GO:0005576;
+tr|H8NEC7|H8NEC7_RICPO	99	cytoplasm	cytoplasm GO:0005737
+tr|H8NCP6|H8NCP6_RICPO	34	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;

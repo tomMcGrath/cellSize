@@ -1,0 +1,936 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|I7BKN0|I7BKN0_MYCHA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CK81|I7CK81_MYCHA	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I7BAN0|I7BAN0_MYCHA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CGI2|I7CGI2_MYCHA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5K3|I7C5K3_MYCHA	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I7BIF1|I7BIF1_MYCHA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CFV1|I7CFV1_MYCHA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIL9|I7CIL9_MYCHA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BII6|I7BII6_MYCHA	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I7CED4|I7CED4_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BJQ9|I7BJQ9_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5T0|I7C5T0_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5K7|I7C5K7_MYCHA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CH08|I7CH08_MYCHA	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BIY1|I7BIY1_MYCHA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BIQ9|I7BIQ9_MYCHA	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|I7CIE6|I7CIE6_MYCHA	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I7B9P2|I7B9P2_MYCHA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C6C1|I7C6C1_MYCHA	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIF1|I7CIF1_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CH45|I7CH45_MYCHA	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B8R9|I7B8R9_MYCHA	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7B8W8|I7B8W8_MYCHA	6	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|I7C528|I7C528_MYCHA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BK44|I7BK44_MYCHA	8	secreted	extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|I7C540|I7C540_MYCHA	6	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|I7C6G5|I7C6G5_MYCHA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BIG0|I7BIG0_MYCHA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5V5|I7C5V5_MYCHA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7CJT1|I7CJT1_MYCHA	14	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|I7CIK6|I7CIK6_MYCHA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIE2|I7CIE2_MYCHA	14	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I7B945|I7B945_MYCHA	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B8Z5|I7B8Z5_MYCHA	10	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I7C546|I7C546_MYCHA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BKQ6|I7BKQ6_MYCHA	12	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|I7C541|I7C541_MYCHA	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIS4|I7CIS4_MYCHA	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BB03|I7BB03_MYCHA	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7BIN8|I7BIN8_MYCHA	7	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|I7CK56|I7CK56_MYCHA	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BKR7|I7BKR7_MYCHA	8	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|I7B8X7|I7B8X7_MYCHA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIF5|I7CIF5_MYCHA	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I7BIH5|I7BIH5_MYCHA	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7C7D6|I7C7D6_MYCHA	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BA91|I7BA91_MYCHA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CEM4|I7CEM4_MYCHA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5C2|I7C5C2_MYCHA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B9B4|I7B9B4_MYCHA	12	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I7CIB9|I7CIB9_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BK70|I7BK70_MYCHA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIJ6|I7CIJ6_MYCHA	13	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|I7BK11|I7BK11_MYCHA	4	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|I7C5S4|I7C5S4_MYCHA	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|I7CF44|I7CF44_MYCHA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7CJR5|I7CJR5_MYCHA	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7B8P1|I7B8P1_MYCHA	17	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|I7CIG3|I7CIG3_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|I7C6U9|I7C6U9_MYCHA	19	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|I7BIE6|I7BIE6_MYCHA	10	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|I7CK35|I7CK35_MYCHA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7CJF2|I7CJF2_MYCHA	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BAY1|I7BAY1_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BB10|I7BB10_MYCHA	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7C536|I7C536_MYCHA	8	periplasm	periplasmic space GO:0042597(IEA);
+tr|I7CFR7|I7CFR7_MYCHA	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B8N6|I7B8N6_MYCHA	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIT0|I7CIT0_MYCHA	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|I7BIJ5|I7BIJ5_MYCHA	63	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BJ83|I7BJ83_MYCHA	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7C554|I7C554_MYCHA	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|I7C5A6|I7C5A6_MYCHA	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7C5B5|I7C5B5_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CKW3|I7CKW3_MYCHA	5	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B941|I7B941_MYCHA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CED8|I7CED8_MYCHA	17	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|I7C5D6|I7C5D6_MYCHA	1	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BKG8|I7BKG8_MYCHA	18	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|I7B9U1|I7B9U1_MYCHA	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I7BAC3|I7BAC3_MYCHA	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7CEM9|I7CEM9_MYCHA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BKG3|I7BKG3_MYCHA	35	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|I7CJQ2|I7CJQ2_MYCHA	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIR4|I7CIR4_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CID3|I7CID3_MYCHA	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BJ58|I7BJ58_MYCHA	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CKN9|I7CKN9_MYCHA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C6C9|I7C6C9_MYCHA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BK20|I7BK20_MYCHA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5J7|I7C5J7_MYCHA	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CIJ0|I7CIJ0_MYCHA	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CEL9|I7CEL9_MYCHA	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7C743|I7C743_MYCHA	14	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|I7BJF2|I7BJF2_MYCHA	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CKP9|I7CKP9_MYCHA	8	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|I7C5H9|I7C5H9_MYCHA	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B9P0|I7B9P0_MYCHA	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|I7BJK8|I7BJK8_MYCHA	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7B9E6|I7B9E6_MYCHA	29	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7CKW7|I7CKW7_MYCHA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C5J3|I7C5J3_MYCHA	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|I7C7B4|I7C7B4_MYCHA	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BIM8|I7BIM8_MYCHA	16	cytoplasm	cytosol GO:0005829(IBA);
+tr|I7B8P4|I7B8P4_MYCHA	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7CJ14|I7CJ14_MYCHA	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IEA);
+tr|I7BAX2|I7BAX2_MYCHA	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7C7D1|I7C7D1_MYCHA	30	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|I7C595|I7C595_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7BII0|I7BII0_MYCHA	21	cytoplasm	cytosol GO:0005829(IDA);
+tr|I7CJZ9|I7CJZ9_MYCHA	10	secreted	extracellular region GO:0005576(IEA);
+tr|I7C6J9|I7C6J9_MYCHA	20	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|I7BB26|I7BB26_MYCHA	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|I7B8X1|I7B8X1_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B9V8|I7B9V8_MYCHA	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|I7B925|I7B925_MYCHA	23	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|I7BKC7|I7BKC7_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CGB4|I7CGB4_MYCHA	47	cytoplasm	cytoplasm GO:0005737
+tr|I7C662|I7C662_MYCHA	86	cytoplasm	cytoplasm GO:0005737
+tr|I7BK52|I7BK52_MYCHA	36	secreted	extracellular region GO:0005576;
+tr|I7CG73|I7CG73_MYCHA	44	cytoplasm	cytoplasm GO:0005737
+tr|I7BAL7|I7BAL7_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BA51|I7BA51_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7CJ04|I7CJ04_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7CIY5|I7CIY5_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7CJT4|I7CJT4_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7CFZ6|I7CFZ6_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7C580|I7C580_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7CKK9|I7CKK9_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7B9Q1|I7B9Q1_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7B9B9|I7B9B9_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7B9T9|I7B9T9_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7B989|I7B989_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7B8Q2|I7B8Q2_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BAP4|I7BAP4_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7BAS0|I7BAS0_MYCHA	46	secreted	extracellular region GO:0005576;
+tr|I7BAI7|I7BAI7_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CKA5|I7CKA5_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7BK34|I7BK34_MYCHA	56	cytoplasm	cytoplasm GO:0005737
+tr|I7CGD9|I7CGD9_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BK55|I7BK55_MYCHA	32	secreted	extracellular region GO:0005576;
+tr|I7CGN4|I7CGN4_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7BJJ5|I7BJJ5_MYCHA	62	cytoplasm	cytoplasm GO:0005737
+tr|I7CFY7|I7CFY7_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7BK96|I7BK96_MYCHA	42	cytoplasm	cytoplasm GO:0005737
+tr|I7BIR2|I7BIR2_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C5R9|I7C5R9_MYCHA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BJG2|I7BJG2_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7B9A3|I7B9A3_MYCHA	95	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C5B1|I7C5B1_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CIG7|I7CIG7_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7B9S3|I7B9S3_MYCHA	71	cytoplasm	cytoplasm GO:0005737
+tr|I7BJT9|I7BJT9_MYCHA	65	secreted	extracellular region GO:0005576;
+tr|I7CF04|I7CF04_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7CK26|I7CK26_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7C6E3|I7C6E3_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7CIP2|I7CIP2_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7BK59|I7BK59_MYCHA	46	secreted	extracellular region GO:0005576;
+tr|I7C6T6|I7C6T6_MYCHA	34	secreted	extracellular region GO:0005576;
+tr|I7CEW0|I7CEW0_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7B9T4|I7B9T4_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BAZ8|I7BAZ8_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7C533|I7C533_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ48|I7BJ48_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BAH3|I7BAH3_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7B9Y2|I7B9Y2_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CJK1|I7CJK1_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BB22|I7BB22_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7CK62|I7CK62_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7B9R6|I7B9R6_MYCHA	77	cytoplasm	cytoplasm GO:0005737
+tr|I7CIY1|I7CIY1_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7BJN9|I7BJN9_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7CJ83|I7CJ83_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7BJR9|I7BJR9_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BJH1|I7BJH1_MYCHA	74	cytoplasm	cytoplasm GO:0005737
+tr|I7B9E1|I7B9E1_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CF30|I7CF30_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CEG1|I7CEG1_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7BA22|I7BA22_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CKB0|I7CKB0_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CJX9|I7CJX9_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7CEI7|I7CEI7_MYCHA	37	secreted	extracellular region GO:0005576;
+tr|I7CK52|I7CK52_MYCHA	48	secreted	extracellular region GO:0005576;
+tr|I7CH24|I7CH24_MYCHA	46	secreted	extracellular region GO:0005576;
+tr|I7BKF0|I7BKF0_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7BAL0|I7BAL0_MYCHA	33	secreted	extracellular region GO:0005576;
+tr|I7B9C6|I7B9C6_MYCHA	45	secreted	extracellular region GO:0005576;
+tr|I7C5U5|I7C5U5_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7CFJ4|I7CFJ4_MYCHA	81	cytoplasm	cytoplasm GO:0005737
+tr|I7CF50|I7CF50_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CIZ5|I7CIZ5_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7C6M4|I7C6M4_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CFX3|I7CFX3_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7BKK7|I7BKK7_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7BKE5|I7BKE5_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7BKP9|I7BKP9_MYCHA	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BA56|I7BA56_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CK03|I7CK03_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BB30|I7BB30_MYCHA	52	cytoplasm	cytoplasm GO:0005737
+tr|I7C748|I7C748_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7CEV1|I7CEV1_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CH33|I7CH33_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7CF18|I7CF18_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7BB06|I7BB06_MYCHA	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CG44|I7CG44_MYCHA	60	cytoplasm	cytoplasm GO:0005737
+tr|I7B8R5|I7B8R5_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7C6H8|I7C6H8_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7C739|I7C739_MYCHA	86	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ98|I7BJ98_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7C5I9|I7C5I9_MYCHA	50	cytoplasm	cytoplasm GO:0005737
+tr|I7C550|I7C550_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CKC6|I7CKC6_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CJS2|I7CJS2_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C6J1|I7C6J1_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7B9G8|I7B9G8_MYCHA	67	secreted	extracellular region GO:0005576;
+tr|I7CIC9|I7CIC9_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C735|I7C735_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CG00|I7CG00_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7C5H3|I7C5H3_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CFL8|I7CFL8_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7CJ90|I7CJ90_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7BJR5|I7BJR5_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CJQ7|I7CJQ7_MYCHA	79	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6S6|I7C6S6_MYCHA	67	cytoplasm	cytoplasm GO:0005737
+tr|I7C666|I7C666_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CIH6|I7CIH6_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CFN3|I7CFN3_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CGC5|I7CGC5_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C6J4|I7C6J4_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7BKP5|I7BKP5_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CIX6|I7CIX6_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7CKI7|I7CKI7_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7C6S1|I7C6S1_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7CEX1|I7CEX1_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7CIU9|I7CIU9_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7BKJ4|I7BKJ4_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7B906|I7B906_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CGC9|I7CGC9_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7CJH2|I7CJH2_MYCHA	80	cytoplasm	cytoplasm GO:0005737
+tr|I7CFT4|I7CFT4_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CK77|I7CK77_MYCHA	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6N8|I7C6N8_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7C5E9|I7C5E9_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CF37|I7CF37_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7CGA2|I7CGA2_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BJB4|I7BJB4_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CJG1|I7CJG1_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7C7F0|I7C7F0_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CG69|I7CG69_MYCHA	35	cytoplasm	cytoplasm GO:0005737
+tr|I7CKA1|I7CKA1_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CEH3|I7CEH3_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CKU1|I7CKU1_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7BJI5|I7BJI5_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7CG76|I7CG76_MYCHA	85	cytoplasm	cytoplasm GO:0005737
+tr|I7CJ40|I7CJ40_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CIL0|I7CIL0_MYCHA	49	secreted	extracellular region GO:0005576;
+tr|I7CJL9|I7CJL9_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CJD8|I7CJD8_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7CIU4|I7CIU4_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BIK1|I7BIK1_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C5T5|I7C5T5_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7C5Q5|I7C5Q5_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7CGK5|I7CGK5_MYCHA	38	secreted	extracellular region GO:0005576;
+tr|I7CFW1|I7CFW1_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7BAZ4|I7BAZ4_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CEK3|I7CEK3_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7BJP4|I7BJP4_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7CJ33|I7CJ33_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7CF95|I7CF95_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7C6F6|I7C6F6_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7B9D0|I7B9D0_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7B919|I7B919_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CG80|I7CG80_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7C6V9|I7C6V9_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CJ56|I7CJ56_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7CFK2|I7CFK2_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ22|I7BJ22_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7B910|I7B910_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7BKP7|I7BKP7_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7CF88|I7CF88_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7BJL2|I7BJL2_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7BJA4|I7BJA4_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7C5L6|I7C5L6_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7C6Y7|I7C6Y7_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7CG58|I7CG58_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7CET9|I7CET9_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7C587|I7C587_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7CIT5|I7CIT5_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C708|I7C708_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7C5G8|I7C5G8_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CEE7|I7CEE7_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C591|I7C591_MYCHA	41	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ02|I7BJ02_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7BK29|I7BK29_MYCHA	91	cytoplasm	cytoplasm GO:0005737
+tr|I7CJI6|I7CJI6_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7B9F2|I7B9F2_MYCHA	73	cytoplasm	cytoplasm GO:0005737
+tr|I7CG22|I7CG22_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7C5T9|I7C5T9_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CEQ7|I7CEQ7_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BJT5|I7BJT5_MYCHA	48	secreted	extracellular region GO:0005576;
+tr|I7CG62|I7CG62_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7CFL5|I7CFL5_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7C6X1|I7C6X1_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CEN8|I7CEN8_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7CKI2|I7CKI2_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7C523|I7C523_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7C6U5|I7C6U5_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CGB8|I7CGB8_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7C721|I7C721_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7BKI1|I7BKI1_MYCHA	67	secreted	extracellular region GO:0005576;
+tr|I7BAG8|I7BAG8_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CGH7|I7CGH7_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7BKC2|I7BKC2_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CKD4|I7CKD4_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7CJK6|I7CJK6_MYCHA	61	cytoplasm	cytoplasm GO:0005737
+tr|I7C6E0|I7C6E0_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BK91|I7BK91_MYCHA	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BA46|I7BA46_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C5Y2|I7C5Y2_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7BAK4|I7BAK4_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7B8T8|I7B8T8_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7B9H3|I7B9H3_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CFM8|I7CFM8_MYCHA	70	cytoplasm	cytoplasm GO:0005737
+tr|I7CK31|I7CK31_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7C5F3|I7C5F3_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7BIV5|I7BIV5_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CJI9|I7CJI9_MYCHA	91	cytoplasm	cytoplasm GO:0005737
+tr|I7CGI8|I7CGI8_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7BA41|I7BA41_MYCHA	42	secreted	extracellular region GO:0005576;
+tr|I7C637|I7C637_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7CGH1|I7CGH1_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7C6R4|I7C6R4_MYCHA	86	cytoplasm	cytoplasm GO:0005737
+tr|I7BJQ3|I7BJQ3_MYCHA	63	cytoplasm	cytoplasm GO:0005737
+tr|I7B9X0|I7B9X0_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7CFA8|I7CFA8_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7BKR3|I7BKR3_MYCHA	66	cytoplasm	cytoplasm GO:0005737
+tr|I7CGK0|I7CGK0_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7CIM4|I7CIM4_MYCHA	35	secreted	extracellular region GO:0005576;
+tr|I7CKD0|I7CKD0_MYCHA	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CF64|I7CF64_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7BIR7|I7BIR7_MYCHA	97	secreted	extracellular region GO:0005576;
+tr|I7CEE3|I7CEE3_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BAI0|I7BAI0_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CFW4|I7CFW4_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BIE0|I7BIE0_MYCHA	26	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6P2|I7C6P2_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C6I7|I7C6I7_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CFH3|I7CFH3_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CGG2|I7CGG2_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BAM6|I7BAM6_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7BA12|I7BA12_MYCHA	46	cytoplasm	cytoplasm GO:0005737
+tr|I7C5Q9|I7C5Q9_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7C717|I7C717_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7C7F3|I7C7F3_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CJF6|I7CJF6_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7B9G2|I7B9G2_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7BAQ1|I7BAQ1_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7BJG5|I7BJG5_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7BIV0|I7BIV0_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7BJD2|I7BJD2_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7B981|I7B981_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BIU4|I7BIU4_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7C6X8|I7C6X8_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7BJP8|I7BJP8_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7C5P2|I7C5P2_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7BAF4|I7BAF4_MYCHA	36	cytoplasm	cytoplasm GO:0005737
+tr|I7CK18|I7CK18_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7CGF8|I7CGF8_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BJ32|I7BJ32_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7CJW6|I7CJW6_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7C7G5|I7C7G5_MYCHA	84	cytoplasm	cytoplasm GO:0005737
+tr|I7CIB5|I7CIB5_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7CK73|I7CK73_MYCHA	38	secreted	extracellular region GO:0005576;
+tr|I7C6T4|I7C6T4_MYCHA	46	cytoplasm	cytoplasm GO:0005737
+tr|I7CF56|I7CF56_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7C6L7|I7C6L7_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7BJW1|I7BJW1_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7BJX9|I7BJX9_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7CES9|I7CES9_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CFJ0|I7CFJ0_MYCHA	42	cytoplasm	cytoplasm GO:0005737
+tr|I7CIH0|I7CIH0_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CEW2|I7CEW2_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7CG14|I7CG14_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CID7|I7CID7_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6Z5|I7C6Z5_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7BIZ4|I7BIZ4_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7C645|I7C645_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CET4|I7CET4_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7CIS0|I7CIS0_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7CEQ1|I7CEQ1_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BIS7|I7BIS7_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7BIZ1|I7BIZ1_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CFQ4|I7CFQ4_MYCHA	78	cytoplasm	cytoplasm GO:0005737
+tr|I7CK90|I7CK90_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CJP7|I7CJP7_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7B9V6|I7B9V6_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CJX5|I7CJX5_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7CEI2|I7CEI2_MYCHA	46	secreted	extracellular region GO:0005576;
+tr|I7BA95|I7BA95_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CG40|I7CG40_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CKD8|I7CKD8_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7BJ53|I7BJ53_MYCHA	60	cytoplasm	cytoplasm GO:0005737
+tr|I7CF82|I7CF82_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CGD4|I7CGD4_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7CJD2|I7CJD2_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7C6Q9|I7C6Q9_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CIZ0|I7CIZ0_MYCHA	50	secreted	extracellular region GO:0005576;
+tr|I7C5M0|I7C5M0_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7C525|I7C525_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7BIK6|I7BIK6_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CEF1|I7CEF1_MYCHA	51	cytoplasm	cytoplasm GO:0005737
+tr|I7BIW5|I7BIW5_MYCHA	68	cytoplasm	cytoplasm GO:0005737
+tr|I7B922|I7B922_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CK13|I7CK13_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7CII6|I7CII6_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7CEY4|I7CEY4_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7CEJ4|I7CEJ4_MYCHA	42	secreted	extracellular region GO:0005576;
+tr|I7CIQ3|I7CIQ3_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7BJ38|I7BJ38_MYCHA	65	secreted	extracellular region GO:0005576;
+tr|I7CKV1|I7CKV1_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7C694|I7C694_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7CJ00|I7CJ00_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7CEN4|I7CEN4_MYCHA	68	cytoplasm	cytoplasm GO:0005737
+tr|I7CH58|I7CH58_MYCHA	43	cytoplasm	cytoplasm GO:0005737
+tr|I7CK22|I7CK22_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ94|I7BJ94_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7BJA9|I7BJA9_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7B8U6|I7B8U6_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7B900|I7B900_MYCHA	55	secreted	extracellular region GO:0005576;
+tr|I7CKF7|I7CKF7_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7B9S7|I7B9S7_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7CJN8|I7CJN8_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CKJ2|I7CKJ2_MYCHA	44	secreted	extracellular region GO:0005576;
+tr|I7BIV9|I7BIV9_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7BA28|I7BA28_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7C626|I7C626_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7B8S2|I7B8S2_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7C761|I7C761_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7C6L2|I7C6L2_MYCHA	82	cytoplasm	cytoplasm GO:0005737
+tr|I7BJI9|I7BJI9_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ35|I7BJ35_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7BAZ0|I7BAZ0_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CFU2|I7CFU2_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BK63|I7BK63_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CJV8|I7CJV8_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7BKH2|I7BKH2_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BK25|I7BK25_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7B8U1|I7B8U1_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7BAJ0|I7BAJ0_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7CEV5|I7CEV5_MYCHA	50	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ68|I7BJ68_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7BK84|I7BK84_MYCHA	41	cytoplasm	cytoplasm GO:0005737
+tr|I7CFR3|I7CFR3_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CK39|I7CK39_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7BJZ2|I7BJZ2_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7BKA4|I7BKA4_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7C6F0|I7C6F0_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7CER1|I7CER1_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7BIZ8|I7BIZ8_MYCHA	55	secreted	extracellular region GO:0005576;
+tr|I7B9Q5|I7B9Q5_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7BAD7|I7BAD7_MYCHA	39	secreted	extracellular region GO:0005576;
+tr|I7C658|I7C658_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7B9M5|I7B9M5_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CFS2|I7CFS2_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7CJH6|I7CJH6_MYCHA	63	cytoplasm	cytoplasm GO:0005737
+tr|I7BJF8|I7BJF8_MYCHA	75	cytoplasm	cytoplasm GO:0005737
+tr|I7BAN5|I7BAN5_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CJU6|I7CJU6_MYCHA	61	cytoplasm	cytoplasm GO:0005737
+tr|I7BB13|I7BB13_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7CK48|I7CK48_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7CG09|I7CG09_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7C6A8|I7C6A8_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BA70|I7BA70_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7C704|I7C704_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7CKE4|I7CKE4_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CKT5|I7CKT5_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7CH39|I7CH39_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7BJX0|I7BJX0_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C7F8|I7C7F8_MYCHA	78	cytoplasm	cytoplasm GO:0005737
+tr|I7CFI5|I7CFI5_MYCHA	63	cytoplasm	cytoplasm GO:0005737
+tr|I7BIM4|I7BIM4_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CF76|I7CF76_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7CGM1|I7CGM1_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7B998|I7B998_MYCHA	61	secreted	extracellular region GO:0005576;
+tr|I7BIX1|I7BIX1_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ07|I7BJ07_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7CFQ8|I7CFQ8_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C5N8|I7C5N8_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C7E0|I7C7E0_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7CFI1|I7CFI1_MYCHA	70	cytoplasm	cytoplasm GO:0005737
+tr|I7BJM1|I7BJM1_MYCHA	44	secreted	extracellular region GO:0005576;
+tr|I7B9F7|I7B9F7_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7BIH2|I7BIH2_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7CJR9|I7CJR9_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7BKF8|I7BKF8_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7C5Y8|I7C5Y8_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7BAV5|I7BAV5_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7C6M9|I7C6M9_MYCHA	67	secreted	extracellular region GO:0005576;
+tr|I7B967|I7B967_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7C6Q5|I7C6Q5_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7BJ74|I7BJ74_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7CJB4|I7CJB4_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7CH35|I7CH35_MYCHA	61	secreted	extracellular region GO:0005576;
+tr|I7BKH6|I7BKH6_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7C6B3|I7C6B3_MYCHA	48	cytoplasm	cytoplasm GO:0005737
+tr|I7C7H6|I7C7H6_MYCHA	39	secreted	extracellular region GO:0005576;
+tr|I7CG30|I7CG30_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7BJN1|I7BJN1_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7C6U1|I7C6U1_MYCHA	35	secreted	extracellular region GO:0005576;
+tr|I7C689|I7C689_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7BJM7|I7BJM7_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7C5D1|I7C5D1_MYCHA	98	secreted	extracellular region GO:0005576;
+tr|I7CGL0|I7CGL0_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7C785|I7C785_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7BAI3|I7BAI3_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CJY3|I7CJY3_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7CJJ3|I7CJJ3_MYCHA	24	secreted	extracellular region GO:0005576;
+tr|I7C6V5|I7C6V5_MYCHA	63	cytoplasm	cytoplasm GO:0005737
+tr|I7CGA9|I7CGA9_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7C564|I7C564_MYCHA	26	secreted	extracellular region GO:0005576;
+tr|I7CG49|I7CG49_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CG55|I7CG55_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7BK01|I7BK01_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7B8V2|I7B8V2_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7B9R2|I7B9R2_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CG61|I7CG61_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CJU2|I7CJU2_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7BKA9|I7BKA9_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7B9K9|I7B9K9_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7C756|I7C756_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7BAF9|I7BAF9_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7CJR1|I7CJR1_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7B9D6|I7B9D6_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7BJZ6|I7BJZ6_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BK87|I7BK87_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7B8T0|I7B8T0_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7CJY8|I7CJY8_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7BJG9|I7BJG9_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7C765|I7C765_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7B993|I7B993_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7B976|I7B976_MYCHA	41	secreted	extracellular region GO:0005576;
+tr|I7BAS5|I7BAS5_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7BJE5|I7BJE5_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CIL3|I7CIL3_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CFZ2|I7CFZ2_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7CJI2|I7CJI2_MYCHA	77	cytoplasm	cytoplasm GO:0005737
+tr|I7B9Y8|I7B9Y8_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7B8Q7|I7B8Q7_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7BKP0|I7BKP0_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C5W6|I7C5W6_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BA61|I7BA61_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CIW0|I7CIW0_MYCHA	61	secreted	extracellular region GO:0005576;
+tr|I7BJK4|I7BJK4_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7CG85|I7CG85_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7BJH3|I7BJH3_MYCHA	82	cytoplasm	cytoplasm GO:0005737
+tr|I7BIL5|I7BIL5_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7BJI0|I7BJI0_MYCHA	76	cytoplasm	cytoplasm GO:0005737
+tr|I7C6B8|I7C6B8_MYCHA	23	secreted	extracellular region GO:0005576;
+tr|I7CEW4|I7CEW4_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7CJ71|I7CJ71_MYCHA	78	cytoplasm	cytoplasm GO:0005737
+tr|I7BAB9|I7BAB9_MYCHA	43	secreted	extracellular region GO:0005576;
+tr|I7C687|I7C687_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7BAP0|I7BAP0_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CG36|I7CG36_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CJM8|I7CJM8_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CGE3|I7CGE3_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7BAX6|I7BAX6_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CFT1|I7CFT1_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CII1|I7CII1_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7BAF0|I7BAF0_MYCHA	70	cytoplasm	cytoplasm GO:0005737
+tr|I7BKI9|I7BKI9_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CEU7|I7CEU7_MYCHA	49	secreted	extracellular region GO:0005576;
+tr|I7BKD8|I7BKD8_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7BJ79|I7BJ79_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7B9U5|I7B9U5_MYCHA	46	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6P7|I7C6P7_MYCHA	65	secreted	extracellular region GO:0005576;
+tr|I7C6Z1|I7C6Z1_MYCHA	93	secreted	extracellular region GO:0005576;
+tr|I7C712|I7C712_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7C6R9|I7C6R9_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CGJ3|I7CGJ3_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CJ21|I7CJ21_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BAD4|I7BAD4_MYCHA	34	cytoplasm	cytoplasm GO:0005737
+tr|I7BKD2|I7BKD2_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7C576|I7C576_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7CEJ0|I7CEJ0_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7BAA5|I7BAA5_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CFY1|I7CFY1_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7BJF5|I7BJF5_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7B9Z7|I7B9Z7_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ64|I7BJ64_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7C678|I7C678_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CJE2|I7CJE2_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7BIU0|I7BIU0_MYCHA	38	secreted	extracellular region GO:0005576;
+tr|I7CJW1|I7CJW1_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CIX1|I7CIX1_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7B956|I7B956_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7CEZ9|I7CEZ9_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CFX6|I7CFX6_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7B8Y1|I7B8Y1_MYCHA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BIS2|I7BIS2_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7B969|I7B969_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7CES1|I7CES1_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7CGA6|I7CGA6_MYCHA	73	cytoplasm	cytoplasm GO:0005737
+tr|I7B902|I7B902_MYCHA	73	cytoplasm	cytoplasm GO:0005737
+tr|I7B953|I7B953_MYCHA	65	secreted	extracellular region GO:0005576;
+tr|I7C567|I7C567_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7BJN5|I7BJN5_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7BKQ1|I7BKQ1_MYCHA	56	cytoplasm	cytoplasm GO:0005737
+tr|I7B9W8|I7B9W8_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CEU3|I7CEU3_MYCHA	65	cytoplasm	cytoplasm GO:0005737
+tr|I7C5G3|I7C5G3_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7BA08|I7BA08_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7CJL0|I7CJL0_MYCHA	45	cytoplasm	cytoplasm GO:0005737
+tr|I7BKR0|I7BKR0_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7C5C5|I7C5C5_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7CIQ9|I7CIQ9_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CKV3|I7CKV3_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BJE9|I7BJE9_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7B9A9|I7B9A9_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7C7G2|I7C7G2_MYCHA	42	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C5X1|I7C5X1_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BAC8|I7BAC8_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7B962|I7B962_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7B9Y5|I7B9Y5_MYCHA	70	cytoplasm	cytoplasm GO:0005737
+tr|I7CIV4|I7CIV4_MYCHA	55	secreted	extracellular region GO:0005576;
+tr|I7CFP2|I7CFP2_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7C5A2|I7C5A2_MYCHA	94	secreted	extracellular region GO:0005576;
+tr|I7BJD8|I7BJD8_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7CKG9|I7CKG9_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7B8S7|I7B8S7_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CJX1|I7CJX1_MYCHA	32	secreted	extracellular region GO:0005576;
+tr|I7C5P6|I7C5P6_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7CIN7|I7CIN7_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CKX2|I7CKX2_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BJD6|I7BJD6_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CFK7|I7CFK7_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7CEX8|I7CEX8_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7BJE7|I7BJE7_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7C6K3|I7C6K3_MYCHA	86	cytoplasm	cytoplasm GO:0005737
+tr|I7CG89|I7CG89_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7CGE6|I7CGE6_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CK93|I7CK93_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7C5N4|I7C5N4_MYCHA	70	secreted	extracellular region GO:0005576;
+tr|I7CK68|I7CK68_MYCHA	36	secreted	extracellular region GO:0005576;
+tr|I7CH04|I7CH04_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BAJ8|I7BAJ8_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7B9Z2|I7B9Z2_MYCHA	54	cytoplasm	cytoplasm GO:0005737
+tr|I7C7H4|I7C7H4_MYCHA	28	secreted	extracellular region GO:0005576;
+tr|I7BAE1|I7BAE1_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7B8U8|I7B8U8_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7BAY5|I7BAY5_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7CGM7|I7CGM7_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7CKF1|I7CKF1_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CEK9|I7CEK9_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CF12|I7CF12_MYCHA	55	secreted	extracellular region GO:0005576;
+tr|I7BJE3|I7BJE3_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7BJU9|I7BJU9_MYCHA	80	cytoplasm	cytoplasm GO:0005737
+tr|I7C6G8|I7C6G8_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ11|I7BJ11_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7CFL2|I7CFL2_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7BAQ5|I7BAQ5_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7C674|I7C674_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CIF9|I7CIF9_MYCHA	72	cytoplasm	cytoplasm GO:0005737
+tr|I7CGF2|I7CGF2_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7BK47|I7BK47_MYCHA	45	secreted	extracellular region GO:0005576;
+tr|I7B8Z1|I7B8Z1_MYCHA	93	cytoplasm	cytoplasm GO:0005737
+tr|I7BJS5|I7BJS5_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7BKQ3|I7BKQ3_MYCHA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BKA1|I7BKA1_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7CJ17|I7CJ17_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BK75|I7BK75_MYCHA	92	cytoplasm	cytoplasm GO:0005737
+tr|I7CEC4|I7CEC4_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BK39|I7BK39_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ27|I7BJ27_MYCHA	55	secreted	extracellular region GO:0005576;
+tr|I7CF25|I7CF25_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CFS7|I7CFS7_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7B9L3|I7B9L3_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CFE3|I7CFE3_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7C6G0|I7C6G0_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CKG4|I7CKG4_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7CJG4|I7CJG4_MYCHA	78	cytoplasm	cytoplasm GO:0005737
+tr|I7BIN3|I7BIN3_MYCHA	82	cytoplasm	cytoplasm GO:0005737
+tr|I7CIP7|I7CIP7_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7C5F9|I7C5F9_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7CEL5|I7CEL5_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7CEZ2|I7CEZ2_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7C7I5|I7C7I5_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BKE0|I7BKE0_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7B8W0|I7B8W0_MYCHA	81	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CJV3|I7CJV3_MYCHA	71	cytoplasm	cytoplasm GO:0005737
+tr|I7CFJ7|I7CFJ7_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7C753|I7C753_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7C6H2|I7C6H2_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7B928|I7B928_MYCHA	58	cytoplasm	cytoplasm GO:0005737
+tr|I7C6H5|I7C6H5_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7BJV3|I7BJV3_MYCHA	70	cytoplasm	cytoplasm GO:0005737
+tr|I7CES4|I7CES4_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CF69|I7CF69_MYCHA	43	secreted	extracellular region GO:0005576;
+tr|I7B9X8|I7B9X8_MYCHA	61	secreted	extracellular region GO:0005576;
+tr|I7B9P6|I7B9P6_MYCHA	88	cytoplasm	cytoplasm GO:0005737
+tr|I7C583|I7C583_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7C6E6|I7C6E6_MYCHA	37	cytoplasm	cytoplasm GO:0005737
+tr|I7C732|I7C732_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CIN2|I7CIN2_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7CJT8|I7CJT8_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7CJN3|I7CJN3_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7CIH4|I7CIH4_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7B9T0|I7B9T0_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7BAB5|I7BAB5_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7BAE6|I7BAE6_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7CK97|I7CK97_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7C7E6|I7C7E6_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7CJJ8|I7CJJ8_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7BKJ9|I7BKJ9_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7CKV8|I7CKV8_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7C7G9|I7C7G9_MYCHA	97	secreted	extracellular region GO:0005576;
+tr|I7BKP4|I7BKP4_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CKT7|I7CKT7_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7C617|I7C617_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CFT9|I7CFT9_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7CJ51|I7CJ51_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7C6T0|I7C6T0_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7B9N4|I7B9N4_MYCHA	77	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ18|I7BJ18_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7C6K7|I7C6K7_MYCHA	47	cytoplasm	cytoplasm GO:0005737
+tr|I7CH53|I7CH53_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7B8R1|I7B8R1_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BKI6|I7BKI6_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7C6X4|I7C6X4_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7CEY8|I7CEY8_MYCHA	50	secreted	extracellular region GO:0005576;
+tr|I7CK07|I7CK07_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7B985|I7B985_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7BKB9|I7BKB9_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7BA77|I7BA77_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7CFW9|I7CFW9_MYCHA	69	secreted	extracellular region GO:0005576;
+tr|I7CKE7|I7CKE7_MYCHA	92	secreted	extracellular region GO:0005576;
+tr|I7BIL0|I7BIL0_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7CJ28|I7CJ28_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7BIT2|I7BIT2_MYCHA	89	secreted	extracellular region GO:0005576;
+tr|I7CEC9|I7CEC9_MYCHA	76	cytoplasm	cytoplasm GO:0005737
+tr|I7CER6|I7CER6_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CKR3|I7CKR3_MYCHA	43	secreted	extracellular region GO:0005576;
+tr|I7B8Q1|I7B8Q1_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7BIL9|I7BIL9_MYCHA	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BII9|I7BII9_MYCHA	87	cytoplasm	cytoplasm GO:0005737
+tr|I7CFQ0|I7CFQ0_MYCHA	76	cytoplasm	cytoplasm GO:0005737
+tr|I7CFF8|I7CFF8_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7C727|I7C727_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CJ78|I7CJ78_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7BA32|I7BA32_MYCHA	64	cytoplasm	cytoplasm GO:0005737
+tr|I7BJY4|I7BJY4_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7CIB0|I7CIB0_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7BJX4|I7BJX4_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CKU7|I7CKU7_MYCHA	88	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CJE4|I7CJE4_MYCHA	75	secreted	extracellular region GO:0005576;
+tr|I7CG18|I7CG18_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7BA04|I7BA04_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CJL4|I7CJL4_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CH13|I7CH13_MYCHA	48	secreted	extracellular region GO:0005576;
+tr|I7C6I2|I7C6I2_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7B937|I7B937_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7CEF6|I7CEF6_MYCHA	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CKH5|I7CKH5_MYCHA	47	secreted	extracellular region GO:0005576;
+tr|I7BIP9|I7BIP9_MYCHA	91	cytoplasm	cytoplasm GO:0005737
+tr|I7BJK1|I7BJK1_MYCHA	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C572|I7C572_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BIP5|I7BIP5_MYCHA	68	cytoplasm	cytoplasm GO:0005737
+tr|I7C669|I7C669_MYCHA	74	cytoplasm	cytoplasm GO:0005737
+tr|I7CIK3|I7CIK3_MYCHA	80	cytoplasm	cytoplasm GO:0005737
+tr|I7CKQ8|I7CKQ8_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7BJY7|I7BJY7_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7B8Y6|I7B8Y6_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7CJM4|I7CJM4_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CEP7|I7CEP7_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BIG7|I7BIG7_MYCHA	67	cytoplasm	cytoplasm GO:0005737
+tr|I7CFF3|I7CFF3_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7BIY5|I7BIY5_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7CFM3|I7CFM3_MYCHA	85	cytoplasm	cytoplasm GO:0005737
+tr|I7BKB4|I7BKB4_MYCHA	76	secreted	extracellular region GO:0005576;
+tr|I7BA16|I7BA16_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7CJ10|I7CJ10_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BAK8|I7BAK8_MYCHA	42	secreted	extracellular region GO:0005576;
+tr|I7BJS9|I7BJS9_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7C696|I7C696_MYCHA	73	cytoplasm	cytoplasm GO:0005737
+tr|I7CJU9|I7CJU9_MYCHA	81	cytoplasm	cytoplasm GO:0005737
+tr|I7BJ14|I7BJ14_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CKK3|I7CKK3_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7B9M9|I7B9M9_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7CIW5|I7CIW5_MYCHA	68	secreted	extracellular region GO:0005576;
+tr|I7CKJ8|I7CKJ8_MYCHA	43	secreted	extracellular region GO:0005576;
+tr|I7CG97|I7CG97_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7CIJ2|I7CIJ2_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7C6Q0|I7C6Q0_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BKK4|I7BKK4_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7C655|I7C655_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7BIX5|I7BIX5_MYCHA	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7BA00|I7BA00_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7CKB4|I7CKB4_MYCHA	90	secreted	extracellular region GO:0005576;
+tr|I7CG05|I7CG05_MYCHA	75	cytoplasm	cytoplasm GO:0005737
+tr|I7C5M4|I7C5M4_MYCHA	67	secreted	extracellular region GO:0005576;
+tr|I7CEP2|I7CEP2_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BAL3|I7BAL3_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7BAR4|I7BAR4_MYCHA	81	cytoplasm	cytoplasm GO:0005737
+tr|I7BA74|I7BA74_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7CIC3|I7CIC3_MYCHA	64	cytoplasm	cytoplasm GO:0005737
+tr|I7B8W5|I7B8W5_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7CGC2|I7CGC2_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7BAG4|I7BAG4_MYCHA	59	secreted	extracellular region GO:0005576;
+tr|I7CFP5|I7CFP5_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CEL1|I7CEL1_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BK07|I7BK07_MYCHA	35	cytoplasm	cytoplasm GO:0005737
+tr|I7B9V0|I7B9V0_MYCHA	66	cytoplasm	cytoplasm GO:0005737
+tr|I7C642|I7C642_MYCHA	74	secreted	extracellular region GO:0005576;
+tr|I7BKN8|I7BKN8_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7CGN8|I7CGN8_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7BJH6|I7BJH6_MYCHA	78	cytoplasm	cytoplasm GO:0005737
+tr|I7C6V3|I7C6V3_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BAB0|I7BAB0_MYCHA	51	secreted	extracellular region GO:0005576;
+tr|I7CH17|I7CH17_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7B9X4|I7B9X4_MYCHA	65	secreted	extracellular region GO:0005576;
+tr|I7CJG9|I7CJG9_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7BIQ4|I7BIQ4_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7CGR8|I7CGR8_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7BAM1|I7BAM1_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7BIF6|I7BIF6_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CJZ4|I7CJZ4_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BA82|I7BA82_MYCHA	97	cytoplasm	cytoplasm GO:0005737
+tr|I7B8V7|I7B8V7_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7B973|I7B973_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BAJ4|I7BAJ4_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7CG52|I7CG52_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7C6M0|I7C6M0_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7C6A1|I7C6A1_MYCHA	67	secreted	extracellular region GO:0005576;
+tr|I7BK15|I7BK15_MYCHA	83	secreted	extracellular region GO:0005576;
+tr|I7C780|I7C780_MYCHA	40	secreted	extracellular region GO:0005576;
+tr|I7B9M2|I7B9M2_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7CEG6|I7CEG6_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CJE8|I7CJE8_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7CIJ9|I7CIJ9_MYCHA	46	cytoplasm	cytoplasm GO:0005737
+tr|I7C5V0|I7C5V0_MYCHA	58	secreted	extracellular region GO:0005576;
+tr|I7BJJ2|I7BJJ2_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7B9Q8|I7B9Q8_MYCHA	46	cytoplasm	cytoplasm GO:0005737
+tr|I7C700|I7C700_MYCHA	93	secreted	extracellular region GO:0005576;
+tr|I7CJS7|I7CJS7_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CFA3|I7CFA3_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7B949|I7B949_MYCHA	56	secreted	extracellular region GO:0005576;
+tr|I7C5I4|I7C5I4_MYCHA	86	cytoplasm	cytoplasm GO:0005737
+tr|I7CFH7|I7CFH7_MYCHA	82	secreted	extracellular region GO:0005576;
+tr|I7BKM7|I7BKM7_MYCHA	59	cytoplasm	cytoplasm GO:0005737
+tr|I7CH28|I7CH28_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7C6F4|I7C6F4_MYCHA	44	secreted	extracellular region GO:0005576;
+tr|I7C6D4|I7C6D4_MYCHA	100	cytoplasm	cytoplasm GO:0005737
+tr|I7BID6|I7BID6_MYCHA	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C6A6|I7C6A6_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CGG7|I7CGG7_MYCHA	49	secreted	extracellular region GO:0005576;
+tr|I7BJ43|I7BJ43_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7B8T4|I7B8T4_MYCHA	68	cytoplasm	cytoplasm GO:0005737
+tr|I7B9W4|I7B9W4_MYCHA	95	secreted	extracellular region GO:0005576;
+tr|I7BAQ9|I7BAQ9_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7BAH7|I7BAH7_MYCHA	84	cytoplasm	cytoplasm GO:0005737
+tr|I7C6C6|I7C6C6_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CH48|I7CH48_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7CKQ4|I7CKQ4_MYCHA	49	cytoplasm	cytoplasm GO:0005737
+tr|I7C650|I7C650_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CH20|I7CH20_MYCHA	81	secreted	extracellular region GO:0005576;
+tr|I7C682|I7C682_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7B931|I7B931_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CJP3|I7CJP3_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7CIT9|I7CIT9_MYCHA	98	cytoplasm	cytoplasm GO:0005737
+tr|I7BB18|I7BB18_MYCHA	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7C5W2|I7C5W2_MYCHA	68	cytoplasm	cytoplasm GO:0005737
+tr|I7C561|I7C561_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7C6W6|I7C6W6_MYCHA	94	secreted	extracellular region GO:0005576;
+tr|I7BKF3|I7BKF3_MYCHA	82	cytoplasm	cytoplasm GO:0005737
+tr|I7B912|I7B912_MYCHA	64	secreted	extracellular region GO:0005576;
+tr|I7BIT7|I7BIT7_MYCHA	88	secreted	extracellular region GO:0005576;
+tr|I7C5L2|I7C5L2_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7B9J8|I7B9J8_MYCHA	41	secreted	extracellular region GO:0005576;
+tr|I7CGL6|I7CGL6_MYCHA	66	secreted	extracellular region GO:0005576;
+tr|I7BAK2|I7BAK2_MYCHA	91	secreted	extracellular region GO:0005576;
+tr|I7CJD3|I7CJD3_MYCHA	17	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CG27|I7CG27_MYCHA	63	secreted	extracellular region GO:0005576;
+tr|I7CKC0|I7CKC0_MYCHA	84	secreted	extracellular region GO:0005576;
+tr|I7CJ45|I7CJ45_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7CK43|I7CK43_MYCHA	29	cytoplasm	cytoplasm GO:0005737
+tr|I7C5R4|I7C5R4_MYCHA	35	secreted	extracellular region GO:0005576;
+tr|I7CIM8|I7CIM8_MYCHA	50	cytoplasm	cytoplasm GO:0005737
+tr|I7BA86|I7BA86_MYCHA	85	secreted	extracellular region GO:0005576;
+tr|I7CJ65|I7CJ65_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7C5M8|I7C5M8_MYCHA	87	secreted	extracellular region GO:0005576;
+tr|I7BA37|I7BA37_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BJL7|I7BJL7_MYCHA	53	secreted	extracellular region GO:0005576;
+tr|I7B9S0|I7B9S0_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7C775|I7C775_MYCHA	57	secreted	extracellular region GO:0005576;
+tr|I7CEH7|I7CEH7_MYCHA	29	cytoplasm	cytoplasm GO:0005737
+tr|I7C6N3|I7C6N3_MYCHA	71	secreted	extracellular region GO:0005576;
+tr|I7CFU8|I7CFU8_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7CFN7|I7CFN7_MYCHA	73	secreted	extracellular region GO:0005576;
+tr|I7CFV5|I7CFV5_MYCHA	96	cytoplasm	cytoplasm GO:0005737
+tr|I7BJU4|I7BJU4_MYCHA	72	secreted	extracellular region GO:0005576;
+tr|I7CEJ9|I7CEJ9_MYCHA	62	secreted	extracellular region GO:0005576;
+tr|I7C5X7|I7C5X7_MYCHA	79	secreted	extracellular region GO:0005576;
+tr|I7C5E1|I7C5E1_MYCHA	55	cytoplasm	cytoplasm GO:0005737
+tr|I7BK79|I7BK79_MYCHA	80	secreted	extracellular region GO:0005576;
+tr|I7C7I0|I7C7I0_MYCHA	94	cytoplasm	cytoplasm GO:0005737
+tr|I7C769|I7C769_MYCHA	77	secreted	extracellular region GO:0005576;
+tr|I7C5Q1|I7C5Q1_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7BA65|I7BA65_MYCHA	60	secreted	extracellular region GO:0005576;
+tr|I7BJ89|I7BJ89_MYCHA	47	cytoplasm	cytoplasm GO:0005737
+tr|I7CFG8|I7CFG8_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CEX4|I7CEX4_MYCHA	86	secreted	extracellular region GO:0005576;
+tr|I7B916|I7B916_MYCHA	78	secreted	extracellular region GO:0005576;
+tr|I7CEG9|I7CEG9_MYCHA	99	cytoplasm	cytoplasm GO:0005737
+tr|I7BJW5|I7BJW5_MYCHA	69	cytoplasm	cytoplasm GO:0005737
+tr|I7CK87|I7CK87_MYCHA	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|I7CEW7|I7CEW7_MYCHA	54	secreted	extracellular region GO:0005576;
+tr|I7CJH8|I7CJH8_MYCHA	79	cytoplasm	cytoplasm GO:0005737
+tr|I7CK66|I7CK66_MYCHA	83	cytoplasm	cytoplasm GO:0005737
+tr|I7BKN3|I7BKN3_MYCHA	90	cytoplasm	cytoplasm GO:0005737
+tr|I7C557|I7C557_MYCHA	44	secreted	extracellular region GO:0005576;
+tr|I7CG65|I7CG65_MYCHA	95	cytoplasm	cytoplasm GO:0005737
+tr|I7BAA0|I7BAA0_MYCHA	89	cytoplasm	cytoplasm GO:0005737
+tr|I7C6Y3|I7C6Y3_MYCHA	73	secreted	extracellular region GO:0005576;

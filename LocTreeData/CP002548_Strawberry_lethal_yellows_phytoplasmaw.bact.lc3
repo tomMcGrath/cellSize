@@ -1,0 +1,990 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|R4RW79|R4RW79_PHYAS	10	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4S0T5|R4S0T5_PHYAS	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RMU8|R4RMU8_PHYAS	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXM3|R4RXM3_PHYAS	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S0E1|R4S0E1_PHYAS	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPU3|R4RPU3_PHYAS	10	periplasm	periplasmic space GO:0042597(IMP);
+tr|R4RLE3|R4RLE3_PHYAS	15	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|R4S1H2|R4S1H2_PHYAS	4	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|R4RVT0|R4RVT0_PHYAS	21	secreted	extracellular region GO:0005576(IEA);
+tr|R4RL69|R4RL69_PHYAS	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4S059|R4S059_PHYAS	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|R4S1B2|R4S1B2_PHYAS	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0L8|R4S0L8_PHYAS	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXI6|R4RXI6_PHYAS	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RNE3|R4RNE3_PHYAS	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPT4|R4RPT4_PHYAS	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RWK0|R4RWK0_PHYAS	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWT5|R4RWT5_PHYAS	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RLS6|R4RLS6_PHYAS	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RQP0|R4RQP0_PHYAS	38	cytoplasm	6-phosphofructokinase complex GO:0005945(IDA);
+tr|R4RXG0|R4RXG0_PHYAS	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RN74|R4RN74_PHYAS	24	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|R4RLH7|R4RLH7_PHYAS	12	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4S043|R4S043_PHYAS	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RWP7|R4RWP7_PHYAS	35	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|R4RWG1|R4RWG1_PHYAS	22	cytoplasm	cytosol GO:0005829(IBA);
+tr|R4RQK2|R4RQK2_PHYAS	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RY81|R4RY81_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RZN1|R4RZN1_PHYAS	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RM49|R4RM49_PHYAS	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RR70|R4RR70_PHYAS	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXS7|R4RXS7_PHYAS	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWW0|R4RWW0_PHYAS	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPF3|R4RPF3_PHYAS	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S125|R4S125_PHYAS	11	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|R4S0R4|R4S0R4_PHYAS	14	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|R4RZL7|R4RZL7_PHYAS	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RWA5|R4RWA5_PHYAS	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RP38|R4RP38_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S2A9|R4S2A9_PHYAS	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RMV9|R4RMV9_PHYAS	13	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|R4RX56|R4RX56_PHYAS	5	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4S166|R4S166_PHYAS	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RMT5|R4RMT5_PHYAS	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPC7|R4RPC7_PHYAS	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0X8|R4S0X8_PHYAS	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RMN4|R4RMN4_PHYAS	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1U1|R4S1U1_PHYAS	31	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RWR3|R4RWR3_PHYAS	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1I4|R4S1I4_PHYAS	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RZL4|R4RZL4_PHYAS	45	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RLI8|R4RLI8_PHYAS	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RWI4|R4RWI4_PHYAS	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RZR7|R4RZR7_PHYAS	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RMY0|R4RMY0_PHYAS	6	secreted	extracellular region GO:0005576(IEA);
+tr|R4RPB5|R4RPB5_PHYAS	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RMM6|R4RMM6_PHYAS	14	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RZX2|R4RZX2_PHYAS	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1F8|R4S1F8_PHYAS	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S2G1|R4S2G1_PHYAS	24	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|R4RXF6|R4RXF6_PHYAS	5	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|R4RNF2|R4RNF2_PHYAS	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RPP8|R4RPP8_PHYAS	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RLN9|R4RLN9_PHYAS	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S209|R4S209_PHYAS	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RQJ4|R4RQJ4_PHYAS	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|R4S037|R4S037_PHYAS	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWR8|R4RWR8_PHYAS	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNF0|R4RNF0_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S175|R4S175_PHYAS	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RLM4|R4RLM4_PHYAS	27	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|R4RNZ0|R4RNZ0_PHYAS	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RZR4|R4RZR4_PHYAS	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S0B8|R4S0B8_PHYAS	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4S1Z8|R4S1Z8_PHYAS	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S092|R4S092_PHYAS	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1Q7|R4S1Q7_PHYAS	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RQQ9|R4RQQ9_PHYAS	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RZP4|R4RZP4_PHYAS	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RZV3|R4RZV3_PHYAS	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RPY3|R4RPY3_PHYAS	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWI0|R4RWI0_PHYAS	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S052|R4S052_PHYAS	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S066|R4S066_PHYAS	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S131|R4S131_PHYAS	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0D5|R4S0D5_PHYAS	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXZ3|R4RXZ3_PHYAS	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1D7|R4S1D7_PHYAS	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RQC9|R4RQC9_PHYAS	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0B0|R4S0B0_PHYAS	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RX43|R4RX43_PHYAS	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4RX54|R4RX54_PHYAS	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S1A5|R4S1A5_PHYAS	17	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(ISS); plasma membrane GO:0005886(IEA);
+tr|R4S016|R4S016_PHYAS	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1A0|R4S1A0_PHYAS	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RXP0|R4RXP0_PHYAS	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RW19|R4RW19_PHYAS	10	periplasm	periplasmic space GO:0042597(IMP);
+tr|R4S1L2|R4S1L2_PHYAS	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWN6|R4RWN6_PHYAS	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNM1|R4RNM1_PHYAS	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RNZ9|R4RNZ9_PHYAS	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0A1|R4S0A1_PHYAS	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0C3|R4S0C3_PHYAS	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1Y8|R4S1Y8_PHYAS	10	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|R4RN25|R4RN25_PHYAS	24	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|R4S1Y1|R4S1Y1_PHYAS	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RLA5|R4RLA5_PHYAS	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RVU9|R4RVU9_PHYAS	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S278|R4S278_PHYAS	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S079|R4S079_PHYAS	19	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|R4S1Q3|R4S1Q3_PHYAS	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S1M2|R4S1M2_PHYAS	28	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4RL25|R4RL25_PHYAS	10	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RXS3|R4RXS3_PHYAS	25	secreted	cytoplasm GO:0005737(IEA); extracellular region GO:0005576(IEA);
+tr|R4S0H9|R4S0H9_PHYAS	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0X4|R4S0X4_PHYAS	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|R4RL33|R4RL33_PHYAS	27	cytoplasm	cytosol GO:0005829(IDA);
+tr|R4RWH1|R4RWH1_PHYAS	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RQ06|R4RQ06_PHYAS	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|R4S0W9|R4S0W9_PHYAS	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|R4RNQ6|R4RNQ6_PHYAS	11	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|R4RMJ1|R4RMJ1_PHYAS	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S2K5|R4S2K5_PHYAS	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0S1|R4S0S1_PHYAS	69	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPK6|R4RPK6_PHYAS	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNY6|R4RNY6_PHYAS	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RVV8|R4RVV8_PHYAS	7	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RLW4|R4RLW4_PHYAS	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RZT0|R4RZT0_PHYAS	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RL53|R4RL53_PHYAS	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RNN0|R4RNN0_PHYAS	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0H5|R4S0H5_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RW27|R4RW27_PHYAS	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RW40|R4RW40_PHYAS	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RQ50|R4RQ50_PHYAS	15	periplasm	periplasmic space GO:0042597(IMP);
+tr|R4RP19|R4RP19_PHYAS	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RPH1|R4RPH1_PHYAS	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RY03|R4RY03_PHYAS	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S102|R4S102_PHYAS	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNR0|R4RNR0_PHYAS	7	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RLP5|R4RLP5_PHYAS	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S258|R4S258_PHYAS	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0B5|R4S0B5_PHYAS	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S0D9|R4S0D9_PHYAS	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1J5|R4S1J5_PHYAS	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|R4RWV5|R4RWV5_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1N5|R4S1N5_PHYAS	27	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|R4RPR9|R4RPR9_PHYAS	8	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4S2A1|R4S2A1_PHYAS	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNL3|R4RNL3_PHYAS	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RYL7|R4RYL7_PHYAS	29	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|R4RWU0|R4RWU0_PHYAS	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S148|R4S148_PHYAS	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RZQ4|R4RZQ4_PHYAS	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWC2|R4RWC2_PHYAS	18	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|R4RP48|R4RP48_PHYAS	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1T3|R4S1T3_PHYAS	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RQI9|R4RQI9_PHYAS	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S2C1|R4S2C1_PHYAS	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RYG5|R4RYG5_PHYAS	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S0N7|R4S0N7_PHYAS	2	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4S0P9|R4S0P9_PHYAS	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4RP43|R4RP43_PHYAS	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|R4S0K2|R4S0K2_PHYAS	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1E7|R4S1E7_PHYAS	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RQL7|R4RQL7_PHYAS	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RMZ8|R4RMZ8_PHYAS	18	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RYH5|R4RYH5_PHYAS	27	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|R4RX78|R4RX78_PHYAS	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXK5|R4RXK5_PHYAS	8	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4S1T5|R4S1T5_PHYAS	14	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|R4S1S7|R4S1S7_PHYAS	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RLK8|R4RLK8_PHYAS	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RR43|R4RR43_PHYAS	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RZQ9|R4RZQ9_PHYAS	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXJ6|R4RXJ6_PHYAS	18	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RQ36|R4RQ36_PHYAS	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|R4S0V5|R4S0V5_PHYAS	27	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|R4S0D0|R4S0D0_PHYAS	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNR5|R4RNR5_PHYAS	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RWF0|R4RWF0_PHYAS	2	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RLN4|R4RLN4_PHYAS	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4S0C2|R4S0C2_PHYAS	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0K5|R4S0K5_PHYAS	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0T7|R4S0T7_PHYAS	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RQE9|R4RQE9_PHYAS	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RM32|R4RM32_PHYAS	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RXT7|R4RXT7_PHYAS	29	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RWT2|R4RWT2_PHYAS	7	cytoplasm	cytosol GO:0005829(IDA);
+tr|R4RQU1|R4RQU1_PHYAS	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|R4S0Z5|R4S0Z5_PHYAS	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S160|R4S160_PHYAS	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RP74|R4RP74_PHYAS	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RN12|R4RN12_PHYAS	17	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RY07|R4RY07_PHYAS	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S0G4|R4S0G4_PHYAS	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1C8|R4S1C8_PHYAS	24	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|R4RMH6|R4RMH6_PHYAS	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RL93|R4RL93_PHYAS	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RQJ8|R4RQJ8_PHYAS	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RYA7|R4RYA7_PHYAS	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RNF5|R4RNF5_PHYAS	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S2I2|R4S2I2_PHYAS	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RPD3|R4RPD3_PHYAS	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4RZK1|R4RZK1_PHYAS	-2	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|R4RY88|R4RY88_PHYAS	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4S1N7|R4S1N7_PHYAS	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|R4RYI7|R4RYI7_PHYAS	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|R4S1V3|R4S1V3_PHYAS	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|R4RKX4|R4RKX4_PHYAS	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|R4S2G0|R4S2G0_PHYAS	89	cytoplasm	cytoplasm GO:0005737
+tr|R4S1A8|R4S1A8_PHYAS	56	fimbrium	pilus GO:0009289;
+tr|R4RMD4|R4RMD4_PHYAS	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RMF3|R4RMF3_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4RNE7|R4RNE7_PHYAS	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RN20|R4RN20_PHYAS	79	secreted	extracellular region GO:0005576;
+tr|R4RZM1|R4RZM1_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4RNT5|R4RNT5_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4S017|R4S017_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4S074|R4S074_PHYAS	84	fimbrium	pilus GO:0009289;
+tr|R4RNI7|R4RNI7_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4S272|R4S272_PHYAS	37	secreted	extracellular region GO:0005576;
+tr|R4RWY8|R4RWY8_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXX6|R4RXX6_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RM21|R4RM21_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1X7|R4S1X7_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RPS7|R4RPS7_PHYAS	93	cytoplasm	cytoplasm GO:0005737
+tr|R4S1W9|R4S1W9_PHYAS	75	cytoplasm	cytoplasm GO:0005737
+tr|R4RZS0|R4RZS0_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4S121|R4S121_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4S0R6|R4S0R6_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RM01|R4RM01_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RQB4|R4RQB4_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4S1Q8|R4S1Q8_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RPJ1|R4RPJ1_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RQI7|R4RQI7_PHYAS	48	cytoplasm	cytoplasm GO:0005737
+tr|R4RND9|R4RND9_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4RNG3|R4RNG3_PHYAS	76	cytoplasm	cytoplasm GO:0005737
+tr|R4S1L1|R4S1L1_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4RMU5|R4RMU5_PHYAS	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLX8|R4RLX8_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RMY5|R4RMY5_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RX86|R4RX86_PHYAS	51	cytoplasm	cytoplasm GO:0005737
+tr|R4S2E3|R4S2E3_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4RR32|R4RR32_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S1P8|R4S1P8_PHYAS	95	secreted	extracellular region GO:0005576;
+tr|R4RZV2|R4RZV2_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4RPS4|R4RPS4_PHYAS	92	cytoplasm	cytoplasm GO:0005737
+tr|R4RMF0|R4RMF0_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RYJ6|R4RYJ6_PHYAS	47	secreted	extracellular region GO:0005576;
+tr|R4RNS7|R4RNS7_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RZZ8|R4RZZ8_PHYAS	66	secreted	extracellular region GO:0005576;
+tr|R4RNG0|R4RNG0_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S005|R4S005_PHYAS	79	secreted	extracellular region GO:0005576;
+tr|R4RQM8|R4RQM8_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4RMR2|R4RMR2_PHYAS	73	secreted	extracellular region GO:0005576;
+tr|R4RL64|R4RL64_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RNY1|R4RNY1_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4S1G0|R4S1G0_PHYAS	83	cytoplasm	cytoplasm GO:0005737
+tr|R4RWB4|R4RWB4_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RPH6|R4RPH6_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4S082|R4S082_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4RQK9|R4RQK9_PHYAS	57	secreted	extracellular region GO:0005576;
+tr|R4S2G6|R4S2G6_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4RZW7|R4RZW7_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4RR94|R4RR94_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RN69|R4RN69_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4RP05|R4RP05_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RMU0|R4RMU0_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4S1P4|R4S1P4_PHYAS	82	cytoplasm	cytoplasm GO:0005737
+tr|R4RY35|R4RY35_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RYQ1|R4RYQ1_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RXL8|R4RXL8_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RNM5|R4RNM5_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4S220|R4S220_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S233|R4S233_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RNR3|R4RNR3_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RR47|R4RR47_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4S182|R4S182_PHYAS	66	cytoplasm	cytoplasm GO:0005737
+tr|R4RQN3|R4RQN3_PHYAS	57	secreted	extracellular region GO:0005576;
+tr|R4RWA0|R4RWA0_PHYAS	87	secreted	extracellular region GO:0005576;
+tr|R4RNM0|R4RNM0_PHYAS	39	secreted	extracellular region GO:0005576;
+tr|R4S1M5|R4S1M5_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RLB4|R4RLB4_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4RM61|R4RM61_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RX50|R4RX50_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNW0|R4RNW0_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RXC1|R4RXC1_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4S128|R4S128_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4RY16|R4RY16_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4S2H2|R4S2H2_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4S0J0|R4S0J0_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RWD2|R4RWD2_PHYAS	86	cytoplasm	cytoplasm GO:0005737
+tr|R4S0Z9|R4S0Z9_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4S0L3|R4S0L3_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4RW68|R4RW68_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4S0M7|R4S0M7_PHYAS	44	secreted	extracellular region GO:0005576;
+tr|R4RNI9|R4RNI9_PHYAS	71	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RX82|R4RX82_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S212|R4S212_PHYAS	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RKW9|R4RKW9_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1T0|R4S1T0_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RVV3|R4RVV3_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4S0C8|R4S0C8_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RLF5|R4RLF5_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4RYM1|R4RYM1_PHYAS	81	cytoplasm	cytoplasm GO:0005737
+tr|R4RNA0|R4RNA0_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4RX48|R4RX48_PHYAS	42	cytoplasm	cytoplasm GO:0005737
+tr|R4RPT9|R4RPT9_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RM17|R4RM17_PHYAS	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLW9|R4RLW9_PHYAS	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RW10|R4RW10_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4RNB3|R4RNB3_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RVY8|R4RVY8_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4RR53|R4RR53_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S0E3|R4S0E3_PHYAS	61	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S2I8|R4S2I8_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RKY6|R4RKY6_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXD0|R4RXD0_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RXX2|R4RXX2_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4S075|R4S075_PHYAS	90	cytoplasm	cytoplasm GO:0005737
+tr|R4RLR6|R4RLR6_PHYAS	76	cytoplasm	cytoplasm GO:0005737
+tr|R4RWB8|R4RWB8_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4RWB0|R4RWB0_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S001|R4S001_PHYAS	52	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLM8|R4RLM8_PHYAS	42	cytoplasm	cytoplasm GO:0005737
+tr|R4S223|R4S223_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RNF6|R4RNF6_PHYAS	42	secreted	extracellular region GO:0005576;
+tr|R4RPJ6|R4RPJ6_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0L6|R4S0L6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RWV1|R4RWV1_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4RL62|R4RL62_PHYAS	71	secreted	extracellular region GO:0005576;
+tr|R4RXN2|R4RXN2_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RY30|R4RY30_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4RLU2|R4RLU2_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RNQ2|R4RNQ2_PHYAS	53	secreted	extracellular region GO:0005576;
+tr|R4RZU5|R4RZU5_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RWH5|R4RWH5_PHYAS	73	cytoplasm	cytoplasm GO:0005737
+tr|R4RNC4|R4RNC4_PHYAS	47	cytoplasm	cytoplasm GO:0005737
+tr|R4RNM4|R4RNM4_PHYAS	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1D2|R4S1D2_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RPV0|R4RPV0_PHYAS	77	cytoplasm	cytoplasm GO:0005737
+tr|R4RR76|R4RR76_PHYAS	90	cytoplasm	cytoplasm GO:0005737
+tr|R4S2B8|R4S2B8_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4RZR3|R4RZR3_PHYAS	32	cytoplasm	cytoplasm GO:0005737
+tr|R4RPD8|R4RPD8_PHYAS	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXC6|R4RXC6_PHYAS	65	cytoplasm	cytoplasm GO:0005737
+tr|R4RPF9|R4RPF9_PHYAS	30	cytoplasm	cytoplasm GO:0005737
+tr|R4RQP4|R4RQP4_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RW75|R4RW75_PHYAS	35	secreted	extracellular region GO:0005576;
+tr|R4RN90|R4RN90_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S129|R4S129_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S1K0|R4S1K0_PHYAS	86	cytoplasm	cytoplasm GO:0005737
+tr|R4S0V2|R4S0V2_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RYR3|R4RYR3_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4S116|R4S116_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S038|R4S038_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RL48|R4RL48_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RZZ5|R4RZZ5_PHYAS	53	secreted	extracellular region GO:0005576;
+tr|R4RPZ6|R4RPZ6_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4S136|R4S136_PHYAS	71	secreted	extracellular region GO:0005576;
+tr|R4RQR9|R4RQR9_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RZZ2|R4RZZ2_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RQH2|R4RQH2_PHYAS	73	secreted	extracellular region GO:0005576;
+tr|R4S0D1|R4S0D1_PHYAS	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RPC1|R4RPC1_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RMS8|R4RMS8_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4RPX3|R4RPX3_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RPE4|R4RPE4_PHYAS	41	cytoplasm	cytoplasm GO:0005737
+tr|R4RZV8|R4RZV8_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S1N4|R4S1N4_PHYAS	30	secreted	extracellular region GO:0005576;
+tr|R4S1U3|R4S1U3_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RLX3|R4RLX3_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RLL3|R4RLL3_PHYAS	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXF1|R4RXF1_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4RP64|R4RP64_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXZ7|R4RXZ7_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4S243|R4S243_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4RZU7|R4RZU7_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4S1P0|R4S1P0_PHYAS	51	cytoplasm	cytoplasm GO:0005737
+tr|R4RXD5|R4RXD5_PHYAS	92	cytoplasm	cytoplasm GO:0005737
+tr|R4S2D4|R4S2D4_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RVT4|R4RVT4_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RWS5|R4RWS5_PHYAS	91	cytoplasm	cytoplasm GO:0005737
+tr|R4S195|R4S195_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RQH7|R4RQH7_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4RWM2|R4RWM2_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S0N6|R4S0N6_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4S249|R4S249_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RNA5|R4RNA5_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RVY0|R4RVY0_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4RQX9|R4RQX9_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4S0L2|R4S0L2_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RQ46|R4RQ46_PHYAS	38	cytoplasm	cytoplasm GO:0005737
+tr|R4RM95|R4RM95_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4S1C9|R4S1C9_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4RYM6|R4RYM6_PHYAS	77	cytoplasm	cytoplasm GO:0005737
+tr|R4RMV3|R4RMV3_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4S088|R4S088_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4S140|R4S140_PHYAS	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RN03|R4RN03_PHYAS	20	secreted	extracellular region GO:0005576;
+tr|R4RM27|R4RM27_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4S0J5|R4S0J5_PHYAS	91	cytoplasm	cytoplasm GO:0005737
+tr|R4RMA5|R4RMA5_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RXU6|R4RXU6_PHYAS	57	cytoplasm	cytoplasm GO:0005737
+tr|R4RQL3|R4RQL3_PHYAS	77	cytoplasm	cytoplasm GO:0005737
+tr|R4RX11|R4RX11_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S1I9|R4S1I9_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4RX65|R4RX65_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RQY4|R4RQY4_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S267|R4S267_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RLG0|R4RLG0_PHYAS	39	cytoplasm	cytoplasm GO:0005737
+tr|R4S0A6|R4S0A6_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RPL7|R4RPL7_PHYAS	68	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S2H6|R4S2H6_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4S120|R4S120_PHYAS	89	secreted	extracellular region GO:0005576;
+tr|R4RWF5|R4RWF5_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RWK9|R4RWK9_PHYAS	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXB9|R4RXB9_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4S0Y7|R4S0Y7_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1B6|R4S1B6_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S2H3|R4S2H3_PHYAS	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S2I1|R4S2I1_PHYAS	36	secreted	extracellular region GO:0005576;
+tr|R4RQW9|R4RQW9_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4S152|R4S152_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RR09|R4RR09_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4RXE7|R4RXE7_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RMV6|R4RMV6_PHYAS	96	secreted	extracellular region GO:0005576;
+tr|R4S188|R4S188_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RPU7|R4RPU7_PHYAS	49	cytoplasm	cytoplasm GO:0005737
+tr|R4RWL8|R4RWL8_PHYAS	92	cytoplasm	cytoplasm GO:0005737
+tr|R4S265|R4S265_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4S0S5|R4S0S5_PHYAS	59	cytoplasm	cytoplasm GO:0005737
+tr|R4RPG6|R4RPG6_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RW49|R4RW49_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4S0I8|R4S0I8_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4S1L7|R4S1L7_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4RNV0|R4RNV0_PHYAS	38	cytoplasm	cytoplasm GO:0005737
+tr|R4RQX3|R4RQX3_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4RM66|R4RM66_PHYAS	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQM3|R4RQM3_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4RWU4|R4RWU4_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RLT1|R4RLT1_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4S0K7|R4S0K7_PHYAS	77	cytoplasm	cytoplasm GO:0005737
+tr|R4S157|R4S157_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4RNF1|R4RNF1_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RX75|R4RX75_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4S0U8|R4S0U8_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4RN07|R4RN07_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4S0F9|R4S0F9_PHYAS	70	cytoplasm	cytoplasm GO:0005737
+tr|R4S2E6|R4S2E6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S2G7|R4S2G7_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4RLJ8|R4RLJ8_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S147|R4S147_PHYAS	56	cytoplasm	cytoplasm GO:0005737
+tr|R4RZX9|R4RZX9_PHYAS	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLK3|R4RLK3_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RW15|R4RW15_PHYAS	71	cytoplasm	cytoplasm GO:0005737
+tr|R4RKW0|R4RKW0_PHYAS	77	cytoplasm	cytoplasm GO:0005737
+tr|R4RM39|R4RM39_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RZS2|R4RZS2_PHYAS	85	periplasm	periplasmic space GO:0042597;
+tr|R4RZK9|R4RZK9_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RZT8|R4RZT8_PHYAS	79	cytoplasm	cytoplasm GO:0005737
+tr|R4S203|R4S203_PHYAS	44	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RN95|R4RN95_PHYAS	66	secreted	extracellular region GO:0005576;
+tr|R4RMG1|R4RMG1_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4S191|R4S191_PHYAS	61	cytoplasm	cytoplasm GO:0005737
+tr|R4RQG7|R4RQG7_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4S172|R4S172_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4RPI7|R4RPI7_PHYAS	69	cytoplasm	cytoplasm GO:0005737
+tr|R4S1F0|R4S1F0_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RWZ2|R4RWZ2_PHYAS	55	cytoplasm	cytoplasm GO:0005737
+tr|R4S1K8|R4S1K8_PHYAS	52	secreted	extracellular region GO:0005576;
+tr|R4RMD8|R4RMD8_PHYAS	59	cytoplasm	cytoplasm GO:0005737
+tr|R4RLV1|R4RLV1_PHYAS	67	cytoplasm	cytoplasm GO:0005737
+tr|R4S0M3|R4S0M3_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4RNL4|R4RNL4_PHYAS	32	secreted	extracellular region GO:0005576;
+tr|R4S091|R4S091_PHYAS	83	cytoplasm	cytoplasm GO:0005737
+tr|R4RMS0|R4RMS0_PHYAS	66	secreted	extracellular region GO:0005576;
+tr|R4RZM7|R4RZM7_PHYAS	60	cytoplasm	cytoplasm GO:0005737
+tr|R4RL21|R4RL21_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4S180|R4S180_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4RWM6|R4RWM6_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RP56|R4RP56_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RR71|R4RR71_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4S2B2|R4S2B2_PHYAS	79	secreted	extracellular region GO:0005576;
+tr|R4RWY2|R4RWY2_PHYAS	61	cytoplasm	cytoplasm GO:0005737
+tr|R4S2I6|R4S2I6_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4RVZ3|R4RVZ3_PHYAS	28	cytoplasm	cytoplasm GO:0005737
+tr|R4RW05|R4RW05_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RME5|R4RME5_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RR92|R4RR92_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RMN7|R4RMN7_PHYAS	78	cytoplasm	cytoplasm GO:0005737
+tr|R4RML2|R4RML2_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S1M9|R4S1M9_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4S0I4|R4S0I4_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4RXX9|R4RXX9_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RPQ7|R4RPQ7_PHYAS	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1W0|R4S1W0_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RL89|R4RL89_PHYAS	50	cytoplasm	cytoplasm GO:0005737
+tr|R4RW97|R4RW97_PHYAS	54	cytoplasm	cytoplasm GO:0005737
+tr|R4RQ83|R4RQ83_PHYAS	87	secreted	extracellular region GO:0005576;
+tr|R4S256|R4S256_PHYAS	83	cytoplasm	cytoplasm GO:0005737
+tr|R4RVW2|R4RVW2_PHYAS	85	cytoplasm	cytoplasm GO:0005737
+tr|R4RQT0|R4RQT0_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S1E0|R4S1E0_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4RL73|R4RL73_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S1I2|R4S1I2_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RXG4|R4RXG4_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4RNH7|R4RNH7_PHYAS	23	cytoplasm	cytoplasm GO:0005737
+tr|R4RP77|R4RP77_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S208|R4S208_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S1K1|R4S1K1_PHYAS	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S2D1|R4S2D1_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RXA5|R4RXA5_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RL41|R4RL41_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4RZW0|R4RZW0_PHYAS	41	cytoplasm	cytoplasm GO:0005737
+tr|R4S0Q6|R4S0Q6_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4RXZ9|R4RXZ9_PHYAS	33	secreted	extracellular region GO:0005576;
+tr|R4RZS6|R4RZS6_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RPQ2|R4RPQ2_PHYAS	59	secreted	extracellular region GO:0005576;
+tr|R4S2D8|R4S2D8_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S0M1|R4S0M1_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4S1S1|R4S1S1_PHYAS	79	secreted	extracellular region GO:0005576;
+tr|R4RY25|R4RY25_PHYAS	91	secreted	extracellular region GO:0005576;
+tr|R4S1W7|R4S1W7_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S238|R4S238_PHYAS	67	cytoplasm	cytoplasm GO:0005737
+tr|R4RLY9|R4RLY9_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4RN49|R4RN49_PHYAS	37	secreted	extracellular region GO:0005576;
+tr|R4S0G7|R4S0G7_PHYAS	90	cytoplasm	cytoplasm GO:0005737
+tr|R4RXK0|R4RXK0_PHYAS	57	secreted	extracellular region GO:0005576;
+tr|R4RR58|R4RR58_PHYAS	35	cytoplasm	cytoplasm GO:0005737
+tr|R4S2D5|R4S2D5_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4S202|R4S202_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RPZ3|R4RPZ3_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RMM9|R4RMM9_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S0S7|R4S0S7_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4S0U2|R4S0U2_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RMF7|R4RMF7_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S254|R4S254_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RY53|R4RY53_PHYAS	52	cytoplasm	cytoplasm GO:0005737
+tr|R4S042|R4S042_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4S261|R4S261_PHYAS	66	secreted	extracellular region GO:0005576;
+tr|R4S1F4|R4S1F4_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RKV4|R4RKV4_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S055|R4S055_PHYAS	52	secreted	extracellular region GO:0005576;
+tr|R4RWJ5|R4RWJ5_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4RL97|R4RL97_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4RN42|R4RN42_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RXY8|R4RXY8_PHYAS	63	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNS0|R4RNS0_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S0T1|R4S0T1_PHYAS	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RWE0|R4RWE0_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXB0|R4RXB0_PHYAS	42	cytoplasm	cytoplasm GO:0005737
+tr|R4RZQ5|R4RZQ5_PHYAS	82	cytoplasm	cytoplasm GO:0005737
+tr|R4S1Z7|R4S1Z7_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQ16|R4RQ16_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4RN15|R4RN15_PHYAS	67	cytoplasm	cytoplasm GO:0005737
+tr|R4RLZ5|R4RLZ5_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4S1I7|R4S1I7_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4S1C6|R4S1C6_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RMI7|R4RMI7_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4RX96|R4RX96_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4S151|R4S151_PHYAS	43	cytoplasm	cytoplasm GO:0005737
+tr|R4RWW7|R4RWW7_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RNP1|R4RNP1_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4S2B5|R4S2B5_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4S192|R4S192_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4S021|R4S021_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4RMB9|R4RMB9_PHYAS	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RWJ0|R4RWJ0_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4S2C6|R4S2C6_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RMM3|R4RMM3_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4S0D4|R4S0D4_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S194|R4S194_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4RWP2|R4RWP2_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RN44|R4RN44_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4RR50|R4RR50_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RNE6|R4RNE6_PHYAS	56	cytoplasm	cytoplasm GO:0005737
+tr|R4RXE2|R4RXE2_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RKZ1|R4RKZ1_PHYAS	89	secreted	extracellular region GO:0005576;
+tr|R4RN61|R4RN61_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RPX9|R4RPX9_PHYAS	58	secreted	extracellular region GO:0005576;
+tr|R4RXP6|R4RXP6_PHYAS	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0Q4|R4S0Q4_PHYAS	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYK4|R4RYK4_PHYAS	60	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RL13|R4RL13_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RLS1|R4RLS1_PHYAS	72	cytoplasm	cytoplasm GO:0005737
+tr|R4RWF9|R4RWF9_PHYAS	40	cytoplasm	cytoplasm GO:0005737
+tr|R4RR36|R4RR36_PHYAS	48	cytoplasm	cytoplasm GO:0005737
+tr|R4S1C2|R4S1C2_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S297|R4S297_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S0A0|R4S0A0_PHYAS	79	cytoplasm	cytoplasm GO:0005737
+tr|R4RMR6|R4RMR6_PHYAS	60	cytoplasm	cytoplasm GO:0005737
+tr|R4S2C2|R4S2C2_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RNW6|R4RNW6_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4S0H7|R4S0H7_PHYAS	93	cytoplasm	cytoplasm GO:0005737
+tr|R4S2K2|R4S2K2_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4S1A7|R4S1A7_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4RW93|R4RW93_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S1P6|R4S1P6_PHYAS	90	cytoplasm	cytoplasm GO:0005737
+tr|R4RYI4|R4RYI4_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4RZV7|R4RZV7_PHYAS	71	secreted	extracellular region GO:0005576;
+tr|R4RL77|R4RL77_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4RNK0|R4RNK0_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4RPX1|R4RPX1_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RW35|R4RW35_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4RWL3|R4RWL3_PHYAS	91	cytoplasm	cytoplasm GO:0005737
+tr|R4RLR1|R4RLR1_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4S113|R4S113_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S1R6|R4S1R6_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4RM44|R4RM44_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RMK8|R4RMK8_PHYAS	79	cytoplasm	cytoplasm GO:0005737
+tr|R4RYB2|R4RYB2_PHYAS	35	cytoplasm	cytoplasm GO:0005737
+tr|R4S246|R4S246_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RQ75|R4RQ75_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RZQ1|R4RZQ1_PHYAS	90	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0P2|R4S0P2_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S1F3|R4S1F3_PHYAS	70	cytoplasm	cytoplasm GO:0005737
+tr|R4S1H6|R4S1H6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RQC4|R4RQC4_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLB9|R4RLB9_PHYAS	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXB4|R4RXB4_PHYAS	41	secreted	extracellular region GO:0005576;
+tr|R4RPR1|R4RPR1_PHYAS	29	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNF7|R4RNF7_PHYAS	38	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RMK0|R4RMK0_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RMP9|R4RMP9_PHYAS	88	cytoplasm	cytoplasm GO:0005737
+tr|R4RVX6|R4RVX6_PHYAS	33	secreted	extracellular region GO:0005576;
+tr|R4RNK7|R4RNK7_PHYAS	76	cytoplasm	cytoplasm GO:0005737
+tr|R4RXH5|R4RXH5_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4S0Y0|R4S0Y0_PHYAS	57	secreted	extracellular region GO:0005576;
+tr|R4S1Y7|R4S1Y7_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RMM0|R4RMM0_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1X4|R4S1X4_PHYAS	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQE4|R4RQE4_PHYAS	54	cytoplasm	cytoplasm GO:0005737
+tr|R4RPX5|R4RPX5_PHYAS	85	secreted	extracellular region GO:0005576;
+tr|R4S141|R4S141_PHYAS	83	cytoplasm	cytoplasm GO:0005737
+tr|R4S161|R4S161_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4RLQ0|R4RLQ0_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1J0|R4S1J0_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S1B8|R4S1B8_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S0P1|R4S0P1_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RX18|R4RX18_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4S0Q1|R4S0Q1_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1U8|R4S1U8_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4S1R2|R4S1R2_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4S2F5|R4S2F5_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RY65|R4RY65_PHYAS	79	secreted	extracellular region GO:0005576;
+tr|R4RR21|R4RR21_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4S095|R4S095_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RMX7|R4RMX7_PHYAS	92	cytoplasm	cytoplasm GO:0005737
+tr|R4RNK1|R4RNK1_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4RMP6|R4RMP6_PHYAS	56	cytoplasm	cytoplasm GO:0005737
+tr|R4RNZ5|R4RNZ5_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4RNN4|R4RNN4_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4RZP7|R4RZP7_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4S0Z2|R4S0Z2_PHYAS	57	cytoplasm	cytoplasm GO:0005737
+tr|R4RQS5|R4RQS5_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RN53|R4RN53_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQR5|R4RQR5_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4S0A5|R4S0A5_PHYAS	53	secreted	extracellular region GO:0005576;
+tr|R4RZX6|R4RZX6_PHYAS	56	cytoplasm	cytoplasm GO:0005737
+tr|R4RMB0|R4RMB0_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S252|R4S252_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RQY6|R4RQY6_PHYAS	46	cytoplasm	cytoplasm GO:0005737
+tr|R4RNS1|R4RNS1_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4RQV8|R4RQV8_PHYAS	37	secreted	extracellular region GO:0005576;
+tr|R4RN65|R4RN65_PHYAS	71	cytoplasm	cytoplasm GO:0005737
+tr|R4RZY9|R4RZY9_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RP99|R4RP99_PHYAS	26	secreted	extracellular region GO:0005576;
+tr|R4RY41|R4RY41_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RL81|R4RL81_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RP52|R4RP52_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RNL8|R4RNL8_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4S1A2|R4S1A2_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4RWQ2|R4RWQ2_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4S1V4|R4S1V4_PHYAS	35	cytoplasm	cytoplasm GO:0005737
+tr|R4RVT9|R4RVT9_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4S004|R4S004_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4S2H8|R4S2H8_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4S2F6|R4S2F6_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RNQ9|R4RNQ9_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4S215|R4S215_PHYAS	38	cytoplasm	cytoplasm GO:0005737
+tr|R4RQ01|R4RQ01_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RY70|R4RY70_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RXT2|R4RXT2_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNX0|R4RNX0_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RZR8|R4RZR8_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RQW3|R4RQW3_PHYAS	88	cytoplasm	cytoplasm GO:0005737
+tr|R4RWK5|R4RWK5_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RMD0|R4RMD0_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4S0T0|R4S0T0_PHYAS	47	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNP8|R4RNP8_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4S0W4|R4S0W4_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S060|R4S060_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RMB4|R4RMB4_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RR80|R4RR80_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4S276|R4S276_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RL18|R4RL18_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RPA4|R4RPA4_PHYAS	41	cytoplasm	cytoplasm GO:0005737
+tr|R4RNH4|R4RNH4_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4S2C9|R4S2C9_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RLQ5|R4RLQ5_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S1B7|R4S1B7_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1W5|R4S1W5_PHYAS	36	secreted	extracellular region GO:0005576;
+tr|R4RNK6|R4RNK6_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4S009|R4S009_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4RW54|R4RW54_PHYAS	70	cytoplasm	cytoplasm GO:0005737
+tr|R4S0C6|R4S0C6_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RYN3|R4RYN3_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4RQ80|R4RQ80_PHYAS	34	secreted	extracellular region GO:0005576;
+tr|R4RN28|R4RN28_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RR27|R4RR27_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1C3|R4S1C3_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4S2J6|R4S2J6_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RN87|R4RN87_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RMZ4|R4RMZ4_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4S165|R4S165_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RPY6|R4RPY6_PHYAS	44	secreted	extracellular region GO:0005576;
+tr|R4RXP8|R4RXP8_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S0M9|R4S0M9_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4RWX6|R4RWX6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RPP0|R4RPP0_PHYAS	60	cytoplasm	cytoplasm GO:0005737
+tr|R4S269|R4S269_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4RYP1|R4RYP1_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4RWU7|R4RWU7_PHYAS	54	cytoplasm	cytoplasm GO:0005737
+tr|R4RPV7|R4RPV7_PHYAS	51	cytoplasm	cytoplasm GO:0005737
+tr|R4S096|R4S096_PHYAS	33	cytoplasm	cytoplasm GO:0005737
+tr|R4S032|R4S032_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RME2|R4RME2_PHYAS	31	cytoplasm	cytoplasm GO:0005737
+tr|R4RL10|R4RL10_PHYAS	54	cytoplasm	cytoplasm GO:0005737
+tr|R4S123|R4S123_PHYAS	70	cytoplasm	cytoplasm GO:0005737
+tr|R4RMI3|R4RMI3_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4S282|R4S282_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4RNG1|R4RNG1_PHYAS	38	secreted	extracellular region GO:0005576;
+tr|R4RZS9|R4RZS9_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RYC5|R4RYC5_PHYAS	59	secreted	extracellular region GO:0005576;
+tr|R4RR85|R4RR85_PHYAS	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RL28|R4RL28_PHYAS	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RY85|R4RY85_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4RNE2|R4RNE2_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4RR87|R4RR87_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4S187|R4S187_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RZZ6|R4RZZ6_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4S010|R4S010_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4S081|R4S081_PHYAS	76	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0P7|R4S0P7_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXR2|R4RXR2_PHYAS	42	cytoplasm	cytoplasm GO:0005737
+tr|R4S263|R4S263_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RQ09|R4RQ09_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S0A9|R4S0A9_PHYAS	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYD2|R4RYD2_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4S0N2|R4S0N2_PHYAS	49	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S2E8|R4S2E8_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S2C7|R4S2C7_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4RNV5|R4RNV5_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4RYQ9|R4RYQ9_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1J2|R4S1J2_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYJ2|R4RYJ2_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4RW22|R4RW22_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RQE0|R4RQE0_PHYAS	50	cytoplasm	cytoplasm GO:0005737
+tr|R4RLI2|R4RLI2_PHYAS	73	cytoplasm	cytoplasm GO:0005737
+tr|R4RZY3|R4RZY3_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RWW3|R4RWW3_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RPT2|R4RPT2_PHYAS	33	secreted	extracellular region GO:0005576;
+tr|R4RWS2|R4RWS2_PHYAS	56	secreted	extracellular region GO:0005576;
+tr|R4RQ24|R4RQ24_PHYAS	45	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNP7|R4RNP7_PHYAS	58	secreted	extracellular region GO:0005576;
+tr|R4RMP1|R4RMP1_PHYAS	42	secreted	extracellular region GO:0005576;
+tr|R4S104|R4S104_PHYAS	33	secreted	extracellular region GO:0005576;
+tr|R4RNN7|R4RNN7_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RNU0|R4RNU0_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S0J4|R4S0J4_PHYAS	66	secreted	extracellular region GO:0005576;
+tr|R4S2G9|R4S2G9_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RMT3|R4RMT3_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RPE8|R4RPE8_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S012|R4S012_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S216|R4S216_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4RWC7|R4RWC7_PHYAS	57	secreted	extracellular region GO:0005576;
+tr|R4RQQ3|R4RQQ3_PHYAS	36	cytoplasm	cytoplasm GO:0005737
+tr|R4RR24|R4RR24_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4RNL7|R4RNL7_PHYAS	42	secreted	extracellular region GO:0005576;
+tr|R4RY46|R4RY46_PHYAS	58	cytoplasm	cytoplasm GO:0005737
+tr|R4S1T7|R4S1T7_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S0E6|R4S0E6_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RZX4|R4RZX4_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RP33|R4RP33_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S1S3|R4S1S3_PHYAS	88	cytoplasm	cytoplasm GO:0005737
+tr|R4S2F2|R4S2F2_PHYAS	84	cytoplasm	cytoplasm GO:0005737
+tr|R4S1Z1|R4S1Z1_PHYAS	54	secreted	extracellular region GO:0005576;
+tr|R4RLY4|R4RLY4_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RQA4|R4RQA4_PHYAS	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXW1|R4RXW1_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RLH1|R4RLH1_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4S1L6|R4S1L6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RZW4|R4RZW4_PHYAS	36	secreted	extracellular region GO:0005576;
+tr|R4S174|R4S174_PHYAS	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLF1|R4RLF1_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RP91|R4RP91_PHYAS	85	cytoplasm	cytoplasm GO:0005737
+tr|R4RXG7|R4RXG7_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RNH2|R4RNH2_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RPW4|R4RPW4_PHYAS	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RN83|R4RN83_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4S106|R4S106_PHYAS	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RXN5|R4RXN5_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S2A8|R4S2A8_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4S117|R4S117_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4S2F1|R4S2F1_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RLD8|R4RLD8_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RXW6|R4RXW6_PHYAS	51	secreted	extracellular region GO:0005576;
+tr|R4RY59|R4RY59_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4S0V9|R4S0V9_PHYAS	49	cytoplasm	cytoplasm GO:0005737
+tr|R4RNB0|R4RNB0_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RQ13|R4RQ13_PHYAS	72	secreted	extracellular region GO:0005576;
+tr|R4S1U6|R4S1U6_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RNT0|R4RNT0_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RW59|R4RW59_PHYAS	71	cytoplasm	cytoplasm GO:0005737
+tr|R4RNM6|R4RNM6_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4RNR6|R4RNR6_PHYAS	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1K4|R4S1K4_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1X2|R4S1X2_PHYAS	90	cytoplasm	cytoplasm GO:0005737
+tr|R4RXH2|R4RXH2_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1I1|R4S1I1_PHYAS	38	secreted	extracellular region GO:0005576;
+tr|R4S0R8|R4S0R8_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RX91|R4RX91_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RZZ7|R4RZZ7_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4RVY3|R4RVY3_PHYAS	87	secreted	extracellular region GO:0005576;
+tr|R4S1V8|R4S1V8_PHYAS	71	secreted	extracellular region GO:0005576;
+tr|R4RX06|R4RX06_PHYAS	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RX60|R4RX60_PHYAS	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYL2|R4RYL2_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4RPA9|R4RPA9_PHYAS	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLT6|R4RLT6_PHYAS	74	cytoplasm	cytoplasm GO:0005737
+tr|R4RQA0|R4RQA0_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RP29|R4RP29_PHYAS	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1E5|R4S1E5_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4RQT5|R4RQT5_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4RWZ9|R4RWZ9_PHYAS	48	secreted	extracellular region GO:0005576;
+tr|R4S027|R4S027_PHYAS	50	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RLG6|R4RLG6_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4RYQ5|R4RYQ5_PHYAS	71	secreted	extracellular region GO:0005576;
+tr|R4RW45|R4RW45_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4RM11|R4RM11_PHYAS	89	cytoplasm	cytoplasm GO:0005737
+tr|R4RLL9|R4RLL9_PHYAS	94	cytoplasm	cytoplasm GO:0005737
+tr|R4S0B9|R4S0B9_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RWE6|R4RWE6_PHYAS	41	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RKX8|R4RKX8_PHYAS	62	cytoplasm	cytoplasm GO:0005737
+tr|R4RP14|R4RP14_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4S0R0|R4S0R0_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RML6|R4RML6_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4RNI2|R4RNI2_PHYAS	55	secreted	extracellular region GO:0005576;
+tr|R4RMG5|R4RMG5_PHYAS	91	cytoplasm	cytoplasm GO:0005737
+tr|R4RQF4|R4RQF4_PHYAS	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0J9|R4S0J9_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4RP69|R4RP69_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RYN1|R4RYN1_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S1Y2|R4S1Y2_PHYAS	77	secreted	extracellular region GO:0005576;
+tr|R4RNX6|R4RNX6_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RPI2|R4RPI2_PHYAS	73	cytoplasm	cytoplasm GO:0005737
+tr|R4RW88|R4RW88_PHYAS	59	secreted	extracellular region GO:0005576;
+tr|R4RN57|R4RN57_PHYAS	59	secreted	extracellular region GO:0005576;
+tr|R4S070|R4S070_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4S179|R4S179_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RLU6|R4RLU6_PHYAS	43	cytoplasm	cytoplasm GO:0005737
+tr|R4S1T1|R4S1T1_PHYAS	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S0G1|R4S0G1_PHYAS	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S273|R4S273_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RNN2|R4RNN2_PHYAS	40	secreted	extracellular region GO:0005576;
+tr|R4S1G1|R4S1G1_PHYAS	88	secreted	extracellular region GO:0005576;
+tr|R4S1H5|R4S1H5_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S0E8|R4S0E8_PHYAS	45	cytoplasm	cytoplasm GO:0005737
+tr|R4RMZ0|R4RMZ0_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RL37|R4RL37_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S0F0|R4S0F0_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RNJ5|R4RNJ5_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4RN33|R4RN33_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S109|R4S109_PHYAS	33	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RWQ7|R4RWQ7_PHYAS	96	cytoplasm	cytoplasm GO:0005737
+tr|R4RX67|R4RX67_PHYAS	39	secreted	extracellular region GO:0005576;
+tr|R4S002|R4S002_PHYAS	39	cytoplasm	cytoplasm GO:0005737
+tr|R4S014|R4S014_PHYAS	83	secreted	extracellular region GO:0005576;
+tr|R4S2E2|R4S2E2_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RWE3|R4RWE3_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RZU1|R4RZU1_PHYAS	50	cytoplasm	cytoplasm GO:0005737
+tr|R4S0B4|R4S0B4_PHYAS	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RZW6|R4RZW6_PHYAS	53	secreted	extracellular region GO:0005576;
+tr|R4RLJ3|R4RLJ3_PHYAS	83	cytoplasm	cytoplasm GO:0005737
+tr|R4RLA9|R4RLA9_PHYAS	42	secreted	extracellular region GO:0005576;
+tr|R4RZT3|R4RZT3_PHYAS	50	cytoplasm	cytoplasm GO:0005737
+tr|R4RP25|R4RP25_PHYAS	86	cytoplasm	cytoplasm GO:0005737
+tr|R4S034|R4S034_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RN78|R4RN78_PHYAS	34	secreted	extracellular region GO:0005576;
+tr|R4RNI3|R4RNI3_PHYAS	74	cytoplasm	cytoplasm GO:0005737
+tr|R4RNI0|R4RNI0_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4S0H2|R4S0H2_PHYAS	61	cytoplasm	cytoplasm GO:0005737
+tr|R4RLV6|R4RLV6_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S0U6|R4S0U6_PHYAS	78	secreted	extracellular region GO:0005576;
+tr|R4RLD3|R4RLD3_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4RVZ6|R4RVZ6_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4S1L5|R4S1L5_PHYAS	66	cytoplasm	cytoplasm GO:0005737
+tr|R4S1E3|R4S1E3_PHYAS	81	secreted	extracellular region GO:0005576;
+tr|R4RM05|R4RM05_PHYAS	76	secreted	extracellular region GO:0005576;
+tr|R4RQ20|R4RQ20_PHYAS	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RW84|R4RW84_PHYAS	44	cytoplasm	cytoplasm GO:0005737
+tr|R4S0S2|R4S0S2_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4RYK1|R4RYK1_PHYAS	62	secreted	extracellular region GO:0005576;
+tr|R4S2G5|R4S2G5_PHYAS	58	fimbrium	pilus GO:0009289;
+tr|R4S230|R4S230_PHYAS	35	secreted	extracellular region GO:0005576;
+tr|R4RXU2|R4RXU2_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RY12|R4RY12_PHYAS	97	cytoplasm	cytoplasm GO:0005737
+tr|R4RQ69|R4RQ69_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQI1|R4RQI1_PHYAS	41	cytoplasm	cytoplasm GO:0005737
+tr|R4S1J6|R4S1J6_PHYAS	75	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4S1R3|R4S1R3_PHYAS	87	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RVU4|R4RVU4_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4S071|R4S071_PHYAS	41	periplasm	periplasmic space GO:0042597;
+tr|R4S051|R4S051_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4RWD6|R4RWD6_PHYAS	60	secreted	extracellular region GO:0005576;
+tr|R4RPL3|R4RPL3_PHYAS	48	cytoplasm	cytoplasm GO:0005737
+tr|R4RZK3|R4RZK3_PHYAS	79	cytoplasm	cytoplasm GO:0005737
+tr|R4RX71|R4RX71_PHYAS	68	secreted	extracellular region GO:0005576;
+tr|R4S155|R4S155_PHYAS	50	secreted	extracellular region GO:0005576;
+tr|R4RLW0|R4RLW0_PHYAS	32	cytoplasm	cytoplasm GO:0005737
+tr|R4RWN1|R4RWN1_PHYAS	70	cytoplasm	cytoplasm GO:0005737
+tr|R4RYA0|R4RYA0_PHYAS	44	secreted	extracellular region GO:0005576;
+tr|R4RM55|R4RM55_PHYAS	67	cytoplasm	cytoplasm GO:0005737
+tr|R4S0F7|R4S0F7_PHYAS	65	secreted	extracellular region GO:0005576;
+tr|R4RY21|R4RY21_PHYAS	37	secreted	extracellular region GO:0005576;
+tr|R4RP82|R4RP82_PHYAS	91	cytoplasm	cytoplasm GO:0005737
+tr|R4S0G9|R4S0G9_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4RN37|R4RN37_PHYAS	59	secreted	extracellular region GO:0005576;
+tr|R4S0R1|R4S0R1_PHYAS	92	cytoplasm	cytoplasm GO:0005737
+tr|R4RNM9|R4RNM9_PHYAS	31	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RQ95|R4RQ95_PHYAS	67	secreted	extracellular region GO:0005576;
+tr|R4RZR0|R4RZR0_PHYAS	74	secreted	extracellular region GO:0005576;
+tr|R4RQP9|R4RQP9_PHYAS	64	secreted	extracellular region GO:0005576;
+tr|R4S1Z2|R4S1Z2_PHYAS	91	secreted	extracellular region GO:0005576;
+tr|R4RXM8|R4RXM8_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYB8|R4RYB8_PHYAS	69	secreted	extracellular region GO:0005576;
+tr|R4RXI3|R4RXI3_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S1G6|R4S1G6_PHYAS	80	cytoplasm	cytoplasm GO:0005737
+tr|R4RKY2|R4RKY2_PHYAS	33	cytoplasm	cytoplasm GO:0005737
+tr|R4RW01|R4RW01_PHYAS	73	secreted	extracellular region GO:0005576;
+tr|R4S1U0|R4S1U0_PHYAS	46	secreted	extracellular region GO:0005576;
+tr|R4S0I3|R4S0I3_PHYAS	44	cytoplasm	cytoplasm GO:0005737
+tr|R4RNJ8|R4RNJ8_PHYAS	99	cytoplasm	cytoplasm GO:0005737
+tr|R4RPK2|R4RPK2_PHYAS	49	secreted	extracellular region GO:0005576;
+tr|R4S0F3|R4S0F3_PHYAS	95	cytoplasm	cytoplasm GO:0005737
+tr|R4S047|R4S047_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4S2A4|R4S2A4_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S086|R4S086_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S2E0|R4S2E0_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RZM4|R4RZM4_PHYAS	80	secreted	extracellular region GO:0005576;
+tr|R4RQ89|R4RQ89_PHYAS	84	secreted	extracellular region GO:0005576;
+tr|R4RNQ1|R4RNQ1_PHYAS	82	secreted	extracellular region GO:0005576;
+tr|R4RWG6|R4RWG6_PHYAS	100	cytoplasm	cytoplasm GO:0005737
+tr|R4S1Q1|R4S1Q1_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4RP60|R4RP60_PHYAS	75	secreted	extracellular region GO:0005576;
+tr|R4RNP4|R4RNP4_PHYAS	75	cytoplasm	cytoplasm GO:0005737
+tr|R4RKW5|R4RKW5_PHYAS	47	secreted	extracellular region GO:0005576;
+tr|R4RX41|R4RX41_PHYAS	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNS5|R4RNS5_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RL58|R4RL58_PHYAS	61	secreted	extracellular region GO:0005576;
+tr|R4RXA0|R4RXA0_PHYAS	63	secreted	extracellular region GO:0005576;
+tr|R4RP86|R4RP86_PHYAS	87	cytoplasm	cytoplasm GO:0005737
+tr|R4S143|R4S143_PHYAS	98	cytoplasm	cytoplasm GO:0005737
+tr|R4S1U9|R4S1U9_PHYAS	70	secreted	extracellular region GO:0005576;
+tr|R4RXD8|R4RXD8_PHYAS	53	cytoplasm	cytoplasm GO:0005737
+tr|R4RXQ9|R4RXQ9_PHYAS	89	secreted	extracellular region GO:0005576;
+tr|R4RMS4|R4RMS4_PHYAS	45	secreted	extracellular region GO:0005576;
+tr|R4RVX0|R4RVX0_PHYAS	53	secreted	extracellular region GO:0005576;
+tr|R4RYK8|R4RYK8_PHYAS	43	secreted	extracellular region GO:0005576;
+tr|R4RZW2|R4RZW2_PHYAS	25	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RYN8|R4RYN8_PHYAS	86	secreted	extracellular region GO:0005576;
+tr|R4S1W3|R4S1W3_PHYAS	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RP09|R4RP09_PHYAS	85	cytoplasm	cytoplasm GO:0005737
+tr|R4RQD4|R4RQD4_PHYAS	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|R4RNJ3|R4RNJ3_PHYAS	73	cytoplasm	cytoplasm GO:0005737

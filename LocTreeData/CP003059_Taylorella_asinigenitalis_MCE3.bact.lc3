@@ -1,0 +1,1536 @@
+# Localization Prediction using LocTree3
+# Domain: bact
+#
+# NOTATION Protein Id: Fasta sequences Id truncated by whitespace
+# NOTATION Score: Reliability score on a 0-100 scale (0=unreliable & 100=most reliable)
+# NOTATION Localization: Predicted sub-cellular localization class
+# NOTATION Gene Ontology Terms: Gene Ontology (GO) term/s of the corresponding localization. GO terms predicted by PSI-BLAST are supported by evidence codes (see http://www.geneontology.org/GO.evidence.shtml)
+#
+# PSI-BLAST annotation based on Swiss-Prot release 2013_11.
+# Protein Id	Score	Localization	Gene Ontology Terms
+tr|G4QBT6|G4QBT6_TAYAM	16	cytoplasm	citrate lyase complex GO:0009346(IEA);
+tr|G4QAV8|G4QAV8_TAYAM	36	cytoplasm	cytosol GO:0005829(IBA);
+tr|G4QAW5|G4QAW5_TAYAM	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QDL3|G4QDL3_TAYAM	12	periplasm	cell outer membrane GO:0009279(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QDN8|G4QDN8_TAYAM	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB72|G4QB72_TAYAM	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4QC53|G4QC53_TAYAM	15	inner membrane	cell division site GO:0032153(IEA); integral to plasma membrane GO:0005887(IDA);
+tr|G4QBZ2|G4QBZ2_TAYAM	59	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QB77|G4QB77_TAYAM	5	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(IEA); integral to membrane GO:0016021(IEA); intrinsic to external side of plasma membrane, in periplasmic space GO:0031237(IDA);
+tr|G4QB40|G4QB40_TAYAM	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCM6|G4QCM6_TAYAM	41	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QB54|G4QB54_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9R0|G4Q9R0_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QCJ4|G4QCJ4_TAYAM	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD54|G4QD54_TAYAM	10	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QC93|G4QC93_TAYAM	35	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QC85|G4QC85_TAYAM	7	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBE2|G4QBE2_TAYAM	12	secreted	extracellular region GO:0005576(IEA);
+tr|G4QAL7|G4QAL7_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAB3|G4QAB3_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4Q9U0|G4Q9U0_TAYAM	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBJ7|G4QBJ7_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA55|G4QA55_TAYAM	6	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAF3|G4QAF3_TAYAM	34	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|G4Q9G9|G4Q9G9_TAYAM	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC38|G4QC38_TAYAM	23	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G4QCE9|G4QCE9_TAYAM	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9X3|G4Q9X3_TAYAM	54	cytoplasm	cytoplasm GO:0005737(IDA); nucleoid GO:0009295(IBA);
+tr|G4QAT9|G4QAT9_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAC1|G4QAC1_TAYAM	5	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4Q9Y3|G4Q9Y3_TAYAM	32	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCG7|G4QCG7_TAYAM	41	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4QBB4|G4QBB4_TAYAM	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCJ2|G4QCJ2_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9F7|G4Q9F7_TAYAM	48	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBA3|G4QBA3_TAYAM	41	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBV1|G4QBV1_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDF9|G4QDF9_TAYAM	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAW8|G4QAW8_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QAY3|G4QAY3_TAYAM	48	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+sp|G4Q9J6|BAMB_TAYAM	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QC42|G4QC42_TAYAM	13	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QC79|G4QC79_TAYAM	16	inner membrane	integral to plasma membrane GO:0005887(IDA); internal side of plasma membrane GO:0009898(IDA);
+tr|G4QA07|G4QA07_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9N2|G4Q9N2_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA93|G4QA93_TAYAM	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCK9|G4QCK9_TAYAM	46	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QBN4|G4QBN4_TAYAM	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCD3|G4QCD3_TAYAM	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBT0|G4QBT0_TAYAM	24	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QAF2|G4QAF2_TAYAM	31	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G4QA13|G4QA13_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDG0|G4QDG0_TAYAM	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB94|G4QB94_TAYAM	36	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G4QDM0|G4QDM0_TAYAM	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAG5|G4QAG5_TAYAM	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G4Q9R6|G4Q9R6_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDK4|G4QDK4_TAYAM	12	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QDK5|G4QDK5_TAYAM	34	cytoplasm	cytoplasm GO:0005737(ISS);
+tr|G4Q9I9|G4Q9I9_TAYAM	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAT4|G4QAT4_TAYAM	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|G4QA34|G4QA34_TAYAM	55	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4QCF0|G4QCF0_TAYAM	42	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDE4|G4QDE4_TAYAM	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD04|G4QD04_TAYAM	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB71|G4QB71_TAYAM	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD49|G4QD49_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC01|G4QC01_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDK2|G4QDK2_TAYAM	10	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBN5|G4QBN5_TAYAM	56	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QAI0|G4QAI0_TAYAM	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9C4|G4Q9C4_TAYAM	56	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9V6|G4Q9V6_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G4QB57|G4QB57_TAYAM	12	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G4QA92|G4QA92_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IEA);
+tr|G4QB23|G4QB23_TAYAM	37	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA42|G4QA42_TAYAM	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAF5|G4QAF5_TAYAM	47	inner membrane	integral to membrane GO:0016021(IDA); integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|G4QB82|G4QB82_TAYAM	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD00|G4QD00_TAYAM	8	secreted	extracellular region GO:0005576(IEA);
+tr|G4Q9T8|G4Q9T8_TAYAM	9	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QB73|G4QB73_TAYAM	30	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QBK9|G4QBK9_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD16|G4QD16_TAYAM	27	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9J4|G4Q9J4_TAYAM	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDN6|G4QDN6_TAYAM	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDP1|G4QDP1_TAYAM	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAI5|G4QAI5_TAYAM	23	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QBB2|G4QBB2_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCI0|G4QCI0_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBH8|G4QBH8_TAYAM	12	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAK7|G4QAK7_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDH5|G4QDH5_TAYAM	43	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4Q9Y8|G4Q9Y8_TAYAM	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G4QBS8|G4QBS8_TAYAM	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB22|G4QB22_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA); excinuclease repair complex GO:0009380(IEA);
+tr|G4QAS3|G4QAS3_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAQ2|G4QAQ2_TAYAM	30	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9C2|G4Q9C2_TAYAM	17	secreted	extracellular region GO:0005576(IEA);
+tr|G4Q9V5|G4Q9V5_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCP8|G4QCP8_TAYAM	40	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|G4QAJ3|G4QAJ3_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA); cytoskeleton GO:0005856(IEA);
+tr|G4QCE8|G4QCE8_TAYAM	10	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB49|G4QB49_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC73|G4QC73_TAYAM	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9X2|G4Q9X2_TAYAM	20	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G4QCF7|G4QCF7_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Q7|G4Q9Q7_TAYAM	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBS7|G4QBS7_TAYAM	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QB91|G4QB91_TAYAM	12	secreted	extracellular region GO:0005576(IEA);
+tr|G4QA77|G4QA77_TAYAM	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA18|G4QA18_TAYAM	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA14|G4QA14_TAYAM	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD61|G4QD61_TAYAM	28	inner membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); photosystem I GO:0009522(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9K9|G4Q9K9_TAYAM	10	inner membrane	integral to plasma membrane GO:0005887(ISS);
+tr|G4QDC3|G4QDC3_TAYAM	33	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|G4QBM4|G4QBM4_TAYAM	19	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QCL8|G4QCL8_TAYAM	34	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QBL7|G4QBL7_TAYAM	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBZ8|G4QBZ8_TAYAM	26	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QC12|G4QC12_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAD8|G4QAD8_TAYAM	39	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QAP8|G4QAP8_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBD3|G4QBD3_TAYAM	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QB36|G4QB36_TAYAM	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB89|G4QB89_TAYAM	22	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G4QBF6|G4QBF6_TAYAM	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAK3|G4QAK3_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD39|G4QD39_TAYAM	8	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBK5|G4QBK5_TAYAM	37	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QAQ0|G4QAQ0_TAYAM	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAA8|G4QAA8_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB88|G4QB88_TAYAM	40	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAL1|G4QAL1_TAYAM	8	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G4QAX7|G4QAX7_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G4Q9F9|G4Q9F9_TAYAM	1	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBK8|G4QBK8_TAYAM	47	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAH2|G4QAH2_TAYAM	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAH9|G4QAH9_TAYAM	16	secreted	extracellular region GO:0005576(IEA);
+tr|G4QAS2|G4QAS2_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9H6|G4Q9H6_TAYAM	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCD9|G4QCD9_TAYAM	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCY3|G4QCY3_TAYAM	16	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QDF7|G4QDF7_TAYAM	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QDL1|G4QDL1_TAYAM	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBH9|G4QBH9_TAYAM	50	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QB21|G4QB21_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAU7|G4QAU7_TAYAM	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBA6|G4QBA6_TAYAM	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9W7|G4Q9W7_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA11|G4QA11_TAYAM	28	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAA4|G4QAA4_TAYAM	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCA0|G4QCA0_TAYAM	55	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Z5|G4Q9Z5_TAYAM	14	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G4QA16|G4QA16_TAYAM	14	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QBQ6|G4QBQ6_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA97|G4QA97_TAYAM	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCQ5|G4QCQ5_TAYAM	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAQ9|G4QAQ9_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB11|G4QB11_TAYAM	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBG4|G4QBG4_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD31|G4QD31_TAYAM	14	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBV5|G4QBV5_TAYAM	16	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4Q9C1|G4Q9C1_TAYAM	14	secreted	extracellular region GO:0005576(IEA);
+tr|G4QDM3|G4QDM3_TAYAM	39	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCH8|G4QCH8_TAYAM	60	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAD6|G4QAD6_TAYAM	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9H7|G4Q9H7_TAYAM	41	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QBT2|G4QBT2_TAYAM	68	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QCK3|G4QCK3_TAYAM	26	inner membrane	integral to plasma membrane GO:0005887(TAS);
+tr|G4Q9G5|G4Q9G5_TAYAM	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAH0|G4QAH0_TAYAM	44	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCC5|G4QCC5_TAYAM	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCP7|G4QCP7_TAYAM	39	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|G4QAK4|G4QAK4_TAYAM	51	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QCX3|G4QCX3_TAYAM	53	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QA91|G4QA91_TAYAM	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9R2|G4Q9R2_TAYAM	13	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QD87|G4QD87_TAYAM	4	secreted	host cell membrane GO:0033644(IEA); membrane GO:0016020(IEA);
+tr|G4QA85|G4QA85_TAYAM	22	secreted	extracellular region GO:0005576(IEA);
+tr|G4QB79|G4QB79_TAYAM	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDL9|G4QDL9_TAYAM	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QAC2|G4QAC2_TAYAM	6	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QAN0|G4QAN0_TAYAM	16	secreted	extracellular region GO:0005576(IEA);
+tr|G4QA70|G4QA70_TAYAM	64	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9I1|G4Q9I1_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QB87|G4QB87_TAYAM	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QDM5|G4QDM5_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QDI0|G4QDI0_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QB41|G4QB41_TAYAM	17	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB02|G4QB02_TAYAM	9	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); membrane GO:0016020(IEA);
+tr|G4QAE9|G4QAE9_TAYAM	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9Z0|G4Q9Z0_TAYAM	22	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB55|G4QB55_TAYAM	58	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9W0|G4Q9W0_TAYAM	15	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9R3|G4Q9R3_TAYAM	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBL3|G4QBL3_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB67|G4QB67_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9S7|G4Q9S7_TAYAM	43	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD14|G4QD14_TAYAM	48	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC48|G4QC48_TAYAM	20	secreted	extracellular region GO:0005576(IEA);
+tr|G4QCD7|G4QCD7_TAYAM	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAN3|G4QAN3_TAYAM	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCI6|G4QCI6_TAYAM	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBD4|G4QBD4_TAYAM	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAH4|G4QAH4_TAYAM	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC61|G4QC61_TAYAM	23	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4Q9U3|G4Q9U3_TAYAM	62	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDJ1|G4QDJ1_TAYAM	48	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCC0|G4QCC0_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA); nucleoid GO:0009295(IEA);
+tr|G4QDB8|G4QDB8_TAYAM	21	periplasm	integral to external side of plasma membrane GO:0071575(ISA); periplasmic space GO:0042597(IDA);
+tr|G4QCQ1|G4QCQ1_TAYAM	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA21|G4QA21_TAYAM	31	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC55|G4QC55_TAYAM	15	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G4QCF6|G4QCF6_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCG4|G4QCG4_TAYAM	55	cytoplasm	signal recognition particle GO:0048500(IMP); signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G4QAI9|G4QAI9_TAYAM	30	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCZ1|G4QCZ1_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAT1|G4QAT1_TAYAM	9	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|G4Q9C7|G4Q9C7_TAYAM	21	inner membrane	integral to plasma membrane GO:0005887(IDA); protein complex GO:0043234(IDA);
+tr|G4QAT7|G4QAT7_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAS4|G4QAS4_TAYAM	48	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4Q9K0|G4Q9K0_TAYAM	3	outer membrane	cell outer membrane GO:0009279(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCJ8|G4QCJ8_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD15|G4QD15_TAYAM	47	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDF5|G4QDF5_TAYAM	35	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBA2|G4QBA2_TAYAM	45	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBE9|G4QBE9_TAYAM	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA29|G4QA29_TAYAM	28	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G4QBL8|G4QBL8_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G4Q9U6|G4Q9U6_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9K7|G4Q9K7_TAYAM	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9S2|G4Q9S2_TAYAM	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAC4|G4QAC4_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QBX8|G4QBX8_TAYAM	16	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QAG9|G4QAG9_TAYAM	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCZ3|G4QCZ3_TAYAM	11	secreted	cell wall GO:0005618(IDA); extracellular region GO:0005576(IDA);
+tr|G4Q9P0|G4Q9P0_TAYAM	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA53|G4QA53_TAYAM	36	secreted	cytoplasm GO:0005737(IDA); extracellular region GO:0005576(IEA);
+tr|G4QB78|G4QB78_TAYAM	25	secreted	cell wall GO:0005618(IDA); extracellular region GO:0005576(IEA); plasma membrane GO:0005886(IDA);
+tr|G4QBW5|G4QBW5_TAYAM	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9C3|G4Q9C3_TAYAM	45	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4Q9N0|G4Q9N0_TAYAM	34	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4Q9D8|G4Q9D8_TAYAM	45	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QDD4|G4QDD4_TAYAM	9	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAY4|G4QAY4_TAYAM	17	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCB7|G4QCB7_TAYAM	32	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IMP);
+tr|G4QDG9|G4QDG9_TAYAM	10	cytoplasm	cell division site GO:0032153(IDA); cytoplasm GO:0005737(IEA);
+tr|G4QB32|G4QB32_TAYAM	24	inner membrane	integral to plasma membrane GO:0005887(IEA);
+tr|G4QA28|G4QA28_TAYAM	42	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QAL2|G4QAL2_TAYAM	24	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9U4|G4Q9U4_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDB7|G4QDB7_TAYAM	15	periplasm	periplasmic space GO:0042597(IMP);
+tr|G4Q9X6|G4Q9X6_TAYAM	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCK0|G4QCK0_TAYAM	4	cytoplasm	cytoplasm GO:0005737(IEA); riboflavin synthase complex GO:0009349(IEA);
+tr|G4QCL5|G4QCL5_TAYAM	23	periplasm	membrane GO:0016020(IEA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QC80|G4QC80_TAYAM	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAV9|G4QAV9_TAYAM	55	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA);
+tr|G4Q9W8|G4Q9W8_TAYAM	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAL4|G4QAL4_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDL7|G4QDL7_TAYAM	33	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QD38|G4QD38_TAYAM	10	cytoplasm	cytosol GO:0005829(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QA99|G4QA99_TAYAM	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC63|G4QC63_TAYAM	42	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QAC8|G4QAC8_TAYAM	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QCL6|G4QCL6_TAYAM	32	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QAC3|G4QAC3_TAYAM	14	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAR6|G4QAR6_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAZ8|G4QAZ8_TAYAM	46	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G4QA98|G4QA98_TAYAM	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9G7|G4Q9G7_TAYAM	38	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAZ0|G4QAZ0_TAYAM	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9T2|G4Q9T2_TAYAM	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAA9|G4QAA9_TAYAM	8	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QBP9|G4QBP9_TAYAM	25	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4Q9S4|G4Q9S4_TAYAM	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA25|G4QA25_TAYAM	10	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QAP1|G4QAP1_TAYAM	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAZ5|G4QAZ5_TAYAM	43	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4Q9C8|G4Q9C8_TAYAM	29	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9K5|G4Q9K5_TAYAM	48	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4Q9K1|G4Q9K1_TAYAM	9	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9X1|G4Q9X1_TAYAM	70	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCN3|G4QCN3_TAYAM	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA59|G4QA59_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB58|G4QB58_TAYAM	62	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCX9|G4QCX9_TAYAM	17	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G4QBG8|G4QBG8_TAYAM	40	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QC00|G4QC00_TAYAM	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QDD9|G4QDD9_TAYAM	38	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QB81|G4QB81_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBV4|G4QBV4_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9X4|G4Q9X4_TAYAM	20	cytoplasm	HslUV protease complex GO:0009376(IEA); membrane GO:0016020(IDA);
+tr|G4QBI6|G4QBI6_TAYAM	54	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9P9|G4Q9P9_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCL4|G4QCL4_TAYAM	18	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G4QAQ8|G4QAQ8_TAYAM	34	secreted	extracellular region GO:0005576(IEA);
+tr|G4QCY2|G4QCY2_TAYAM	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4Q9Z7|G4Q9Z7_TAYAM	14	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4QDF2|G4QDF2_TAYAM	13	periplasm	periplasmic space GO:0042597(IDA);
+tr|G4QBA5|G4QBA5_TAYAM	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCN7|G4QCN7_TAYAM	14	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4Q9W2|G4Q9W2_TAYAM	37	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IDA);
+tr|G4QBE3|G4QBE3_TAYAM	20	secreted	extracellular region GO:0005576(IEA);
+tr|G4QBW9|G4QBW9_TAYAM	31	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBU6|G4QBU6_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDL2|G4QDL2_TAYAM	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QAH3|G4QAH3_TAYAM	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAV4|G4QAV4_TAYAM	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9I4|G4Q9I4_TAYAM	9	secreted	extracellular region GO:0005576(IEA);
+tr|G4QCH5|G4QCH5_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBA4|G4QBA4_TAYAM	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA44|G4QA44_TAYAM	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCK8|G4QCK8_TAYAM	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAL0|G4QAL0_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDE3|G4QDE3_TAYAM	21	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); type I protein secretion system complex GO:0030256(IEA);
+tr|G4QA24|G4QA24_TAYAM	28	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QC19|G4QC19_TAYAM	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDK3|G4QDK3_TAYAM	19	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QAK2|G4QAK2_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9R5|G4Q9R5_TAYAM	49	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9W9|G4Q9W9_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IEA); integral to membrane GO:0016021(IEA);
+tr|G4QCJ3|G4QCJ3_TAYAM	27	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9R8|G4Q9R8_TAYAM	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCX5|G4QCX5_TAYAM	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA96|G4QA96_TAYAM	57	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBH0|G4QBH0_TAYAM	33	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDF6|G4QDF6_TAYAM	10	inner membrane	Gram-negative-bacterium-type cell wall GO:0009276(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD51|G4QD51_TAYAM	21	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QD50|G4QD50_TAYAM	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAQ1|G4QAQ1_TAYAM	15	cytoplasm	tricarboxylic acid cycle enzyme complex GO:0045239(IEA);
+tr|G4QDH1|G4QDH1_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA19|G4QA19_TAYAM	13	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); outer membrane-bounded periplasmic space GO:0030288(EXP);
+tr|G4QAP9|G4QAP9_TAYAM	5	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QAD3|G4QAD3_TAYAM	24	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCC1|G4QCC1_TAYAM	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QB95|G4QB95_TAYAM	23	inner membrane	integral to membrane GO:0016021(IBA); plasma membrane GO:0005886(IEA);
+tr|G4Q9H2|G4Q9H2_TAYAM	31	secreted	cell surface GO:0009986(IEA); extracellular region GO:0005576(IEA);
+tr|G4Q9T5|G4Q9T5_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBZ0|G4QBZ0_TAYAM	15	inner membrane	cell division site GO:0032153(IEA); cell septum GO:0030428(IDA); integral to plasma membrane GO:0005887(IEA);
+tr|G4QCX6|G4QCX6_TAYAM	20	cytoplasm	cytosol GO:0005829(IDA); DNA polymerase III complex GO:0009360(IEA);
+tr|G4QB66|G4QB66_TAYAM	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCY9|G4QCY9_TAYAM	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAX8|G4QAX8_TAYAM	33	cytoplasm	cytoplasm GO:0005737(IMP);
+tr|G4Q9X0|G4Q9X0_TAYAM	64	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G4QCN2|G4QCN2_TAYAM	36	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAR7|G4QAR7_TAYAM	49	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G4QA15|G4QA15_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC60|G4QC60_TAYAM	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDM8|G4QDM8_TAYAM	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBI8|G4QBI8_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA51|G4QA51_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBD1|G4QBD1_TAYAM	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9H1|G4Q9H1_TAYAM	34	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QCQ2|G4QCQ2_TAYAM	14	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QB61|G4QB61_TAYAM	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDB2|G4QDB2_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBL4|G4QBL4_TAYAM	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); respiratory chain GO:0070469(IEA);
+tr|G4QDE5|G4QDE5_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G4QB46|G4QB46_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9P1|G4Q9P1_TAYAM	34	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G4Q9D0|G4Q9D0_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QD56|G4QD56_TAYAM	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBT7|G4QBT7_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA94|G4QA94_TAYAM	26	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBG7|G4QBG7_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCK7|G4QCK7_TAYAM	68	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCM8|G4QCM8_TAYAM	54	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QA54|G4QA54_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA41|G4QA41_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QB90|G4QB90_TAYAM	3	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDB3|G4QDB3_TAYAM	27	cytoplasm	glycerol-3-phosphate dehydrogenase complex GO:0009331(IEA);
+tr|G4QAL6|G4QAL6_TAYAM	4	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(IDA); integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAF6|G4QAF6_TAYAM	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9R4|G4Q9R4_TAYAM	52	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9D9|G4Q9D9_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G4QAX5|G4QAX5_TAYAM	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4QAX4|G4QAX4_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCE7|G4QCE7_TAYAM	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAY6|G4QAY6_TAYAM	9	cytoplasm	ribosome GO:0005840(IEA);
+tr|G4QAK9|G4QAK9_TAYAM	36	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAK5|G4QAK5_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCJ0|G4QCJ0_TAYAM	38	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCX4|G4QCX4_TAYAM	26	outer membrane	cell outer membrane GO:0009279(IEA); plasma membrane GO:0005886(IEA); pore complex GO:0046930(IEA);
+tr|G4QAV6|G4QAV6_TAYAM	55	cytoplasm	cytoplasm GO:0005737(IEA); extracellular region GO:0005576(TAS);
+tr|G4QCF1|G4QCF1_TAYAM	36	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QBF0|G4QBF0_TAYAM	14	periplasm	outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QBQ1|G4QBQ1_TAYAM	16	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9N5|G4Q9N5_TAYAM	19	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4Q9P4|G4Q9P4_TAYAM	25	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBL9|G4QBL9_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBC6|G4QBC6_TAYAM	22	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBG0|G4QBG0_TAYAM	46	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G4QCM7|G4QCM7_TAYAM	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QDI3|G4QDI3_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDH7|G4QDH7_TAYAM	20	periplasm	periplasmic space GO:0042597(IMP);
+tr|G4QC51|G4QC51_TAYAM	32	cytoplasm	cell division site GO:0032153(IEA); cytoplasm GO:0005737(IDA); protein complex GO:0043234(IEA);
+tr|G4QBA0|G4QBA0_TAYAM	21	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QB28|G4QB28_TAYAM	15	inner membrane	chloride channel complex GO:0034707(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAK8|G4QAK8_TAYAM	37	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC66|G4QC66_TAYAM	62	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4Q9Q8|G4Q9Q8_TAYAM	12	cytoplasm	membrane GO:0016020(IEA);
+tr|G4QCF5|G4QCF5_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBI0|G4QBI0_TAYAM	50	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAB1|G4QAB1_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC59|G4QC59_TAYAM	44	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9M4|G4Q9M4_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9T3|G4Q9T3_TAYAM	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD57|G4QD57_TAYAM	1	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA); S-layer GO:0030115(IEA);
+tr|G4QBI1|G4QBI1_TAYAM	46	periplasm	ATP-binding cassette (ABC) transporter complex GO:0043190(IEA); periplasmic space GO:0042597(IEA);
+tr|G4QC37|G4QC37_TAYAM	62	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G4Q9G8|G4Q9G8_TAYAM	44	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCJ6|G4QCJ6_TAYAM	17	cytoplasm	signal recognition particle, endoplasmic reticulum targeting GO:0005786(IEA);
+tr|G4QAB4|G4QAB4_TAYAM	23	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QDH0|G4QDH0_TAYAM	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD45|G4QD45_TAYAM	28	cytoplasm	cytoplasmic membrane-bounded vesicle GO:0016023(IEA);
+tr|G4QAR1|G4QAR1_TAYAM	20	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QDJ5|G4QDJ5_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBS5|G4QBS5_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9D5|G4Q9D5_TAYAM	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCM0|G4QCM0_TAYAM	45	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCR2|G4QCR2_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDC7|G4QDC7_TAYAM	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G4QAI7|G4QAI7_TAYAM	33	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBZ5|G4QBZ5_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAE4|G4QAE4_TAYAM	20	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCY0|G4QCY0_TAYAM	26	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCG3|G4QCG3_TAYAM	17	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCP9|G4QCP9_TAYAM	54	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(ISS); plasma membrane GO:0005886(IEA);
+tr|G4Q9F1|G4Q9F1_TAYAM	40	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QDJ2|G4QDJ2_TAYAM	64	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD64|G4QD64_TAYAM	18	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G4QAM1|G4QAM1_TAYAM	33	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QDB4|G4QDB4_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBV7|G4QBV7_TAYAM	13	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBJ5|G4QBJ5_TAYAM	37	cytoplasm	bacterial nucleoid GO:0043590(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QC57|G4QC57_TAYAM	23	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QC67|G4QC67_TAYAM	66	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Q4|G4Q9Q4_TAYAM	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBY0|G4QBY0_TAYAM	15	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QC41|G4QC41_TAYAM	32	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAB9|G4QAB9_TAYAM	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCM2|G4QCM2_TAYAM	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9J9|G4Q9J9_TAYAM	36	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QAD4|G4QAD4_TAYAM	25	cytoplasm	membrane GO:0016020(IEA);
+tr|G4QA90|G4QA90_TAYAM	7	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB75|G4QB75_TAYAM	25	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC90|G4QC90_TAYAM	23	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QAF9|G4QAF9_TAYAM	24	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD20|G4QD20_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBP8|G4QBP8_TAYAM	48	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBT1|G4QBT1_TAYAM	85	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBJ0|G4QBJ0_TAYAM	54	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAK6|G4QAK6_TAYAM	30	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCA9|G4QCA9_TAYAM	10	inner membrane	cell pole GO:0060187(IDA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA72|G4QA72_TAYAM	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QBF2|G4QBF2_TAYAM	55	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAL8|G4QAL8_TAYAM	16	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QAD0|G4QAD0_TAYAM	73	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCQ6|G4QCQ6_TAYAM	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4Q9S3|G4Q9S3_TAYAM	54	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB45|G4QB45_TAYAM	61	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC69|G4QC69_TAYAM	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBF1|G4QBF1_TAYAM	56	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QBB6|G4QBB6_TAYAM	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAI3|G4QAI3_TAYAM	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDF4|G4QDF4_TAYAM	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBW7|G4QBW7_TAYAM	10	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA83|G4QA83_TAYAM	44	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9N1|G4Q9N1_TAYAM	37	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAM8|G4QAM8_TAYAM	29	cytoplasm	cytoplasm GO:0005737(IDA); membrane GO:0016020(IDA);
+tr|G4QA05|G4QA05_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCL7|G4QCL7_TAYAM	18	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IDA);
+tr|G4QAH5|G4QAH5_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBK4|G4QBK4_TAYAM	29	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAZ7|G4QAZ7_TAYAM	29	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G4Q9R7|G4Q9R7_TAYAM	31	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4Q9L4|G4Q9L4_TAYAM	15	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4Q9N3|G4Q9N3_TAYAM	11	periplasm	cytosol GO:0005829(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QB42|G4QB42_TAYAM	17	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA95|G4QA95_TAYAM	33	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9X5|G4Q9X5_TAYAM	54	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4QA27|G4QA27_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD22|G4QD22_TAYAM	48	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QA10|G4QA10_TAYAM	30	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC30|G4QC30_TAYAM	19	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAC5|G4QAC5_TAYAM	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QC33|G4QC33_TAYAM	38	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G4QDG4|G4QDG4_TAYAM	27	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC15|G4QC15_TAYAM	41	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G4Q9T6|G4Q9T6_TAYAM	17	cytoplasm	bacterial nucleoid GO:0043590(IDA); cytoplasm GO:0005737(IEA);
+tr|G4QA73|G4QA73_TAYAM	4	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9G4|G4Q9G4_TAYAM	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QAF4|G4QAF4_TAYAM	4	inner membrane	integral to plasma membrane GO:0005887(IEA); TAT protein transport complex GO:0033281(IDA);
+tr|G4QDC4|G4QDC4_TAYAM	32	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA); proton-transporting ATP synthase complex, coupling factor F(o) GO:0045263(IMP);
+tr|G4QB76|G4QB76_TAYAM	10	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9S9|G4Q9S9_TAYAM	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDM9|G4QDM9_TAYAM	15	periplasm	cytosol GO:0005829(IDA); outer membrane-bounded periplasmic space GO:0030288(IDA);
+tr|G4QAM3|G4QAM3_TAYAM	18	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QCQ0|G4QCQ0_TAYAM	48	inner membrane	ATP-binding cassette (ABC) transporter complex GO:0043190(ISS); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAN7|G4QAN7_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IBA);
+tr|G4QAR9|G4QAR9_TAYAM	34	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Q0|G4Q9Q0_TAYAM	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAB0|G4QAB0_TAYAM	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCA1|G4QCA1_TAYAM	50	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBB3|G4QBB3_TAYAM	22	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAT5|G4QAT5_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QA86|G4QA86_TAYAM	46	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA09|G4QA09_TAYAM	28	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QDF8|G4QDF8_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAD5|G4QAD5_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDH3|G4QDH3_TAYAM	16	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAZ6|G4QAZ6_TAYAM	24	inner membrane	integral to external side of plasma membrane GO:0071575(IDA);
+tr|G4QBV8|G4QBV8_TAYAM	17	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCY1|G4QCY1_TAYAM	27	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QD48|G4QD48_TAYAM	11	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QC34|G4QC34_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction helicase complex GO:0009379(IDA);
+tr|G4Q9F0|G4Q9F0_TAYAM	31	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QCB0|G4QCB0_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBP4|G4QBP4_TAYAM	35	cytoplasm	nucleoid GO:0009295(IEA); ribosome GO:0005840(IEA);
+tr|G4QCB9|G4QCB9_TAYAM	16	secreted	extracellular region GO:0005576(IEA);
+tr|G4QA78|G4QA78_TAYAM	63	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QD68|G4QD68_TAYAM	31	secreted	extracellular region GO:0005576(IEA);
+tr|G4QA17|G4QA17_TAYAM	3	outer membrane	cell outer membrane GO:0009279(IEA); integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9P6|G4Q9P6_TAYAM	13	inner membrane	integral to plasma membrane GO:0005887(IDA);
+tr|G4QAB7|G4QAB7_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Z6|G4Q9Z6_TAYAM	14	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBW4|G4QBW4_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAK1|G4QAK1_TAYAM	39	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QA35|G4QA35_TAYAM	42	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBC1|G4QBC1_TAYAM	52	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QD40|G4QD40_TAYAM	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB04|G4QB04_TAYAM	41	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9L3|G4Q9L3_TAYAM	17	secreted	host cell cytoplasm GO:0030430(IDA);
+tr|G4QDJ3|G4QDJ3_TAYAM	76	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA81|G4QA81_TAYAM	24	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDB5|G4QDB5_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAG0|G4QAG0_TAYAM	11	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9J0|G4Q9J0_TAYAM	69	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCP2|G4QCP2_TAYAM	57	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAC9|G4QAC9_TAYAM	23	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QBK3|G4QBK3_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA); Holliday junction resolvase complex GO:0048476(IDA);
+tr|G4QAV1|G4QAV1_TAYAM	15	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QCZ6|G4QCZ6_TAYAM	8	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCD8|G4QCD8_TAYAM	54	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QC29|G4QC29_TAYAM	44	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAV5|G4QAV5_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCF4|G4QCF4_TAYAM	6	cytoplasm	cytoplasm GO:0005737(IEA); membrane GO:0016020(IDA);
+tr|G4QC86|G4QC86_TAYAM	19	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QDC9|G4QDC9_TAYAM	14	cytoplasm	cytoplasm GO:0005737(IEA); type III protein secretion system complex GO:0030257(IEA);
+tr|G4QA50|G4QA50_TAYAM	26	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9N9|G4Q9N9_TAYAM	46	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC58|G4QC58_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QA12|G4QA12_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAG4|G4QAG4_TAYAM	34	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9Z9|G4Q9Z9_TAYAM	52	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4QD44|G4QD44_TAYAM	23	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBH3|G4QBH3_TAYAM	15	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCQ3|G4QCQ3_TAYAM	15	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QAK0|G4QAK0_TAYAM	28	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9M2|G4Q9M2_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA65|G4QA65_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9E0|G4Q9E0_TAYAM	62	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCK6|G4QCK6_TAYAM	22	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QD37|G4QD37_TAYAM	54	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QA62|G4QA62_TAYAM	49	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDJ4|G4QDJ4_TAYAM	15	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QBA7|G4QBA7_TAYAM	13	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QAS1|G4QAS1_TAYAM	6	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCZ4|G4QCZ4_TAYAM	11	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QA64|G4QA64_TAYAM	13	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9I6|G4Q9I6_TAYAM	56	cytoplasm	cytosol GO:0005829(IDA); membrane GO:0016020(IDA);
+tr|G4QCC3|G4QCC3_TAYAM	58	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QDC0|G4QDC0_TAYAM	17	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QAF0|G4QAF0_TAYAM	44	inner membrane	integral to membrane GO:0016021(IEA); membrane GO:0016020(IDA); plasma membrane GO:0005886(IEA);
+tr|G4QBH7|G4QBH7_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4QBG6|G4QBG6_TAYAM	17	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC68|G4QC68_TAYAM	25	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QAY1|G4QAY1_TAYAM	12	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QB97|G4QB97_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IDA);
+tr|G4Q9R9|G4Q9R9_TAYAM	19	cytoplasm	cytoplasm GO:0005737(IEA); exodeoxyribonuclease VII complex GO:0009318(IEA);
+tr|G4QC16|G4QC16_TAYAM	33	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QAU0|G4QAU0_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4Q9Q3|G4Q9Q3_TAYAM	12	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QBX6|G4QBX6_TAYAM	12	secreted	cell wall GO:0005618(IEA); extracellular region GO:0005576(IEA);
+tr|G4QAJ2|G4QAJ2_TAYAM	52	cytoplasm	acetate CoA-transferase complex GO:0009329(IDA); cytosol GO:0005829(IDA);
+tr|G4QD13|G4QD13_TAYAM	31	periplasm	outer membrane-bounded periplasmic space GO:0030288(IEA);
+tr|G4QB92|G4QB92_TAYAM	10	cytoplasm	chromosome GO:0005694(IEA); cytoplasm GO:0005737(IEA);
+tr|G4QC78|G4QC78_TAYAM	35	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QC54|G4QC54_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAS0|G4QAS0_TAYAM	30	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAJ1|G4QAJ1_TAYAM	31	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBM6|G4QBM6_TAYAM	23	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4Q9T9|G4Q9T9_TAYAM	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QAE6|G4QAE6_TAYAM	11	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QAD1|G4QAD1_TAYAM	21	inner membrane	integral to membrane GO:0016021(IDA); plasma membrane GO:0005886(IEA);
+tr|G4Q9J7|G4Q9J7_TAYAM	16	cytoplasm	cytosol GO:0005829(IDA);
+tr|G4QBW6|G4QBW6_TAYAM	14	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA); succinate dehydrogenase complex GO:0045281(IEA);
+tr|G4QBY1|G4QBY1_TAYAM	6	secreted	host cell membrane GO:0033644(IEA); membrane GO:0016020(IEA);
+tr|G4QDM4|G4QDM4_TAYAM	20	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QCH1|G4QCH1_TAYAM	16	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QA20|G4QA20_TAYAM	63	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QCG1|G4QCG1_TAYAM	40	cytoplasm	cytoplasm GO:0005737(IEA);
+tr|G4QBL5|G4QBL5_TAYAM	18	periplasm	periplasmic space GO:0042597(IEA);
+tr|G4QDH8|G4QDH8_TAYAM	56	cytoplasm	cytosol GO:0005829(IDA); HslUV protease complex GO:0009376(IEA); proteasome core complex GO:0005839(IEA);
+tr|G4Q9B9|G4Q9B9_TAYAM	7	secreted	extracellular region GO:0005576(IEA);
+tr|G4Q9N7|G4Q9N7_TAYAM	31	inner membrane	integral to membrane GO:0016021(IEA); plasma membrane GO:0005886(IEA);
+tr|G4QDE7|G4QDE7_TAYAM	37	cytoplasm	cytoplasm GO:0005737(IEA);
+#
+# LocTree2 annotation - de novo prediction.
+#Protein Id	Score	Localization	Gene Ontology Terms
+tr|G4Q9W3|G4Q9W3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9P8|G4Q9P8_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QBK7|G4QBK7_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW9|G4QCW9_TAYAM	53	secreted	extracellular region GO:0005576;
+tr|G4QAJ9|G4QAJ9_TAYAM	22	cytoplasm	cytoplasm GO:0005737
+tr|G4QCA7|G4QCA7_TAYAM	64	secreted	extracellular region GO:0005576;
+tr|G4QBS1|G4QBS1_TAYAM	57	cytoplasm	cytoplasm GO:0005737
+tr|G4QA58|G4QA58_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QBL1|G4QBL1_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS4|G4QCS4_TAYAM	39	cytoplasm	cytoplasm GO:0005737
+tr|G4QA30|G4QA30_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QAD9|G4QAD9_TAYAM	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD02|G4QD02_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD92|G4QD92_TAYAM	73	secreted	extracellular region GO:0005576;
+tr|G4QBU1|G4QBU1_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QDJ7|G4QDJ7_TAYAM	37	secreted	extracellular region GO:0005576;
+tr|G4QDK8|G4QDK8_TAYAM	68	secreted	extracellular region GO:0005576;
+tr|G4QDC1|G4QDC1_TAYAM	64	cytoplasm	cytoplasm GO:0005737
+tr|G4QC83|G4QC83_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QD17|G4QD17_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCE1|G4QCE1_TAYAM	48	secreted	extracellular region GO:0005576;
+tr|G4QAW4|G4QAW4_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCU3|G4QCU3_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9T0|G4Q9T0_TAYAM	77	cytoplasm	cytoplasm GO:0005737
+tr|G4QDB0|G4QDB0_TAYAM	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD99|G4QD99_TAYAM	74	secreted	extracellular region GO:0005576;
+tr|G4QBK0|G4QBK0_TAYAM	57	secreted	extracellular region GO:0005576;
+tr|G4QC82|G4QC82_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QAB5|G4QAB5_TAYAM	92	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QA61|G4QA61_TAYAM	63	cytoplasm	cytoplasm GO:0005737
+tr|G4QAV0|G4QAV0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAQ6|G4QAQ6_TAYAM	30	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBL0|G4QBL0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD52|G4QD52_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4QAI1|G4QAI1_TAYAM	46	secreted	extracellular region GO:0005576;
+tr|G4QDE6|G4QDE6_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY4|G4QBY4_TAYAM	63	secreted	extracellular region GO:0005576;
+tr|G4QBP2|G4QBP2_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4QCH9|G4QCH9_TAYAM	76	cytoplasm	cytoplasm GO:0005737
+tr|G4QCL1|G4QCL1_TAYAM	43	cytoplasm	cytoplasm GO:0005737
+tr|G4QAP2|G4QAP2_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QD42|G4QD42_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCA5|G4QCA5_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QAX2|G4QAX2_TAYAM	69	secreted	extracellular region GO:0005576;
+tr|G4QBN7|G4QBN7_TAYAM	65	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Z1|G4Q9Z1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDN3|G4QDN3_TAYAM	55	secreted	extracellular region GO:0005576;
+tr|G4QCD2|G4QCD2_TAYAM	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDN9|G4QDN9_TAYAM	76	cytoplasm	cytoplasm GO:0005737
+tr|G4QB13|G4QB13_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9K6|G4Q9K6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QA45|G4QA45_TAYAM	60	secreted	extracellular region GO:0005576;
+tr|G4QAH1|G4QAH1_TAYAM	50	periplasm	periplasmic space GO:0042597;
+tr|G4QD67|G4QD67_TAYAM	72	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU2|G4QCU2_TAYAM	44	secreted	extracellular region GO:0005576;
+tr|G4QBT8|G4QBT8_TAYAM	58	cytoplasm	cytoplasm GO:0005737
+tr|G4QBG2|G4QBG2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBV2|G4QBV2_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QDM2|G4QDM2_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QB17|G4QB17_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QB35|G4QB35_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QBV9|G4QBV9_TAYAM	57	secreted	extracellular region GO:0005576;
+tr|G4QAW2|G4QAW2_TAYAM	88	periplasm	periplasmic space GO:0042597;
+tr|G4QAM6|G4QAM6_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QB68|G4QB68_TAYAM	24	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ4|G4QBQ4_TAYAM	45	secreted	extracellular region GO:0005576;
+tr|G4QCS0|G4QCS0_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9Y2|G4Q9Y2_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV6|G4QCV6_TAYAM	43	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE0|G4QAE0_TAYAM	82	secreted	extracellular region GO:0005576;
+tr|G4QD79|G4QD79_TAYAM	75	secreted	extracellular region GO:0005576;
+tr|G4QDA1|G4QDA1_TAYAM	46	secreted	extracellular region GO:0005576;
+tr|G4QAA0|G4QAA0_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBB8|G4QBB8_TAYAM	35	periplasm	periplasmic space GO:0042597;
+tr|G4QDN7|G4QDN7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE2|G4QAE2_TAYAM	34	secreted	extracellular region GO:0005576;
+tr|G4QBX0|G4QBX0_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBV0|G4QBV0_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCQ7|G4QCQ7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QD62|G4QD62_TAYAM	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBE1|G4QBE1_TAYAM	60	cytoplasm	cytoplasm GO:0005737
+tr|G4QDI1|G4QDI1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QA47|G4QA47_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QA03|G4QA03_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBA9|G4QBA9_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9P5|G4Q9P5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBS9|G4QBS9_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Y5|G4Q9Y5_TAYAM	31	periplasm	periplasmic space GO:0042597;
+tr|G4QCP4|G4QCP4_TAYAM	61	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ5|G4QBQ5_TAYAM	71	secreted	extracellular region GO:0005576;
+tr|G4Q9W6|G4Q9W6_TAYAM	64	secreted	extracellular region GO:0005576;
+tr|G4QC50|G4QC50_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QB38|G4QB38_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QBD7|G4QBD7_TAYAM	55	secreted	extracellular region GO:0005576;
+tr|G4QD43|G4QD43_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QA79|G4QA79_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QBC9|G4QBC9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD88|G4QD88_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR1|G4QCR1_TAYAM	46	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS1|G4QCS1_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9H8|G4Q9H8_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QD97|G4QD97_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QDE8|G4QDE8_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU1|G4QCU1_TAYAM	43	cytoplasm	cytoplasm GO:0005737
+tr|G4QB07|G4QB07_TAYAM	46	periplasm	periplasmic space GO:0042597;
+tr|G4QD95|G4QD95_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4Q9E9|G4Q9E9_TAYAM	54	cytoplasm	cytoplasm GO:0005737
+tr|G4QB52|G4QB52_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9M0|G4Q9M0_TAYAM	70	cytoplasm	cytoplasm GO:0005737
+tr|G4QB96|G4QB96_TAYAM	24	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCG8|G4QCG8_TAYAM	89	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9Y6|G4Q9Y6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAM5|G4QAM5_TAYAM	46	cytoplasm	cytoplasm GO:0005737
+tr|G4QAQ3|G4QAQ3_TAYAM	61	secreted	extracellular region GO:0005576;
+tr|G4QC32|G4QC32_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD09|G4QD09_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBR9|G4QBR9_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QA26|G4QA26_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU3|G4QAU3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDM7|G4QDM7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QB01|G4QB01_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB15|G4QB15_TAYAM	49	secreted	extracellular region GO:0005576;
+tr|G4QCW1|G4QCW1_TAYAM	64	cytoplasm	cytoplasm GO:0005737
+tr|G4QA71|G4QA71_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCI3|G4QCI3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB80|G4QB80_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QCF2|G4QCF2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCS7|G4QCS7_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QB70|G4QB70_TAYAM	88	secreted	extracellular region GO:0005576;
+tr|G4QBT5|G4QBT5_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QAB8|G4QAB8_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QBS2|G4QBS2_TAYAM	78	cytoplasm	cytoplasm GO:0005737
+tr|G4QDN4|G4QDN4_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QB18|G4QB18_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCM5|G4QCM5_TAYAM	93	periplasm	periplasmic space GO:0042597;
+tr|G4QBY6|G4QBY6_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QCX1|G4QCX1_TAYAM	86	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS8|G4QCS8_TAYAM	52	cytoplasm	cytoplasm GO:0005737
+tr|G4QAJ6|G4QAJ6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY9|G4QBY9_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QBJ8|G4QBJ8_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9W1|G4Q9W1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCI2|G4QCI2_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QCK5|G4QCK5_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QD41|G4QD41_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA06|G4QA06_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY8|G4QBY8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCD5|G4QCD5_TAYAM	78	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU9|G4QCU9_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4QCI1|G4QCI1_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QCM3|G4QCM3_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QCN8|G4QCN8_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDD3|G4QDD3_TAYAM	83	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4Q9I7|G4Q9I7_TAYAM	44	periplasm	periplasmic space GO:0042597;
+tr|G4QAY0|G4QAY0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCX0|G4QCX0_TAYAM	74	secreted	extracellular region GO:0005576;
+tr|G4QDI4|G4QDI4_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QB37|G4QB37_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4QAT6|G4QAT6_TAYAM	77	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCM1|G4QCM1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9G2|G4Q9G2_TAYAM	70	secreted	extracellular region GO:0005576;
+tr|G4QCH4|G4QCH4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCM9|G4QCM9_TAYAM	81	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QDE2|G4QDE2_TAYAM	48	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAG3|G4QAG3_TAYAM	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBF3|G4QBF3_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAH8|G4QAH8_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QD71|G4QD71_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QAP5|G4QAP5_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QAX1|G4QAX1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU8|G4QBU8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QB27|G4QB27_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QCN0|G4QCN0_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDJ8|G4QDJ8_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QBZ9|G4QBZ9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDB6|G4QDB6_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QA22|G4QA22_TAYAM	56	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9C5|G4Q9C5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA82|G4QA82_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA1|G4QAA1_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QBD5|G4QBD5_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBI2|G4QBI2_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QD26|G4QD26_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU3|G4QBU3_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4QAJ7|G4QAJ7_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCP6|G4QCP6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD18|G4QD18_TAYAM	35	periplasm	periplasmic space GO:0042597;
+tr|G4QC07|G4QC07_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QD55|G4QD55_TAYAM	76	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM8|G4QBM8_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QD32|G4QD32_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QAS8|G4QAS8_TAYAM	61	periplasm	periplasmic space GO:0042597;
+tr|G4Q9S6|G4Q9S6_TAYAM	64	cytoplasm	cytoplasm GO:0005737
+tr|G4QD36|G4QD36_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9D1|G4Q9D1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD74|G4QD74_TAYAM	34	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Q5|G4Q9Q5_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QDL6|G4QDL6_TAYAM	60	cytoplasm	cytoplasm GO:0005737
+tr|G4QBZ6|G4QBZ6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9K8|G4Q9K8_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB69|G4QB69_TAYAM	91	periplasm	periplasmic space GO:0042597;
+tr|G4QD58|G4QD58_TAYAM	86	periplasm	periplasmic space GO:0042597;
+tr|G4QBM7|G4QBM7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QAZ9|G4QAZ9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Z8|G4Q9Z8_TAYAM	30	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4Q9L1|G4Q9L1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD65|G4QD65_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE8|G4QAE8_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC97|G4QC97_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDA0|G4QDA0_TAYAM	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDG3|G4QDG3_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QC40|G4QC40_TAYAM	86	cytoplasm	cytoplasm GO:0005737
+tr|G4QD07|G4QD07_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QC28|G4QC28_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCP5|G4QCP5_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCN5|G4QCN5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAV7|G4QAV7_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QAR4|G4QAR4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QBS0|G4QBS0_TAYAM	68	cytoplasm	cytoplasm GO:0005737
+tr|G4QCP0|G4QCP0_TAYAM	65	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB26|G4QB26_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9Y4|G4Q9Y4_TAYAM	58	periplasm	periplasmic space GO:0042597;
+tr|G4QBH5|G4QBH5_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QA80|G4QA80_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCF9|G4QCF9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAM2|G4QAM2_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QD70|G4QD70_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBR7|G4QBR7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QBR4|G4QBR4_TAYAM	41	secreted	extracellular region GO:0005576;
+tr|G4QD46|G4QD46_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QBR1|G4QBR1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCC6|G4QCC6_TAYAM	51	cytoplasm	cytoplasm GO:0005737
+tr|G4QD05|G4QD05_TAYAM	82	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCY5|G4QCY5_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE5|G4QAE5_TAYAM	56	cytoplasm	cytoplasm GO:0005737
+tr|G4QA49|G4QA49_TAYAM	37	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCB5|G4QCB5_TAYAM	48	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ7|G4QBQ7_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD11|G4QD11_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBR8|G4QBR8_TAYAM	79	cytoplasm	cytoplasm GO:0005737
+tr|G4QDK0|G4QDK0_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD29|G4QD29_TAYAM	62	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDN2|G4QDN2_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QB31|G4QB31_TAYAM	44	cytoplasm	cytoplasm GO:0005737
+tr|G4QBZ1|G4QBZ1_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QBX1|G4QBX1_TAYAM	72	secreted	extracellular region GO:0005576;
+tr|G4QBS3|G4QBS3_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU5|G4QCU5_TAYAM	37	cytoplasm	cytoplasm GO:0005737
+tr|G4QAI2|G4QAI2_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QAZ3|G4QAZ3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAI8|G4QAI8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU7|G4QBU7_TAYAM	32	secreted	extracellular region GO:0005576;
+tr|G4QAJ0|G4QAJ0_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QAY5|G4QAY5_TAYAM	81	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA5|G4QAA5_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBI9|G4QBI9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD77|G4QD77_TAYAM	73	secreted	extracellular region GO:0005576;
+tr|G4QA43|G4QA43_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCZ5|G4QCZ5_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCN4|G4QCN4_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Y0|G4Q9Y0_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QD12|G4QD12_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDH9|G4QDH9_TAYAM	39	periplasm	periplasmic space GO:0042597;
+tr|G4Q9L2|G4Q9L2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBN0|G4QBN0_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Q9|G4Q9Q9_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9J8|G4Q9J8_TAYAM	31	secreted	extracellular region GO:0005576;
+tr|G4QCY4|G4QCY4_TAYAM	61	secreted	extracellular region GO:0005576;
+tr|G4QA87|G4QA87_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QD91|G4QD91_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QCK1|G4QCK1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAS9|G4QAS9_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9Y7|G4Q9Y7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QBA1|G4QBA1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD34|G4QD34_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QC43|G4QC43_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QCZ0|G4QCZ0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDG6|G4QDG6_TAYAM	81	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT3|G4QCT3_TAYAM	85	secreted	extracellular region GO:0005576;
+tr|G4QCE3|G4QCE3_TAYAM	60	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4Q9B8|G4Q9B8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9D7|G4Q9D7_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU7|G4QCU7_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QCY6|G4QCY6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QC25|G4QC25_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QBB5|G4QBB5_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9J1|G4Q9J1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDD8|G4QDD8_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC70|G4QC70_TAYAM	37	cytoplasm	cytoplasm GO:0005737
+tr|G4QC52|G4QC52_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDA7|G4QDA7_TAYAM	44	secreted	extracellular region GO:0005576;
+tr|G4QAW1|G4QAW1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAY8|G4QAY8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QB60|G4QB60_TAYAM	86	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA3|G4QAA3_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAJ8|G4QAJ8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9G3|G4Q9G3_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QA02|G4QA02_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB99|G4QB99_TAYAM	70	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY7|G4QBY7_TAYAM	65	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS2|G4QCS2_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4QAS6|G4QAS6_TAYAM	32	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9N6|G4Q9N6_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC31|G4QC31_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCI7|G4QCI7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9L6|G4Q9L6_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Z4|G4Q9Z4_TAYAM	88	periplasm	periplasmic space GO:0042597;
+tr|G4QCQ8|G4QCQ8_TAYAM	63	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M9|G4Q9M9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU4|G4QBU4_TAYAM	73	secreted	extracellular region GO:0005576;
+tr|G4QCS3|G4QCS3_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4QC62|G4QC62_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QBN9|G4QBN9_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9I0|G4Q9I0_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Q1|G4Q9Q1_TAYAM	98	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC84|G4QC84_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBW3|G4QBW3_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR6|G4QCR6_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC91|G4QC91_TAYAM	39	cytoplasm	cytoplasm GO:0005737
+tr|G4QCJ5|G4QCJ5_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QC14|G4QC14_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC72|G4QC72_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QAP7|G4QAP7_TAYAM	35	cytoplasm	cytoplasm GO:0005737
+tr|G4QBV3|G4QBV3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCI9|G4QCI9_TAYAM	59	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD47|G4QD47_TAYAM	49	secreted	extracellular region GO:0005576;
+tr|G4QDG1|G4QDG1_TAYAM	56	secreted	extracellular region GO:0005576;
+tr|G4Q9F4|G4Q9F4_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCB4|G4QCB4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBD8|G4QBD8_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QA39|G4QA39_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM0|G4QBM0_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCG2|G4QCG2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBC3|G4QBC3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9J2|G4Q9J2_TAYAM	93	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCI8|G4QCI8_TAYAM	82	secreted	extracellular region GO:0005576;
+tr|G4QAP3|G4QAP3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD27|G4QD27_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QB10|G4QB10_TAYAM	29	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAJ4|G4QAJ4_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QBS4|G4QBS4_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA6|G4QAA6_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E4|G4Q9E4_TAYAM	78	cytoplasm	cytoplasm GO:0005737
+tr|G4QA33|G4QA33_TAYAM	63	secreted	extracellular region GO:0005576;
+tr|G4Q9M7|G4Q9M7_TAYAM	38	secreted	extracellular region GO:0005576;
+tr|G4Q9U9|G4Q9U9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAR0|G4QAR0_TAYAM	60	secreted	extracellular region GO:0005576;
+tr|G4QC81|G4QC81_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCH7|G4QCH7_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QA01|G4QA01_TAYAM	59	periplasm	periplasmic space GO:0042597;
+tr|G4QBI5|G4QBI5_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCG6|G4QCG6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9K4|G4Q9K4_TAYAM	73	cytoplasm	cytoplasm GO:0005737
+tr|G4QA32|G4QA32_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDE9|G4QDE9_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9P3|G4Q9P3_TAYAM	35	secreted	extracellular region GO:0005576;
+tr|G4QBW8|G4QBW8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QBF8|G4QBF8_TAYAM	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDC8|G4QDC8_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QBC4|G4QBC4_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9V2|G4Q9V2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QAN5|G4QAN5_TAYAM	37	secreted	extracellular region GO:0005576;
+tr|G4QBW0|G4QBW0_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9X9|G4Q9X9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA31|G4QA31_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDN1|G4QDN1_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QBD6|G4QBD6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC13|G4QC13_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC18|G4QC18_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM3|G4QBM3_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD76|G4QD76_TAYAM	77	secreted	extracellular region GO:0005576;
+tr|G4QB16|G4QB16_TAYAM	49	secreted	extracellular region GO:0005576;
+tr|G4QBJ3|G4QBJ3_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4QC45|G4QC45_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QBT4|G4QBT4_TAYAM	64	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9C9|G4Q9C9_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QD33|G4QD33_TAYAM	57	cytoplasm	cytoplasm GO:0005737
+tr|G4QC65|G4QC65_TAYAM	50	cytoplasm	cytoplasm GO:0005737
+tr|G4QC05|G4QC05_TAYAM	75	secreted	extracellular region GO:0005576;
+tr|G4QBE0|G4QBE0_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QB50|G4QB50_TAYAM	29	secreted	extracellular region GO:0005576;
+tr|G4QBC2|G4QBC2_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR8|G4QCR8_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QBN8|G4QBN8_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9T1|G4Q9T1_TAYAM	96	periplasm	periplasmic space GO:0042597;
+tr|G4QCT9|G4QCT9_TAYAM	57	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9U5|G4Q9U5_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCE2|G4QCE2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCA4|G4QCA4_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QDD2|G4QDD2_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9T4|G4Q9T4_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QC89|G4QC89_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE3|G4QAE3_TAYAM	39	secreted	extracellular region GO:0005576;
+tr|G4QCV3|G4QCV3_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU2|G4QAU2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCA3|G4QCA3_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU6|G4QCU6_TAYAM	63	secreted	extracellular region GO:0005576;
+tr|G4Q9V4|G4Q9V4_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU4|G4QCU4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QBT3|G4QBT3_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QBH2|G4QBH2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBH4|G4QBH4_TAYAM	79	secreted	extracellular region GO:0005576;
+tr|G4QDI2|G4QDI2_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9S1|G4Q9S1_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QDI5|G4QDI5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD63|G4QD63_TAYAM	20	secreted	extracellular region GO:0005576;
+tr|G4QCZ9|G4QCZ9_TAYAM	69	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9L5|G4Q9L5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD69|G4QD69_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAH7|G4QAH7_TAYAM	51	secreted	extracellular region GO:0005576;
+tr|G4QCE4|G4QCE4_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QDH2|G4QDH2_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9F6|G4Q9F6_TAYAM	76	cytoplasm	cytoplasm GO:0005737
+tr|G4QBI7|G4QBI7_TAYAM	48	cytoplasm	cytoplasm GO:0005737
+tr|G4QAF1|G4QAF1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M5|G4Q9M5_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QA68|G4QA68_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QD90|G4QD90_TAYAM	69	secreted	extracellular region GO:0005576;
+tr|G4QDA4|G4QDA4_TAYAM	72	secreted	extracellular region GO:0005576;
+tr|G4Q9I2|G4Q9I2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBZ4|G4QBZ4_TAYAM	85	secreted	extracellular region GO:0005576;
+tr|G4Q9L7|G4Q9L7_TAYAM	27	secreted	extracellular region GO:0005576;
+tr|G4QA37|G4QA37_TAYAM	72	cytoplasm	cytoplasm GO:0005737
+tr|G4QC22|G4QC22_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9U1|G4Q9U1_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9C0|G4Q9C0_TAYAM	91	secreted	extracellular region GO:0005576;
+tr|G4QB56|G4QB56_TAYAM	70	secreted	extracellular region GO:0005576;
+tr|G4QAP6|G4QAP6_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QAG2|G4QAG2_TAYAM	72	secreted	extracellular region GO:0005576;
+tr|G4QAG1|G4QAG1_TAYAM	58	periplasm	periplasmic space GO:0042597;
+tr|G4QA57|G4QA57_TAYAM	46	cytoplasm	cytoplasm GO:0005737
+tr|G4QBW2|G4QBW2_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAF7|G4QAF7_TAYAM	55	periplasm	periplasmic space GO:0042597;
+tr|G4QCX2|G4QCX2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAM7|G4QAM7_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QCF3|G4QCF3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU0|G4QBU0_TAYAM	51	cytoplasm	cytoplasm GO:0005737
+tr|G4QC39|G4QC39_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QDG8|G4QDG8_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBJ2|G4QBJ2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD21|G4QD21_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBR0|G4QBR0_TAYAM	32	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QAN9|G4QAN9_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC03|G4QC03_TAYAM	63	secreted	extracellular region GO:0005576;
+tr|G4QBQ2|G4QBQ2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCV1|G4QCV1_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QC27|G4QC27_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAN8|G4QAN8_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR3|G4QCR3_TAYAM	54	cytoplasm	cytoplasm GO:0005737
+tr|G4QBF9|G4QBF9_TAYAM	86	fimbrium	pilus GO:0009289;
+tr|G4Q9E8|G4Q9E8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E6|G4Q9E6_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QBF4|G4QBF4_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBR2|G4QBR2_TAYAM	33	fimbrium	pilus GO:0009289;
+tr|G4QCT7|G4QCT7_TAYAM	73	secreted	extracellular region GO:0005576;
+tr|G4QAW0|G4QAW0_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QBE4|G4QBE4_TAYAM	95	secreted	extracellular region GO:0005576;
+tr|G4QAP4|G4QAP4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA40|G4QA40_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QC11|G4QC11_TAYAM	31	secreted	extracellular region GO:0005576;
+tr|G4QC92|G4QC92_TAYAM	58	cytoplasm	cytoplasm GO:0005737
+tr|G4QB30|G4QB30_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QDN0|G4QDN0_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QAN6|G4QAN6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDJ9|G4QDJ9_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC94|G4QC94_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9S0|G4Q9S0_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M1|G4Q9M1_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QC09|G4QC09_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9F2|G4Q9F2_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ8|G4QBQ8_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QBB7|G4QBB7_TAYAM	93	secreted	extracellular region GO:0005576;
+tr|G4QB20|G4QB20_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QCG9|G4QCG9_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QB84|G4QB84_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB74|G4QB74_TAYAM	89	periplasm	periplasmic space GO:0042597;
+tr|G4QBN2|G4QBN2_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QBP3|G4QBP3_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9F8|G4Q9F8_TAYAM	82	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QB39|G4QB39_TAYAM	87	periplasm	periplasmic space GO:0042597;
+tr|G4QAU4|G4QAU4_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDI6|G4QDI6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC96|G4QC96_TAYAM	36	secreted	extracellular region GO:0005576;
+tr|G4Q9L0|G4Q9L0_TAYAM	79	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC21|G4QC21_TAYAM	63	periplasm	periplasmic space GO:0042597;
+tr|G4QB53|G4QB53_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QCJ1|G4QCJ1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9V7|G4Q9V7_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT6|G4QCT6_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QCQ9|G4QCQ9_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4QA63|G4QA63_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM5|G4QBM5_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBX7|G4QBX7_TAYAM	49	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E7|G4Q9E7_TAYAM	58	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCE6|G4QCE6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC75|G4QC75_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCB3|G4QCB3_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QCF8|G4QCF8_TAYAM	70	secreted	extracellular region GO:0005576;
+tr|G4QBG1|G4QBG1_TAYAM	81	cytoplasm	cytoplasm GO:0005737
+tr|G4QAS5|G4QAS5_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCA6|G4QCA6_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QDJ6|G4QDJ6_TAYAM	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD24|G4QD24_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAW3|G4QAW3_TAYAM	94	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB19|G4QB19_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9C6|G4Q9C6_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QAY7|G4QAY7_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW5|G4QCW5_TAYAM	35	secreted	extracellular region GO:0005576;
+tr|G4QBK6|G4QBK6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAL5|G4QAL5_TAYAM	30	secreted	extracellular region GO:0005576;
+tr|G4QCC8|G4QCC8_TAYAM	67	cytoplasm	cytoplasm GO:0005737
+tr|G4QD83|G4QD83_TAYAM	59	secreted	extracellular region GO:0005576;
+tr|G4QBU9|G4QBU9_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCH3|G4QCH3_TAYAM	70	cytoplasm	cytoplasm GO:0005737
+tr|G4QA75|G4QA75_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB65|G4QB65_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QDN5|G4QDN5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBX3|G4QBX3_TAYAM	72	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Z3|G4Q9Z3_TAYAM	55	periplasm	periplasmic space GO:0042597;
+tr|G4Q9L8|G4Q9L8_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU8|G4QAU8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS6|G4QCS6_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAL3|G4QAL3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QBR6|G4QBR6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCP1|G4QCP1_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR5|G4QCR5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAG7|G4QAG7_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QBS6|G4QBS6_TAYAM	49	periplasm	periplasmic space GO:0042597;
+tr|G4QAE7|G4QAE7_TAYAM	86	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBI3|G4QBI3_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QC74|G4QC74_TAYAM	72	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QBP6|G4QBP6_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDC6|G4QDC6_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV5|G4QCV5_TAYAM	93	secreted	extracellular region GO:0005576;
+tr|G4QB85|G4QB85_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA38|G4QA38_TAYAM	55	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB98|G4QB98_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDK9|G4QDK9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBR5|G4QBR5_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QB83|G4QB83_TAYAM	57	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC88|G4QC88_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY3|G4QBY3_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Y9|G4Q9Y9_TAYAM	70	periplasm	periplasmic space GO:0042597;
+tr|G4QBQ3|G4QBQ3_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD59|G4QD59_TAYAM	32	periplasm	periplasmic space GO:0042597;
+tr|G4QC76|G4QC76_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCG5|G4QCG5_TAYAM	27	cytoplasm	cytoplasm GO:0005737
+tr|G4QBW1|G4QBW1_TAYAM	55	cytoplasm	cytoplasm GO:0005737
+tr|G4QB29|G4QB29_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9S5|G4Q9S5_TAYAM	40	cytoplasm	cytoplasm GO:0005737
+tr|G4QAG8|G4QAG8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBB0|G4QBB0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAY9|G4QAY9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDF1|G4QDF1_TAYAM	45	cytoplasm	cytoplasm GO:0005737
+tr|G4QAW7|G4QAW7_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QDK1|G4QDK1_TAYAM	43	periplasm	periplasmic space GO:0042597;
+tr|G4QBG5|G4QBG5_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCL0|G4QCL0_TAYAM	62	secreted	extracellular region GO:0005576;
+tr|G4QBH6|G4QBH6_TAYAM	79	cytoplasm	cytoplasm GO:0005737
+tr|G4QAN4|G4QAN4_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCA8|G4QCA8_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBC0|G4QBC0_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9V3|G4Q9V3_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBP7|G4QBP7_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD25|G4QD25_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4QB62|G4QB62_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4QCI5|G4QCI5_TAYAM	46	secreted	extracellular region GO:0005576;
+tr|G4QAM0|G4QAM0_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4Q9V8|G4Q9V8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QA88|G4QA88_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW7|G4QCW7_TAYAM	75	cytoplasm	cytoplasm GO:0005737
+tr|G4QBE8|G4QBE8_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QA48|G4QA48_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QBJ6|G4QBJ6_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM9|G4QBM9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU2|G4QBU2_TAYAM	38	secreted	extracellular region GO:0005576;
+tr|G4QBD0|G4QBD0_TAYAM	59	secreted	extracellular region GO:0005576;
+tr|G4QA56|G4QA56_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QDD5|G4QDD5_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCZ7|G4QCZ7_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QD89|G4QD89_TAYAM	66	secreted	extracellular region GO:0005576;
+tr|G4QBC7|G4QBC7_TAYAM	66	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ9|G4QBQ9_TAYAM	26	fimbrium	pilus GO:0009289;
+tr|G4QBJ4|G4QBJ4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCS9|G4QCS9_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4Q9G0|G4Q9G0_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4QA52|G4QA52_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD94|G4QD94_TAYAM	49	secreted	extracellular region GO:0005576;
+tr|G4QCW3|G4QCW3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR4|G4QCR4_TAYAM	45	secreted	extracellular region GO:0005576;
+tr|G4QDD7|G4QDD7_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QBX4|G4QBX4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QA36|G4QA36_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QBC5|G4QBC5_TAYAM	58	periplasm	periplasmic space GO:0042597;
+tr|G4QAM9|G4QAM9_TAYAM	51	secreted	extracellular region GO:0005576;
+tr|G4QD08|G4QD08_TAYAM	29	cytoplasm	cytoplasm GO:0005737
+tr|G4QB05|G4QB05_TAYAM	42	secreted	extracellular region GO:0005576;
+tr|G4QBP1|G4QBP1_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4QCD1|G4QCD1_TAYAM	58	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QC77|G4QC77_TAYAM	33	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9T7|G4Q9T7_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAQ4|G4QAQ4_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QAX0|G4QAX0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9R1|G4Q9R1_TAYAM	47	periplasm	periplasmic space GO:0042597;
+tr|G4QDL8|G4QDL8_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW2|G4QCW2_TAYAM	32	secreted	extracellular region GO:0005576;
+tr|G4Q9L9|G4Q9L9_TAYAM	52	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU5|G4QAU5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBU5|G4QBU5_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QD35|G4QD35_TAYAM	56	periplasm	periplasmic space GO:0042597;
+tr|G4QB06|G4QB06_TAYAM	56	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDB1|G4QDB1_TAYAM	91	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9P7|G4Q9P7_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB00|G4QB00_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QD73|G4QD73_TAYAM	91	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QBE7|G4QBE7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC02|G4QC02_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB47|G4QB47_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCV9|G4QCV9_TAYAM	28	secreted	extracellular region GO:0005576;
+tr|G4QBN1|G4QBN1_TAYAM	49	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR9|G4QCR9_TAYAM	71	secreted	extracellular region GO:0005576;
+tr|G4QCZ8|G4QCZ8_TAYAM	78	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9S8|G4Q9S8_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCC2|G4QCC2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9D4|G4Q9D4_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9W4|G4Q9W4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAT0|G4QAT0_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDA5|G4QDA5_TAYAM	67	secreted	extracellular region GO:0005576;
+tr|G4QCW6|G4QCW6_TAYAM	65	secreted	extracellular region GO:0005576;
+tr|G4Q9I8|G4Q9I8_TAYAM	73	secreted	extracellular region GO:0005576;
+tr|G4Q9K3|G4Q9K3_TAYAM	40	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCW4|G4QCW4_TAYAM	74	cytoplasm	cytoplasm GO:0005737
+tr|G4QB93|G4QB93_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW8|G4QCW8_TAYAM	76	secreted	extracellular region GO:0005576;
+tr|G4QB03|G4QB03_TAYAM	88	secreted	extracellular region GO:0005576;
+tr|G4QBJ1|G4QBJ1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAE1|G4QAE1_TAYAM	56	periplasm	periplasmic space GO:0042597;
+tr|G4QB08|G4QB08_TAYAM	80	secreted	extracellular region GO:0005576;
+tr|G4QBZ3|G4QBZ3_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD96|G4QD96_TAYAM	72	secreted	extracellular region GO:0005576;
+tr|G4QBL6|G4QBL6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCK4|G4QCK4_TAYAM	70	cytoplasm	cytoplasm GO:0005737
+tr|G4QC87|G4QC87_TAYAM	74	cytoplasm	cytoplasm GO:0005737
+tr|G4QD78|G4QD78_TAYAM	56	secreted	extracellular region GO:0005576;
+tr|G4QA74|G4QA74_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QB09|G4QB09_TAYAM	74	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDH4|G4QDH4_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCY8|G4QCY8_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QB64|G4QB64_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA7|G4QAA7_TAYAM	47	periplasm	periplasmic space GO:0042597;
+tr|G4QBE5|G4QBE5_TAYAM	64	secreted	extracellular region GO:0005576;
+tr|G4QBD2|G4QBD2_TAYAM	74	cytoplasm	cytoplasm GO:0005737
+tr|G4QB12|G4QB12_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAL9|G4QAL9_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QDB9|G4QDB9_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QC08|G4QC08_TAYAM	91	secreted	extracellular region GO:0005576;
+tr|G4QDA9|G4QDA9_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M6|G4Q9M6_TAYAM	63	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9N4|G4Q9N4_TAYAM	77	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4Q9E5|G4Q9E5_TAYAM	77	secreted	extracellular region GO:0005576;
+tr|G4QDD0|G4QDD0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD84|G4QD84_TAYAM	69	fimbrium	pilus GO:0009289;
+tr|G4QAV3|G4QAV3_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QC17|G4QC17_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDI7|G4QDI7_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QD23|G4QD23_TAYAM	69	secreted	extracellular region GO:0005576;
+tr|G4QCN6|G4QCN6_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9H9|G4Q9H9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QC44|G4QC44_TAYAM	56	secreted	extracellular region GO:0005576;
+tr|G4QBG3|G4QBG3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QBK1|G4QBK1_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCD4|G4QCD4_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E1|G4Q9E1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QDF3|G4QDF3_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCK2|G4QCK2_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QAI6|G4QAI6_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M3|G4Q9M3_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCT0|G4QCT0_TAYAM	60	secreted	extracellular region GO:0005576;
+tr|G4QC64|G4QC64_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA76|G4QA76_TAYAM	93	periplasm	periplasmic space GO:0042597;
+tr|G4QAM4|G4QAM4_TAYAM	61	secreted	extracellular region GO:0005576;
+tr|G4QBZ7|G4QBZ7_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDI9|G4QDI9_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDD6|G4QDD6_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCV7|G4QCV7_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QAC0|G4QAC0_TAYAM	98	periplasm	periplasmic space GO:0042597;
+tr|G4QD81|G4QD81_TAYAM	79	secreted	extracellular region GO:0005576;
+tr|G4QBG9|G4QBG9_TAYAM	56	periplasm	periplasmic space GO:0042597;
+tr|G4QAQ5|G4QAQ5_TAYAM	42	secreted	extracellular region GO:0005576;
+tr|G4QC99|G4QC99_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9H5|G4Q9H5_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Y1|G4Q9Y1_TAYAM	63	secreted	extracellular region GO:0005576;
+tr|G4Q9U2|G4Q9U2_TAYAM	85	cytoplasm	cytoplasm GO:0005737
+tr|G4QBP5|G4QBP5_TAYAM	61	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9U8|G4Q9U8_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QCI4|G4QCI4_TAYAM	17	periplasm	periplasmic space GO:0042597;
+tr|G4QAR5|G4QAR5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU8|G4QCU8_TAYAM	70	cytoplasm	cytoplasm GO:0005737
+tr|G4QAI4|G4QAI4_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCD0|G4QCD0_TAYAM	76	secreted	extracellular region GO:0005576;
+tr|G4QBK2|G4QBK2_TAYAM	78	cytoplasm	cytoplasm GO:0005737
+tr|G4QCB2|G4QCB2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBL2|G4QBL2_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QDM1|G4QDM1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC95|G4QC95_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAR2|G4QAR2_TAYAM	47	periplasm	periplasmic space GO:0042597;
+tr|G4QB33|G4QB33_TAYAM	49	secreted	extracellular region GO:0005576;
+tr|G4QCN9|G4QCN9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBD9|G4QBD9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCE5|G4QCE5_TAYAM	77	cytoplasm	cytoplasm GO:0005737
+tr|G4QAT8|G4QAT8_TAYAM	78	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAN2|G4QAN2_TAYAM	55	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9I5|G4Q9I5_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9V1|G4Q9V1_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QB63|G4QB63_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9H3|G4Q9H3_TAYAM	75	secreted	extracellular region GO:0005576;
+tr|G4QBX2|G4QBX2_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4QCJ9|G4QCJ9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD66|G4QD66_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD98|G4QD98_TAYAM	78	secreted	extracellular region GO:0005576;
+tr|G4QAP0|G4QAP0_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4QD80|G4QD80_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4QDL4|G4QDL4_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDC5|G4QDC5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9W5|G4Q9W5_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD28|G4QD28_TAYAM	39	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM1|G4QBM1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBF7|G4QBF7_TAYAM	84	secreted	extracellular region GO:0005576;
+tr|G4QBB1|G4QBB1_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QA60|G4QA60_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QCY7|G4QCY7_TAYAM	52	secreted	extracellular region GO:0005576;
+tr|G4QB43|G4QB43_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QD01|G4QD01_TAYAM	86	cytoplasm	cytoplasm GO:0005737
+tr|G4QAN1|G4QAN1_TAYAM	41	secreted	extracellular region GO:0005576;
+tr|G4QB59|G4QB59_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT1|G4QCT1_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QAG6|G4QAG6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9K2|G4Q9K2_TAYAM	77	secreted	extracellular region GO:0005576;
+tr|G4QDK6|G4QDK6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E2|G4Q9E2_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAR3|G4QAR3_TAYAM	45	cytoplasm	cytoplasm GO:0005737
+tr|G4QDF0|G4QDF0_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV8|G4QCV8_TAYAM	54	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCC7|G4QCC7_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBB9|G4QBB9_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QDP0|G4QDP0_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCS5|G4QCS5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Q2|G4Q9Q2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC71|G4QC71_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QDE0|G4QDE0_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU6|G4QAU6_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QCL2|G4QCL2_TAYAM	65	cytoplasm	cytoplasm GO:0005737
+tr|G4QBI4|G4QBI4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9D2|G4Q9D2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9H0|G4Q9H0_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QC49|G4QC49_TAYAM	28	cytoplasm	cytoplasm GO:0005737
+tr|G4QAX3|G4QAX3_TAYAM	75	cytoplasm	cytoplasm GO:0005737
+tr|G4QD60|G4QD60_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QC35|G4QC35_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAC6|G4QAC6_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9J3|G4Q9J3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QDK7|G4QDK7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC06|G4QC06_TAYAM	56	cytoplasm	cytoplasm GO:0005737
+tr|G4QBC8|G4QBC8_TAYAM	56	cytoplasm	cytoplasm GO:0005737
+tr|G4QAW9|G4QAW9_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QBQ0|G4QBQ0_TAYAM	38	secreted	extracellular region GO:0005576;
+tr|G4Q9V9|G4Q9V9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCU0|G4QCU0_TAYAM	61	secreted	extracellular region GO:0005576;
+tr|G4QBP0|G4QBP0_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QCQ4|G4QCQ4_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9J5|G4Q9J5_TAYAM	39	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDI8|G4QDI8_TAYAM	22	cytoplasm	cytoplasm GO:0005737
+tr|G4QAY2|G4QAY2_TAYAM	32	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT5|G4QCT5_TAYAM	90	cytoplasm	cytoplasm GO:0005737
+tr|G4QBH1|G4QBH1_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU9|G4QAU9_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV4|G4QCV4_TAYAM	65	secreted	extracellular region GO:0005576;
+tr|G4Q9V0|G4Q9V0_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9I3|G4Q9I3_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QB24|G4QB24_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB25|G4QB25_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAT2|G4QAT2_TAYAM	83	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QA89|G4QA89_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QAW6|G4QAW6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD10|G4QD10_TAYAM	73	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAR8|G4QAR8_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9D6|G4Q9D6_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QDD1|G4QDD1_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QAZ2|G4QAZ2_TAYAM	83	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9E3|G4Q9E3_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QA84|G4QA84_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QB14|G4QB14_TAYAM	52	secreted	extracellular region GO:0005576;
+tr|G4QC04|G4QC04_TAYAM	85	secreted	extracellular region GO:0005576;
+tr|G4QB51|G4QB51_TAYAM	90	periplasm	periplasmic space GO:0042597;
+tr|G4QA66|G4QA66_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCB6|G4QCB6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QA08|G4QA08_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC10|G4QC10_TAYAM	29	secreted	extracellular region GO:0005576;
+tr|G4QCZ2|G4QCZ2_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QB48|G4QB48_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QCR7|G4QCR7_TAYAM	68	cytoplasm	cytoplasm GO:0005737
+tr|G4QAF8|G4QAF8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCD6|G4QCD6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT2|G4QCT2_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY2|G4QBY2_TAYAM	77	cytoplasm	cytoplasm GO:0005737
+tr|G4QBX9|G4QBX9_TAYAM	62	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT8|G4QCT8_TAYAM	61	secreted	extracellular region GO:0005576;
+tr|G4QBR3|G4QBR3_TAYAM	34	outer membrane	cell outer membrane GO:0009279; integral to membrane GO:0016021;
+tr|G4QAB2|G4QAB2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QC47|G4QC47_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QD86|G4QD86_TAYAM	76	cytoplasm	cytoplasm GO:0005737
+tr|G4QDL5|G4QDL5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD75|G4QD75_TAYAM	50	secreted	extracellular region GO:0005576;
+tr|G4QCE0|G4QCE0_TAYAM	47	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9G6|G4Q9G6_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QCC9|G4QCC9_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QCP3|G4QCP3_TAYAM	42	cytoplasm	cytoplasm GO:0005737
+tr|G4QDG7|G4QDG7_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDE1|G4QDE1_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCW0|G4QCW0_TAYAM	36	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QC36|G4QC36_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDG5|G4QDG5_TAYAM	49	cytoplasm	cytoplasm GO:0005737
+tr|G4QD06|G4QD06_TAYAM	70	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QD93|G4QD93_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAH6|G4QAH6_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QC56|G4QC56_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QC24|G4QC24_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QA46|G4QA46_TAYAM	64	secreted	extracellular region GO:0005576;
+tr|G4QCH0|G4QCH0_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QDG2|G4QDG2_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9M8|G4Q9M8_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Q6|G4Q9Q6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9P2|G4Q9P2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QDA3|G4QDA3_TAYAM	42	secreted	extracellular region GO:0005576;
+tr|G4QC46|G4QC46_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDH6|G4QDH6_TAYAM	59	cytoplasm	cytoplasm GO:0005737
+tr|G4QBJ9|G4QBJ9_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QAS7|G4QAS7_TAYAM	48	cytoplasm	cytoplasm GO:0005737
+tr|G4QDC2|G4QDC2_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4Q9X8|G4Q9X8_TAYAM	53	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAV2|G4QAV2_TAYAM	88	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9D3|G4Q9D3_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QBE6|G4QBE6_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QA23|G4QA23_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAQ7|G4QAQ7_TAYAM	65	secreted	extracellular region GO:0005576;
+tr|G4QAD2|G4QAD2_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QAJ5|G4QAJ5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCC4|G4QCC4_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV0|G4QCV0_TAYAM	34	cytoplasm	cytoplasm GO:0005737
+tr|G4QBF5|G4QBF5_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QBA8|G4QBA8_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QA67|G4QA67_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD82|G4QD82_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QDA8|G4QDA8_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4QBY5|G4QBY5_TAYAM	74	cytoplasm	cytoplasm GO:0005737
+tr|G4QCB1|G4QCB1_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QC20|G4QC20_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QAX6|G4QAX6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QD30|G4QD30_TAYAM	82	cytoplasm	cytoplasm GO:0005737
+tr|G4QCX7|G4QCX7_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QD53|G4QD53_TAYAM	96	cytoplasm	cytoplasm GO:0005737
+tr|G4QAC7|G4QAC7_TAYAM	59	cytoplasm	cytoplasm GO:0005737
+tr|G4QCX8|G4QCX8_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QBM2|G4QBM2_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QB86|G4QB86_TAYAM	99	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDA2|G4QDA2_TAYAM	70	secreted	extracellular region GO:0005576;
+tr|G4QCA2|G4QCA2_TAYAM	92	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9H4|G4Q9H4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QA69|G4QA69_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QA00|G4QA00_TAYAM	65	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9U7|G4Q9U7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCT4|G4QCT4_TAYAM	84	cytoplasm	cytoplasm GO:0005737
+tr|G4QAT3|G4QAT3_TAYAM	97	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QCJ7|G4QCJ7_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCM4|G4QCM4_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QCR0|G4QCR0_TAYAM	57	cytoplasm	cytoplasm GO:0005737
+tr|G4QCV2|G4QCV2_TAYAM	65	secreted	extracellular region GO:0005576;
+tr|G4QBV6|G4QBV6_TAYAM	69	cytoplasm	cytoplasm GO:0005737
+tr|G4QDA6|G4QDA6_TAYAM	46	secreted	extracellular region GO:0005576;
+tr|G4QAX9|G4QAX9_TAYAM	93	cytoplasm	cytoplasm GO:0005737
+tr|G4QDL0|G4QDL0_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9F3|G4Q9F3_TAYAM	100	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDM6|G4QDM6_TAYAM	47	secreted	extracellular region GO:0005576;
+tr|G4QD72|G4QD72_TAYAM	71	cytoplasm	cytoplasm GO:0005737
+tr|G4QCH2|G4QCH2_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QD19|G4QD19_TAYAM	52	secreted	extracellular region GO:0005576;
+tr|G4QAZ4|G4QAZ4_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9Z2|G4Q9Z2_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QC26|G4QC26_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QAD7|G4QAD7_TAYAM	99	periplasm	periplasmic space GO:0042597;
+tr|G4QCH6|G4QCH6_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QB34|G4QB34_TAYAM	89	cytoplasm	cytoplasm GO:0005737
+tr|G4QBN3|G4QBN3_TAYAM	47	cytoplasm	cytoplasm GO:0005737
+tr|G4QBT9|G4QBT9_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4QCN1|G4QCN1_TAYAM	51	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QAB6|G4QAB6_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QCG0|G4QCG0_TAYAM	28	inner membrane	plasma membrane GO:0005886; integral to membrane GO:0016021;
+tr|G4QDJ0|G4QDJ0_TAYAM	97	cytoplasm	cytoplasm GO:0005737
+tr|G4QD03|G4QD03_TAYAM	89	secreted	extracellular region GO:0005576;
+tr|G4QCL9|G4QCL9_TAYAM	94	cytoplasm	cytoplasm GO:0005737
+tr|G4QB44|G4QB44_TAYAM	99	cytoplasm	cytoplasm GO:0005737
+tr|G4QBN6|G4QBN6_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QD85|G4QD85_TAYAM	57	fimbrium	pilus GO:0009289;
+tr|G4QAZ1|G4QAZ1_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4QC98|G4QC98_TAYAM	95	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9X7|G4Q9X7_TAYAM	60	secreted	extracellular region GO:0005576;
+tr|G4Q9F5|G4Q9F5_TAYAM	100	cytoplasm	cytoplasm GO:0005737
+tr|G4QA04|G4QA04_TAYAM	98	cytoplasm	cytoplasm GO:0005737
+tr|G4Q9N8|G4Q9N8_TAYAM	91	cytoplasm	cytoplasm GO:0005737
+tr|G4QAU1|G4QAU1_TAYAM	87	cytoplasm	cytoplasm GO:0005737
+tr|G4QAA2|G4QAA2_TAYAM	80	cytoplasm	cytoplasm GO:0005737
+tr|G4QC23|G4QC23_TAYAM	66	cytoplasm	cytoplasm GO:0005737
+tr|G4QCL3|G4QCL3_TAYAM	86	periplasm	periplasmic space GO:0042597;
+tr|G4QBX5|G4QBX5_TAYAM	62	secreted	extracellular region GO:0005576;
+tr|G4Q9G1|G4Q9G1_TAYAM	76	cytoplasm	cytoplasm GO:0005737
