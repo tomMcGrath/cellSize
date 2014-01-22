@@ -1,4 +1,5 @@
 import numpy as np
+from scipy import stats
 
 # Data files
 abundanceFile = open('4932-S.cerevisiae_whole_organism-integrated_dataset.txt', 'r')
@@ -278,11 +279,26 @@ def bootstrap(localisations, proteinDict, resamples):
     
     return bootstrapResults
                 
-
-                    
+def handleBootstrapData(bootstrapResults):
+    standardErrors = {} # hold a list of results in each dict entry
+    
+    for key in bootstrapResults[0].keys():
+        standardErrors[key] = [bootstrapResults[0][key]]
+        
+    for result in bootstrapResults[1:]:
+        for key in result.keys():
+            standardErrors[key].append(result[key])
             
+    # Need to calculate standard errors of each dict entry and return it - TO DO
+    for key in standardErrors.keys():
+        standardErr = stats.sem(standardErrors[key])
+        standardErrors[key] = standardErr
+        
+    return standardErrors
+    
 # test bootstrap:
-bootstrapData = bootstrap(localisations, proteinDict, 10)
+bootstrapData = bootstrap(localisations, proteinDict, 100000)
+standardErrors = handleBootstrapData(bootstrapData)
                 
         
 abundanceFile.close()
